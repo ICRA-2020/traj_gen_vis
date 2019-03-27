@@ -1,0 +1,8 @@
+prefix=/home/jbs/catkin_ws/src/auto_chaser/build/devel
+
+Name: auto_chaser
+Description: Description of auto_chaser
+Version: 0.0.0
+Cflags: -I/home/jbs/catkin_ws/src/auto_chaser/include
+Libs: -L/home/jbs/catkin_ws/src/auto_chaser/build/devel/lib -ltraj_gen_chasing
+Requires: 

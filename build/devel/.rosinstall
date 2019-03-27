@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/jbs/catkin_ws/src/auto_chaser/build/devel/setup.sh
