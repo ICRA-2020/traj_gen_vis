@@ -20,15 +20,26 @@ link_libraries(${DYNAMICEDT3D_LIBRARIES})
 # EIGEN 
 find_package(Eigen3 REQUIRED NO_MODULE)
 
+#qpOASES
+
+set(qp_SRC_DIR /home/jbs/lib/qpOASES-3.2.1/src)
+message("path : ${qp_SRC_DIR}")
+file(GLOB qpOASES_LIBS ${qp_SRC_DIR}/*.cpp)
+message("path : ${qpOASES_LIBS}")
+
+file(GLOB AUTO_CHASER_LIBS ${CMAKE_CURRENT_SOURCE_DIR}/src/auto_chaser/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/target_manager/*.cpp)
+message("auto chaser libs : ${AUTO_CHASER_LIBS}")
+
+
 # ROS 
 find_package(catkin REQUIRED roscpp 
-sensor_msgs tf geometry_msgs octomap_msgs message_generation nav_msgs traj_gen
+sensor_msgs tf geometry_msgs octomap_msgs message_generation nav_msgs traj_gen gazebo_msgs
 qt_build
 )
 
 catkin_package(
  INCLUDE_DIRS include
- LIBRARIES traj_gen_chasing
+ LIBRARIES auto_chaser
 )
 
 include_directories(
@@ -54,7 +65,5 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 message("qt form path: ${CMAKE_CURRENT_BINARY_DIR}")
 
 
-add_executable(${PROJECT_NAME}_run src/qt_ui/main.cpp  ${QT_FORMS_CPP} ${QT_SOURCES} ${QT_MOC_HPP} ${qpOASES_LIBS})
-
- target_link_libraries(${PROJECT_NAME}_run
- ${catkin_LIBRARIES} ${QT_LIBRARIES})
+add_executable(${PROJECT_NAME}_run src/qt_ui/main.cpp ${AUTO_CHASER_LIBS} ${QT_FORMS_CPP} ${QT_SOURCES} ${QT_MOC_HPP} ${qpOASES_LIBS} )
+target_link_libraries(${PROJECT_NAME}_run ${catkin_LIBRARIES} ${QT_LIBRARIES})

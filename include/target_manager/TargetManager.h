@@ -1,17 +1,53 @@
+#ifndef TARGET_MANAGER_H
+#define TARGET_MANAGER_H
+
 #include "traj_gen/PolyTrajGen.h"
 #include <tf/transform_broadcaster.h>
 
+
+
+
 class TargetManager{
+
     private:
         PathPlanner planner;
         string target_frame_id;
         string world_frame_id;
         int mode; // 0(without gazebo), 1(with gazebo), 2(real)
-        ros::Publisher pub_target_pose;
-        tf::TransformBroadcaster br; 
-    public:
-        TargetManager(ros::NodeHandle nh) {};
-        // used only mode 0 
-        void broadcast_target_tf(double);
 
-}
+        ros::Publisher pub_marker_waypoints;
+        ros::Publisher pub_path;
+        ros::Subscriber sub_waypoints;
+
+        visualization_msgs::MarkerArray wpnt_markerArray;
+        nav_msgs::Path global_path;        
+
+
+        TrajGenOpts traj_option; // trajectory generation option 
+
+    public:
+
+        vector<geometry_msgs::PoseStamped> queue; // waypoints for generating the global trajectory 
+
+        // flags 
+        bool is_insert_permit = false;
+        bool is_path = false; // was path computed
+        double cur_spline_eval_time = 0;
+        double previous_elapsed =0; // before publish control button pressed 
+        double button_elapsed=0; // after the button pressed again,
+
+        // member functions
+        TargetManager();
+        void broadcast_target_tf(double time);
+        void init(ros::NodeHandle nh);
+        void session();
+        void queue_file_load(vector<geometry_msgs::PoseStamped>& wpnt_replace);
+        void pop_waypoint();
+        void clear_waypoint();
+        bool global_path_generate(double tf);
+        void callback_waypoint(const geometry_msgs::PoseStampedConstPtr& waypoint);
+        void queue_file_load(int,vector<geometry_msgs::PoseStamped>&);
+    
+};
+
+#endif

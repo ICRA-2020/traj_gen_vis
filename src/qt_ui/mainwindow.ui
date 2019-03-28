@@ -124,7 +124,10 @@
     </property>
     <property name="text">
      <string>simulation
- start</string>
+ activate</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_board">
