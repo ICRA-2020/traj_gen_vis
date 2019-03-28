@@ -24,7 +24,7 @@ class ObjectsHandler{
 
         // parameter 
         double min_z; // the minimum height to be clamped  
-
+        
     public:
         //flag
         bool is_octomap_full = false;
@@ -40,7 +40,7 @@ class ObjectsHandler{
         octomap::OcTree* get_octree_obj_ptr(); 
 
         void octomap_callback(const octomap_msgs::Octomap& msg);
-
+        void tf_update();
     
 };
 

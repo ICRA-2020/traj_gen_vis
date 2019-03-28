@@ -1,10 +1,10 @@
 #include "auto_chaser/ObjectHandler.h"
 
 ObjectsHandler::ObjectsHandler(ros::NodeHandle nh){
-    // frames
+    // parameters
     nh.param<string>("world_frame_id",this->world_frame_id,"/world");
     nh.param<string>("target_frame_id",this->target_frame_id,"/target__base_footprint");
-    nh.param<string>("chaser_frame_id",this->chaser_frame_id,"/firefly/base_link");            
+    nh.param<string>("chaser_frame_id",this->chaser_frame_id,"/firefly/base_link");  
     nh.param("min_z",min_z,0.4);            
 
     target_pose.header.frame_id = world_frame_id;
@@ -51,7 +51,11 @@ PoseStamped ObjectsHandler::get_chaser_pose() {return chaser_pose;};
 octomap::OcTree* ObjectsHandler::get_octree_obj_ptr() {return octree_ptr.get();};
 
 // callback 
-void tf_update(){
+void ObjectsHandler::tf_update(){
+    string objects_frame_id[2];
+    objects_frame_id[0] = target_frame_id;
+    objects_frame_id[1] = chaser_frame_id;
+    
     for (int i=0;i<2;i++){            
         tf::StampedTransform transform;    
         // 
@@ -70,13 +74,12 @@ void tf_update(){
             pose_stamped.pose.orientation.z = transform.getRotation().getZ();
             pose_stamped.pose.orientation.w = transform.getRotation().getW();
 
-            objects_pose[i] = pose_stamped;
-            is_env_ok[i] = true;
+
 
             if (i==0)
-                {ROS_INFO_ONCE("tf of target received. "); is_target = true;} 
+                {ROS_INFO_ONCE("tf of target received. "); is_target_recieved = true; target_pose = pose_stamped;} 
             else
-                {ROS_INFO_ONCE("tf of chaser received. "); is_chaser = true;}  
+                {ROS_INFO_ONCE("tf of chaser received. "); is_chaser_recieved = true; chaser_pose = pose_stamped;}  
 
         }
         catch (tf::TransformException ex){

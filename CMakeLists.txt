@@ -21,7 +21,10 @@ link_libraries(${DYNAMICEDT3D_LIBRARIES})
 find_package(Eigen3 REQUIRED NO_MODULE)
 
 # ROS 
-find_package(catkin REQUIRED roscpp sensor_msgs tf geometry_msgs octomap_msgs message_generation nav_msgs traj_gen)
+find_package(catkin REQUIRED roscpp 
+sensor_msgs tf geometry_msgs octomap_msgs message_generation nav_msgs traj_gen
+qt_build
+)
 
 catkin_package(
  INCLUDE_DIRS include
@@ -32,3 +35,26 @@ include_directories(
 include
 ${catkin_INCLUDE_DIRS}
 )
+
+##############################################################################
+# Qt Environment
+##############################################################################
+set(CMAKE_AUTOUIC ON) 
+# this comes from qt_build's qt-ros.cmake which is automatically 
+# included via the dependency call in manifest.xml
+rosbuild_prepare_qt4(QtCore QtGui) # Add the appropriate components to the component list here
+set(QT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/qt_ui)
+set(QT_FORMS ${QT_DIR}/mainwindow.ui) # by adding this, the catkin build make ui_mainWindow.h
+file(GLOB QT_MOC   ${QT_DIR}/*.h)
+file(GLOB QT_SOURCES ${QT_DIR}/*.cpp)
+QT4_WRAP_UI(QT_FORMS_HPP ${QT_FORMS})
+message("qt form: ${QT_DIR}")
+QT4_WRAP_CPP(QT_MOC_HPP ${QT_MOC})
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+message("qt form path: ${CMAKE_CURRENT_BINARY_DIR}")
+
+
+add_executable(${PROJECT_NAME}_run src/qt_ui/main.cpp  ${QT_FORMS_CPP} ${QT_SOURCES} ${QT_MOC_HPP} ${qpOASES_LIBS})
+
+ target_link_libraries(${PROJECT_NAME}_run
+ ${catkin_LIBRARIES} ${QT_LIBRARIES})
