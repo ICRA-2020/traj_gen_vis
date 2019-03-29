@@ -39,6 +39,9 @@ private Q_SLOTS:
 
     void on_pushButton_undo_clicked();
 
+    void on_pushButton_one_shot_clicked();
+
+
     void textEdit_write(QString);
 
 private:

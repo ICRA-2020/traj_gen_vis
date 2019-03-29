@@ -4,7 +4,8 @@ ObjectsHandler::ObjectsHandler(ros::NodeHandle nh){
     // parameters
     nh.param<string>("world_frame_id",this->world_frame_id,"/world");
     nh.param<string>("target_frame_id",this->target_frame_id,"/target__base_footprint");
-    nh.param<string>("chaser_frame_id",this->chaser_frame_id,"/firefly/base_link");  
+    nh.param<string>("chaser_frame_id",this->chaser_frame_id,"/firefly/base_link"); 
+    nh.param("edf_max_viz_dist",this->edf_max_viz_dist);  
     nh.param("min_z",min_z,0.4);            
 
     target_pose.header.frame_id = world_frame_id;
@@ -34,7 +35,11 @@ void ObjectsHandler::octomap_callback(const octomap_msgs::Octomap& msg){
             octree=octomap_msgs::binaryMsgToMap(msg);
 
         this->octree_ptr.reset((dynamic_cast<octomap::OcTree*>(octree)));
-        ROS_INFO_ONCE("[Handler] octomap received.");
+
+        ROS_INFO_ONCE("[Objects handler] octomap received.");
+        octomap::point3d boundary_min = octree_ptr.get()->get
+
+
         is_map_recieved = true;
     }
 };

@@ -5,7 +5,8 @@ class ObjectsHandler{
     private:
         // ros
         ros::Subscriber sub_octomap;
-        visualization_msgs::MarkerArray markers_edf;        
+        ros::Publisher pub_edf;
+        visualization_msgs::MarkerArray markers_edf; // Euclidean distance field   
         tf::TransformListener tf_listener; // don't have initial copy constructor 
         
         // id         
@@ -20,10 +21,12 @@ class ObjectsHandler{
         // objects
         PoseStamped target_pose; 
         PoseStamped chaser_pose; 
-        std::shared_ptr<octomap::OcTree> octree_ptr;
+        shared_ptr<octomap::OcTree> octree_ptr;
+        shared_ptr<DynamicEDTOctomap> edf_ptr; // EDF object
 
         // parameter 
         double min_z; // the minimum height to be clamped  
+        double edf_max_viz_dist;
         
     public:
         //flag

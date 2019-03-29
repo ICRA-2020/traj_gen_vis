@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include <QPixmap>
 #include <QSettings>
-
 MainWindow::MainWindow(QNode* qnode,QWidget *parent) :
     QMainWindow(parent),qnode(qnode),
     ui(new Ui::MainWindow)
@@ -169,8 +168,12 @@ void MainWindow::on_pushButton_clear_clicked()
 void MainWindow::on_pushButton_undo_clicked()
 {
     qnode->target_manager.pop_waypoint();
-}
+};
 
+void MainWindow::on_pushButton_one_shot_clicked(){
+    
+
+};
 
 void MainWindow::textEdit_write(QString line){    
     ui->textEdit_board->append(line);

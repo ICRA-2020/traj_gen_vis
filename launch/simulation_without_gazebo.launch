@@ -45,9 +45,15 @@
 
         <!-- target_trajectory -->        
         <param name="safe_radius" value="0.2" />
-		<param name="N_safe_pnts" value="2" />
-		<param name="objective_derivative" value="3" />
-		<param name="weights_deviation" value="0.0005" />
+	<param name="N_safe_pnts" value="2" />
+	<param name="objective_derivative" value="3" />
+	<param name="weights_deviation" value="0.0005" />
+
+        <!-- chaser parameter -->        
+		<!--resolution-->
+			<param name="edf_max_viz_dist" value="0.2" />
+
+
     </node>
 
 
