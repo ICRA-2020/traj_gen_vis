@@ -25,7 +25,10 @@ MainWindow::MainWindow(QNode* qnode,QWidget *parent) :
 
     // checkable 
     ui->pushButton_simulation->setStyleSheet("QPushButton:checked{background-color: rgba(100, 20, 20,50); }");
-                                    
+    
+    // load settings 
+    ReadSettings();
+
 }
 
 MainWindow::~MainWindow()
@@ -60,11 +63,9 @@ void MainWindow::on_pushButton_waypoint_clicked()
 
 void MainWindow::on_pushButton_chaser_clicked(){
 
-        if(ui->pushButton_waypoint->isChecked()){        
+    if(ui->pushButton_chaser->isChecked()){        
         ui->textEdit_board->append("please select chaser init pose: /chaser_init_pose");
-
     }else{
-
         ui->textEdit_board->append("finishing waypoints selection");
     }
 
@@ -72,6 +73,7 @@ void MainWindow::on_pushButton_chaser_clicked(){
 
 void MainWindow::on_pushButton_trajectory_clicked()
 {
+    
     double tf = atof(ui->lineEdit_tf->text().toStdString().c_str());
     if(qnode->target_manager.global_path_generate(tf))
         textEdit_write("target trajectory obtainted");
@@ -106,7 +108,9 @@ void MainWindow::on_pushButton_save_clicked()
             wnpt_file<<std::to_string(it->pose.position.x)<<","<<std::to_string(it->pose.position.y)<<","<<std::to_string(it->pose.position.z)<<"\n";
         }
         wnpt_file.close();
-        ui->textEdit_board->append(QString((string("to ") + filename + string(", written")).data()));
+
+        
+        ui->textEdit_board->append(QString((string("to ") + GetCurrentWorkingDir()+"/" + filename + string(", written")).data()));
 
     }else
         ui->textEdit_board->append(QString("file not written."));
@@ -159,12 +163,12 @@ void MainWindow::on_pushButton_load_clicked()
 
 void MainWindow::on_pushButton_clear_clicked()
 {
-
+    qnode->target_manager.clear_waypoint();
 }
 
 void MainWindow::on_pushButton_undo_clicked()
 {
-
+    qnode->target_manager.pop_waypoint();
 }
 
 
@@ -199,6 +203,8 @@ void MainWindow::WriteSettings(){
     settings.setValue("filename_logging",ui->lineEdit_logging_dir->text());
     settings.setValue("tf",ui->lineEdit_tf->text());
     settings.setValue("filename_waypoints",ui->lineEdit_target_trajectory->text());
+
+
 }
 
 void MainWindow::closeEvent(QCloseEvent *event){

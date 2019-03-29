@@ -10,14 +10,14 @@ void TargetManager::init(ros::NodeHandle nh){
     nh.param<double>("safe_radius",traj_option.safe_r,0.2);
     nh.param<int>("N_safe_pnts",traj_option.N_safe_pnts,2);
     nh.param<int>("objective_derivative",traj_option.objective_derivative,3);
-    nh.param<int>("poly_order",traj_option.poly_order,3);
+    nh.param<int>("poly_order",traj_option.poly_order,6);
     nh.param<double>("weights_deviation",traj_option.w_d,0.005);
 
     // register 
     pub_marker_waypoints = nh.advertise<visualization_msgs::MarkerArray>("target_waypoints",1);
-    sub_waypoints = nh.subscribe("/target_wapoints",1,&TargetManager::callback_waypoint,this);
-
-
+    sub_waypoints = nh.subscribe("/target_waypoints",1,&TargetManager::callback_waypoint,this);
+    pub_path = nh.advertise<nav_msgs::Path>("target_global_path",1);
+    br_ptr = new tf::TransformBroadcaster();
 }
 
 void TargetManager::callback_waypoint(const geometry_msgs::PoseStampedConstPtr & pose){
@@ -75,11 +75,13 @@ bool TargetManager::global_path_generate(double tf){
     }
 }
 
-void TargetManager::session(){
+void TargetManager::session(double t_eval){
 
     pub_marker_waypoints.publish(wpnt_markerArray);
-    if(is_path)
+    if(is_path){
         pub_path.publish(global_path);
+        broadcast_target_tf(t_eval);
+    }
 }
 
 void TargetManager::clear_waypoint(){
@@ -99,16 +101,16 @@ void TargetManager::broadcast_target_tf(double t_eval){
     tf::TransformBroadcaster br; 
 
     Point eval_point = planner.point_eval_spline(t_eval);
-    Twist eval_vel = planner.vel_eval_spline(t_eval);
+    // Twist eval_vel = planner.vel_eval_spline(t_eval);
 
     tf::Transform transform;
-    float target_yaw = atan2(eval_vel.linear.y,eval_vel.linear.x);
+    // float target_yaw = atan2(eval_vel.linear.y,eval_vel.linear.x);
     tf::Quaternion q;
-    q.setRPY(0, 0, target_yaw);
+    q.setRPY(0, 0, 0);
 
     transform.setOrigin(tf::Vector3(eval_point.x,eval_point.y,eval_point.z));
     transform.setRotation(q);
-    br.sendTransform(tf::StampedTransform(transform,ros::Time::now(),world_frame_id,target_frame_id));
+    br_ptr->sendTransform(tf::StampedTransform(transform,ros::Time::now(),world_frame_id,target_frame_id));
 }
 
 void TargetManager::queue_file_load(vector<geometry_msgs::PoseStamped>& wpnt_replace){

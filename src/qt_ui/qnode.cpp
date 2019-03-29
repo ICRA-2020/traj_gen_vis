@@ -41,9 +41,15 @@ void QNode::run(){
     ros::Rate loop_rate(50);
 
     while(ros::ok()){
- 
+        
+        double sim_time;
+        if(is_in_session)
+            sim_time = previous_elapsed +(ros::Time::now() - button_click_time).toSec();
+        else
+            sim_time = previous_elapsed; 
+        
         // target manager 
-        target_manager.session();
+        target_manager.session(sim_time);
         // chaser 
 
         ros::spinOnce();

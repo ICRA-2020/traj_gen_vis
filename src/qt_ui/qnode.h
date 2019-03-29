@@ -9,6 +9,7 @@
 #include <QThread>
 #include <QStringListModel>
 
+#include <auto_chaser/Common.h>
 #include <auto_chaser/Wrapper.h>
 #include <target_manager/TargetManager.h>
 

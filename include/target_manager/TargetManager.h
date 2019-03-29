@@ -18,7 +18,7 @@ class TargetManager{
         ros::Publisher pub_marker_waypoints;
         ros::Publisher pub_path;
         ros::Subscriber sub_waypoints;
-
+        tf::TransformBroadcaster* br_ptr;
         visualization_msgs::MarkerArray wpnt_markerArray;
         nav_msgs::Path global_path;        
 
@@ -40,7 +40,7 @@ class TargetManager{
         TargetManager();
         void broadcast_target_tf(double time);
         void init(ros::NodeHandle nh);
-        void session();
+        void session(double t_eval);
         void queue_file_load(vector<geometry_msgs::PoseStamped>& wpnt_replace);
         void pop_waypoint();
         void clear_waypoint();

@@ -33,4 +33,8 @@ using namespace std;
 using namespace Eigen;
 using namespace geometry_msgs;
 
+#define GetCurrentDir getcwd
+
+std::string GetCurrentWorkingDir( void );
+
 #endif

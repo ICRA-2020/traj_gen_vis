@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "qnode.h"
+#include <unistd.h>
 
 namespace Ui {
 class MainWindow;
