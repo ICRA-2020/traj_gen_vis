@@ -37,7 +37,10 @@ void ObjectsHandler::octomap_callback(const octomap_msgs::Octomap& msg){
         this->octree_ptr.reset((dynamic_cast<octomap::OcTree*>(octree)));
 
         ROS_INFO_ONCE("[Objects handler] octomap received.");
-        octomap::point3d boundary_min = octree_ptr.get()->get
+        
+        octomap::point3d boundary_min; octree_ptr.get()->getMetricMin(boundary_min.x,boundary_min.y,boundary_min.z);
+        octomap::point3d boundary_max; octree_ptr.get()->getMetricMax(boundary_max.x,boundary_max.y,boundary_max.z);
+        
 
 
         is_map_recieved = true;
