@@ -114,9 +114,9 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>100</y>
+      <y>130</y>
       <width>131</width>
-      <height>71</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -278,6 +278,22 @@
     </property>
     <property name="checkable">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_one_shot">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>100</y>
+      <width>131</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(255, 0, 0, 30);</string>
+    </property>
+    <property name="text">
+     <string>one shot </string>
     </property>
    </widget>
   </widget>
