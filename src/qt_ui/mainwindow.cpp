@@ -171,8 +171,8 @@ void MainWindow::on_pushButton_undo_clicked()
 };
 
 void MainWindow::on_pushButton_one_shot_clicked(){
-    
 
+    
 };
 
 void MainWindow::textEdit_write(QString line){    

@@ -1,16 +1,21 @@
 #include "auto_chaser/ObjectHandler.h"
 
-ObjectsHandler::ObjectsHandler(ros::NodeHandle nh){
+ObjectsHandler::ObjectsHandler(ros::NodeHandle nh){};
+
+void ObjectsHandler::init(ros::NodeHandle nh){
+
     // parameters
     nh.param<string>("world_frame_id",this->world_frame_id,"/world");
     nh.param<string>("target_frame_id",this->target_frame_id,"/target__base_footprint");
     nh.param<string>("chaser_frame_id",this->chaser_frame_id,"/firefly/base_link"); 
     nh.param("edf_max_viz_dist",this->edf_max_viz_dist);  
+    nh.param("edf_max_dist",this->edf_max_dist);  
     nh.param("min_z",min_z,0.4);            
 
     target_pose.header.frame_id = world_frame_id;
     chaser_pose.header.frame_id = world_frame_id;
     
+
     // topics 
 
     // octomap            
@@ -21,12 +26,14 @@ ObjectsHandler::ObjectsHandler(ros::NodeHandle nh){
     else
         sub_octomap = nh.subscribe("/octomap_binary",1,&ObjectsHandler::octomap_callback,this);   
 
-    ROS_INFO("Object handler initialized.");                         
-};
+    ROS_INFO("Object handler initialized."); 
+}
 
 void ObjectsHandler::octomap_callback(const octomap_msgs::Octomap& msg){
     // we receive only once from octoamp server
     if (not is_map_recieved){
+
+        // octomap subscribing 
         octomap::AbstractOcTree* octree;
 
         if(is_octomap_full)
@@ -37,11 +44,29 @@ void ObjectsHandler::octomap_callback(const octomap_msgs::Octomap& msg){
         this->octree_ptr.reset((dynamic_cast<octomap::OcTree*>(octree)));
 
         ROS_INFO_ONCE("[Objects handler] octomap received.");
-        
-        octomap::point3d boundary_min; octree_ptr.get()->getMetricMin(boundary_min.x,boundary_min.y,boundary_min.z);
-        octomap::point3d boundary_max; octree_ptr.get()->getMetricMax(boundary_max.x,boundary_max.y,boundary_max.z);
-        
+        double x,y,z;
+        octree_ptr.get()->getMetricMin(x,y,z);
+        octomap::point3d boundary_min(x,y,z); 
+        octree_ptr.get()->getMetricMax(x,y,z);
+        octomap::point3d boundary_max(x,y,z); 
 
+        bool unknownAsOccupied = false;
+
+
+        std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+
+        // Euclidean distance transform  
+        edf_ptr = new DynamicEDTOctomap(edf_max_dist,octree_ptr.get(),
+        boundary_min,
+        boundary_max,unknownAsOccupied);
+        edf_ptr->update();    
+
+        std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
+        double diff = std::chrono::duration_cast<chrono::nanoseconds>( end - begin ).count()*1e-9;
+        ROS_INFO("[Objects handler] dynamic EDT computed in %f [sec]",diff);
+
+        // generate homogenous grid 
+        compute_edf();
 
         is_map_recieved = true;
     }
@@ -98,6 +123,30 @@ void ObjectsHandler::tf_update(){
         
         }
     }
+}
 
+void ObjectsHandler::compute_edf(){
+
+    for(int ix = 0 ; ix<edf_grid_ptr.get()->Nx ; ix++)
+        for(int iy = 0 ; iy<edf_grid_ptr.get()->Ny ; iy++)
+            for(int iz = 0 ; iz<edf_grid_ptr.get()->Nz ; iz++){
+                Point eval_pnt = edf_grid_ptr.get()->getCellPnt(Vector3i(ix,iy,iz));  
+                // query edf value from edf mapper                       
+                float dist_val = edf_ptr->getDistance(octomap::point3d(eval_pnt.x,eval_pnt.y,eval_pnt.z));
+
+                // edf value assign to homogenous grid  
+                edf_grid_ptr.get()->field_vals[ix][iy][iz] = dist_val;
+
+                // marker generation
+                if(dist_val<edf_grid_params.max_plot_dist_val){                
+                    // color 
+                    std_msgs::ColorRGBA color;                    
+                    get_color_dist(dist_val,color,edf_grid_params.max_plot_dist_val);
+
+                    // marker 
+                    markers_edf.points.push_back(eval_pnt);
+                    markers_edf.colors.push_back(color);                    
+                }
+            }    
 
 }

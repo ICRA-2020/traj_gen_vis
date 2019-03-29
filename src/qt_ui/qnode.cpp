@@ -12,8 +12,11 @@ void QNode::ros_comms_init(){
     
     ros::NodeHandle nh("~");
 
-    // taarget manager init
+    // target manager init
     this->target_manager.init(nh);
+
+    // wrapper init
+    this->chaser_wrapper.init(nh);
 
 }
 
@@ -50,8 +53,14 @@ void QNode::run(){
         
         // target manager 
         target_manager.session(sim_time);
+        
+        
         // chaser 
-
+        if(chaser_wrapper.objects_handler.is_map_recieved and (not is_said_edf)){
+            writeOnBoard("EDF loaded.");
+            is_said_edf = true;
+        }
+        
         ros::spinOnce();
         loop_rate.sleep();
     }

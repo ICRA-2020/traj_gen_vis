@@ -50,7 +50,7 @@
 	<param name="weights_deviation" value="0.0005" />
 
         <!-- chaser parameter -->        
-		<!--resolution-->
+		<!--Grid field -->
 			<param name="edf_max_viz_dist" value="0.2" />
 
 

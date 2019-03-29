@@ -41,7 +41,7 @@ public:
     // flags
     bool is_connected = false; // to ros
     bool is_in_session = false; // is in simulation session
-
+    bool is_said_edf = false;
    // time  
     double button_elapsed=0; // after the button pressed again,
     double record_dt = 0.5;
