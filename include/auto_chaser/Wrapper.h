@@ -9,5 +9,6 @@ class Wrapper{
         ObjectsHandler objects_handler;
         Wrapper();
         void init(ros::NodeHandle nh);
+        void session();
 
 };

@@ -44,7 +44,7 @@ void QNode::run(){
     ros::Rate loop_rate(50);
 
     while(ros::ok()){
-        
+        writeOnBoard("waiting EDF computation...");
         double sim_time;
         if(is_in_session)
             sim_time = previous_elapsed +(ros::Time::now() - button_click_time).toSec();
@@ -53,7 +53,7 @@ void QNode::run(){
         
         // target manager 
         target_manager.session(sim_time);
-        
+        chaser_wrapper.session();
         
         // chaser 
         if(chaser_wrapper.objects_handler.is_map_recieved and (not is_said_edf)){

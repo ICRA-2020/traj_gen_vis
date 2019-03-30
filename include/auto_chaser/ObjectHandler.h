@@ -49,6 +49,7 @@ class ObjectsHandler{
 
         void octomap_callback(const octomap_msgs::Octomap& msg);
         void tf_update();
+        void publish();
 
 };
 

@@ -7,3 +7,7 @@ void Wrapper::init(ros::NodeHandle nh) {
 };
 
 
+void Wrapper::session(){
+
+    objects_handler.publish();
+}

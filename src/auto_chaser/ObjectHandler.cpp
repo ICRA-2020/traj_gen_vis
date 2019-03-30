@@ -18,11 +18,20 @@ void ObjectsHandler::init(ros::NodeHandle nh){
 
     target_pose.header.frame_id = world_frame_id;
     chaser_pose.header.frame_id = world_frame_id;
-    
+    markers_edf.header.frame_id = world_frame_id;
 
+    markers_edf.action = visualization_msgs::Marker::ADD;
+    markers_edf.type = visualization_msgs::Marker::CUBE_LIST;      
+    markers_edf.pose.orientation.x = 0;
+    markers_edf.pose.orientation.y = 0;
+    markers_edf.pose.orientation.z = 0;
+    markers_edf.pose.orientation.w = 1;                  
+    markers_edf.scale.x = edf_grid_params.resolution;
+    markers_edf.scale.y = edf_grid_params.resolution;
+    markers_edf.scale.z = edf_grid_params.resolution;
     // topics 
     tf_listener = new (tf::TransformListener);
-
+    pub_edf = nh.advertise<visualization_msgs::Marker>("edf_grid",1);
 
     // octomap            
     nh.param("is_octomap_full",this->is_octomap_full,true);
@@ -162,4 +171,8 @@ void ObjectsHandler::compute_edf(){
                 }
             }    
 
+}
+
+void ObjectsHandler::publish(){
+    pub_edf.publish(markers_edf);
 }
