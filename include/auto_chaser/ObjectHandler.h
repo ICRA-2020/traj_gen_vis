@@ -7,7 +7,7 @@ class ObjectsHandler{
         ros::Subscriber sub_octomap;
         ros::Publisher pub_edf;
         visualization_msgs::Marker markers_edf; // Euclidean distance field   
-        tf::TransformListener tf_listener; // don't have initial copy constructor 
+        tf::TransformListener* tf_listener; // don't have initial copy constructor 
         
         // id         
         string world_frame_id;
@@ -24,12 +24,12 @@ class ObjectsHandler{
         shared_ptr<octomap::OcTree> octree_ptr;
         DynamicEDTOctomap *edf_ptr; 
         shared_ptr<GridField> edf_grid_ptr; // signed distance field
-        FieldParams edf_grid_params;
 
         // parameter 
         double min_z; // the minimum height to be clamped  
         double edf_max_viz_dist;
         double edf_max_dist;
+        FieldParams edf_grid_params;
 
     public:
         //flag
@@ -41,6 +41,7 @@ class ObjectsHandler{
 
         ObjectsHandler(){};
         void init(ros::NodeHandle nh);
+        void compute_edf();
         ObjectsHandler(ros::NodeHandle nh);
         PoseStamped get_target_pose(); 
         PoseStamped get_chaser_pose(); 
@@ -48,7 +49,6 @@ class ObjectsHandler{
 
         void octomap_callback(const octomap_msgs::Octomap& msg);
         void tf_update();
-        void compute_edf();
 
 };
 

@@ -8,15 +8,20 @@ void ObjectsHandler::init(ros::NodeHandle nh){
     nh.param<string>("world_frame_id",this->world_frame_id,"/world");
     nh.param<string>("target_frame_id",this->target_frame_id,"/target__base_footprint");
     nh.param<string>("chaser_frame_id",this->chaser_frame_id,"/firefly/base_link"); 
-    nh.param("edf_max_viz_dist",this->edf_max_viz_dist);  
-    nh.param("edf_max_dist",this->edf_max_dist);  
+
+    // edf grid param
     nh.param("min_z",min_z,0.4);            
+    nh.param("edf_max_dist",edf_max_dist,2.0);  
+    nh.param("edf_max_plot_dist",edf_max_viz_dist,0.5);  
+    nh.param("edf_resolution",edf_grid_params.ray_stride_res,0.5);  
 
     target_pose.header.frame_id = world_frame_id;
     chaser_pose.header.frame_id = world_frame_id;
     
 
     // topics 
+    tf_listener = new (tf::TransformListener);
+
 
     // octomap            
     nh.param("is_octomap_full",this->is_octomap_full,true);
@@ -66,7 +71,14 @@ void ObjectsHandler::octomap_callback(const octomap_msgs::Octomap& msg){
         ROS_INFO("[Objects handler] dynamic EDT computed in %f [sec]",diff);
 
         // generate homogenous grid 
-        compute_edf();
+        edf_grid_params.x0 = boundary_min.x();
+        edf_grid_params.y0 = boundary_min.y();
+        edf_grid_params.z0 = min_z;
+        edf_grid_params.lx = boundary_max.x() - boundary_min.x();
+        edf_grid_params.ly = boundary_max.y() - boundary_min.y();
+        edf_grid_params.lz = (boundary_max.z() - min_z);
+        edf_grid_ptr.reset(new GridField(edf_grid_params));
+        // compute_edf();
 
         is_map_recieved = true;
     }
@@ -93,7 +105,7 @@ void ObjectsHandler::tf_update(){
         tf::StampedTransform transform;    
         // 
         try{
-            tf_listener.lookupTransform(world_frame_id,objects_frame_id[i],ros::Time(0), transform);
+            tf_listener->lookupTransform(world_frame_id,objects_frame_id[i],ros::Time(0), transform);
             PoseStamped pose_stamped;
             pose_stamped.header.stamp = ros::Time::now();
             pose_stamped.header.frame_id = world_frame_id;
@@ -138,10 +150,10 @@ void ObjectsHandler::compute_edf(){
                 edf_grid_ptr.get()->field_vals[ix][iy][iz] = dist_val;
 
                 // marker generation
-                if(dist_val<edf_grid_params.max_plot_dist_val){                
+                if(dist_val<edf_max_viz_dist){                
                     // color 
                     std_msgs::ColorRGBA color;                    
-                    get_color_dist(dist_val,color,edf_grid_params.max_plot_dist_val);
+                    get_color_dist(dist_val,color,edf_max_viz_dist);
 
                     // marker 
                     markers_edf.points.push_back(eval_pnt);

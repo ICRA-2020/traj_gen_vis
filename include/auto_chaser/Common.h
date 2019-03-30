@@ -61,7 +61,6 @@ struct FieldParams{
     double x0,y0,z0;
     double lx,ly,lz;
     double resolution;
-    double max_plot_dist_val; // we plot the voxel within this dist val    
     double ray_stride_res;
 };
 
