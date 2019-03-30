@@ -25,6 +25,9 @@ MainWindow::MainWindow(QNode* qnode,QWidget *parent) :
     // checkable 
     ui->pushButton_simulation->setStyleSheet("QPushButton:checked{background-color: rgba(100, 20, 20,50); }");
     
+    QObject::connect(qnode, SIGNAL(rosShutdown()), this, SLOT(close()));
+    QObject::connect(qnode,SIGNAL(writeOnBoard(QString)),this,SLOT(textEdit_write(QString)));
+
     // load settings 
     ReadSettings();
 

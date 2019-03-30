@@ -13,7 +13,8 @@ void ObjectsHandler::init(ros::NodeHandle nh){
     nh.param("min_z",min_z,0.4);            
     nh.param("edf_max_dist",edf_max_dist,2.0);  
     nh.param("edf_max_plot_dist",edf_max_viz_dist,0.5);  
-    nh.param("edf_resolution",edf_grid_params.ray_stride_res,0.5);  
+    nh.param("edf_resolution",edf_grid_params.resolution,0.5);  
+    nh.param("edf_stride_resolution",edf_grid_params.ray_stride_res,0.5);  
 
     target_pose.header.frame_id = world_frame_id;
     chaser_pose.header.frame_id = world_frame_id;
@@ -78,7 +79,7 @@ void ObjectsHandler::octomap_callback(const octomap_msgs::Octomap& msg){
         edf_grid_params.ly = boundary_max.y() - boundary_min.y();
         edf_grid_params.lz = (boundary_max.z() - min_z);
         edf_grid_ptr.reset(new GridField(edf_grid_params));
-        // compute_edf();
+        compute_edf();
 
         is_map_recieved = true;
     }
