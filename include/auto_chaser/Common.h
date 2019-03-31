@@ -109,12 +109,14 @@ namespace chaser{
         // tracking spec
         double d_trakcing_max; // max distance for tracking 
         double d_trakcing_min; // max distance for tracking 
+        double d_trakcing_des; // max distance for tracking        
         double max_azim; // should be greater than 0
-        
+        double min_azim; 
+
         // graph construction
         double r_safe; // the safe tolerance of a chasing corridor
         double min_z; // should be greater than 0
-        double vs_min; // should be greater than 0
+        double vs_min; // vs_min = the occlusion threshold in edf grid 
         double vsf_resolution; // local vsf resolution        
         double d_connect_max; // maximally connectable distance between each node 
         double w_d; // weight for desired tracking distance
@@ -122,7 +124,7 @@ namespace chaser{
     };
 
     struct SmoothplannerParams{
-
+        double safe_corridor_size;
 
     };
 }
