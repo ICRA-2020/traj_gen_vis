@@ -10,4 +10,8 @@ void Wrapper::init(ros::NodeHandle nh) {
 void Wrapper::session(){
 
     objects_handler.publish();
+    objects_handler.tf_update();
 }
+
+
+

@@ -6,6 +6,22 @@ std::string GetCurrentWorkingDir( void ){
     return current_working_dir; 
 }
 
+
+vector<Point> extract_pnts_from_path(nav_msgs::Path path){
+
+  vector<Point> pnt_seq;
+  for(auto it = path.poses.begin(); it<path.poses.end();it++){
+    pnt_seq.push_back(it->pose.position);
+  }
+  return pnt_seq;
+};
+
+Vector3f geo2eigen(const Point& pnt){
+
+  return Vector3f(pnt.x,pnt.y,pnt.z);
+};
+
+
 void get_color_dist(float dist_val,std_msgs::ColorRGBA& color, float max_plot_dist_val){
 // error region 
   if(dist_val<0){
@@ -15,11 +31,11 @@ void get_color_dist(float dist_val,std_msgs::ColorRGBA& color, float max_plot_di
       color.a = 0.2;
 
   }
-  else if(dist_val == 0){
-      color.r = 0;
-      color.g = 0;
-      color.b = 1;
-  }
+//   else if(dist_val == 0.2){
+//       color.r = 0;
+//       color.g = 0;
+//       color.b = 1;
+//   }
   // normal region 
   else{                   
       color.r = pow(dist_val/max_plot_dist_val,3);

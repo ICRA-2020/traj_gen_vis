@@ -1,5 +1,6 @@
 #ifndef COMMON_H
 #define COMMON_H
+
 #include <ros/ros.h>
 #include <sensor_msgs/PointCloud2.h>
 #include <geometry_msgs/PoseStamped.h>
@@ -19,8 +20,22 @@
 #include <dynamicEDT3D/dynamicEDTOctomap.h>
 #include <eigen3/Eigen/Core>
 
+
+
+#include <boost/config.hpp>
+#include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/dijkstra_shortest_paths.hpp>
+#include <boost/graph/graph_traits.hpp>
+#include <boost/graph/iteration_macros.hpp>
+#include <boost/graph/properties.hpp>
+#include <boost/property_map/property_map.hpp>
+
+
 #include <tf/tf.h>
+
 #include <tf/transform_listener.h>
+#include <tf/transform_broadcaster.h>
+
 #include <string>
 #include <memory>
 #include <iostream>
@@ -39,10 +54,34 @@ using namespace geometry_msgs;
 std::string GetCurrentWorkingDir( void );
 
 
+/** 
+ *  Boost graph library 
+ */
+
+typedef double Weight;
+typedef boost::property<boost::edge_weight_t, Weight> WeightProperty;
+// typedef boost::property<boost::vertex_name_t, std::string> NameProperty;
+typedef boost::property<boost::vertex_name_t, Point> NameProperty;
+
+typedef boost::adjacency_list < boost::listS, boost::vecS, boost::directedS,
+        NameProperty, WeightProperty > Graph;
+typedef boost::graph_traits < Graph >::vertex_descriptor Vertex_d;
+
+typedef string VertexName;
+typedef boost::property_map < Graph, boost::vertex_index_t >::type IndexMap;
+typedef boost::property_map < Graph, boost::vertex_name_t >::type NameMap;
+
+typedef boost::iterator_property_map < Vertex_d*, IndexMap, Vertex_d, Vertex_d& > PredecessorMap;
+typedef boost::iterator_property_map < Weight*, IndexMap, Weight, Weight& > DistanceMap;
+typedef vector<Point> VertexPath;
+typedef map<VertexName,Vertex_d> DescriptorMap;
+
+
 /**
  * Functions 
  */ 
-
+vector<Point> extract_pnts_from_path(nav_msgs::Path);
+Vector3f geo2eigen(const Point&);
 void get_color(float x_in, float & r, float & g, float & b);
 void get_color_dist(float dist_val,std_msgs::ColorRGBA& color, float max_plot_dist_val);
 
@@ -64,7 +103,29 @@ struct FieldParams{
     double ray_stride_res;
 };
 
+namespace chaser{
+    
+    struct PreplannerParams{
+        // tracking spec
+        double d_trakcing_max; // max distance for tracking 
+        double d_trakcing_min; // max distance for tracking 
+        double max_azim; // should be greater than 0
+        
+        // graph construction
+        double r_safe; // the safe tolerance of a chasing corridor
+        double min_z; // should be greater than 0
+        double vs_min; // should be greater than 0
+        double vsf_resolution; // local vsf resolution        
+        double d_connect_max; // maximally connectable distance between each node 
+        double w_d; // weight for desired tracking distance
+        double w_v; // weight for visibility of target          
+    };
 
+    struct SmoothplannerParams{
+
+
+    };
+}
 // field = f(x,y,z) : 3D grid field
 struct GridField{
     FieldParams params;    

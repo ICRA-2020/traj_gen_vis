@@ -10,11 +10,14 @@ void ObjectsHandler::init(ros::NodeHandle nh){
     nh.param<string>("chaser_frame_id",this->chaser_frame_id,"/firefly/base_link"); 
 
     // edf grid param
-    nh.param("min_z",min_z,0.4);            
+    nh.param("min_z",min_z,0.4);   
+    nh.param("chaser_init_z",chaser_init_z,1.0);             
     nh.param("edf_max_dist",edf_max_dist,2.0);  
     nh.param("edf_max_plot_dist",edf_max_viz_dist,0.5);  
     nh.param("edf_resolution",edf_grid_params.resolution,0.5);  
     nh.param("edf_stride_resolution",edf_grid_params.ray_stride_res,0.5);  
+    nh.param("run_mode",run_mode,0);  
+
 
     target_pose.header.frame_id = world_frame_id;
     chaser_pose.header.frame_id = world_frame_id;
@@ -29,8 +32,12 @@ void ObjectsHandler::init(ros::NodeHandle nh){
     markers_edf.scale.x = edf_grid_params.resolution;
     markers_edf.scale.y = edf_grid_params.resolution;
     markers_edf.scale.z = edf_grid_params.resolution;
+    
+    
     // topics 
     tf_listener = new (tf::TransformListener);
+    tf_talker = new (tf::TransformBroadcaster);
+
     pub_edf = nh.advertise<visualization_msgs::Marker>("edf_grid",1);
 
     // octomap            
@@ -41,6 +48,8 @@ void ObjectsHandler::init(ros::NodeHandle nh){
     else
         sub_octomap = nh.subscribe("/octomap_binary",1,&ObjectsHandler::octomap_callback,this);   
 
+    sub_chaser_init_pose = nh.subscribe("/chaser_init_pose",1,&ObjectsHandler::callback_chaser_init_pose,this);
+    
     ROS_INFO("Object handler initialized."); 
 }
 
@@ -62,6 +71,7 @@ void ObjectsHandler::octomap_callback(const octomap_msgs::Octomap& msg){
         double x,y,z;
         octree_ptr.get()->getMetricMin(x,y,z);
         octomap::point3d boundary_min(x,y,z); 
+        boundary_min.z() = min_z;
         octree_ptr.get()->getMetricMax(x,y,z);
         octomap::point3d boundary_max(x,y,z); 
 
@@ -107,15 +117,59 @@ octomap::OcTree* ObjectsHandler::get_octree_obj_ptr() {return octree_ptr.get();}
 
 // callback 
 void ObjectsHandler::tf_update(){
-    string objects_frame_id[2];
-    objects_frame_id[0] = target_frame_id;
-    objects_frame_id[1] = chaser_frame_id;
     
-    for (int i=0;i<2;i++){            
+    
+    if(run_mode == 1){
+        // mode 1 : gazebo simulation mode 
+        // chaser and target to be listened 
+        string objects_frame_id[2];
+        objects_frame_id[0] = target_frame_id;
+        objects_frame_id[1] = chaser_frame_id;
+        
+        for (int i=0;i<2;i++){            
+            tf::StampedTransform transform;    
+            // 
+            try{
+                tf_listener->lookupTransform(world_frame_id,objects_frame_id[i],ros::Time(0), transform);
+                PoseStamped pose_stamped;
+                pose_stamped.header.stamp = ros::Time::now();
+                pose_stamped.header.frame_id = world_frame_id;
+
+                pose_stamped.pose.position.x = transform.getOrigin().getX();
+                pose_stamped.pose.position.y = transform.getOrigin().getY();
+                pose_stamped.pose.position.z = transform.getOrigin().getZ();
+
+                pose_stamped.pose.orientation.x = transform.getRotation().getX();
+                pose_stamped.pose.orientation.y = transform.getRotation().getY();
+                pose_stamped.pose.orientation.z = transform.getRotation().getZ();
+                pose_stamped.pose.orientation.w = transform.getRotation().getW();
+
+
+
+                if (i==0)
+                    {ROS_INFO_ONCE("[Objects handler] tf of target received. "); is_target_recieved = true; target_pose = pose_stamped;} 
+                else
+                    {ROS_INFO_ONCE("[Objects handler] tf of chaser received. "); is_chaser_recieved = true; chaser_pose = pose_stamped;}  
+
+            }
+            catch (tf::TransformException ex){
+                if (i==0)
+                    ROS_ERROR_ONCE("[Objects handler] tf of target does not exist. ",ex.what());  
+                else
+                    ROS_ERROR_ONCE("[Objects handler] tf of chaser does not exist. ",ex.what());  
+            
+            }
+        }
+
+    }
+    else{
+        // mode 0 : no gazebo mode  
+        // target to be listened and chaser to be broadcast  
+
+        // 1) target tf listen from target manager  
         tf::StampedTransform transform;    
-        // 
         try{
-            tf_listener->lookupTransform(world_frame_id,objects_frame_id[i],ros::Time(0), transform);
+            tf_listener->lookupTransform(world_frame_id,target_frame_id,ros::Time(0), transform);
             PoseStamped pose_stamped;
             pose_stamped.header.stamp = ros::Time::now();
             pose_stamped.header.frame_id = world_frame_id;
@@ -127,24 +181,34 @@ void ObjectsHandler::tf_update(){
             pose_stamped.pose.orientation.x = transform.getRotation().getX();
             pose_stamped.pose.orientation.y = transform.getRotation().getY();
             pose_stamped.pose.orientation.z = transform.getRotation().getZ();
-            pose_stamped.pose.orientation.w = transform.getRotation().getW();
+            pose_stamped.pose.orientation.w = transform.getRotation().getW();        
 
-
-
-            if (i==0)
-                {ROS_INFO_ONCE("tf of target received. "); is_target_recieved = true; target_pose = pose_stamped;} 
-            else
-                {ROS_INFO_ONCE("tf of chaser received. "); is_chaser_recieved = true; chaser_pose = pose_stamped;}  
-
+            ROS_INFO_ONCE("[Objects handler] tf of target received. "); is_target_recieved = true; target_pose = pose_stamped;
         }
         catch (tf::TransformException ex){
-            if (i==0)
-                ROS_ERROR_ONCE("tf of target does not exist. ",ex.what());  
-            else
-                ROS_ERROR_ONCE("tf of chaser does not exist. ",ex.what());  
-        
+            ROS_ERROR_ONCE("[Objects handler] tf of target does not exist. ",ex.what());  
+        }    
+            
+        if(is_chaser_spawned){
+
+            // 2) chaser tf broadcasting
+            tf::Quaternion q;
+            q.setX(chaser_pose.pose.orientation.x);
+            q.setY(chaser_pose.pose.orientation.y);
+            q.setZ(chaser_pose.pose.orientation.z);
+            q.setW(chaser_pose.pose.orientation.w);
+            
+            transform.setOrigin(tf::Vector3(chaser_pose.pose.position.x,chaser_pose.pose.position.y,chaser_pose.pose.position.z));
+            transform.setRotation(q);
+            tf_talker->sendTransform(tf::StampedTransform(transform,ros::Time::now(),world_frame_id,chaser_frame_id));        
         }
-    }
+        else{
+            ROS_INFO_ONCE("[Objects handler] please spawn target. ");  
+        }
+     
+    }   
+
+
 }
 
 void ObjectsHandler::compute_edf(){
@@ -174,5 +238,30 @@ void ObjectsHandler::compute_edf(){
 }
 
 void ObjectsHandler::publish(){
+
     pub_edf.publish(markers_edf);
+}
+
+void ObjectsHandler::chaser_spawn(PoseStamped spawn_pose){
+    ROS_INFO_ONCE("[Objects handler] spawning chaser."); 
+    
+    is_chaser_recieved = true;
+    is_chaser_spawned = true;    
+    
+    if(run_mode == 0){
+        chaser_pose = spawn_pose;
+        chaser_pose.pose.position.z = chaser_init_z;
+
+    }else{
+        // hover command 
+        
+    }
+
+}
+
+
+
+void ObjectsHandler::callback_chaser_init_pose(const geometry_msgs::PoseStampedConstPtr& chaser_init_pose){
+
+    chaser_spawn(*chaser_init_pose);    
 }

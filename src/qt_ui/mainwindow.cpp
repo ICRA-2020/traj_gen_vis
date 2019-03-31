@@ -52,7 +52,7 @@ void MainWindow::on_pushButton_ros_clicked()
 void MainWindow::on_pushButton_waypoint_clicked()
 {
     if(ui->pushButton_waypoint->isChecked()){        
-        ui->textEdit_board->append("please select waypoints : /target_wapoints ");
+        ui->textEdit_board->append("please select waypoints : /target_waypoints ");
         qnode->target_manager.is_insert_permit = true;
 
     }else{
@@ -65,10 +65,13 @@ void MainWindow::on_pushButton_waypoint_clicked()
 
 void MainWindow::on_pushButton_chaser_clicked(){
 
-    if(ui->pushButton_chaser->isChecked()){        
+    if(ui->pushButton_chaser->isChecked()){      
+        qnode->chaser_wrapper.objects_handler.is_insert_permit = true;  
         ui->textEdit_board->append("please select chaser init pose: /chaser_init_pose");
     }else{
-        ui->textEdit_board->append("finishing waypoints selection");
+        ui->textEdit_board->append("finishing chaser spawning selection");
+        qnode->chaser_wrapper.objects_handler.is_insert_permit = false;  
+
     }
 
 }

@@ -42,9 +42,9 @@ bool QNode::on_init(){
 
 void QNode::run(){
     ros::Rate loop_rate(50);
+    writeOnBoard("waiting EDF computation...");
 
     while(ros::ok()){
-        writeOnBoard("waiting EDF computation...");
         double sim_time;
         if(is_in_session)
             sim_time = previous_elapsed +(ros::Time::now() - button_click_time).toSec();

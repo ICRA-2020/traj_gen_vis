@@ -40,7 +40,9 @@
         <!-- common -->
         <param name="world_frame_id" value="/world" />
         <param name="target_frame_id" value="/target" />
-
+        <param name="min_z" value="0.4" />
+        <param name="chaser_init_z" value="1" />
+        <param name="run_mode" value="0" /> <!-- 0: simulation without gazebo/ 1: with gazebo -->
 
 
         <!-- target_trajectory -->        
@@ -54,20 +56,30 @@
         <!--edf-->	
         <param name="edf_resolution" type="double" value="0.4" />	
         <param name="edf_max_dist" type="double" value="2.0" />
-        <param name="max_plot_dist_val" type="double" value="0.4" />
-        <param name="ray_stride_res" type="double" value="0.05" />
-        <param name="target_min_z" type="double" value="0.2" />
+        <param name="edf_max_plot_dist" type="double" value="1.0" />
+        <param name="edf_stride_resolution" type="double" value="0.05" />
 
-        <!--vsf-->
-        <param name="vsf_resolution" type="double" value="0.4" />	
+        <!--chasing spec-->
         <param name="max_tracking_distance" type="double" value="4.0" />	
         <param name="min_tracking_distance" type="double" value="1.0" />	
-        <param name="vs_min_clamping" type="double" value="0.0" />	
         <param name="max_azim" type="double" value="$(eval 3.141592/4)" />	
+
+
+
+		<!--preplanning-->
+
+			<!--vsf-->
+			<param name="vsf_resolution" type="double" value="0.4" />	
+			<param name="vs_min_clamping" type="double" value="0.0" />	
+		
+			<!--graph-->
+			
 
 
     </node>
 
 
+	<!--rviz-->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/env.rviz"/>
 
 </launch>
