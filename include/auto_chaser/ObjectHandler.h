@@ -23,6 +23,8 @@ class ObjectsHandler{
         // objects
         PoseStamped target_pose; 
         PoseStamped chaser_pose; 
+        Twist chaser_vel; 
+        Twist chaser_acc; 
         shared_ptr<octomap::OcTree> octree_ptr;
         DynamicEDTOctomap *edf_ptr; 
         shared_ptr<GridField> edf_grid_ptr; // signed distance field
@@ -50,8 +52,13 @@ class ObjectsHandler{
         void init(ros::NodeHandle nh);
         void compute_edf();
         ObjectsHandler(ros::NodeHandle nh);
-        PoseStamped get_target_pose(); 
-        PoseStamped get_chaser_pose(); 
+        PoseStamped get_target_pose();
+
+        // information of chaser 
+        PoseStamped get_chaser_pose();         
+        Twist get_chaser_velocity(); 
+        Twist get_chaser_acceleration(); 
+
         octomap::OcTree* get_octree_obj_ptr(); 
         GridField* get_edf_grid_ptr(); 
 

@@ -7,11 +7,13 @@ void TargetManager::init(ros::NodeHandle nh){
     // paramter parsing for option 
     nh.param<string>("world_frame_id",world_frame_id,"/world");
     nh.param<string>("target_frame_id",target_frame_id,"/target");
-    nh.param<double>("safe_radius",traj_option.safe_r,0.2);
-    nh.param<int>("N_safe_pnts",traj_option.N_safe_pnts,2);
-    nh.param<int>("objective_derivative",traj_option.objective_derivative,3);
-    nh.param<int>("poly_order",traj_option.poly_order,6);
-    nh.param<double>("weights_deviation",traj_option.w_d,0.005);
+    nh.param<double>("target/safe_corridor_r",traj_option.safe_r,0.2);
+    nh.param<int>("target/N_safe_pnts",traj_option.N_safe_pnts,2);
+    nh.param<int>("target/objective_derivative",traj_option.objective_derivative,3);
+    nh.param<int>("target/poly_order",traj_option.poly_order,6);
+    nh.param<double>("target/w_deviation",traj_option.w_d,0.005);
+    nh.param<bool>("target/is_waypoint_soft",traj_option.is_waypoint_soft,false);
+    
     nh.param("min_z",min_z,0.4);   
 
     // register 
@@ -61,7 +63,9 @@ bool TargetManager::global_path_generate(double tf){
 
     waypoints.poses = queue;
     TimeSeries knots(queue.size());
-    
+    if( queue.empty())
+        { ROS_INFO("[Target manager] target waypoints empty");   
+return false; }
     // waypoints update 
     waypoints_seq = waypoints;
     knots.setLinSpaced(queue.size(),0,tf);

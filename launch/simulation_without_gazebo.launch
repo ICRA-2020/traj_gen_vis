@@ -24,6 +24,7 @@
 		<param name="color/b" value="0.4" />
 		<param name="color/a" value="1.0" />
 		
+	
 		<param name="occupancy_max_z" value="" />
 		<param name="occupancy_min_z" value="0.2" />
 		<param name="filter_ground" value="true" />
@@ -46,10 +47,10 @@
 
 
         <!-- target_trajectory -->        
-        <param name="safe_radius" value="0.2" />
-		<param name="N_safe_pnts" value="2" />
-		<param name="objective_derivative" value="3" />
-		<param name="weights_deviation" value="0.0005" />
+        <param name="target/safe_corridor_r" value="0.2" />
+		<param name="target/N_safe_pnts" value="2" />
+		<param name="target/objective_derivative" value="3" />
+		<param name="target/w_deviation" value="0.0005" />
 
         <!-- chaser parameter -->     
 
@@ -79,6 +80,19 @@
 		<param name="w_v" type="double" value="5.0" />	
 		<param name="w_d" type="double" value="1.5" />	
 		
+
+		<!--smooth planning-->
+		<param name="chaser/safe_corridor_r" type="double" value="0.6" />	
+		<param name="chaser/N_safe_pnts" type="int" value="3" />	
+		<param name="chaser/objective_derivative" type="int" value="3" />	
+		<param name="chaser/w_deviation" type="double" value="0.005" />	
+		<param name="chaser/poly_order" type="int" value="6" />	
+		
+
+
+
+
+
 
     </node>
 

@@ -28,7 +28,7 @@ public:
     bool on_init();
     void shutdown();
     void run(); // the entire while loop 
-   void trigger_one_shot(); // this triggers chasing path for entire target path
+   bool trigger_one_shot(double tf); // this triggers chasing path for entire target path (0-tf)
    void trigger(); // triggers chasing update at a defined frequnecy 
     QStringListModel* loggingModel() { return &logging; }
     const std::string& nodeName() { return node_name; }
@@ -53,7 +53,7 @@ public:
    ros::Time pred_start_time;
    ros::Time session_ckp;
    bool arrow_record_switch = true;
-   
+
 
 Q_SIGNALS:
    void loggingUpdated();

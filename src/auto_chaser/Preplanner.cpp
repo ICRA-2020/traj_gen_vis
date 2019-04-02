@@ -10,10 +10,10 @@ void Preplanner::init(ros::NodeHandle nh){
     nh.param("r_safe",params.r_safe,0.5);
     nh.param("min_z",params.min_z,0.4);
     nh.param("vs_min",params.vs_min,0.3);
-    nh.param("vsf_resolution",params.vsf_resolution,0.5);
-    nh.param("d_connect_max",params.d_connect_max,3.0);
+    nh.param("vsf_resolution",params.vsf_resolution,0.7);
+    nh.param("d_connect_max",params.d_connect_max,2.5);
 
-    nh.param("d_trakcing_max",params.d_trakcing_max,5.0);
+    nh.param("d_trakcing_max",params.d_trakcing_max,4.0);
     nh.param("d_trakcing_min",params.d_trakcing_min,0.6);
     nh.param("max_azim",params.max_azim,(3.141592/4));
     nh.param("min_azim",params.min_azim,(3.141592/7));
@@ -300,7 +300,7 @@ VertexPath Preplanner::dijkstra(Vertex_d v0,Vertex_d vf){
 
 void Preplanner::compute_shortest_path(){
 
-    ROS_INFO("shorted path requested.");
+    ROS_INFO("shortest path requested.");
     VertexPath solution_seq = dijkstra(descriptor_map["x0"],descriptor_map["xf"]);
     // if path exist 
     if(solution_seq.size()){

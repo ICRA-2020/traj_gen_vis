@@ -113,6 +113,9 @@ PoseStamped ObjectsHandler::get_target_pose() {
  
 PoseStamped ObjectsHandler::get_chaser_pose() {return chaser_pose;};
 
+Twist ObjectsHandler::get_chaser_velocity() {return chaser_vel;};
+Twist ObjectsHandler::get_chaser_acceleration() {return chaser_acc;};
+
 octomap::OcTree* ObjectsHandler::get_octree_obj_ptr() {return octree_ptr.get();};
 GridField* ObjectsHandler::get_edf_grid_ptr() {return edf_grid_ptr.get();};
 

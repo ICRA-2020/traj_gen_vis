@@ -181,7 +181,12 @@ void MainWindow::on_pushButton_undo_clicked()
 };
 
 void MainWindow::on_pushButton_one_shot_clicked(){
-    qnode->trigger_one_shot();    
+    ui->textEdit_board->append("one shot simulatoin requested.");
+    double tf = atoi(ui->lineEdit_tf->text().toStdString().c_str());    
+    if (qnode->trigger_one_shot(tf))
+        ui->textEdit_board->append("chasing path obtained");
+    else 
+        ui->textEdit_board->append("chasing failed");    
 };
 
 void MainWindow::textEdit_write(QString line){    

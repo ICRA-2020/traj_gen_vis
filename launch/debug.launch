@@ -35,4 +35,8 @@
 		<!-- <remap from="cloud_in" to="$(arg mav_name)/vi_sensor/camera_depth/depth/points" /> -->
 	</node>
 
+	<!--rviz-->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/debug.rviz"/>
+
+
 </launch>

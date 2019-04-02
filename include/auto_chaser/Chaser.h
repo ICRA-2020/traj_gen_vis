@@ -10,13 +10,21 @@ class Chaser{
         // subroutines 
         void preplan(); 
         void path_complete();       
-        
+    
+
     public:
+        bool is_complete_chasing_path; // is there any complete chasing path
+
         Chaser();
         void init(ros::NodeHandle nh);
-        void chase_update(GridField* global_edf,vector<Point> target_pnts,Point chaser_init); // load control point 
+        bool chase_update(GridField* global_edf,vector<Point> target_pnts,Point chaser_x0,Twist chaser_v0,Twist chaser_a0,TimeSeries knots); // load control point 
         void session(); // publish information 
         
+        // evaluation with current 
+        Point eval_point(double t_eval);
+        Twist eval_velocity(double t_eval);
+        Twist eval_acceleration(double t_eval);
+
 };
 
 

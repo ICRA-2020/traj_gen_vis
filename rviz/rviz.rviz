@@ -190,7 +190,7 @@ Visualization Manager:
     - Class: rviz/SetInitialPose
       Topic: /initialpose
     - Class: rviz/SetGoal
-      Topic: /target_waypoints
+      Topic: /chaser_init_pose
     - Class: rviz/PublishPoint
       Single click: true
       Topic: /clicked_point

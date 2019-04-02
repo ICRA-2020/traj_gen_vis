@@ -70,25 +70,28 @@ void QNode::run(){
 
 }
 
-void QNode::trigger_one_shot(){
+bool QNode::trigger_one_shot(double tf){
     
+
+
     // target global waypoitns  
     vector<Point> target_seq = extract_pnts_from_path(target_manager.get_global_waypoints());
     if (target_seq.size() == 0){
         this->writeOnBoard("size of provided target sequence is zero. please generate target traj first.");
-        return;
+        return false;
     }
     if(not chaser_wrapper.objects_handler.is_chaser_spawned){
         this->writeOnBoard("chaser has not been spawned.");
-        return;
+        return false;
     }
 
     if(not chaser_wrapper.objects_handler.is_map_recieved){
         this->writeOnBoard("octomap or edf has not been uploaded.");
-        return;
+        return false;
     }    
 
-    // trigger chasing 
-    chaser_wrapper.trigger_chasing(target_seq);
-
+    // trigger chasing
+    VectorXd knots;    
+    knots.setLinSpaced(target_manager.queue.size(),0,tf); 
+    bool is_success =  chaser_wrapper.trigger_chasing(target_seq,knots);        
 }
