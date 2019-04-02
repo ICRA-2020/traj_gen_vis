@@ -12,12 +12,16 @@ MainWindow::MainWindow(QNode* qnode,QWidget *parent) :
     // intial configuration
 
     // logos
-    QPixmap pix_larr("/home/jbs/catkin_ws/src/traj_gen/qt_ui/resources/LARR.jpg");
+    string cd = __FILE__;
+    cd.erase(cd.end()-14,cd.end());
+    cout<<"current directory: "<<cd<<endl;
+
+    QPixmap pix_larr((cd + "/resources/LARR.jpg").c_str());
     int w = ui->label_larr->width();
     int h = ui->label_larr->height();
     ui->label_larr->setPixmap(pix_larr.scaled(w,h,Qt::KeepAspectRatio));
 
-    QPixmap pix_larr2("/home/jbs/catkin_ws/src/traj_gen/qt_ui/resources/maxresdefault.jpg");
+    QPixmap pix_larr2((cd +"/resources/maxresdefault.jpg").c_str());
     int w2 = ui->label_larr2->width();
     int h2 = ui->label_larr2->height();
     ui->label_larr2->setPixmap(pix_larr2.scaled(w2,h2,Qt::KeepAspectRatio));
@@ -177,8 +181,7 @@ void MainWindow::on_pushButton_undo_clicked()
 };
 
 void MainWindow::on_pushButton_one_shot_clicked(){
-
-    
+    qnode->trigger_one_shot();    
 };
 
 void MainWindow::textEdit_write(QString line){    

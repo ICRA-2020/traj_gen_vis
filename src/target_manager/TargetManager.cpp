@@ -12,6 +12,7 @@ void TargetManager::init(ros::NodeHandle nh){
     nh.param<int>("objective_derivative",traj_option.objective_derivative,3);
     nh.param<int>("poly_order",traj_option.poly_order,6);
     nh.param<double>("weights_deviation",traj_option.w_d,0.005);
+    nh.param("min_z",min_z,0.4);   
 
     // register 
     pub_marker_waypoints = nh.advertise<visualization_msgs::MarkerArray>("target_waypoints",1);
@@ -60,6 +61,9 @@ bool TargetManager::global_path_generate(double tf){
 
     waypoints.poses = queue;
     TimeSeries knots(queue.size());
+    
+    // waypoints update 
+    waypoints_seq = waypoints;
     knots.setLinSpaced(queue.size(),0,tf);
     planner.path_gen(knots,waypoints,geometry_msgs::Twist(),geometry_msgs::Twist(),traj_option); 
     if(planner.is_spline_valid()){
@@ -144,3 +148,12 @@ void TargetManager::queue_file_load(vector<geometry_msgs::PoseStamped>& wpnt_rep
     }
 
 }
+
+nav_msgs::Path TargetManager::get_global_waypoints(){
+    // let's process the heights of target 
+    for(auto it = waypoints_seq.poses.begin(); it<waypoints_seq.poses.end(); it++)
+        it->pose.position.z = min_z + 0.001;
+        
+    return waypoints_seq;
+}
+

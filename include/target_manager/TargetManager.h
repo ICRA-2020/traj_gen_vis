@@ -14,14 +14,17 @@ class TargetManager{
         string target_frame_id;
         string world_frame_id;
         int mode; // 0(without gazebo), 1(with gazebo), 2(real)
-
+        double min_z; 
         ros::Publisher pub_marker_waypoints;
         ros::Publisher pub_path;
         ros::Subscriber sub_waypoints;
         tf::TransformBroadcaster* br_ptr;
         visualization_msgs::MarkerArray wpnt_markerArray;
-        nav_msgs::Path global_path;        
 
+        // current information after initialization 
+        nav_msgs::Path global_path;        
+        nav_msgs::Path waypoints_seq;
+        
 
         TrajGenOpts traj_option; // trajectory generation option 
 
@@ -47,7 +50,7 @@ class TargetManager{
         bool global_path_generate(double tf);
         void callback_waypoint(const geometry_msgs::PoseStampedConstPtr& waypoint);
         void queue_file_load(int,vector<geometry_msgs::PoseStamped>&);
-    
+        nav_msgs::Path get_global_waypoints();
 };
 
 #endif

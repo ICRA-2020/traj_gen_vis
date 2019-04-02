@@ -50,8 +50,8 @@ void QNode::run(){
             sim_time = previous_elapsed +(ros::Time::now() - button_click_time).toSec();
         else
             sim_time = previous_elapsed; 
-        
-        // target manager 
+
+        // session (publish the current information)        
         target_manager.session(sim_time);
         chaser_wrapper.session();
         
@@ -68,6 +68,27 @@ void QNode::run(){
 
     Q_EMIT rosShutdown();
 
+}
 
+void QNode::trigger_one_shot(){
+    
+    // target global waypoitns  
+    vector<Point> target_seq = extract_pnts_from_path(target_manager.get_global_waypoints());
+    if (target_seq.size() == 0){
+        this->writeOnBoard("size of provided target sequence is zero. please generate target traj first.");
+        return;
+    }
+    if(not chaser_wrapper.objects_handler.is_chaser_spawned){
+        this->writeOnBoard("chaser has not been spawned.");
+        return;
+    }
+
+    if(not chaser_wrapper.objects_handler.is_map_recieved){
+        this->writeOnBoard("octomap or edf has not been uploaded.");
+        return;
+    }    
+
+    // trigger chasing 
+    chaser_wrapper.trigger_chasing(target_seq);
 
 }

@@ -219,7 +219,7 @@ Vector3i GridField::getCellIdx(Point pnt){
     // out of range 
     else{
         idx.setConstant(-1);
-        cout<<"[Grid field] Warnning: referencing point is out of bound."<<endl;    
+        // cout<<"[Grid field] Warnning: referencing point is out of bound."<<endl;    
     }        
     return idx;        
 } 

@@ -5,10 +5,10 @@ Preplanner::Preplanner(){};
 void Preplanner::init(ros::NodeHandle nh){
 
     // preplanner params parsing 
-    nh.param("w_v",params.w_v,0.3);            
-    nh.param("r_safe",params.r_safe,2.0);
+    nh.param("w_v",params.w_v,5.0);       
+    nh.param("w_d",params.w_d,1.5);            
+    nh.param("r_safe",params.r_safe,0.5);
     nh.param("min_z",params.min_z,0.4);
-    nh.param("w_v",params.w_v,0.3);
     nh.param("vs_min",params.vs_min,0.3);
     nh.param("vsf_resolution",params.vsf_resolution,0.5);
     nh.param("d_connect_max",params.d_connect_max,3.0);
@@ -20,9 +20,9 @@ void Preplanner::init(ros::NodeHandle nh){
 
 
     // world_frame_id 
+    nh.param<string>("world_frame_id",world_frame_id,"/world");
     nh.param<string>("world_frame_id",markers_visibility_field_base.header.frame_id,"/world");
     nh.param<string>("world_frame_id",preplanned_path.header.frame_id,"/world");
-
 
     // marker initialize 
 
@@ -41,6 +41,28 @@ void Preplanner::init(ros::NodeHandle nh){
     marker_wpnts.scale.y = scale;
     marker_wpnts.scale.z = scale;    
 
+    // vsf_grid_seq 
+
+    // marker base
+    visualization_msgs::Marker marker;
+    marker.header.frame_id = markers_visibility_field_base.header.frame_id;;
+    marker.action = visualization_msgs::Marker::ADD;
+    marker.type = visualization_msgs::Marker::CUBE_LIST;      
+    marker.pose.orientation.x = 0;
+    marker.pose.orientation.y = 0;
+    marker.pose.orientation.z = 0;
+    marker.pose.orientation.w = 1;                  
+    marker.scale.x = params.vsf_resolution;
+    marker.scale.y = params.vsf_resolution;
+    marker.scale.z = params.vsf_resolution;
+    markers_visibility_field_base = marker; 
+
+
+    // ros initialize 
+    pub_vsf_vis = nh.advertise<visualization_msgs::MarkerArray>("vsf_grid_seq",1);
+    pub_waypoints = nh.advertise<visualization_msgs::Marker>("preplanned_waypoints",1);    
+    pub_preplanned_path = nh.advertise<nav_msgs::Path>("preplanned_path",1);
+
 
 };
 
@@ -48,7 +70,8 @@ FieldParams Preplanner::get_local_vsf_param_around_target(Point target_pnt){
 
     FieldParams vsf_param;    
     double lx,ly,lz;
-    lx = ly = 2*params.d_trakcing_max * cos(params.max_azim);
+    // lx = ly = 2*params.d_trakcing_max * cos(params.max_azim);
+    lx = ly = 4*params.d_trakcing_max ;
     lz = params.d_trakcing_max * sin(params.max_azim) - params.d_trakcing_min * sin(params.min_azim) ;
 
     vsf_param.x0 = target_pnt.x - lx/2;
@@ -61,13 +84,14 @@ FieldParams Preplanner::get_local_vsf_param_around_target(Point target_pnt){
     vsf_param.resolution = params.vsf_resolution;
     vsf_param.ray_stride_res =  params.vsf_resolution; // not used for vsf grid 
 
+    return vsf_param;
 };
 
 
 void Preplanner::compute_visibility_field_seq(GridField* global_edf,vector<Point> target_pnts){
 
     vsf_field_ptr_seq.resize(target_pnts.size());
-
+    float numeric_threshold = 1e-2;
     int t = 1;
     float max_score = -1;  // for visualization 
     // for each target pnt
@@ -98,7 +122,7 @@ void Preplanner::compute_visibility_field_seq(GridField* global_edf,vector<Point
                     if(edf_val > params.r_safe && // safe 
                         relative_dist > params.d_trakcing_min && // tracking spec
                         relative_dist < params.d_trakcing_max && // tracking spec
-                        vs > params.vs_min && // non-occlusion
+                        vs > params.vs_min + numeric_threshold  && // non-occlusion
                         azim < params.max_azim)  // tracking spec 
                         // save
                         vsf_field_ptr_seq[t-1].get()->saved_points.push_back(eval_pnt);
@@ -113,9 +137,10 @@ void Preplanner::compute_visibility_field_seq(GridField* global_edf,vector<Point
     // save the markers
 
     // marker initialization     
-    markers_visibility_field_seq.markers.resize(target_pnts.size());    
+    markers_visibility_field_seq.markers.clear();    
 
     markers_visibility_field_base.header.stamp = ros::Time::now();
+    markers_visibility_field_base.header.frame_id = world_frame_id;
     markers_visibility_field_base.points.clear();
     markers_visibility_field_base.colors.clear();
     t = 1;
@@ -273,7 +298,7 @@ VertexPath Preplanner::dijkstra(Vertex_d v0,Vertex_d vf){
 }
 
 
-void Preplanner::get_shortest_path(){
+void Preplanner::compute_shortest_path(){
 
     ROS_INFO("shorted path requested.");
     VertexPath solution_seq = dijkstra(descriptor_map["x0"],descriptor_map["xf"]);
@@ -300,6 +325,23 @@ void Preplanner::get_shortest_path(){
         }
     
     }
+}
 
-    
+
+void Preplanner::preplan(GridField* global_edf,vector<Point> target_pnts,Point chaser_init){
+
+    compute_visibility_field_seq(global_edf,target_pnts);  
+    graph_construct(global_edf,chaser_init);        
+    compute_shortest_path();   
+}
+
+nav_msgs::Path Preplanner::get_preplanned_waypoints(){return preplanned_path;}
+
+void Preplanner::publish(){
+    // vsf seq
+    pub_vsf_vis.publish(markers_visibility_field_seq);
+    // waypoints
+    pub_waypoints.publish(marker_wpnts);
+    // preplanned path 
+    pub_preplanned_path.publish(preplanned_path);
 }

@@ -15,7 +15,7 @@ void ObjectsHandler::init(ros::NodeHandle nh){
     nh.param("edf_max_dist",edf_max_dist,2.0);  
     nh.param("edf_max_plot_dist",edf_max_viz_dist,0.5);  
     nh.param("edf_resolution",edf_grid_params.resolution,0.5);  
-    nh.param("edf_stride_resolution",edf_grid_params.ray_stride_res,0.5);  
+    nh.param("edf_stride_resolution",edf_grid_params.ray_stride_res,0.3);  
     nh.param("run_mode",run_mode,0);  
 
 
@@ -114,6 +114,7 @@ PoseStamped ObjectsHandler::get_target_pose() {
 PoseStamped ObjectsHandler::get_chaser_pose() {return chaser_pose;};
 
 octomap::OcTree* ObjectsHandler::get_octree_obj_ptr() {return octree_ptr.get();};
+GridField* ObjectsHandler::get_edf_grid_ptr() {return edf_grid_ptr.get();};
 
 // callback 
 void ObjectsHandler::tf_update(){
@@ -259,9 +260,14 @@ void ObjectsHandler::chaser_spawn(PoseStamped spawn_pose){
 
 }
 
-
-
 void ObjectsHandler::callback_chaser_init_pose(const geometry_msgs::PoseStampedConstPtr& chaser_init_pose){
 
     chaser_spawn(*chaser_init_pose);    
 }
+
+
+vector<Point> ObjectsHandler::get_prediction_seq(){
+    
+    
+}
+

@@ -32,9 +32,9 @@ class ObjectsHandler{
         double chaser_init_z; // initial target hovering height 
         double edf_max_viz_dist;
         double edf_max_dist;
-        FieldParams edf_grid_params;
-        int run_mode;  // 0(simulation without gazebo) , 1(simulation with gazebo)  
-
+        FieldParams edf_grid_params; 
+        int run_mode;  // 0 (simulation without gazebo) , 1 (simulation with gazebo)  
+        
          
     public:
         //flag
@@ -53,12 +53,15 @@ class ObjectsHandler{
         PoseStamped get_target_pose(); 
         PoseStamped get_chaser_pose(); 
         octomap::OcTree* get_octree_obj_ptr(); 
+        GridField* get_edf_grid_ptr(); 
 
         void octomap_callback(const octomap_msgs::Octomap& msg);
         void chaser_spawn(PoseStamped spawn_pose);
         void callback_chaser_init_pose(const geometry_msgs::PoseStampedConstPtr& chaser_init_pose);
         void tf_update();
         void publish();
+        vector<Point> get_prediction_seq();
+
 };
 
 

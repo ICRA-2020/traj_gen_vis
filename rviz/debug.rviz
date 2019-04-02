@@ -6,8 +6,12 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /Marker1
+        - /Path1
         - /TF1/Frames1
         - /MarkerArray3
+        - /MarkerArray3/Namespaces1
+        - /Path2
       Splitter Ratio: 0.5
     Tree Height: 536
   - Class: rviz/Selection
@@ -50,14 +54,6 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Class: rviz/MarkerArray
-      Enabled: true
-      Marker Topic: /occupied_cells_vis_array
-      Name: MarkerArray
-      Namespaces:
-        map: true
-      Queue Size: 100
-      Value: true
     - Class: rviz/Axes
       Enabled: true
       Length: 1
@@ -66,19 +62,27 @@ Visualization Manager:
       Reference Frame: <Fixed Frame>
       Value: true
     - Class: rviz/Marker
-      Enabled: false
-      Marker Topic: /auto_chaser/edf_grid
+      Enabled: true
+      Marker Topic: /planner_client/edf_grid
       Name: Marker
+      Namespaces:
+        "": true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: false
+      Marker Topic: /occupied_cells_vis_array
+      Name: MarkerArray
       Namespaces:
         {}
       Queue Size: 100
       Value: false
     - Class: rviz/MarkerArray
       Enabled: true
-      Marker Topic: /auto_chaser/target_waypoints
+      Marker Topic: /planner_client/target_waypoints
       Name: MarkerArray
       Namespaces:
-        {}
+        "": true
       Queue Size: 100
       Value: true
     - Alpha: 0.5
@@ -101,7 +105,7 @@ Visualization Manager:
       Radius: 0.0299999993
       Shaft Diameter: 0.100000001
       Shaft Length: 0.100000001
-      Topic: /auto_chaser/target_global_path
+      Topic: /planner_client/target_global_path
       Unreliable: false
       Value: true
     - Class: rviz/TF
@@ -109,6 +113,8 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
+        firefly/base_link:
+          Value: true
         target:
           Value: true
         world:
@@ -120,17 +126,53 @@ Visualization Manager:
       Show Names: true
       Tree:
         world:
+          firefly/base_link:
+            {}
           target:
             {}
       Update Interval: 0
       Value: true
     - Class: rviz/MarkerArray
       Enabled: true
-      Marker Topic: /planner_client/vsf_grid
+      Marker Topic: /planner_client/vsf_grid_seq
       Name: MarkerArray
       Namespaces:
-        {}
+        time_1: false
+        time_2: false
+        time_3: false
+        time_4: false
       Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /planner_client/preplanned_waypoints
+      Name: Marker
+      Namespaces:
+        waypoints: true
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 85; 170; 255
+      Enabled: true
+      Head Diameter: 0.300000012
+      Head Length: 0.200000003
+      Length: 0.300000012
+      Line Style: Billboards
+      Line Width: 0.0700000003
+      Name: Path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.0299999993
+      Shaft Diameter: 0.100000001
+      Shaft Length: 0.100000001
+      Topic: /planner_client/preplanned_path
+      Unreliable: false
       Value: true
   Enabled: true
   Global Options:
@@ -157,25 +199,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 9.67598915
+      Distance: 8.34480953
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.21785355
-        Y: 1.52373314
-        Z: -4.9213438
+        X: 2.43927097
+        Y: -0.246335596
+        Z: 6.23884058
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.2647965
+      Pitch: 1.56979632
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.31857538
+      Yaw: 4.70355463
     Saved: ~
 Window Geometry:
   Displays:
@@ -193,5 +235,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 928
-  X: 992
+  X: 2912
   Y: 34
