@@ -84,9 +84,9 @@
 		<!--smooth planning-->
 		<param name="chaser/safe_corridor_r" type="double" value="0.6" />	
 		<param name="chaser/N_safe_pnts" type="int" value="3" />	
-		<param name="chaser/objective_derivative" type="int" value="3" />	
+		<param name="chaser/objective_derivative" type="int" value="4" />	
 		<param name="chaser/w_deviation" type="double" value="0.005" />	
-		<param name="chaser/poly_order" type="int" value="6" />	
+		<param name="chaser/poly_order" type="int" value="7" />	
 		
 
 

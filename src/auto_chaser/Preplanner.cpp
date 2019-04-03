@@ -25,7 +25,7 @@ void Preplanner::init(ros::NodeHandle nh){
     nh.param<string>("world_frame_id",preplanned_path.header.frame_id,"/world");
 
     // marker initialize 
-
+    
     // waypoints 
     marker_wpnts.header.frame_id = markers_visibility_field_base.header.frame_id;
     marker_wpnts.ns = "waypoints";

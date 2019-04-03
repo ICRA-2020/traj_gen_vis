@@ -14,7 +14,7 @@ void SmoothPlanner::init(ros::NodeHandle nh){
     nh.param<bool>("chaser/is_multi_corridor",option.is_multi_corridor,true);
     nh.param<bool>("chaser/is_waypoint_soft",option.is_waypoint_soft,true);
     nh.param<double>("chaser/w_deviation",option.w_d,0.005);
-    nh.param<int>("chaser/poly_order",option.poly_order,7);
+    nh.param<int>("chaser/poly_order",option.poly_order,6);
 
 
     pub_chasing_corridor = nh.advertise<visualization_msgs::Marker>("chasing_corridor",1); 
