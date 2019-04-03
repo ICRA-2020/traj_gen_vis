@@ -34,9 +34,9 @@ void Preplanner::init(ros::NodeHandle nh){
     marker_wpnts.color.r = 14.0/255.0;
     marker_wpnts.color.g = 50.0/255.0;
     marker_wpnts.color.b = 1.0;
-    marker_wpnts.color.a = 0.8;
+    marker_wpnts.color.a = 0.3;
     marker_wpnts.pose.orientation.w = 1.0;
-    double scale = 0.3; 
+    double scale = 0.08; 
     marker_wpnts.scale.x = scale;
     marker_wpnts.scale.y = scale;
     marker_wpnts.scale.z = scale;    
@@ -89,7 +89,6 @@ FieldParams Preplanner::get_local_vsf_param_around_target(Point target_pnt){
 
 
 void Preplanner::compute_visibility_field_seq(GridField* global_edf,vector<Point> target_pnts){
-
     vsf_field_ptr_seq.resize(target_pnts.size());
     float numeric_threshold = 1e-2;
     int t = 1;
@@ -216,6 +215,8 @@ void Preplanner::graph_construct(GridField* global_edf,Point x0){
                             params.w_v*1/sqrt(cur_vsf_ptr->getRayMean(cur_pnt,prev_pnt) * prev_vsf_ptr->getRayMean(prev_pnt,cur_pnt)) 
                             + params.w_d*abs((geo2eigen(cur_vsf_ptr->getCentre()) - cur_vec).norm() - params.d_trakcing_des);                     
                     boost::add_edge(prev_vert,cur_vert,weight,di_graph);
+                    if(weight <1e-4)
+                        ROS_WARN("weight is zero");
                     N_edge ++;
                     N_edge_sub++;
                 }
@@ -329,6 +330,12 @@ void Preplanner::compute_shortest_path(){
 
 
 void Preplanner::preplan(GridField* global_edf,vector<Point> target_pnts,Point chaser_init){
+
+
+
+    // set the height of the moving target 
+    for(auto it = target_pnts.begin(); it<target_pnts.end(); it++)
+        it->z = params.min_z + 1e-3;
 
     compute_visibility_field_seq(global_edf,target_pnts);  
     graph_construct(global_edf,chaser_init);        

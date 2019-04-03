@@ -92,11 +92,18 @@ void MainWindow::on_pushButton_trajectory_clicked()
 
 void MainWindow::on_pushButton_simulation_clicked()
 {
-    if(ui->pushButton_simulation->isChecked()){        
-        ui->textEdit_board->append("move target..");
-        qnode->is_in_session = true;
-        qnode->button_click_time = ros::Time::now();
-    
+    if(ui->pushButton_simulation->isChecked()){ 
+
+        if(qnode->chaser_wrapper.objects_handler.is_chaser_spawned and qnode->target_manager.is_path){
+            ui->textEdit_board->append("move target..");
+            // simulation end time 
+            qnode->simulation_end_time = atof(ui->lineEdit_tf->text().toStdString().c_str());
+            qnode->is_in_session = true;
+            qnode->button_click_time = ros::Time::now();        
+        }
+        else{
+            ui->textEdit_board->append("target path not obtained or no chaser spawned.");
+        }
     }else{
         ui->textEdit_board->append("stop target.");
         qnode->is_in_session = false;

@@ -10,7 +10,7 @@ class Wrapper{
         Chaser chaser;
         Wrapper();
         void init(ros::NodeHandle nh);
-        void session();   
+        void session(double t); // publish things 
         bool trigger_chasing(TimeSeries chasing_knots); // no information given from target manager 
         bool trigger_chasing(vector<Point> target_seq,TimeSeries chasing_knots); //information given from target manager 
                

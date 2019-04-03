@@ -29,7 +29,7 @@ public:
     void shutdown();
     void run(); // the entire while loop 
    bool trigger_one_shot(double tf); // this triggers chasing path for entire target path (0-tf)
-   void trigger(); // triggers chasing update at a defined frequnecy 
+   bool trigger(double t_cur); // triggers chasing update at a defined frequnecy 
     QStringListModel* loggingModel() { return &logging; }
     const std::string& nodeName() { return node_name; }
 
@@ -43,17 +43,23 @@ public:
     bool is_connected = false; // to ros
     bool is_in_session = false; // is in simulation session
     bool is_said_edf = false;
-   // time  
-    double button_elapsed=0; // after the button pressed again,
-    double record_dt = 0.5;
 
+   // time  
+   double button_elapsed=0; // after the button pressed again,
+   double record_dt = 0.5;
    ros::Time button_click_time; 
    double previous_elapsed = 0;
+   double last_tigger_time = 0;
+   double simulation_end_time;
+   double early_end_time = 0.1;
+   
    // params
-   ros::Time pred_start_time;
-   ros::Time session_ckp;
    bool arrow_record_switch = true;
-
+   float pred_horizon; 
+   // 0: receive future segment informatoin from target manager
+   // 1: predict informatoin by object handler 
+   int prediction_mode = 0; 
+   int pred_seq = 4;
 
 Q_SIGNALS:
    void loggingUpdated();

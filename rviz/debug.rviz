@@ -9,8 +9,8 @@ Panels:
         - /Marker1
         - /Path1
         - /TF1/Frames1
-        - /MarkerArray3
         - /MarkerArray3/Namespaces1
+        - /Marker2
         - /Path2
       Splitter Ratio: 0.5
     Tree Height: 536
@@ -141,6 +141,10 @@ Visualization Manager:
         time_2: false
         time_3: false
         time_4: false
+        time_5: true
+        time_6: true
+        time_7: true
+        time_8: true
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -171,8 +175,24 @@ Visualization Manager:
       Radius: 0.0299999993
       Shaft Diameter: 0.100000001
       Shaft Length: 0.100000001
-      Topic: /planner_client/preplanned_path
+      Topic: /planner_client/smooth_path
       Unreliable: false
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /planner_client/smooth_path_knots
+      Name: Marker
+      Namespaces:
+        knots: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /planner_client/chasing_corridor
+      Name: Marker
+      Namespaces:
+        sf_corridor: true
+      Queue Size: 100
       Value: true
   Enabled: true
   Global Options:
@@ -199,16 +219,16 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 8.34480953
+      Distance: 10.8552141
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 2.43927097
-        Y: -0.246335596
-        Z: 6.23884058
+        X: 4.41296387
+        Y: 2.87088752
+        Z: 7.91943741
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
@@ -217,7 +237,7 @@ Visualization Manager:
       Pitch: 1.56979632
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.70355463
+      Yaw: 4.69355154
     Saved: ~
 Window Geometry:
   Displays:

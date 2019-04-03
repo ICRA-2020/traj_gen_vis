@@ -257,20 +257,26 @@ float GridField::getValue(Point pnt){
 }
 
 float GridField::getRayMin(Point pnt1,Point pnt2,float clamping_val)
-{
+{       
         // vector<Vector3i> ray_idx = getRayIdx(pnt1,pnt2);  // it will take more time 
         Vector3f pnt1_vec(pnt1.x,pnt1.y,pnt1.z);
         Vector3f pnt2_vec(pnt2.x,pnt2.y,pnt2.z);
         // current end of the ray 
         Vector3f cur_vec = pnt1_vec;
-
-        Vector3f stride_vec = (pnt2_vec - pnt1_vec).normalized()*params.ray_stride_res; 
-        float cur_ray_len=0;
+        
         float tot_length = (pnt2_vec - pnt1_vec).norm();
+        
+        Vector3f stride_vec;        
+        if(tot_length == 0)
+            stride_vec.setZero();
+        else 
+            stride_vec = (pnt2_vec - pnt1_vec).normalized()*params.ray_stride_res; 
+ 
+        float cur_ray_len=0;
         // traverse this ray 
         float min_val = getValue(pnt1); // let's assume we don't have any minus value in the field 
         
-        while(cur_ray_len <= tot_length){            
+        while(cur_ray_len < tot_length){            
             cur_vec = cur_vec + stride_vec;
             cur_ray_len = (cur_vec-pnt1_vec).norm();
             Point cur_end_pnt;
@@ -301,9 +307,16 @@ float GridField::getRayMean(Point pnt1,Point pnt2){
     // current end of the ray 
     Vector3f cur_vec = pnt1_vec;
 
-    Vector3f stride_vec = (pnt2_vec - pnt1_vec).normalized()*params.ray_stride_res; 
-    float cur_ray_len=0;
     float tot_length = (pnt2_vec - pnt1_vec).norm();
+        
+    Vector3f stride_vec;        
+    if(tot_length == 0)
+        stride_vec.setZero();
+    else 
+        stride_vec = (pnt2_vec - pnt1_vec).normalized()*params.ray_stride_res; 
+
+
+    float cur_ray_len=0;
     // traverse this ray 
     float accum_sum = 0.0f; // let's assume we don't have any minus value
     int N_count = 0;

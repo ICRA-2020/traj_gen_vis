@@ -161,3 +161,12 @@ nav_msgs::Path TargetManager::get_global_waypoints(){
     return waypoints_seq;
 }
 
+vector<Point> TargetManager::eval_time_seq(VectorXd ts){
+    vector<Point> point_seq;
+    
+    for (int i = 0; i<ts.size();i++){
+        point_seq.push_back(planner.point_eval_spline(ts(i)));
+    }
+
+    return point_seq;
+}

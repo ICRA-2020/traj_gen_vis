@@ -51,6 +51,8 @@ class TargetManager{
         void callback_waypoint(const geometry_msgs::PoseStampedConstPtr& waypoint);
         void queue_file_load(int,vector<geometry_msgs::PoseStamped>&);
         nav_msgs::Path get_global_waypoints();
+        vector<Point> eval_time_seq(VectorXd ts);    
+
 };
 
 #endif

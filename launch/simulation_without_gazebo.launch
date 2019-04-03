@@ -44,6 +44,9 @@
         <param name="min_z" value="0.4" />
         <param name="chaser_init_z" value="1" />
         <param name="run_mode" value="0" /> <!-- 0: simulation without gazebo/ 1: with gazebo -->
+        <param name="pred_horizon" value="4" /> 
+        <param name="pred_seq" value="4" /> 
+		<param name="early_end_time" value="0.1" /> 
 
 
         <!-- target_trajectory -->        
@@ -82,11 +85,11 @@
 		
 
 		<!--smooth planning-->
-		<param name="chaser/safe_corridor_r" type="double" value="0.6" />	
+		<param name="chaser/safe_corridor_r" type="double" value="0.3" />		  <param name="chaser/verbose" type="bool" value="false" />	
 		<param name="chaser/N_safe_pnts" type="int" value="3" />	
-		<param name="chaser/objective_derivative" type="int" value="4" />	
-		<param name="chaser/w_deviation" type="double" value="0.005" />	
-		<param name="chaser/poly_order" type="int" value="7" />	
+		<param name="chaser/objective_derivative" type="int" value="3" />	
+		<param name="chaser/w_deviation" type="double" value="0.5" />	
+		<param name="chaser/poly_order" type="int" value="6" />	
 		
 
 
