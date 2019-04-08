@@ -13,8 +13,9 @@ void Preplanner::init(ros::NodeHandle nh){
     nh.param("vsf_resolution",params.vsf_resolution,0.7);
     nh.param("d_connect_max",params.d_connect_max,2.5);
 
-    nh.param("d_trakcing_max",params.d_trakcing_max,4.0);
-    nh.param("d_trakcing_min",params.d_trakcing_min,0.6);
+    nh.param("max_tracking_distance",params.d_trakcing_max,4.0);
+    nh.param("min_tracking_distance",params.d_trakcing_min,1.0);
+    nh.param("des_tracking_distance",params.d_trakcing_des,2.5);
     nh.param("max_azim",params.max_azim,(3.141592/4));
     nh.param("min_azim",params.min_azim,(3.141592/7));
 
@@ -326,6 +327,10 @@ void Preplanner::compute_shortest_path(){
         }
     
     }
+    else
+        ROS_WARN("[Preplanner] The preplanning couldn't be updated. (smooth planner may try to make path on old preplan.) ");
+    
+    
 }
 
 
