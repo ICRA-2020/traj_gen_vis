@@ -10,7 +10,7 @@
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/overview.png"> 
 
 ## 1.2 File structure 
-[doxygen] (/doc/html/index.html)
+[doxygen] (doc/html/index.html)
 
 # 2 Installation 
 
