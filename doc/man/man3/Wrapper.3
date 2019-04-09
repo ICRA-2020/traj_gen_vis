@@ -1,0 +1,149 @@
+.TH "Wrapper" 3 "Tue Apr 9 2019" "Version 1.0.0" "auto_chaser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Wrapper \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Wrapper\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWrapper\fP ()"
+.br
+.ti -1c
+.RI "void \fBinit\fP (ros::NodeHandle nh)"
+.br
+.ti -1c
+.RI "void \fBsession\fP (double t)"
+.br
+.ti -1c
+.RI "bool \fBtrigger_chasing\fP (TimeSeries chasing_knots)"
+.br
+.ti -1c
+.RI "bool \fBtrigger_chasing\fP (vector< Point > target_seq, TimeSeries chasing_knots)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBObjectsHandler\fP \fBobjects_handler\fP"
+.br
+.ti -1c
+.RI "\fBChaser\fP \fBchaser\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Wrapper::Wrapper ()"
+
+.PP
+.nf
+3 {};
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void Wrapper::init (ros::NodeHandle nh)"
+
+.PP
+.nf
+5                                    {
+6     objects_handler\&.init(nh);  
+7     chaser\&.init(nh);      
+8 };
+.fi
+.SS "void Wrapper::session (double t)"
+
+.PP
+.nf
+11                              {
+12 
+13     objects_handler\&.publish();
+14     objects_handler\&.tf_update();    
+15     chaser\&.session(t);
+16 }
+.fi
+.SS "bool Wrapper::trigger_chasing (TimeSeries chasing_knots)"
+
+.PP
+.nf
+19                                                      {
+20     
+21 
+22     double t_planning_start = chasing_knots(0);
+23 
+24     vector<Point>  target_pred_seq = objects_handler\&.get_prediction_seq();
+25     GridField * edf_grid_ptr = objects_handler\&.get_edf_grid_ptr();
+26     
+27 
+28     Point chaser_init_point;
+29     Twist chaser_init_vel; 
+30     Twist chaser_init_acc;
+31 
+32     if(not chaser\&.is_complete_chasing_path){    
+33         chaser_init_point = objects_handler\&.get_chaser_pose()\&.pose\&.position;    
+34         chaser_init_vel = objects_handler\&.get_chaser_velocity();
+35         chaser_init_acc = objects_handler\&.get_chaser_acceleration();   
+36     }
+37     else{
+38         chaser_init_point = chaser\&.eval_point(t_planning_start);
+39         chaser_init_vel = chaser\&.eval_velocity(t_planning_start);
+40         chaser_init_acc = chaser\&.eval_acceleration(t_planning_start);
+41     }
+42 
+43     // chasing policy update 
+44     chaser\&.chase_update(edf_grid_ptr,target_pred_seq,chaser_init_point,chaser_init_vel,chaser_init_acc,chasing_knots);   
+45 }
+.fi
+.SS "bool Wrapper::trigger_chasing (vector< Point > target_seq, TimeSeries chasing_knots)"
+
+.PP
+.nf
+48                                                                                    {
+49   
+50 
+51 
+52     double t_planning_start = chasing_knots(0);
+53 
+54     GridField * edf_grid_ptr = objects_handler\&.get_edf_grid_ptr();
+55 
+56     Point chaser_init_point;
+57     Twist chaser_init_vel; 
+58     Twist chaser_init_acc;
+59 
+60     if(not chaser\&.is_complete_chasing_path){    
+61         chaser_init_point = objects_handler\&.get_chaser_pose()\&.pose\&.position;    
+62         chaser_init_vel = objects_handler\&.get_chaser_velocity();
+63         chaser_init_acc = objects_handler\&.get_chaser_acceleration();   
+64     }
+65     else{
+66         chaser_init_point = chaser\&.eval_point(t_planning_start);
+67         chaser_init_vel = chaser\&.eval_velocity(t_planning_start);
+68         chaser_init_acc = chaser\&.eval_acceleration(t_planning_start);
+69     }
+70 
+71     // chasing policy update 
+72     chaser\&.chase_update(edf_grid_ptr,target_pred_seq,chaser_init_point,chaser_init_vel,chaser_init_acc,chasing_knots);   
+73 
+74 
+75     // chasing policy update 
+76     return chaser\&.chase_update(edf_grid_ptr,target_pred_seq,chaser_init_point,chaser_init_vel,chaser_init_acc,chasing_knots);   
+77 
+78 }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBChaser\fP Wrapper::chaser"
+
+.SS "\fBObjectsHandler\fP Wrapper::objects_handler"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for auto_chaser from the source code\&.

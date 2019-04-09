@@ -1,0 +1,384 @@
+.TH "MainWindow" 3 "Tue Apr 9 2019" "Version 1.0.0" "auto_chaser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MainWindow \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mainwindow\&.h>\fP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMainWindow\fP (\fBQNode\fP *\fBqnode\fP, QWidget *parent=0)"
+.br
+.ti -1c
+.RI "\fB~MainWindow\fP ()"
+.br
+.ti -1c
+.RI "void \fBcloseEvent\fP (QCloseEvent *event)"
+.br
+.ti -1c
+.RI "void \fBReadSettings\fP ()"
+.br
+.ti -1c
+.RI "void \fBWriteSettings\fP ()"
+.br
+.in -1c
+.SS "Private Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBon_pushButton_chaser_clicked\fP ()"
+.br
+.ti -1c
+.RI "void \fBon_pushButton_ros_clicked\fP ()"
+.br
+.ti -1c
+.RI "void \fBon_pushButton_waypoint_clicked\fP ()"
+.br
+.ti -1c
+.RI "void \fBon_pushButton_trajectory_clicked\fP ()"
+.br
+.ti -1c
+.RI "void \fBon_pushButton_simulation_clicked\fP ()"
+.br
+.ti -1c
+.RI "void \fBon_pushButton_save_clicked\fP ()"
+.br
+.ti -1c
+.RI "void \fBon_pushButton_load_clicked\fP ()"
+.br
+.ti -1c
+.RI "void \fBon_pushButton_clear_clicked\fP ()"
+.br
+.ti -1c
+.RI "void \fBon_pushButton_undo_clicked\fP ()"
+.br
+.ti -1c
+.RI "void \fBon_pushButton_one_shot_clicked\fP ()"
+.br
+.ti -1c
+.RI "void \fBtextEdit_write\fP (QString)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBUi::MainWindow\fP * \fBui\fP"
+.br
+.ti -1c
+.RI "\fBQNode\fP * \fBqnode\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MainWindow::MainWindow (\fBQNode\fP * qnode, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+.nf
+5                                                    :
+6     QMainWindow(parent),qnode(qnode),
+7     ui(new Ui::MainWindow)
+8 {
+9     ui->setupUi(this);
+10 
+11 
+12     // intial configuration
+13 
+14     // logos
+15     string cd = __FILE__;
+16     cd\&.erase(cd\&.end()-14,cd\&.end());
+17     cout<<"current directory: "<<cd<<endl;
+18 
+19     QPixmap pix_larr((cd + "/resources/LARR\&.jpg")\&.c_str());
+20     int w = ui->label_larr->width();
+21     int h = ui->label_larr->height();
+22     ui->label_larr->setPixmap(pix_larr\&.scaled(w,h,Qt::KeepAspectRatio));
+23 
+24     QPixmap pix_larr2((cd +"/resources/maxresdefault\&.jpg")\&.c_str());
+25     int w2 = ui->label_larr2->width();
+26     int h2 = ui->label_larr2->height();
+27     ui->label_larr2->setPixmap(pix_larr2\&.scaled(w2,h2,Qt::KeepAspectRatio));
+28 
+29     // checkable 
+30     ui->pushButton_simulation->setStyleSheet("QPushButton:checked{background-color: rgba(100, 20, 20,50); }");
+31     
+32     QObject::connect(qnode, SIGNAL(rosShutdown()), this, SLOT(close()));
+33     QObject::connect(qnode,SIGNAL(writeOnBoard(QString)),this,SLOT(textEdit_write(QString)));
+34 
+35     // load settings 
+36     ReadSettings();
+37 
+38 }
+.fi
+.SS "MainWindow::~MainWindow ()"
+
+.PP
+.nf
+41 {
+42     delete ui;
+43 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void MainWindow::closeEvent (QCloseEvent * event)"
+
+.PP
+.nf
+234                                              {
+235 
+236         qnode->shutdown();
+237         WriteSettings();
+238         QMainWindow::closeEvent(event);
+239 }
+.fi
+.SS "void MainWindow::on_pushButton_chaser_clicked ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+.nf
+70                                              {
+71 
+72     if(ui->pushButton_chaser->isChecked()){      
+73         qnode->chaser_wrapper\&.objects_handler\&.is_insert_permit = true;  
+74         ui->textEdit_board->append("please select chaser init pose: /chaser_init_pose");
+75     }else{
+76         ui->textEdit_board->append("finishing chaser spawning selection");
+77         qnode->chaser_wrapper\&.objects_handler\&.is_insert_permit = false;  
+78 
+79     }
+80 
+81 }
+.fi
+.SS "void MainWindow::on_pushButton_clear_clicked ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+.nf
+181 {
+182     qnode->target_manager\&.clear_waypoint();
+183 }
+.fi
+.SS "void MainWindow::on_pushButton_load_clicked ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+.nf
+137 {
+138     // file read : queue wil be filled with these
+139 
+140     string filename = ui->lineEdit_target_trajectory->text()\&.toStdString();
+141     std::ifstream infile;
+142     infile\&.open(filename);
+143     if(infile\&.is_open())
+144         ui->textEdit_board->append(QString("pnts reading\&.\&."));
+145     else
+146     {
+147         ui->textEdit_board->append(QString("could not open file\&."));
+148         return;
+149     }
+150 
+151     std::vector<geometry_msgs::PoseStamped> queue_replace;
+152 
+153     while (! infile\&.eof()){
+154         std::string line;
+155         getline(infile, line); // if no delimiter given, new line is that
+156         // std::cout<<line<<std::endl;
+157         std::stringstream stream(line);
+158         std::string val;
+159         int xyz_idx = 0;
+160         geometry_msgs::PoseStamped wpnt;
+161 
+162         while(! stream\&.eof()) {
+163             getline(stream, val, ',');
+164             if(xyz_idx == 0)
+165                 wpnt\&.pose\&.position\&.x = atof(val\&.c_str());
+166             else if(xyz_idx == 1)
+167                 wpnt\&.pose\&.position\&.y = atof(val\&.c_str());
+168             else
+169                 wpnt\&.pose\&.position\&.z = atof(val\&.c_str());
+170             xyz_idx ++;
+171         }
+172         queue_replace\&.push_back(wpnt);
+173         // std::cout<< wpnt\&.pose\&.position\&.x <<" , "<< wpnt\&.pose\&.position\&.y <<" , "<<wpnt\&.pose\&.position\&.z<<std::endl;
+174     }
+175 
+176     queue_replace\&.pop_back();
+177     qnode->target_manager\&.queue_file_load(queue_replace);
+178 }
+.fi
+.SS "void MainWindow::on_pushButton_one_shot_clicked ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+.nf
+190                                                {
+191     ui->textEdit_board->append("one shot simulatoin requested\&.");
+192     double tf = atoi(ui->lineEdit_tf->text()\&.toStdString()\&.c_str());    
+193     if (qnode->trigger_one_shot(tf))
+194         ui->textEdit_board->append("chasing path obtained");
+195     else 
+196         ui->textEdit_board->append("chasing failed");    
+197 };
+.fi
+.SS "void MainWindow::on_pushButton_ros_clicked ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+.nf
+46 {
+47     if(qnode->on_init()){
+48         ui->textEdit_board->append("ros connected\&.");
+49         qnode->is_connected = true;
+50 
+51     }else{
+52         ui->textEdit_board->append("failed\&. retry");
+53     }
+54 }
+.fi
+.SS "void MainWindow::on_pushButton_save_clicked ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+.nf
+115 {
+116 
+117     // file write
+118     std::ofstream wnpt_file;
+119     string filename = ui->lineEdit_target_trajectory->text()\&.toStdString();
+120     wnpt_file\&.open(filename);
+121 
+122     if(wnpt_file\&.is_open()){
+123         for(auto it = qnode->target_manager\&.queue\&.begin();it<qnode->target_manager\&.queue\&.end();it++){
+124             wnpt_file<<std::to_string(it->pose\&.position\&.x)<<","<<std::to_string(it->pose\&.position\&.y)<<","<<std::to_string(it->pose\&.position\&.z)<<"\n";
+125         }
+126         wnpt_file\&.close();
+127 
+128         
+129         ui->textEdit_board->append(QString((string("to ") + GetCurrentWorkingDir()+"/" + filename + string(", written"))\&.data()));
+130 
+131     }else
+132         ui->textEdit_board->append(QString("file not written\&."));
+133 
+134 }
+.fi
+.SS "void MainWindow::on_pushButton_simulation_clicked ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+.nf
+94 {
+95     if(ui->pushButton_simulation->isChecked()){ 
+96 
+97         if(qnode->chaser_wrapper\&.objects_handler\&.is_chaser_spawned and qnode->target_manager\&.is_path){
+98             ui->textEdit_board->append("move target\&.\&.");
+99             // simulation end time 
+100             qnode->simulation_end_time = atof(ui->lineEdit_tf->text()\&.toStdString()\&.c_str());
+101             qnode->is_in_session = true;
+102             qnode->button_click_time = ros::Time::now();        
+103         }
+104         else{
+105             ui->textEdit_board->append("target path not obtained or no chaser spawned\&.");
+106         }
+107     }else{
+108         ui->textEdit_board->append("stop target\&.");
+109         qnode->is_in_session = false;
+110         qnode->previous_elapsed = (ros::Time::now() - qnode->button_click_time)\&.toSec() + qnode->previous_elapsed; // total elasped time
+111     }
+112 }
+.fi
+.SS "void MainWindow::on_pushButton_trajectory_clicked ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+.nf
+84 {
+85     
+86     double tf = atof(ui->lineEdit_tf->text()\&.toStdString()\&.c_str());
+87     if(qnode->target_manager\&.global_path_generate(tf))
+88         textEdit_write("target trajectory obtainted");
+89     else
+90         textEdit_write("target trajectory failed");    
+91 }
+.fi
+.SS "void MainWindow::on_pushButton_undo_clicked ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+.nf
+186 {
+187     qnode->target_manager\&.pop_waypoint();
+188 };
+.fi
+.SS "void MainWindow::on_pushButton_waypoint_clicked ()\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+.nf
+57 {
+58     if(ui->pushButton_waypoint->isChecked()){        
+59         ui->textEdit_board->append("please select waypoints : /target_waypoints ");
+60         qnode->target_manager\&.is_insert_permit = true;
+61 
+62     }else{
+63 
+64         ui->textEdit_board->append("finishing waypoints selection");
+65         qnode->target_manager\&.is_insert_permit = false;
+66     }
+67 
+68 }
+.fi
+.SS "void MainWindow::ReadSettings ()"
+
+.PP
+.nf
+204                              {
+205     QSettings settings("auto_chaser", qnode->nodeName()\&.c_str());
+206 
+207     // setting names    
+208     QString filename_logging = settings\&.value("filename_logging",QString("path_saved\&.txt"))\&.toString();
+209     QString filename_waypoints = settings\&.value("filename_waypoints",QString("path_saved\&.txt"))\&.toString();
+210     QString simulation_tf = settings\&.value("tf", QString("20"))\&.toString();
+211 
+212     
+213     // fill with previous settings 
+214     ui->lineEdit_logging_dir->setText(filename_logging);
+215     ui->lineEdit_tf->setText(simulation_tf);
+216     ui->lineEdit_target_trajectory->setText(filename_waypoints);
+217     
+218 }
+.fi
+.SS "void MainWindow::textEdit_write (QString line)\fC [private]\fP, \fC [slot]\fP"
+
+.PP
+.nf
+199                                            {    
+200     ui->textEdit_board->append(line);
+201 };
+.fi
+.SS "void MainWindow::WriteSettings ()"
+
+.PP
+.nf
+220                               {
+221 
+222     QSettings settings("auto_chaser", qnode->nodeName()\&.c_str());
+223     
+224     settings\&.setValue("geometry", geometry());
+225     settings\&.setValue("windowState", saveState());
+226 
+227     settings\&.setValue("filename_logging",ui->lineEdit_logging_dir->text());
+228     settings\&.setValue("tf",ui->lineEdit_tf->text());
+229     settings\&.setValue("filename_waypoints",ui->lineEdit_target_trajectory->text());
+230 
+231 
+232 }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBQNode\fP* MainWindow::qnode\fC [private]\fP"
+
+.SS "\fBUi::MainWindow\fP* MainWindow::ui\fC [private]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for auto_chaser from the source code\&.

@@ -1,0 +1,418 @@
+.TH "_setup_util" 3 "Tue Apr 9 2019" "Version 1.0.0" "auto_chaser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_setup_util \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "def \fBrollback_env_variables\fP (\fBenviron\fP, env_var_subfolders)"
+.br
+.ti -1c
+.RI "def \fB_rollback_env_variable\fP (\fBenviron\fP, name, subfolders)"
+.br
+.ti -1c
+.RI "def \fB_get_workspaces\fP (\fBenviron\fP, include_fuerte=False, include_non_existing=False)"
+.br
+.ti -1c
+.RI "def \fBprepend_env_variables\fP (\fBenviron\fP, env_var_subfolders, workspaces)"
+.br
+.ti -1c
+.RI "def \fB_prefix_env_variable\fP (\fBenviron\fP, name, paths, subfolders)"
+.br
+.ti -1c
+.RI "def \fBassignment\fP (key, value)"
+.br
+.ti -1c
+.RI "def \fBcomment\fP (msg)"
+.br
+.ti -1c
+.RI "def \fBprepend\fP (\fBenviron\fP, key, prefix)"
+.br
+.ti -1c
+.RI "def \fBfind_env_hooks\fP (\fBenviron\fP, cmake_prefix_path)"
+.br
+.ti -1c
+.RI "def \fB_parse_arguments\fP (\fBargs\fP=None)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "string \fBCATKIN_MARKER_FILE\fP = '\&.catkin'"
+.br
+.ti -1c
+.RI "\fBsystem\fP = platform\&.system()"
+.br
+.ti -1c
+.RI "tuple \fBIS_DARWIN\fP = (\fBsystem\fP == 'Darwin')"
+.br
+.ti -1c
+.RI "tuple \fBIS_WINDOWS\fP = (\fBsystem\fP == 'Windows')"
+.br
+.ti -1c
+.RI "dictionary \fBENV_VAR_SUBFOLDERS\fP"
+.br
+.ti -1c
+.RI "\fBargs\fP = \fB_parse_arguments\fP()"
+.br
+.ti -1c
+.RI "\fBe\fP"
+.br
+.ti -1c
+.RI "\fBfile\fP"
+.br
+.ti -1c
+.RI "string \fBCMAKE_PREFIX_PATH\fP = '/home/jbs/catkin_ws/devel;/opt/ros/kinetic'"
+.br
+.ti -1c
+.RI "\fBbase_path\fP = os\&.path\&.dirname(__file__)"
+.br
+.ti -1c
+.RI "\fBenviron\fP = dict(os\&.environ)"
+.br
+.ti -1c
+.RI "list \fBlines\fP = []"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "def _setup_util\&._get_workspaces ( environ,  include_fuerte = \fCFalse\fP,  include_non_existing = \fCFalse\fP)\fC [private]\fP"
+
+.PP
+.nf
+Based on CMAKE_PREFIX_PATH return all catkin workspaces.
+
+:param include_fuerte: The flag if paths starting with '/opt/ros/fuerte' should be considered workspaces, ``bool``
+
+.fi
+.PP
+ 
+.PP
+.nf
+114 def _get_workspaces(environ, include_fuerte=False, include_non_existing=False):
+115     '''
+116     Based on CMAKE_PREFIX_PATH return all catkin workspaces\&.
+117 
+118     :param include_fuerte: The flag if paths starting with '/opt/ros/fuerte' should be considered workspaces, ``bool``
+119     '''
+120     # get all cmake prefix paths
+121     env_name = 'CMAKE_PREFIX_PATH'
+122     value = environ[env_name] if env_name in environ else ''
+123     paths = [path for path in value\&.split(os\&.pathsep) if path]
+124     # remove non-workspace paths
+125     workspaces = [path for path in paths if os\&.path\&.isfile(os\&.path\&.join(path, CATKIN_MARKER_FILE)) or (include_fuerte and path\&.startswith('/opt/ros/fuerte')) or (include_non_existing and not os\&.path\&.exists(path))]
+126     return workspaces
+127 
+128 
+.fi
+.SS "def _setup_util\&._parse_arguments ( args = \fCNone\fP)\fC [private]\fP"
+
+.PP
+.nf
+250 def _parse_arguments(args=None):
+251     parser = argparse\&.ArgumentParser(description='Generates code blocks for the setup\&.SHELL script\&.')
+252     parser\&.add_argument('--extend', action='store_true', help='Skip unsetting previous environment variables to extend context')
+253     return parser\&.parse_known_args(args=args)[0]
+254 
+255 
+.fi
+.SS "def _setup_util\&._prefix_env_variable ( environ,  name,  paths,  subfolders)\fC [private]\fP"
+
+.PP
+.nf
+Return the prefix to prepend to the environment variable NAME, adding any path in NEW_PATHS_STR without creating duplicate or empty items.
+
+.fi
+.PP
+ 
+.PP
+.nf
+149 def _prefix_env_variable(environ, name, paths, subfolders):
+150     '''
+151     Return the prefix to prepend to the environment variable NAME, adding any path in NEW_PATHS_STR without creating duplicate or empty items\&.
+152     '''
+153     value = environ[name] if name in environ else ''
+154     environ_paths = [path for path in value\&.split(os\&.pathsep) if path]
+155     checked_paths = []
+156     for path in paths:
+157         if not isinstance(subfolders, list):
+158             subfolders = [subfolders]
+159         for subfolder in subfolders:
+160             path_tmp = path
+161             if subfolder:
+162                 path_tmp = os\&.path\&.join(path_tmp, subfolder)
+163             # skip nonexistent paths
+164             if not os\&.path\&.exists(path_tmp):
+165                 continue
+166             # exclude any path already in env and any path we already added
+167             if path_tmp not in environ_paths and path_tmp not in checked_paths:
+168                 checked_paths\&.append(path_tmp)
+169     prefix_str = os\&.pathsep\&.join(checked_paths)
+170     if prefix_str != '' and environ_paths:
+171         prefix_str += os\&.pathsep
+172     return prefix_str
+173 
+174 
+.fi
+.SS "def _setup_util\&._rollback_env_variable ( environ,  name,  subfolders)\fC [private]\fP"
+
+.PP
+.nf
+For each catkin workspace in CMAKE_PREFIX_PATH remove the first entry from env[NAME] matching workspace + subfolder.
+
+:param subfolders: list of str '' or subfoldername that may start with '/'
+:returns: the updated value of the environment variable.
+
+.fi
+.PP
+ 
+.PP
+.nf
+83 def _rollback_env_variable(environ, name, subfolders):
+84     '''
+85     For each catkin workspace in CMAKE_PREFIX_PATH remove the first entry from env[NAME] matching workspace + subfolder\&.
+86 
+87     :param subfolders: list of str '' or subfoldername that may start with '/'
+88     :returns: the updated value of the environment variable\&.
+89     '''
+90     value = environ[name] if name in environ else ''
+91     env_paths = [path for path in value\&.split(os\&.pathsep) if path]
+92     value_modified = False
+93     for subfolder in subfolders:
+94         if subfolder:
+95             if subfolder\&.startswith(os\&.path\&.sep) or (os\&.path\&.altsep and subfolder\&.startswith(os\&.path\&.altsep)):
+96                 subfolder = subfolder[1:]
+97             if subfolder\&.endswith(os\&.path\&.sep) or (os\&.path\&.altsep and subfolder\&.endswith(os\&.path\&.altsep)):
+98                 subfolder = subfolder[:-1]
+99         for ws_path in _get_workspaces(environ, include_fuerte=True, include_non_existing=True):
+100             path_to_find = os\&.path\&.join(ws_path, subfolder) if subfolder else ws_path
+101             path_to_remove = None
+102             for env_path in env_paths:
+103                 env_path_clean = env_path[:-1] if env_path and env_path[-1] in [os\&.path\&.sep, os\&.path\&.altsep] else env_path
+104                 if env_path_clean == path_to_find:
+105                     path_to_remove = env_path
+106                     break
+107             if path_to_remove:
+108                 env_paths\&.remove(path_to_remove)
+109                 value_modified = True
+110     new_value = os\&.pathsep\&.join(env_paths)
+111     return new_value if value_modified else None
+112 
+113 
+.fi
+.SS "def _setup_util\&.assignment ( key,  value)"
+
+.PP
+.nf
+175 def assignment(key, value):
+176     if not IS_WINDOWS:
+177         return 'export %s="%s"' % (key, value)
+178     else:
+179         return 'set %s=%s' % (key, value)
+180 
+181 
+.fi
+.SS "def _setup_util\&.comment ( msg)"
+
+.PP
+.nf
+182 def comment(msg):
+183     if not IS_WINDOWS:
+184         return '# %s' % msg
+185     else:
+186         return 'REM %s' % msg
+187 
+188 
+.fi
+.SS "def _setup_util\&.find_env_hooks ( environ,  cmake_prefix_path)"
+
+.PP
+.nf
+Generate shell code with found environment hooks
+for the all workspaces.
+
+.fi
+.PP
+ 
+.PP
+.nf
+198 def find_env_hooks(environ, cmake_prefix_path):
+199     '''
+200     Generate shell code with found environment hooks
+201     for the all workspaces\&.
+202     '''
+203     lines = []
+204     lines\&.append(comment('found environment hooks in workspaces'))
+205 
+206     generic_env_hooks = []
+207     generic_env_hooks_workspace = []
+208     specific_env_hooks = []
+209     specific_env_hooks_workspace = []
+210     generic_env_hooks_by_filename = {}
+211     specific_env_hooks_by_filename = {}
+212     generic_env_hook_ext = 'bat' if IS_WINDOWS else 'sh'
+213     specific_env_hook_ext = environ['CATKIN_SHELL'] if not IS_WINDOWS and 'CATKIN_SHELL' in environ and environ['CATKIN_SHELL'] else None
+214     # remove non-workspace paths
+215     workspaces = [path for path in cmake_prefix_path\&.split(os\&.pathsep) if path and os\&.path\&.isfile(os\&.path\&.join(path, CATKIN_MARKER_FILE))]
+216     for workspace in reversed(workspaces):
+217         env_hook_dir = os\&.path\&.join(workspace, 'etc', 'catkin', 'profile\&.d')
+218         if os\&.path\&.isdir(env_hook_dir):
+219             for filename in sorted(os\&.listdir(env_hook_dir)):
+220                 if filename\&.endswith('\&.%s' % generic_env_hook_ext):
+221                     # remove previous env hook with same name if present
+222                     if filename in generic_env_hooks_by_filename:
+223                         i = generic_env_hooks\&.index(generic_env_hooks_by_filename[filename])
+224                         generic_env_hooks\&.pop(i)
+225                         generic_env_hooks_workspace\&.pop(i)
+226                     # append env hook
+227                     generic_env_hooks\&.append(os\&.path\&.join(env_hook_dir, filename))
+228                     generic_env_hooks_workspace\&.append(workspace)
+229                     generic_env_hooks_by_filename[filename] = generic_env_hooks[-1]
+230                 elif specific_env_hook_ext is not None and filename\&.endswith('\&.%s' % specific_env_hook_ext):
+231                     # remove previous env hook with same name if present
+232                     if filename in specific_env_hooks_by_filename:
+233                         i = specific_env_hooks\&.index(specific_env_hooks_by_filename[filename])
+234                         specific_env_hooks\&.pop(i)
+235                         specific_env_hooks_workspace\&.pop(i)
+236                     # append env hook
+237                     specific_env_hooks\&.append(os\&.path\&.join(env_hook_dir, filename))
+238                     specific_env_hooks_workspace\&.append(workspace)
+239                     specific_env_hooks_by_filename[filename] = specific_env_hooks[-1]
+240     env_hooks = generic_env_hooks + specific_env_hooks
+241     env_hooks_workspace = generic_env_hooks_workspace + specific_env_hooks_workspace
+242     count = len(env_hooks)
+243     lines\&.append(assignment('_CATKIN_ENVIRONMENT_HOOKS_COUNT', count))
+244     for i in range(count):
+245         lines\&.append(assignment('_CATKIN_ENVIRONMENT_HOOKS_%d' % i, env_hooks[i]))
+246         lines\&.append(assignment('_CATKIN_ENVIRONMENT_HOOKS_%d_WORKSPACE' % i, env_hooks_workspace[i]))
+247     return lines
+248 
+249 
+.fi
+.SS "def _setup_util\&.prepend ( environ,  key,  prefix)"
+
+.PP
+.nf
+189 def prepend(environ, key, prefix):
+190     if key not in environ or not environ[key]:
+191         return assignment(key, prefix)
+192     if not IS_WINDOWS:
+193         return 'export %s="%s$%s"' % (key, prefix, key)
+194     else:
+195         return 'set %s=%s%%%s%%' % (key, prefix, key)
+196 
+197 
+.fi
+.SS "def _setup_util\&.prepend_env_variables ( environ,  env_var_subfolders,  workspaces)"
+
+.PP
+.nf
+Generate shell code to prepend environment variables
+for the all workspaces.
+
+.fi
+.PP
+ 
+.PP
+.nf
+129 def prepend_env_variables(environ, env_var_subfolders, workspaces):
+130     '''
+131     Generate shell code to prepend environment variables
+132     for the all workspaces\&.
+133     '''
+134     lines = []
+135     lines\&.append(comment('prepend folders of workspaces to environment variables'))
+136 
+137     paths = [path for path in workspaces\&.split(os\&.pathsep) if path]
+138 
+139     prefix = _prefix_env_variable(environ, 'CMAKE_PREFIX_PATH', paths, '')
+140     lines\&.append(prepend(environ, 'CMAKE_PREFIX_PATH', prefix))
+141 
+142     for key in sorted([key for key in env_var_subfolders\&.keys() if key != 'CMAKE_PREFIX_PATH']):
+143         subfolder = env_var_subfolders[key]
+144         prefix = _prefix_env_variable(environ, key, paths, subfolder)
+145         lines\&.append(prepend(environ, key, prefix))
+146     return lines
+147 
+148 
+.fi
+.SS "def _setup_util\&.rollback_env_variables ( environ,  env_var_subfolders)"
+
+.PP
+.nf
+Generate shell code to reset environment variables
+by unrolling modifications based on all workspaces in CMAKE_PREFIX_PATH.
+This does not cover modifications performed by environment hooks.
+
+.fi
+.PP
+ 
+.PP
+.nf
+62 def rollback_env_variables(environ, env_var_subfolders):
+63     '''
+64     Generate shell code to reset environment variables
+65     by unrolling modifications based on all workspaces in CMAKE_PREFIX_PATH\&.
+66     This does not cover modifications performed by environment hooks\&.
+67     '''
+68     lines = []
+69     unmodified_environ = copy\&.copy(environ)
+70     for key in sorted(env_var_subfolders\&.keys()):
+71         subfolders = env_var_subfolders[key]
+72         if not isinstance(subfolders, list):
+73             subfolders = [subfolders]
+74         value = _rollback_env_variable(unmodified_environ, key, subfolders)
+75         if value is not None:
+76             environ[key] = value
+77             lines\&.append(assignment(key, value))
+78     if lines:
+79         lines\&.insert(0, comment('reset environment variables by unrolling modifications based on all workspaces in CMAKE_PREFIX_PATH'))
+80     return lines
+81 
+82 
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "_setup_util\&.args = \fB_parse_arguments\fP()"
+
+.SS "_setup_util\&.base_path = os\&.path\&.dirname(__file__)"
+
+.SS "string _setup_util\&.CATKIN_MARKER_FILE = '\&.catkin'"
+
+.SS "string _setup_util\&.CMAKE_PREFIX_PATH = '/home/jbs/catkin_ws/devel;/opt/ros/kinetic'"
+
+.SS "_setup_util\&.e"
+
+.SS "dictionary _setup_util\&.ENV_VAR_SUBFOLDERS"
+\fBInitial value:\fP
+.PP
+.nf
+1 = {
+2     'CMAKE_PREFIX_PATH': '',
+3     'LD_LIBRARY_PATH' if not IS_DARWIN else 'DYLD_LIBRARY_PATH': ['lib', os\&.path\&.join('lib', 'x86_64-linux-gnu')],
+4     'PATH': 'bin',
+5     'PKG_CONFIG_PATH': [os\&.path\&.join('lib', 'pkgconfig'), os\&.path\&.join('lib', 'x86_64-linux-gnu', 'pkgconfig')],
+6     'PYTHONPATH': 'lib/python2\&.7/dist-packages',
+7 }
+.fi
+.SS "_setup_util\&.environ = dict(os\&.environ)"
+
+.SS "_setup_util\&.file"
+
+.SS "tuple _setup_util\&.IS_DARWIN = (\fBsystem\fP == 'Darwin')"
+
+.SS "tuple _setup_util\&.IS_WINDOWS = (\fBsystem\fP == 'Windows')"
+
+.SS "list _setup_util\&.lines = []"
+
+.SS "_setup_util\&.system = platform\&.system()"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for auto_chaser from the source code\&.

@@ -6,9 +6,11 @@
 *This package is devoted to generate an online chasing trajectory in response to the future movement of a moving target only for a short horizon. It assumes that the future trajectory of target is updated with a given time interval and priori map is given in the form of Octomap*  
 
 # 1 Overview 
-
+## 1.1 Algorithm
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/overview.png"> 
 
+## 1.2 File structure 
+[doxygen] (/doc/html/index.html)
 
 # 2 Installation 
 

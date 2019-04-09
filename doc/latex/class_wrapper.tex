@@ -1,0 +1,190 @@
+\hypertarget{class_wrapper}{}\section{Wrapper Class Reference}
+\label{class_wrapper}\index{Wrapper@{Wrapper}}
+
+
+{\ttfamily \#include $<$Wrapper.\+h$>$}
+
+
+
+Collaboration diagram for Wrapper\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_wrapper__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_wrapper_aa40ce9fcba8ab60bf01bcb0913144b4a}{Wrapper} ()
+\item 
+void \hyperlink{class_wrapper_af336781e7d75d525e7b152366a0e0d93}{init} (ros\+::\+Node\+Handle nh)
+\item 
+void \hyperlink{class_wrapper_a009ee5c325926f92df42319d5469a376}{session} (double t)
+\item 
+bool \hyperlink{class_wrapper_a21a0e115ea80e053e4f2defd1362b92f}{trigger\+\_\+chasing} (Time\+Series chasing\+\_\+knots)
+\item 
+bool \hyperlink{class_wrapper_a2da6448c77dd4edb054de4130b1fc883}{trigger\+\_\+chasing} (vector$<$ Point $>$ target\+\_\+seq, Time\+Series chasing\+\_\+knots)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_objects_handler}{Objects\+Handler} \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\+\_\+handler}
+\item 
+\hyperlink{class_chaser}{Chaser} \hyperlink{class_wrapper_a750309ad3470e20a80e9d72b0d7e34cb}{chaser}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Wrapper@{Wrapper}!Wrapper@{Wrapper}}
+\index{Wrapper@{Wrapper}!Wrapper@{Wrapper}}
+\subsubsection[{\texorpdfstring{Wrapper()}{Wrapper()}}]{\setlength{\rightskip}{0pt plus 5cm}Wrapper\+::\+Wrapper (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_wrapper_aa40ce9fcba8ab60bf01bcb0913144b4a}{}\label{class_wrapper_aa40ce9fcba8ab60bf01bcb0913144b4a}
+
+\begin{DoxyCode}
+3 \{\};
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\index{Wrapper@{Wrapper}!init@{init}}
+\index{init@{init}!Wrapper@{Wrapper}}
+\subsubsection[{\texorpdfstring{init(ros\+::\+Node\+Handle nh)}{init(ros::NodeHandle nh)}}]{\setlength{\rightskip}{0pt plus 5cm}void Wrapper\+::init (
+\begin{DoxyParamCaption}
+\item[{ros\+::\+Node\+Handle}]{nh}
+\end{DoxyParamCaption}
+)}\hypertarget{class_wrapper_af336781e7d75d525e7b152366a0e0d93}{}\label{class_wrapper_af336781e7d75d525e7b152366a0e0d93}
+
+\begin{DoxyCode}
+5                                    \{
+6     \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.\hyperlink{class_objects_handler_a1ac7fcad5fa6033c2435ac49f2f9dff5}{init}(nh);  
+7     \hyperlink{namespacechaser}{chaser}.init(nh);      
+8 \};
+\end{DoxyCode}
+\index{Wrapper@{Wrapper}!session@{session}}
+\index{session@{session}!Wrapper@{Wrapper}}
+\subsubsection[{\texorpdfstring{session(double t)}{session(double t)}}]{\setlength{\rightskip}{0pt plus 5cm}void Wrapper\+::session (
+\begin{DoxyParamCaption}
+\item[{double}]{t}
+\end{DoxyParamCaption}
+)}\hypertarget{class_wrapper_a009ee5c325926f92df42319d5469a376}{}\label{class_wrapper_a009ee5c325926f92df42319d5469a376}
+
+\begin{DoxyCode}
+11                              \{
+12 
+13     \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.\hyperlink{class_objects_handler_a16cf7fca3059a03da4ec795f2af7fb74}{publish}();
+14     \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.\hyperlink{class_objects_handler_a6896e4f9863bd1a4fbc8498d0cb20f09}{tf\_update}();    
+15     \hyperlink{namespacechaser}{chaser}.session(t);
+16 \}
+\end{DoxyCode}
+\index{Wrapper@{Wrapper}!trigger\+\_\+chasing@{trigger\+\_\+chasing}}
+\index{trigger\+\_\+chasing@{trigger\+\_\+chasing}!Wrapper@{Wrapper}}
+\subsubsection[{\texorpdfstring{trigger\+\_\+chasing(\+Time\+Series chasing\+\_\+knots)}{trigger_chasing(TimeSeries chasing_knots)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Wrapper\+::trigger\+\_\+chasing (
+\begin{DoxyParamCaption}
+\item[{Time\+Series}]{chasing\+\_\+knots}
+\end{DoxyParamCaption}
+)}\hypertarget{class_wrapper_a21a0e115ea80e053e4f2defd1362b92f}{}\label{class_wrapper_a21a0e115ea80e053e4f2defd1362b92f}
+
+\begin{DoxyCode}
+19                                                      \{
+20     
+21 
+22     \textcolor{keywordtype}{double} t\_planning\_start = chasing\_knots(0);
+23 
+24     vector<Point>  target\_pred\_seq = \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.
+      \hyperlink{class_objects_handler_a4793f1ed257c849b28f0386f635ee714}{get\_prediction\_seq}();
+25     \hyperlink{struct_grid_field}{GridField} * edf\_grid\_ptr = \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.
+      \hyperlink{class_objects_handler_afe849882d1feeef8316a45632381da54}{get\_edf\_grid\_ptr}();
+26     
+27 
+28     Point chaser\_init\_point;
+29     Twist chaser\_init\_vel; 
+30     Twist chaser\_init\_acc;
+31 
+32     \textcolor{keywordflow}{if}(not \hyperlink{namespacechaser}{chaser}.is\_complete\_chasing\_path)\{    
+33         chaser\_init\_point = \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.\hyperlink{class_objects_handler_a4ac7a7bb712575c2ff6ffbf37144cf56}{get\_chaser\_pose}().pose.position; 
+         
+34         chaser\_init\_vel = \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.\hyperlink{class_objects_handler_aa1af309b0e964ccb6df8dede045fa32b}{get\_chaser\_velocity}();
+35         chaser\_init\_acc = \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.\hyperlink{class_objects_handler_a41d48832b07a4d4276147a99dd1d31bc}{get\_chaser\_acceleration}(); 
+        
+36     \}
+37     \textcolor{keywordflow}{else}\{
+38         chaser\_init\_point = \hyperlink{namespacechaser}{chaser}.eval\_point(t\_planning\_start);
+39         chaser\_init\_vel = \hyperlink{namespacechaser}{chaser}.eval\_velocity(t\_planning\_start);
+40         chaser\_init\_acc = \hyperlink{namespacechaser}{chaser}.eval\_acceleration(t\_planning\_start);
+41     \}
+42 
+43     \textcolor{comment}{// chasing policy update }
+44     \hyperlink{namespacechaser}{chaser}.chase\_update(edf\_grid\_ptr,target\_pred\_seq,chaser\_init\_point,chaser\_init\_vel,
+      chaser\_init\_acc,chasing\_knots);   
+45 \}
+\end{DoxyCode}
+\index{Wrapper@{Wrapper}!trigger\+\_\+chasing@{trigger\+\_\+chasing}}
+\index{trigger\+\_\+chasing@{trigger\+\_\+chasing}!Wrapper@{Wrapper}}
+\subsubsection[{\texorpdfstring{trigger\+\_\+chasing(vector$<$ Point $>$ target\+\_\+seq, Time\+Series chasing\+\_\+knots)}{trigger_chasing(vector< Point > target_seq, TimeSeries chasing_knots)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Wrapper\+::trigger\+\_\+chasing (
+\begin{DoxyParamCaption}
+\item[{vector$<$ Point $>$}]{target\+\_\+seq, }
+\item[{Time\+Series}]{chasing\+\_\+knots}
+\end{DoxyParamCaption}
+)}\hypertarget{class_wrapper_a2da6448c77dd4edb054de4130b1fc883}{}\label{class_wrapper_a2da6448c77dd4edb054de4130b1fc883}
+
+\begin{DoxyCode}
+48                                                                                    \{
+49   
+50 
+51 
+52     \textcolor{keywordtype}{double} t\_planning\_start = chasing\_knots(0);
+53 
+54     \hyperlink{struct_grid_field}{GridField} * edf\_grid\_ptr = \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.
+      \hyperlink{class_objects_handler_afe849882d1feeef8316a45632381da54}{get\_edf\_grid\_ptr}();
+55 
+56     Point chaser\_init\_point;
+57     Twist chaser\_init\_vel; 
+58     Twist chaser\_init\_acc;
+59 
+60     \textcolor{keywordflow}{if}(not \hyperlink{namespacechaser}{chaser}.is\_complete\_chasing\_path)\{    
+61         chaser\_init\_point = \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.\hyperlink{class_objects_handler_a4ac7a7bb712575c2ff6ffbf37144cf56}{get\_chaser\_pose}().pose.position; 
+         
+62         chaser\_init\_vel = \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.\hyperlink{class_objects_handler_aa1af309b0e964ccb6df8dede045fa32b}{get\_chaser\_velocity}();
+63         chaser\_init\_acc = \hyperlink{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{objects\_handler}.\hyperlink{class_objects_handler_a41d48832b07a4d4276147a99dd1d31bc}{get\_chaser\_acceleration}(); 
+        
+64     \}
+65     \textcolor{keywordflow}{else}\{
+66         chaser\_init\_point = \hyperlink{namespacechaser}{chaser}.eval\_point(t\_planning\_start);
+67         chaser\_init\_vel = \hyperlink{namespacechaser}{chaser}.eval\_velocity(t\_planning\_start);
+68         chaser\_init\_acc = \hyperlink{namespacechaser}{chaser}.eval\_acceleration(t\_planning\_start);
+69     \}
+70 
+71     \textcolor{comment}{// chasing policy update }
+72     \hyperlink{namespacechaser}{chaser}.chase\_update(edf\_grid\_ptr,target\_pred\_seq,chaser\_init\_point,chaser\_init\_vel,
+      chaser\_init\_acc,chasing\_knots);   
+73 
+74 
+75     \textcolor{comment}{// chasing policy update }
+76     \textcolor{keywordflow}{return} \hyperlink{namespacechaser}{chaser}.chase\_update(edf\_grid\_ptr,target\_pred\_seq,chaser\_init\_point,chaser\_init\_vel,
+      chaser\_init\_acc,chasing\_knots);   
+77 
+78 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\index{Wrapper@{Wrapper}!chaser@{chaser}}
+\index{chaser@{chaser}!Wrapper@{Wrapper}}
+\subsubsection[{\texorpdfstring{chaser}{chaser}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Chaser} Wrapper\+::chaser}\hypertarget{class_wrapper_a750309ad3470e20a80e9d72b0d7e34cb}{}\label{class_wrapper_a750309ad3470e20a80e9d72b0d7e34cb}
+\index{Wrapper@{Wrapper}!objects\+\_\+handler@{objects\+\_\+handler}}
+\index{objects\+\_\+handler@{objects\+\_\+handler}!Wrapper@{Wrapper}}
+\subsubsection[{\texorpdfstring{objects\+\_\+handler}{objects_handler}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Objects\+Handler} Wrapper\+::objects\+\_\+handler}\hypertarget{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}{}\label{class_wrapper_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/auto\+\_\+chaser/\hyperlink{_wrapper_8h}{Wrapper.\+h}\item 
+src/auto\+\_\+chaser/\hyperlink{_wrapper_8cpp}{Wrapper.\+cpp}\end{DoxyCompactItemize}

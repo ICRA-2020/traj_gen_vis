@@ -1,0 +1,149 @@
+.TH "SmoothPlanner" 3 "Tue Apr 9 2019" "Version 1.0.0" "auto_chaser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SmoothPlanner \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SmoothPlanner\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSmoothPlanner\fP ()"
+.br
+.ti -1c
+.RI "void \fBinit\fP (ros::NodeHandle nh)"
+.br
+.ti -1c
+.RI "void \fBtraj_gen\fP (TimeSeries knots, nav_msgs::Path waypoints, Twist v0, Twist a0)"
+.br
+.ti -1c
+.RI "void \fBpublish\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "PathPlanner \fBplanner\fP"
+.br
+.ti -1c
+.RI "TrajGenOpts \fBoption\fP"
+.br
+.ti -1c
+.RI "ros::Publisher \fBpub_path\fP"
+.br
+.ti -1c
+.RI "ros::Publisher \fBpub_chasing_corridor\fP"
+.br
+.ti -1c
+.RI "ros::Publisher \fBpub_knots\fP"
+.br
+.ti -1c
+.RI "string \fBworld_frame_id\fP"
+.br
+.ti -1c
+.RI "visualization_msgs::Marker \fBchasing_corridor\fP"
+.br
+.ti -1c
+.RI "nav_msgs::Path \fBchasing_smooth_path\fP"
+.br
+.ti -1c
+.RI "visualization_msgs::Marker \fBmarker_knots\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "SmoothPlanner::SmoothPlanner ()"
+
+.PP
+.nf
+3 {}
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void SmoothPlanner::init (ros::NodeHandle nh)"
+
+.PP
+.nf
+5                                         {
+6 
+7     // paramter parsing for option 
+8     nh\&.param<string>("world_frame_id",world_frame_id,"/world");
+9     nh\&.param<double>("chaser/safe_corridor_r",option\&.safe_r,0\&.5);
+10     nh\&.param<int>("chaser/N_safe_pnts",option\&.N_safe_pnts,3);
+11     nh\&.param<int>("chaser/objective_derivative",option\&.objective_derivative,3);
+12     nh\&.param<bool>("chaser/is_multi_corridor",option\&.is_multi_corridor,true);
+13     nh\&.param<bool>("chaser/is_waypoint_soft",option\&.is_waypoint_soft,true);
+14     nh\&.param<double>("chaser/w_deviation",option\&.w_d,0\&.5);
+15     nh\&.param<int>("chaser/poly_order",option\&.poly_order,6);
+16     nh\&.param<bool>("chaser/verbose",option\&.verbose,true);
+17 
+18     pub_chasing_corridor = nh\&.advertise<visualization_msgs::Marker>("chasing_corridor",1); 
+19     pub_path = nh\&.advertise<nav_msgs::Path>("smooth_path",1);
+20     pub_knots = nh\&.advertise<visualization_msgs::Marker>("smooth_path_knots",1);
+21 
+22     chasing_corridor\&.header\&.frame_id = world_frame_id;
+23     chasing_smooth_path\&.header\&.frame_id = world_frame_id;
+24 
+25 };
+.fi
+.SS "void SmoothPlanner::publish ()"
+
+.PP
+.nf
+44                            {
+45     pub_path\&.publish(chasing_smooth_path);
+46     pub_chasing_corridor\&.publish(chasing_corridor);    
+47     pub_knots\&.publish(marker_knots);
+48 }
+.fi
+.SS "void SmoothPlanner::traj_gen (TimeSeries knots, nav_msgs::Path waypoints, Twist v0, Twist a0)"
+
+.PP
+.nf
+28                                                                                      {
+29 
+30     planner\&.path_gen(knots,waypoints,v0,a0,option);
+31     
+32     if (planner\&.is_spline_valid()){
+33         // markers update 
+34         chasing_corridor = planner\&.get_safe_corridor_marker();
+35         chasing_corridor\&.header\&.frame_id = world_frame_id;
+36         chasing_smooth_path = planner\&.get_path();
+37         chasing_smooth_path\&.header\&.frame_id = world_frame_id;        
+38         marker_knots = planner\&.get_knots_marker();
+39         marker_knots\&.header\&.frame_id = world_frame_id;
+40 
+41     }
+42 }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "visualization_msgs::Marker SmoothPlanner::chasing_corridor"
+
+.SS "nav_msgs::Path SmoothPlanner::chasing_smooth_path"
+
+.SS "visualization_msgs::Marker SmoothPlanner::marker_knots"
+
+.SS "TrajGenOpts SmoothPlanner::option"
+
+.SS "PathPlanner SmoothPlanner::planner"
+
+.SS "ros::Publisher SmoothPlanner::pub_chasing_corridor"
+
+.SS "ros::Publisher SmoothPlanner::pub_knots"
+
+.SS "ros::Publisher SmoothPlanner::pub_path"
+
+.SS "string SmoothPlanner::world_frame_id"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for auto_chaser from the source code\&.
