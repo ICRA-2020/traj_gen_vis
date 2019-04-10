@@ -28,13 +28,16 @@ It is required to simulate the algorithm with MAV equipped with vision sensor(mo
 
 # 3 Usage 
 This package provides two modes: 1) simulation without gazebo, 2) without gazebo.   
-The first mode can focus on the tracking algorithm without real MAV simulator 
+The first mode can focus on the tracking algorithm without real MAV simulator. 
 
 ## 3.1 Simulation without gazebo 
 
 ### (1) one-shot mode 
+The trajectory of target for the entire time is available before chasing path computation.     
 
-### (2) 
+### (2) receding horizon mode  
+The trajectory of target for a short future horizon (H) is available. This information is updated perdiodically (at every H seconds). The chaser keeps replanning in response to the update on the fly.
+
 
 ## 3.2 Simulation with gazebo (still developing)
 
