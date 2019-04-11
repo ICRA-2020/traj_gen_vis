@@ -27,9 +27,8 @@ class Chaser{
         Point eval_point(double t_eval);
         Twist eval_velocity(double t_eval);
         Twist eval_acceleration(double t_eval);
-
-        // control 
         void publish_control(double t_eval);
+        Point get_control_point(double t_eval);
 
 };
 

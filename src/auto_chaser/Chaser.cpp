@@ -37,9 +37,11 @@ bool Chaser::chase_update(GridField* global_edf_ptr,vector<Point> target_pnts,Po
 void Chaser::session(double t){
     preplanner.publish(); // markers     
     smooth_planner.publish();  // markers 
-    if (is_complete_chasing_path){
-        publish_control(t);
-    }
+
+    // moved to wrapper 
+    // if (is_complete_chasing_path){
+    //     publish_control(t);
+    // }
 
 }
 
@@ -57,9 +59,14 @@ Twist Chaser::eval_acceleration(double t_eval){
     return smooth_planner.planner.accel_eval_spline(t_eval);        
 }
 
-
+// will not be used 
 void Chaser::publish_control(double t_eval){
     pose_control_mav.header.frame_id = smooth_planner.world_frame_id;
     pose_control_mav.pose.position = smooth_planner.planner.point_eval_spline(t_eval); 
     pub_control_mav.publish(pose_control_mav);
+}
+
+Point Chaser::get_control_point(double t_eval){
+
+    
 }

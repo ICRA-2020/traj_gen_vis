@@ -4,12 +4,19 @@
 <arg name="mav_name" default="neo11"/>
 <arg name="target_name" default="target"/>
 <arg name="world_name" default="map3"/>
-<arg name="bt_name" default="$(arg world_name)"/>
+<arg name="chaser_x" default="0"/>
+<arg name="chaser_y" default="0"/>
 
 
 <!-- prepare gazebo environment -->
 
 <include file = "$(find auto_chaser)/launch/gazebo_env.launch">
+    <arg name="mav_name" value="$(arg mav_name)"/> 
+    <arg name="target_name" value="$(arg target_name)"/> 
+    <arg name="world_name" value="$(arg world_name)"/> 
+    <arg name="chaser_x" value="$(arg chaser_x)"/> 
+    <arg name="chaser_y" value="$(arg chaser_y)"/> 
+</include>
 
 
 <!-- auto_chaser -->
@@ -68,17 +75,8 @@
 		<param name="chaser/objective_derivative" type="int" value="3" />	
 		<param name="chaser/w_deviation" type="double" value="0.5" />	
 		<param name="chaser/poly_order" type="int" value="6" />	
-		
-
-
-
-
-
-
+	
     </node>
 
-
-	<!--rviz-->
-	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/rviz.rviz"/>
 
 </launch>
