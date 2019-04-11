@@ -9,6 +9,8 @@ void ObjectsHandler::init(ros::NodeHandle nh){
     nh.param<string>("target_frame_id",this->target_frame_id,"/target__base_footprint");
     nh.param<string>("chaser_frame_id",this->chaser_frame_id,"/firefly/base_link"); 
 
+    // for chaser spawning 
+     
     // edf grid param
     nh.param("min_z",min_z,0.4);   
     nh.param("chaser_init_z",chaser_init_z,1.0);             
@@ -49,7 +51,7 @@ void ObjectsHandler::init(ros::NodeHandle nh){
         sub_octomap = nh.subscribe("/octomap_binary",1,&ObjectsHandler::octomap_callback,this);   
 
     sub_chaser_init_pose = nh.subscribe("/chaser_init_pose",1,&ObjectsHandler::callback_chaser_init_pose,this);
-    
+
     ROS_INFO("Object handler initialized."); 
 }
 
@@ -125,7 +127,7 @@ void ObjectsHandler::tf_update(){
     
     if(run_mode == 1){
         // mode 1 : gazebo simulation mode 
-        // chaser and target to be listened 
+        // chaser(from gazebo) and target(from target manager) to be listened.  
         string objects_frame_id[2];
         objects_frame_id[0] = target_frame_id;
         objects_frame_id[1] = chaser_frame_id;
@@ -252,13 +254,12 @@ void ObjectsHandler::chaser_spawn(PoseStamped spawn_pose){
     is_chaser_recieved = true;
     is_chaser_spawned = true;    
     
-    if(run_mode == 0){
+    if(run_mode == 0){ // without gazebo : update chaser pose
         chaser_pose = spawn_pose;
         chaser_pose.pose.position.z = chaser_init_z;
 
-    }else{
-        // hover command 
-        
+    }else{ // with gazebo : nothing happen 
+        ROS_WARN("[Object Handler] gazebo mode. No virtual spawning happens");        
     }
 
 }
