@@ -51,7 +51,8 @@ void ObjectsHandler::init(ros::NodeHandle nh){
         sub_octomap = nh.subscribe("/octomap_binary",1,&ObjectsHandler::octomap_callback,this);   
 
     sub_chaser_init_pose = nh.subscribe("/chaser_init_pose",1,&ObjectsHandler::callback_chaser_init_pose,this);
-
+    sub_chaser_control_pose = nh.subscribe("mav_pose_desired",1,&ObjectsHandler::callback_chaser_control_pose,this);
+    
     ROS_INFO("Object handler initialized."); 
 }
 
@@ -112,12 +113,12 @@ PoseStamped ObjectsHandler::get_target_pose() {
     pose.pose.position.z = min_z; 
     return pose;
 };
+
  
 PoseStamped ObjectsHandler::get_chaser_pose() {return chaser_pose;};
-
 Twist ObjectsHandler::get_chaser_velocity() {return chaser_vel;};
 Twist ObjectsHandler::get_chaser_acceleration() {return chaser_acc;};
-
+string ObjectsHandler::get_world_frame_id() {return world_frame_id;};
 octomap::OcTree* ObjectsHandler::get_octree_obj_ptr() {return octree_ptr.get();};
 GridField* ObjectsHandler::get_edf_grid_ptr() {return edf_grid_ptr.get();};
 
@@ -267,6 +268,17 @@ void ObjectsHandler::chaser_spawn(PoseStamped spawn_pose){
 void ObjectsHandler::callback_chaser_init_pose(const geometry_msgs::PoseStampedConstPtr& chaser_init_pose){
 
     chaser_spawn(*chaser_init_pose);    
+}
+/**
+ * @brief callback function for control pose from wrapper. This is intended to replace the currnet chaser pose directly with desired pose
+ * 
+ * @param chaser_control_pose 
+ */
+void ObjectsHandler::callback_chaser_control_pose(const geometry_msgs::PoseStampedConstPtr& chaser_control_pose){
+    if(run_mode == 0 and is_path_solved){
+        chaser_pose = *chaser_control_pose;
+    }
+    
 }
 
 

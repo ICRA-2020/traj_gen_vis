@@ -6,15 +6,17 @@ void Chaser::init(ros::NodeHandle nh){
 
     preplanner.init(nh);
     smooth_planner.init(nh);
-    pub_control_mav = nh.advertise<PoseStamped>("mav_control_pose",1);
+
+    // retreieve initial hovering command 
+    nh.param("chaser_init_x",spawn_x,0.0);
+    nh.param("chaser_init_y",spawn_y,0.0);
+    nh.param("chaser_init_z",hovering_z,1.0);
 }
 
 bool Chaser::chase_update(GridField* global_edf_ptr,vector<Point> target_pnts,Point chaser_x0,Twist chaser_v0,Twist chaser_a0,TimeSeries knots){
     
     bool result = false;
     
-
-
     // phase 1 pre planning 
     preplanner.preplan(global_edf_ptr,target_pnts,chaser_x0);
     ROS_INFO("[Chaser] preplanning completed.");
@@ -37,12 +39,6 @@ bool Chaser::chase_update(GridField* global_edf_ptr,vector<Point> target_pnts,Po
 void Chaser::session(double t){
     preplanner.publish(); // markers     
     smooth_planner.publish();  // markers 
-
-    // moved to wrapper 
-    // if (is_complete_chasing_path){
-    //     publish_control(t);
-    // }
-
 }
 
 
@@ -59,14 +55,21 @@ Twist Chaser::eval_acceleration(double t_eval){
     return smooth_planner.planner.accel_eval_spline(t_eval);        
 }
 
-// will not be used 
-void Chaser::publish_control(double t_eval){
-    pose_control_mav.header.frame_id = smooth_planner.world_frame_id;
-    pose_control_mav.pose.position = smooth_planner.planner.point_eval_spline(t_eval); 
-    pub_control_mav.publish(pose_control_mav);
-}
 
-Point Chaser::get_control_point(double t_eval){
-
-    
+/**
+ * @brief obtains the latest control point. yaw will be selected from wrapper with information of target   
+ * 
+ * @param t_eval evaluation time 
+ * @return Point the control point 
+ */
+Point Chaser::get_control_point(double t_eval){    
+    if (this->is_complete_chasing_path)
+        return smooth_planner.planner.point_eval_spline(t_eval); 
+    else{// hovering command at the spawning position with desired height      
+            Point hovering_point;
+            hovering_point.x = spawn_x;
+            hovering_point.y = spawn_y;
+            hovering_point.z = hovering_z;        
+        return hovering_point;
+    }
 }
