@@ -87,7 +87,7 @@
 		
 
 		<!--smooth planning-->
-		<param name="chaser/safe_corridor_r" type="double" value="0.3" />		 
+		<param name="chaser/safe_corridor_r" type="double" value="0.2" />		 
 		<param name="chaser/verbose" type="bool" value="false" />	
 		<param name="chaser/N_safe_pnts" type="int" value="3" />	
 		<param name="chaser/objective_derivative" type="int" value="3" />	

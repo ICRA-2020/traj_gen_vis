@@ -5,8 +5,17 @@ Wrapper::Wrapper(){};
 void Wrapper::init(ros::NodeHandle nh) {
     
     // the initialization for its own member variables 
+    string mav_name;
+    nh.param<string>("mav_name",mav_name,"firefly");
+    nh.param("run_mode",run_mode,0);
+
+    // this topic is used for the actual control 
+    string control_topic = "/" + mav_name + "/" + mav_msgs::default_topics::COMMAND_TRAJECTORY;
+
     pub_control_mav = nh.advertise<trajectory_msgs::MultiDOFJointTrajectory>(
-          mav_msgs::default_topics::COMMAND_TRAJECTORY, 10);
+           control_topic.c_str(), 10);
+        
+    // only for visualization 
     pub_control_mav_vis = nh.advertise<geometry_msgs::PoseStamped>("mav_pose_desired",1);
     // sub classes initialization 
     objects_handler.init(nh);  

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
-<arg name="mav_name" default="neo11"/>
+<arg name="mav_name" default="firefly"/>
 <arg name="target_name" default="target"/>
 <arg name="world_name" default="map3"/>
 <arg name="chaser_x" default="0"/>
@@ -23,6 +23,7 @@
     <node pkg="auto_chaser" type="auto_chaser_run" name="auto_chaser" output="screen" >
         <!-- common -->
         <param name="world_frame_id" value="/world" />
+        <param name="mav_name" value="$(arg mav_name)" />
         <param name="target_frame_id" value="/target" />
         <param name="min_z" value="0.4" />
         <param name="chaser_init_x" value="$(arg chaser_x)" />
