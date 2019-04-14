@@ -99,8 +99,14 @@ void Preplanner::compute_visibility_field_seq(GridField* global_edf,vector<Point
         
         // get local conservative grid map around the current target point
         int VSF_MODE = 1;
-        vsf_field_ptr_seq[t-1].reset(new GridField(get_local_vsf_param_around_target(*it))); 
-        
+        try{
+
+            vsf_field_ptr_seq[t-1].reset(new GridField(get_local_vsf_param_around_target(*it))); 
+        }
+        catch(bool ex){
+            ROS_ERROR("failed to make visibility scoric field.");
+
+        }
         // field value update with edf grid 
         for(int ix = 0 ; ix<vsf_field_ptr_seq[t-1].get()->Nx ; ix++)
             for(int iy = 0 ; iy<vsf_field_ptr_seq[t-1].get()->Ny ; iy++)
