@@ -1,0 +1,7 @@
+<map id="MainWindow::MainWindow" name="MainWindow::MainWindow">
+<area shape="rect" id="node2" href="$class_ui___main_window.html#acf4a0872c4c77d8f43a2ec66ed849b58" title="Ui_MainWindow::setupUi" alt="" coords="240,5,411,32"/>
+<area shape="rect" id="node4" href="$class_main_window.html#a4abba2c52f756524c0f388d0d3e6d6ec" title="MainWindow::ReadSettings" alt="" coords="233,56,417,83"/>
+<area shape="rect" id="node3" href="$class_ui___main_window.html#a097dd160c3534a204904cb374412c618" title="Ui_MainWindow::retranslateUi" alt="" coords="465,5,664,32"/>
+<area shape="rect" id="node5" href="$class_q_node.html#ac21ae24311df97ac0e15c97179763b0e" title="QNode::nodeName" alt="" coords="497,56,632,83"/>
+<area shape="rect" id="node6" href="$class_q_node.html#a2b1b82bfd6e5e6187fe8216ba840bb09" title="QNode::wpnts_init" alt="" coords="712,56,843,83"/>
+</map>

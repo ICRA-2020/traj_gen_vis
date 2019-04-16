@@ -1,0 +1,394 @@
+.TH "QNode" 3 "Wed Apr 17 2019" "Version 1.0.0" "auto_chaser" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+QNode \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qnode\&.h>\fP
+.PP
+Inherits QThread\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBloggingUpdated\fP ()"
+.br
+.ti -1c
+.RI "void \fBrosShutdown\fP ()"
+.br
+.ti -1c
+.RI "void \fBwriteOnBoard\fP (QString)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBQNode\fP (int argc, char **argv, const std::string &name)"
+.br
+.ti -1c
+.RI "\fB~QNode\fP ()"
+.br
+.ti -1c
+.RI "bool \fBon_init\fP ()"
+.br
+.ti -1c
+.RI "void \fBshutdown\fP ()"
+.br
+.ti -1c
+.RI "void \fBrun\fP ()"
+.br
+.ti -1c
+.RI "bool \fBtrigger_one_shot\fP (double tf)"
+.br
+.ti -1c
+.RI "bool \fBtrigger\fP (double t_cur)"
+.br
+.ti -1c
+.RI "QStringListModel * \fBloggingModel\fP ()"
+.br
+.ti -1c
+.RI "const std::string & \fBnodeName\fP ()"
+.br
+.ti -1c
+.RI "void \fBwpnts_init\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBTargetManager\fP \fBtarget_manager\fP"
+.br
+.ti -1c
+.RI "\fBWrapper\fP \fBchaser_wrapper\fP"
+.br
+.ti -1c
+.RI "string \fBwrite_path\fP"
+.br
+.ti -1c
+.RI "bool \fBis_connected\fP = false"
+.br
+.ti -1c
+.RI "bool \fBis_in_session\fP = false"
+.br
+.ti -1c
+.RI "bool \fBis_said_edf\fP = false"
+.br
+.ti -1c
+.RI "double \fBbutton_elapsed\fP =0"
+.br
+.ti -1c
+.RI "double \fBrecord_dt\fP = 0\&.5"
+.br
+.ti -1c
+.RI "ros::Time \fBbutton_click_time\fP"
+.br
+.ti -1c
+.RI "double \fBprevious_elapsed\fP = 0"
+.br
+.ti -1c
+.RI "double \fBlast_tigger_time\fP = 0"
+.br
+.ti -1c
+.RI "double \fBsimulation_end_time\fP"
+.br
+.ti -1c
+.RI "double \fBearly_end_time\fP = 0\&.1"
+.br
+.ti -1c
+.RI "bool \fBarrow_record_switch\fP = true"
+.br
+.ti -1c
+.RI "float \fBpred_horizon\fP"
+.br
+.ti -1c
+.RI "int \fBprediction_mode\fP = 0"
+.br
+.ti -1c
+.RI "int \fBpred_seq\fP = 4"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBros_comms_init\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBinit_argc\fP"
+.br
+.ti -1c
+.RI "char ** \fBinit_argv\fP"
+.br
+.ti -1c
+.RI "QStringListModel \fBlogging\fP"
+.br
+.ti -1c
+.RI "const std::string \fBnode_name\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "QNode::QNode (int argc, char ** argv, const std::string & name)"
+
+.PP
+.nf
+3                                                           :
+4     init_argc(argc),
+5     init_argv(argv),
+6     node_name(name)
+7     {
+8         
+9 }
+.fi
+.SS "QNode::~QNode ()"
+
+.PP
+.nf
+10 {}
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "QStringListModel* QNode::loggingModel ()\fC [inline]\fP"
+
+.PP
+.nf
+33 { return &logging; }
+.fi
+.SS "void QNode::loggingUpdated ()\fC [signal]\fP"
+
+.SS "const std::string& QNode::nodeName ()\fC [inline]\fP"
+
+.PP
+.nf
+34 { return node_name; }
+.fi
+.SS "bool QNode::on_init ()"
+
+.PP
+.nf
+34                    {
+35 
+36     ros::init(init_argc,init_argv,node_name);
+37     if ( ! ros::master::check() ) {
+38         return false;
+39     }
+40     ros::start(); // our node handles go out of scope, so we want to control shutdown explicitly\&.
+41     ros_comms_init();
+42     start();
+43     return true;
+44 }
+.fi
+.SS "void QNode::ros_comms_init ()\fC [protected]\fP"
+
+.PP
+.nf
+11                           {
+12     
+13     ros::NodeHandle nh("~");
+14     nh\&.param("pred_horizon",pred_horizon,float(3\&.0));
+15     nh\&.param("early_end_time",early_end_time,0\&.1);
+16     nh\&.param<int>("pred_seq",pred_seq,4);
+17 
+18     // target manager init
+19     this->target_manager\&.init(nh);
+20 
+21     // wrapper init
+22     this->chaser_wrapper\&.init(nh);
+23 
+24 }
+.fi
+.SS "void QNode::rosShutdown ()\fC [signal]\fP"
+
+.SS "void QNode::run ()"
+
+.PP
+.nf
+46                {
+47     ros::Rate loop_rate(50);
+48     writeOnBoard("waiting EDF computation\&.\&.\&.");
+49 
+50     while(ros::ok()){
+51         double sim_time;
+52         
+53         if(is_in_session){ // activated
+54             // current simulation time
+55             sim_time = previous_elapsed + (ros::Time::now() - button_click_time)\&.toSec();
+56             
+57             // trigger condition 
+58             bool trigger_condition;
+59             if(prediction_mode == 0)
+60                 trigger_condition = (last_tigger_time == 0 or (sim_time - last_tigger_time) > pred_horizon - early_end_time ) and sim_time <simulation_end_time;
+61             else 
+62                 trigger_condition = false; // TODO for real prediction case 
+63 
+64             // if triggered do the followings 
+65             if(trigger_condition)                                
+66                 trigger(sim_time);
+67             
+68        
+69         }else
+70             sim_time = previous_elapsed; 
+71         
+72         // session (publish the current information)        
+73         target_manager\&.session(sim_time);
+74         chaser_wrapper\&.session(sim_time);
+75         
+76 
+77         // chaser information board 
+78         if(chaser_wrapper\&.objects_handler\&.is_map_recieved and (not is_said_edf)){
+79             writeOnBoard("EDF loaded\&.");
+80             writeOnBoard("hovering\&.\&.\&.");
+81             
+82             is_said_edf = true;
+83         }
+84         
+85         ros::spinOnce();
+86         loop_rate\&.sleep();
+87     }
+88 
+89 
+90     Q_EMIT rosShutdown();
+91 
+92 }
+.fi
+.SS "void QNode::shutdown ()"
+
+.PP
+.nf
+26                      {
+27     if(ros::isStarted()) {
+28       ros::shutdown(); // explicitly needed since we use ros::start();
+29       ros::waitForShutdown();
+30     }
+31     wait();
+32 }
+.fi
+.SS "bool QNode::trigger (double t_cur)"
+
+.PP
+.nf
+120                                {
+121 
+122     last_tigger_time = t_cur;
+123     VectorXd pred_horizon_vec(pred_seq);
+124     pred_horizon_vec\&.setLinSpaced(pred_seq,t_cur,t_cur + pred_horizon); 
+125     // if(t_cur + pred_horizon > simulation_end_time){
+126 
+127     //     cout<<"almost there"<<endl;
+128     // }
+129     // pred_horizon_vec = pred_horizon_vec\&.cwiseMin(simulation_end_time); // clamping with final time
+130     cout<<"current horizon vector:\n"<<pred_horizon_vec<<endl; 
+131     // we chase under this prediction 
+132     vector<Point> target_seq = target_manager\&.eval_time_seq(pred_horizon_vec);
+133     
+134     if (target_seq\&.size() == 0){
+135         this->writeOnBoard("size of provided target sequence is zero\&. please generate target traj first\&.");
+136         return false;
+137     }
+138     if(not chaser_wrapper\&.objects_handler\&.is_chaser_spawned){
+139         this->writeOnBoard("chaser has not been spawned\&.");
+140         return false;
+141     }
+142 
+143     if(not chaser_wrapper\&.objects_handler\&.is_map_recieved){
+144         this->writeOnBoard("octomap or edf has not been uploaded\&.");
+145         return false;
+146     }    
+147 
+148 
+149     return chaser_wrapper\&.trigger_chasing(target_seq,pred_horizon_vec); 
+150 }
+.fi
+.SS "bool QNode::trigger_one_shot (double tf)"
+
+.PP
+.nf
+94                                      {
+95     
+96 
+97 
+98     // target global waypoitns  
+99     vector<Point> target_seq = extract_pnts_from_path(target_manager\&.get_global_waypoints());
+100     if (target_seq\&.size() == 0){
+101         this->writeOnBoard("size of provided target sequence is zero\&. please generate target traj first\&.");
+102         return false;
+103     }
+104     if(not chaser_wrapper\&.objects_handler\&.is_chaser_spawned){
+105         this->writeOnBoard("chaser has not been spawned\&.");
+106         return false;
+107     }
+108 
+109     if(not chaser_wrapper\&.objects_handler\&.is_map_recieved){
+110         this->writeOnBoard("octomap or edf has not been uploaded\&.");
+111         return false;
+112     }    
+113 
+114     // trigger chasing
+115     VectorXd knots;    
+116     knots\&.setLinSpaced(target_manager\&.queue\&.size(),0,tf); 
+117     bool is_success =  chaser_wrapper\&.trigger_chasing(target_seq,knots);        
+118 }
+.fi
+.SS "void QNode::wpnts_init ()"
+
+.SS "void QNode::writeOnBoard (QString)\fC [signal]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "bool QNode::arrow_record_switch = true"
+
+.SS "ros::Time QNode::button_click_time"
+
+.SS "double QNode::button_elapsed =0"
+
+.SS "\fBWrapper\fP QNode::chaser_wrapper"
+
+.SS "double QNode::early_end_time = 0\&.1"
+
+.SS "int QNode::init_argc\fC [protected]\fP"
+
+.SS "char** QNode::init_argv\fC [protected]\fP"
+
+.SS "bool QNode::is_connected = false"
+
+.SS "bool QNode::is_in_session = false"
+
+.SS "bool QNode::is_said_edf = false"
+
+.SS "double QNode::last_tigger_time = 0"
+
+.SS "QStringListModel QNode::logging\fC [protected]\fP"
+
+.SS "const std::string QNode::node_name\fC [protected]\fP"
+
+.SS "float QNode::pred_horizon"
+
+.SS "int QNode::pred_seq = 4"
+
+.SS "int QNode::prediction_mode = 0"
+
+.SS "double QNode::previous_elapsed = 0"
+
+.SS "double QNode::record_dt = 0\&.5"
+
+.SS "double QNode::simulation_end_time"
+
+.SS "\fBTargetManager\fP QNode::target_manager"
+
+.SS "string QNode::write_path"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for auto_chaser from the source code\&.
