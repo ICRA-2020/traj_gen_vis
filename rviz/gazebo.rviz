@@ -8,8 +8,13 @@ Panels:
         - /Status1
         - /TF1/Frames1
         - /Axes1
-      Splitter Ratio: 0.686111093
-    Tree Height: 548
+        - /Image1
+        - /Image2
+        - /Camera1
+        - /MarkerArray5
+        - /MarkerArray5/Namespaces1
+      Splitter Ratio: 0.461824954
+    Tree Height: 298
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -28,7 +33,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: ""
+    SyncSource: Camera
 Visualization Manager:
   Class: ""
   Displays:
@@ -57,6 +62,68 @@ Visualization Manager:
         All Enabled: false
         Untitled__Stairs_1:
           Value: false
+        firefly/base_link:
+          Value: true
+        firefly/base_link_inertia:
+          Value: false
+        firefly/imu_link:
+          Value: false
+        firefly/odometry_sensor1:
+          Value: false
+        firefly/odometry_sensor1_link:
+          Value: false
+        firefly/rotor_0:
+          Value: false
+        firefly/rotor_1:
+          Value: false
+        firefly/rotor_2:
+          Value: false
+        firefly/rotor_3:
+          Value: false
+        firefly/rotor_4:
+          Value: false
+        firefly/rotor_5:
+          Value: false
+        firefly/vi_sensor/base_link:
+          Value: false
+        firefly/vi_sensor/camera_depth_link:
+          Value: false
+        firefly/vi_sensor/camera_depth_optical_center_link:
+          Value: false
+        firefly/vi_sensor/camera_left_link:
+          Value: false
+        firefly/vi_sensor/camera_left_optical_link:
+          Value: false
+        firefly/vi_sensor/camera_right_link:
+          Value: false
+        firefly/vi_sensor/ground_truth/odometry_sensor_link:
+          Value: false
+        firefly/vi_sensor/imu_link:
+          Value: false
+        firefly/vi_sensor/vi_sensor_link:
+          Value: false
+        firefly__firefly/base_link:
+          Value: false
+        firefly__firefly/imu_link:
+          Value: false
+        firefly__firefly/odometry_sensor1_link:
+          Value: false
+        firefly__firefly/rotor_0:
+          Value: false
+        firefly__firefly/rotor_1:
+          Value: false
+        firefly__firefly/rotor_2:
+          Value: false
+        firefly__firefly/rotor_3:
+          Value: false
+        firefly__firefly/rotor_4:
+          Value: false
+        firefly__firefly/rotor_5:
+          Value: false
+        firefly__firefly/vi_sensor/ground_truth/odometry_sensor_link:
+          Value: false
+        firefly__firefly/vi_sensor/imu_link:
+          Value: false
         gazebo_world:
           Value: false
         ground_plane__link:
@@ -73,34 +140,8 @@ Visualization Manager:
           Value: false
         map3_1st_0__Wall_8:
           Value: false
-        neo11/base_link:
-          Value: false
-        neo11/odometry_sensor1:
-          Value: false
-        neo11/vi_sensor/base_link:
-          Value: false
-        neo11__neo11/base_link:
+        target:
           Value: true
-        neo11__neo11/imu_link:
-          Value: false
-        neo11__neo11/odometry_sensor1_link:
-          Value: false
-        neo11__neo11/rotor_0:
-          Value: false
-        neo11__neo11/rotor_1:
-          Value: false
-        neo11__neo11/rotor_2:
-          Value: false
-        neo11__neo11/rotor_3:
-          Value: false
-        neo11__neo11/rotor_4:
-          Value: false
-        neo11__neo11/rotor_5:
-          Value: false
-        neo11__neo11/vi_sensor/ground_truth/odometry_sensor_link:
-          Value: false
-        neo11__neo11/vi_sensor/imu_link:
-          Value: false
         target/base_footprint:
           Value: false
         target__base_footprint:
@@ -132,7 +173,7 @@ Visualization Manager:
         unit_cylinder_0__link:
           Value: false
         world:
-          Value: false
+          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: false
@@ -140,8 +181,65 @@ Visualization Manager:
       Show Names: true
       Tree:
         world:
+          firefly/odometry_sensor1:
+            {}
+          firefly/vi_sensor/base_link:
+            {}
           gazebo_world:
             Untitled__Stairs_1:
+              {}
+            firefly__firefly/base_link:
+              firefly/base_link:
+                firefly/base_link_inertia:
+                  {}
+                firefly/imu_link:
+                  {}
+                firefly/odometry_sensor1_link:
+                  {}
+                firefly/rotor_0:
+                  {}
+                firefly/rotor_1:
+                  {}
+                firefly/rotor_2:
+                  {}
+                firefly/rotor_3:
+                  {}
+                firefly/rotor_4:
+                  {}
+                firefly/rotor_5:
+                  {}
+                firefly/vi_sensor/vi_sensor_link:
+                  firefly/vi_sensor/camera_depth_link:
+                    firefly/vi_sensor/camera_depth_optical_center_link:
+                      {}
+                  firefly/vi_sensor/camera_left_link:
+                    firefly/vi_sensor/camera_left_optical_link:
+                      {}
+                  firefly/vi_sensor/camera_right_link:
+                    {}
+                  firefly/vi_sensor/ground_truth/odometry_sensor_link:
+                    {}
+                  firefly/vi_sensor/imu_link:
+                    {}
+            firefly__firefly/imu_link:
+              {}
+            firefly__firefly/odometry_sensor1_link:
+              {}
+            firefly__firefly/rotor_0:
+              {}
+            firefly__firefly/rotor_1:
+              {}
+            firefly__firefly/rotor_2:
+              {}
+            firefly__firefly/rotor_3:
+              {}
+            firefly__firefly/rotor_4:
+              {}
+            firefly__firefly/rotor_5:
+              {}
+            firefly__firefly/vi_sensor/ground_truth/odometry_sensor_link:
+              {}
+            firefly__firefly/vi_sensor/imu_link:
               {}
             ground_plane__link:
               {}
@@ -156,29 +254,6 @@ Visualization Manager:
             map3_1st_0__Wall_7:
               {}
             map3_1st_0__Wall_8:
-              {}
-            neo11__neo11/base_link:
-              neo11/base_link:
-                {}
-            neo11__neo11/imu_link:
-              {}
-            neo11__neo11/odometry_sensor1_link:
-              {}
-            neo11__neo11/rotor_0:
-              {}
-            neo11__neo11/rotor_1:
-              {}
-            neo11__neo11/rotor_2:
-              {}
-            neo11__neo11/rotor_3:
-              {}
-            neo11__neo11/rotor_4:
-              {}
-            neo11__neo11/rotor_5:
-              {}
-            neo11__neo11/vi_sensor/ground_truth/odometry_sensor_link:
-              {}
-            neo11__neo11/vi_sensor/imu_link:
               {}
             unit_box_0__link:
               {}
@@ -206,9 +281,7 @@ Visualization Manager:
               {}
             unit_cylinder_0__link:
               {}
-          neo11/odometry_sensor1:
-            {}
-          neo11/vi_sensor/base_link:
+          target:
             {}
       Update Interval: 0
       Value: true
@@ -240,7 +313,7 @@ Visualization Manager:
       Marker Topic: /auto_chaser/target_waypoints
       Name: MarkerArray
       Namespaces:
-        {}
+        "": true
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -264,7 +337,7 @@ Visualization Manager:
       Marker Topic: /auto_chaser/preplanned_waypoints
       Name: Marker
       Namespaces:
-        {}
+        waypoints: true
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -341,7 +414,8 @@ Visualization Manager:
       Marker Topic: /auto_chaser/chasing_corridor
       Name: Marker
       Namespaces:
-        {}
+        "": true
+        sf_corridor: true
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -364,7 +438,63 @@ Visualization Manager:
       Marker Topic: /auto_chaser/smooth_path_knots
       Name: Marker
       Namespaces:
-        {}
+        knots: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Image
+      Enabled: false
+      Image Topic: ""
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: false
+    - Class: rviz/Image
+      Enabled: false
+      Image Topic: /firefly/vi_sensor/camera_depth/camera/image_raw
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: false
+    - Class: rviz/Camera
+      Enabled: true
+      Image Rendering: background
+      Image Topic: /firefly/vi_sensor/camera_depth/camera/image_raw
+      Name: Camera
+      Overlay Alpha: 0.5
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: true
+      Visibility:
+        Axes: true
+        Grid: true
+        Image: true
+        Marker: true
+        MarkerArray: true
+        Path: true
+        Pose: true
+        TF: true
+        Value: true
+      Zoom Factor: 1
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /auto_chaser/vsf_grid_seq
+      Name: MarkerArray
+      Namespaces:
+        time_1: false
+        time_2: false
+        time_3: false
+        time_4: true
       Queue Size: 100
       Value: true
   Enabled: true
@@ -392,33 +522,37 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 6.49384499
+      Distance: 1.48658359
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.153115168
-        Y: 0.191865772
-        Z: 0.910081089
+        X: 12.1547403
+        Y: 5.31416321
+        Z: 14.8239546
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.444797277
+      Pitch: 1.56979632
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.89856219
+      Yaw: 4.71858549
     Saved: ~
 Window Geometry:
+  Camera:
+    collapsed: false
   Displays:
     collapsed: false
   Height: 1028
   Hide Left Dock: false
   Hide Right Dock: true
-  QMainWindow State: 000000ff00000000fd0000000400000000000001a400000389fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006100fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000019000000d00000006100fffffffb000000100044006900730070006c00610079007301000000ef000002b3000000d700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000ad00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000003a00000003efc0100000002fb0000000800540069006d00650100000000000003a00000030000fffffffb0000000800540069006d00650100000000000004500000000000000000000001f60000038900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730000000000ffffffff0000000000000000
+  Image:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000016a000003a2fc020000000bfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006100fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000000000000b20000006100fffffffb000000100044006900730070006c00610079007301000000b8000001b9000000d700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006500000002350000009d0000001600fffffffb0000000a0049006d00610067006500000001b0000001210000001600fffffffb0000000c00430061006d00650072006101000002770000012b0000001600ffffff000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000ad00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000003a00000003efc0100000002fb0000000800540069006d00650100000000000003a00000030000fffffffb0000000800540069006d0065010000000000000450000000000000000000000230000003a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730000000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:

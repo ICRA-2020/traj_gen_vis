@@ -156,7 +156,8 @@ void ObjectsHandler::tf_update(){
                 if (i==0)
                     {ROS_INFO_ONCE("[Objects handler] tf of target received. "); is_target_recieved = true; target_pose = pose_stamped;} 
                 else
-                    {ROS_INFO_ONCE("[Objects handler] tf of chaser received. "); is_chaser_recieved = true; chaser_pose = pose_stamped;}  
+                    {ROS_INFO_ONCE("[Objects handler] tf of chaser received. "); is_chaser_recieved = true;
+                             chaser_pose = pose_stamped; is_chaser_spawned = true;}  
 
             }
             catch (tf::TransformException ex){

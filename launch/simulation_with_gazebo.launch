@@ -44,16 +44,16 @@
         <!-- chaser parameter -->     
 
         <!--edf-->	
-        <param name="edf_resolution" type="double" value="0.4" />	
+        <param name="edf_resolution" type="double" value="0.3" />	
         <param name="edf_max_dist" type="double" value="2.0" />
         <param name="edf_max_plot_dist" type="double" value="1.0" />
         <param name="edf_stride_resolution" type="double" value="0.3" />
 
         <!--chasing spec-->
         <param name="max_tracking_distance" type="double" value="4.0" />	
-        <param name="min_tracking_distance" type="double" value="1.0" />	
+        <param name="min_tracking_distance" type="double" value="0.5" />	
         <param name="des_tracking_distance" type="double" value="2.5" />	
-        <param name="max_azim" type="double" value="$(eval 3.141592/4)" />	
+        <param name="max_azim" type="double" value="$(eval 3.141592/5)" />	
         <param name="min_azim" type="double" value="$(eval 3.141592/7)" />	
 		<param name="chaser_init_z" type="double" value="1.0" /> <!--initial hovering height. should bigger than min_z-->	
 
@@ -62,17 +62,18 @@
 		<!--preplanning-->
 
 		<!--vsf-->
-		<param name="vsf_resolution" type="double" value="0.7" />	
+		<param name="vsf_resolution" type="double" value="0.5" />	
 		<param name="vs_min" type="double" value="0.3" />	
 	
 		<!--graph-->
 		<param name="d_connect_max" type="double" value="3.0" />	
+		<param name="r_safe" type="double" value="0.3" /> <!--the lower bound of edf along edge -->	
 		<param name="w_v" type="double" value="5.0" />	
-		<param name="w_d" type="double" value="3.5" />	
+		<param name="w_d" type="double" value="5.5" />	
 		
 
 		<!--smooth planning-->
-		<param name="chaser/safe_corridor_r" type="double" value="0.3" />		 
+		<param name="chaser/safe_corridor_r" type="double" value="0.2" />		 
 		<param name="chaser/verbose" type="bool" value="false" />	
 		<param name="chaser/N_safe_pnts" type="int" value="3" />	
 		<param name="chaser/objective_derivative" type="int" value="3" />	

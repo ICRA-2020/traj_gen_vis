@@ -121,7 +121,10 @@ geometry_msgs::PoseStamped Wrapper::get_control_pose(double t_eval){
     float yaw = atan2(-chaser_pose.pose.position.y+target_pose.pose.position.y,
                         -chaser_pose.pose.position.x+target_pose.pose.position.x);
     tf::Quaternion q;
-    q.setRPY(0,0,yaw);
+    if(not chaser.is_complete_chasing_path)
+        q.setRPY(0,0,0); // should hovering first 
+    else
+        q.setRPY(0,0,yaw);
     q.normalize(); // to avoid the numerical error 
     PoseStamped chaser_pose_desired;  
     Point chaser_point_desired = chaser.get_control_point(t_eval); 
@@ -154,19 +157,23 @@ void Wrapper::pub_control_traj(double t_eval){
     // retrieve yaw first  
     chaser_pose_desired = get_control_pose(t_eval);
     
-    // convert the pose information into trajectory_msgs 
+    // convert the pose information into trajectory_msgs (only conversion)
+    
+    // get the position 
     Vector3d chaser_point_desired;
     chaser_point_desired(0) = chaser_pose_desired.pose.position.x;
     chaser_point_desired(1) = chaser_pose_desired.pose.position.y;
     chaser_point_desired(2) = chaser_pose_desired.pose.position.z;
-
+    // get the orientation 
     tf::Quaternion q;
+    q.setX(chaser_pose_desired.pose.orientation.x);
+    q.setY(chaser_pose_desired.pose.orientation.y);
+    q.setZ(chaser_pose_desired.pose.orientation.z);
+    q.setW(chaser_pose_desired.pose.orientation.w);
     tf::Matrix3x3 q_mat(q);
     double roll,pitch,yaw;
     q_mat.getRPY(roll,pitch,yaw);
-
-
-
+    // finishing the trajectory topic 
     trajectory_msgs::MultiDOFJointTrajectory chaser_traj_desired;
     mav_msgs::msgMultiDofJointTrajectoryFromPositionYaw(chaser_point_desired,yaw, &chaser_traj_desired);
     pub_control_mav.publish(chaser_traj_desired);
