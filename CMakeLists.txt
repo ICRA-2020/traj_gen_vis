@@ -35,7 +35,7 @@ message("auto chaser libs : ${AUTO_CHASER_LIBS}")
 # ROS 
 find_package(catkin REQUIRED roscpp 
 sensor_msgs tf geometry_msgs octomap_msgs message_generation nav_msgs traj_gen gazebo_msgs
-qt_build
+qt_build trajectory_msgs  mav_msgs
 )
 
 catkin_package(

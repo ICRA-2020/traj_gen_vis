@@ -11,6 +11,9 @@
 #include <std_msgs/Header.h>
 #include <std_msgs/ColorRGBA.h>
 #include <nav_msgs/Path.h>
+#include <mav_msgs/default_topics.h>
+#include <mav_msgs/conversions.h>
+#include <trajectory_msgs/MultiDOFJointTrajectory.h> 
 
 
 #include <octomap/octomap.h>
@@ -35,6 +38,8 @@
 
 #include <tf/transform_listener.h>
 #include <tf/transform_broadcaster.h>
+
+
 
 #include <string>
 #include <memory>

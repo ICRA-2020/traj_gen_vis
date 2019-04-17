@@ -1,0 +1,162 @@
+\hypertarget{_common_8cpp}{}\section{/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/src/auto\+\_\+chaser/\+Common.cpp File Reference}
+\label{_common_8cpp}\index{/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/src/auto\+\_\+chaser/\+Common.\+cpp@{/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/src/auto\+\_\+chaser/\+Common.\+cpp}}
+{\ttfamily \#include \char`\"{}auto\+\_\+chaser/\+Common.\+h\char`\"{}}\\*
+Include dependency graph for Common.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_common_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{_common_8cpp_a7770cb36d4f4c6e78ff68516ecb2123c}{Get\+Current\+Working\+Dir} (void)
+\item 
+vector$<$ Point $>$ \hyperlink{_common_8cpp_a50cd37bbde872deb08960a0ee2748930}{extract\+\_\+pnts\+\_\+from\+\_\+path} (nav\+\_\+msgs\+::\+Path path)
+\item 
+Vector3f \hyperlink{_common_8cpp_af9dea61790454c1bd71a4472c099a778}{geo2eigen} (const Point \&pnt)
+\item 
+void \hyperlink{_common_8cpp_a4b2e4b6698ff92678b23392dc111b36d}{get\+\_\+color\+\_\+dist} (float dist\+\_\+val, std\+\_\+msgs\+::\+Color\+R\+G\+BA \&color, float max\+\_\+plot\+\_\+dist\+\_\+val)
+\item 
+void \hyperlink{_common_8cpp_a75aaebf1a8b822524cc6af51a0cd83ef}{get\+\_\+color} (float x\+\_\+in, float \&r, float \&g, float \&b)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{Common.\+cpp@{Common.\+cpp}!extract\+\_\+pnts\+\_\+from\+\_\+path@{extract\+\_\+pnts\+\_\+from\+\_\+path}}
+\index{extract\+\_\+pnts\+\_\+from\+\_\+path@{extract\+\_\+pnts\+\_\+from\+\_\+path}!Common.\+cpp@{Common.\+cpp}}
+\subsubsection[{\texorpdfstring{extract\+\_\+pnts\+\_\+from\+\_\+path(nav\+\_\+msgs\+::\+Path path)}{extract_pnts_from_path(nav_msgs::Path path)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$Point$>$ extract\+\_\+pnts\+\_\+from\+\_\+path (
+\begin{DoxyParamCaption}
+\item[{nav\+\_\+msgs\+::\+Path}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_common_8cpp_a50cd37bbde872deb08960a0ee2748930}{}\label{_common_8cpp_a50cd37bbde872deb08960a0ee2748930}
+Functions 
+\begin{DoxyCode}
+10                                                        \{
+11 
+12   vector<Point> pnt\_seq;
+13   \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} it = path.poses.begin(); it<path.poses.end();it++)\{
+14     pnt\_seq.push\_back(it->pose.position);
+15   \}
+16   \textcolor{keywordflow}{return} pnt\_seq;
+17 \};
+\end{DoxyCode}
+\index{Common.\+cpp@{Common.\+cpp}!geo2eigen@{geo2eigen}}
+\index{geo2eigen@{geo2eigen}!Common.\+cpp@{Common.\+cpp}}
+\subsubsection[{\texorpdfstring{geo2eigen(const Point \&pnt)}{geo2eigen(const Point &pnt)}}]{\setlength{\rightskip}{0pt plus 5cm}Vector3f geo2eigen (
+\begin{DoxyParamCaption}
+\item[{const Point \&}]{pnt}
+\end{DoxyParamCaption}
+)}\hypertarget{_common_8cpp_af9dea61790454c1bd71a4472c099a778}{}\label{_common_8cpp_af9dea61790454c1bd71a4472c099a778}
+
+\begin{DoxyCode}
+19                                     \{
+20 
+21   \textcolor{keywordflow}{return} Vector3f(pnt.x,pnt.y,pnt.z);
+22 \};
+\end{DoxyCode}
+\index{Common.\+cpp@{Common.\+cpp}!get\+\_\+color@{get\+\_\+color}}
+\index{get\+\_\+color@{get\+\_\+color}!Common.\+cpp@{Common.\+cpp}}
+\subsubsection[{\texorpdfstring{get\+\_\+color(float x\+\_\+in, float \&r, float \&g, float \&b)}{get_color(float x_in, float &r, float &g, float &b)}}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+color (
+\begin{DoxyParamCaption}
+\item[{float}]{x\+\_\+in, }
+\item[{float \&}]{r, }
+\item[{float \&}]{g, }
+\item[{float \&}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{_common_8cpp_a75aaebf1a8b822524cc6af51a0cd83ef}{}\label{_common_8cpp_a75aaebf1a8b822524cc6af51a0cd83ef}
+
+\begin{DoxyCode}
+51 \{
+52   \textcolor{comment}{// Only important if the number of colors is small. In which case the rest is}
+53   \textcolor{comment}{// still wrong anyway}
+54   \textcolor{comment}{// x = linspace(0,1,jj)' * (1-1/jj) + 1/jj;}
+55   \textcolor{comment}{//}
+56   \textcolor{keyword}{const} \textcolor{keywordtype}{double} rone = 0.8;
+57   \textcolor{keyword}{const} \textcolor{keywordtype}{double} gone = 1.0;
+58   \textcolor{keyword}{const} \textcolor{keywordtype}{double} bone = 1.0;
+59   \textcolor{keywordtype}{float} x = x\_in;
+60   x = (x\_in<0 ? 0 : (x>1 ? 1 : x));
+61 
+62   \textcolor{keywordflow}{if} (x<1. / 8.)
+63   \{
+64     r = 0;
+65     g = 0;
+66     b = bone*(0.5 + (x) / (1. / 8.)*0.5);
+67   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x<3. / 8.)
+68   \{
+69     r = 0;
+70     g = gone*(x - 1. / 8.) / (3. / 8. - 1. / 8.);
+71     b = bone;
+72   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x<5. / 8.)
+73   \{
+74     r = rone*(x - 3. / 8.) / (5. / 8. - 3. / 8.);
+75     g = gone;
+76     b = (bone - (x - 3. / 8.) / (5. / 8. - 3. / 8.));
+77   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x<7. / 8.)
+78   \{
+79     r = rone;
+80     g = (gone - (x - 5. / 8.) / (7. / 8. - 5. / 8.));
+81     b = 0;
+82   \} \textcolor{keywordflow}{else}
+83   \{
+84     r = (rone - (x - 7. / 8.) / (1. - 7. / 8.)*0.5);
+85     g = 0;
+86     b = 0;
+87   \}
+88 \}
+\end{DoxyCode}
+\index{Common.\+cpp@{Common.\+cpp}!get\+\_\+color\+\_\+dist@{get\+\_\+color\+\_\+dist}}
+\index{get\+\_\+color\+\_\+dist@{get\+\_\+color\+\_\+dist}!Common.\+cpp@{Common.\+cpp}}
+\subsubsection[{\texorpdfstring{get\+\_\+color\+\_\+dist(float dist\+\_\+val, std\+\_\+msgs\+::\+Color\+R\+G\+B\+A \&color, float max\+\_\+plot\+\_\+dist\+\_\+val)}{get_color_dist(float dist_val, std_msgs::ColorRGBA &color, float max_plot_dist_val)}}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+color\+\_\+dist (
+\begin{DoxyParamCaption}
+\item[{float}]{dist\+\_\+val, }
+\item[{std\+\_\+msgs\+::\+Color\+R\+G\+BA \&}]{color, }
+\item[{float}]{max\+\_\+plot\+\_\+dist\+\_\+val}
+\end{DoxyParamCaption}
+)}\hypertarget{_common_8cpp_a4b2e4b6698ff92678b23392dc111b36d}{}\label{_common_8cpp_a4b2e4b6698ff92678b23392dc111b36d}
+
+\begin{DoxyCode}
+25                                                                                      \{
+26 \textcolor{comment}{// error region }
+27   \textcolor{keywordflow}{if}(dist\_val<0)\{
+28       color.r = 0.5;
+29       color.g = 0.0;
+30       color.b = 0.0;
+31       color.a = 0.2;
+32 
+33   \}
+34 \textcolor{comment}{//   else if(dist\_val == 0.2)\{}
+35 \textcolor{comment}{//       color.r = 0;}
+36 \textcolor{comment}{//       color.g = 0;}
+37 \textcolor{comment}{//       color.b = 1;}
+38 \textcolor{comment}{//   \}}
+39   \textcolor{comment}{// normal region }
+40   \textcolor{keywordflow}{else}\{                   
+41       color.r = pow(dist\_val/max\_plot\_dist\_val,3);
+42       color.g = pow(dist\_val/max\_plot\_dist\_val,3);
+43       color.b = pow(dist\_val/max\_plot\_dist\_val,3);
+44   \}
+45   \textcolor{comment}{// plot only cells in this bound}
+46   \textcolor{keywordflow}{if}(dist\_val<max\_plot\_dist\_val)
+47       color.a = 0.2;
+48 \};
+\end{DoxyCode}
+\index{Common.\+cpp@{Common.\+cpp}!Get\+Current\+Working\+Dir@{Get\+Current\+Working\+Dir}}
+\index{Get\+Current\+Working\+Dir@{Get\+Current\+Working\+Dir}!Common.\+cpp@{Common.\+cpp}}
+\subsubsection[{\texorpdfstring{Get\+Current\+Working\+Dir(void)}{GetCurrentWorkingDir(void)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Get\+Current\+Working\+Dir (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_common_8cpp_a7770cb36d4f4c6e78ff68516ecb2123c}{}\label{_common_8cpp_a7770cb36d4f4c6e78ff68516ecb2123c}
+
+\begin{DoxyCode}
+2                                       \{
+3     \textcolor{keywordtype}{char} buff[FILENAME\_MAX];
+4     \hyperlink{_common_8h_af0c0d1034a71f8aa3a08cda83c9d4e7a}{GetCurrentDir}( buff, FILENAME\_MAX );
+5     std::string current\_working\_dir(buff);
+6     \textcolor{keywordflow}{return} current\_working\_dir; 
+7 \}
+\end{DoxyCode}

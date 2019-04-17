@@ -6,9 +6,8 @@ class Chaser{
     private:
         Preplanner preplanner;
         SmoothPlanner smooth_planner;
-
-        ros::Publisher pub_control_mav;
-        geometry_msgs::PoseStamped pose_control_mav;        
+        // we will get them from parameter handle
+        double spawn_x,spawn_y,hovering_z;
         
         // subroutines 
         void preplan(); 
@@ -27,9 +26,7 @@ class Chaser{
         Point eval_point(double t_eval);
         Twist eval_velocity(double t_eval);
         Twist eval_acceleration(double t_eval);
-
-        // control 
-        void publish_control(double t_eval);
+        Point get_control_point(double t_eval); // get the current control point 
 
 };
 

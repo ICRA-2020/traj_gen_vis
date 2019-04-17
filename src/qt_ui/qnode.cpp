@@ -77,6 +77,8 @@ void QNode::run(){
         // chaser information board 
         if(chaser_wrapper.objects_handler.is_map_recieved and (not is_said_edf)){
             writeOnBoard("EDF loaded.");
+            writeOnBoard("hovering...");
+            
             is_said_edf = true;
         }
         
