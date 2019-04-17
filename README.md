@@ -1,6 +1,6 @@
 # traj_gen_vis
 
-<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/intro_final.png"> 
+<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/intro_final2.png"> 
 
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/main.gif"> 
 
@@ -80,6 +80,8 @@ roslaunch auto_chaser simulation_without_gazebo.launch
 This step is not optional. In rviz tool properties widget, set the topic name of 2D Nav Goal as /chaser_init_pose. If you don't remember the topic, just click the set chaser pose button in gui in the next time :). If things done, move on to one of the following two modes : one-shot or  receding horizon method  
 
 ### Step 2-(1) One-shot mode (offline trajectory computation) {#oneshot}
+
+<img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/tutorial1.gif">
 
 For this one-shot mode, the chaser is assumed to have the full information for the future trajectory of target. Based on the future path, the trajectory will  be computed immediately.
 
