@@ -1,6 +1,6 @@
 # traj_gen_vis
 
-<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/introl_final2.png"> 
+<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/introl_final.png"> 
 
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/main.gif"> 
 
@@ -96,6 +96,8 @@ For the receding horizon method, the chaser does not have full information of th
 ## 3.2 Simulation with gazebo
 
 This package provides a simulation environment employing wonderful package "rotors_simulator". There, the chaser is equipped with vision-sensor where you can check the actual capture of the target. In contrast to the *without gazebo*  mode, the initial spawn pose of the chaser   should be set with the arguments **chaser_x** , **chaser_y**.  
+
+``` ``` 
 
 ```roslaunch auto_chaser simulation_with_gazebo.launch``` 
 
