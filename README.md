@@ -1,6 +1,6 @@
 # traj_gen_vis
 
-<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/intro_final2.png"> 
+<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/introl_final2.png"> 
 
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/main.gif"> 
 
@@ -53,7 +53,7 @@ The package is gazebo simulator for MAV. This is used for simulation of chasing 
 
 [download here](http://github.com/OctoMap/octomap)
 
-# 3.  Usage
+# 3.  Usag
 
 ## 3.0 Common procedure - map and target trajectory 
 
@@ -91,9 +91,13 @@ For this one-shot mode, the chaser is assumed to have the full information for t
 
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/tutorial2.gif">
 
-For the receding horizon method, 
+For the receding horizon method, the chaser does not have full information of the future movement of target. Instead, the future movement of target for only short horizon (**"pred_horizon"** parameter in launch files) with a regular interval (**pred_horizon** - **early_end_time** . Please check it in launch files!) is fed to chaser and chaser should keep re-plan in response to the updates.  
 
-## 3.2 Simulation with gazebo 
+## 3.2 Simulation with gazebo
+
+This package provides a simulation environment employing wonderful package "rotors_simulator". There, the chaser is equipped with vision-sensor where you can check the actual capture of the target. In contrast to the *without gazebo*  mode, the initial spawn pose of the chaser   should be set with the arguments **chaser_x** , **chaser_y**.  
+
+```roslaunch auto_chaser simulation_with_gazebo.launch``` 
 
 # 4. ROS Node API 
 
