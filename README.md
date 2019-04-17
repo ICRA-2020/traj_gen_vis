@@ -97,9 +97,11 @@ For the receding horizon method, the chaser does not have full information of th
 
 This package provides a simulation environment employing wonderful package "rotors_simulator". There, the chaser is equipped with vision-sensor where you can check the actual capture of the target. In contrast to the *without gazebo*  mode, the initial spawn pose of the chaser   should be set with the arguments **chaser_x** , **chaser_y**.  
 
-``` ``` 
+``` 
+roslaunch auto_chaser simulation_with_gazebo.launch
+```
 
-```roslaunch auto_chaser simulation_with_gazebo.launch``` 
+The remaining procedure is the same with the section 3.1.   
 
 # 4. ROS Node API 
 
