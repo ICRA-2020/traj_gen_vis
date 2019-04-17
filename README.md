@@ -1,6 +1,6 @@
 # traj_gen_vis
 
-<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/overview.png"> 
+<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/intro_final.png"> 
 
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/main.gif"> 
 
@@ -65,7 +65,7 @@ The chasing algorithm receives 1) prior map (in the form of octomap) and 2) The 
 
 *2) target trajectory*
 
- In "data/${map name}" folder, you can find path*.txt files which can be loaded in the gui of the package. You may also generate your own path by traj_gen package. For the saving and loading a target path, [this page](https://github.com/icsl-Jeon/traj_gen) is referred.     
+ In "data/${map name}" folder, you can find path*.txt files which can be loaded in the gui of the package. You may also generate your own path by traj_gen package. For  saving and loading a target path, [this page](https://github.com/icsl-Jeon/traj_gen) is referred(traj_gen).     
 
 ##  3.1 Simulation without gazebo
 
@@ -81,11 +81,15 @@ This step is not optional. In rviz tool properties widget, set the topic name of
 
 ### Step 2-(1) One-shot mode (offline trajectory computation) {#oneshot}
 
-<img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/tutorial1.gif">
+For this one-shot mode, the chaser is assumed to have the full information for the future trajectory of target. Based on the future path, the trajectory will  be computed immediately.
+
+
 
 ### Step 2-(2) Receding horizon method (online trajectory computation) 
 
+<img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/tutorial2.gif">
 
+For the receding horizon method, 
 
 ## 3.2 Simulation with gazebo 
 
