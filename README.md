@@ -14,7 +14,7 @@
 
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/algo_explain.gif">
 
-The paper was submitted to IROS 2019 (still no decision made) and preprinted in arXiv. If this package was helpful to your project, it would be grateful if you could cite [my paper](https://arxiv.org/pdf/1904.03421.pdf). 
+The paper was accepted to IROS 2019  and preprinted in arXiv. If this package was helpful to your project, it would be grateful if you could cite [my paper](https://arxiv.org/pdf/1904.03421.pdf). 
 
 ```
 @article{jeon2019online,
