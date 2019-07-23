@@ -66,8 +66,8 @@ The chasing algorithm receives 1) prior map (in the form of octomap) and 2) The 
 *2) target trajectory*
 
  In "data/${map name}" folder, you can find path*.txt files which can be loaded in the gui of the package. You may also generate your own path by traj_gen package. For  saving and loading a target path, [this page](https://github.com/icsl-Jeon/traj_gen) is referred(traj_gen).     
-
-##  3.1 Simulation without gazebo
+<a name="without"></a>
+##  3.1 Simulation without gazebo 
 
 This mode does not require gazebo. It only tests the proposed chasing policy and display the result in Rviz.   Please run the following command:
 
@@ -75,11 +75,11 @@ This mode does not require gazebo. It only tests the proposed chasing policy and
 roslaunch auto_chaser simulation_without_gazebo.launch
 ```
 
-#### Step 1 : Spawning chaser from user selection 
+### Step 1 : Spawning chaser from user selection 
 
-This step is not optional. In rviz tool properties widget, set the topic name of 2D Nav Goal as /chaser_init_pose. If you don't remember the topic, just click the set chaser pose button in gui in the next time :). If things done, move on to one of the following two modes : one-shot or  receding horizon method  
+This step should precede the following steps. In rviz tool properties widget, set the topic name of 2D Nav Goal as /chaser_init_pose. If you don't remember the topic, just click the ```set chaser pose button``` in gui in the next time :). If things done, move on to one of the following two modes : one-shot or  receding horizon method  
 
-### Step 2-(1) One-shot mode (offline trajectory computation) {#oneshot}
+### Step 2 - option A :  One-shot mode (offline trajectory computation) 
 
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/tutorial1.gif">
 
@@ -87,7 +87,7 @@ For this one-shot mode, the chaser is assumed to have the full information for t
 
 
 
-### Step 2-(2) Receding horizon method (online trajectory computation) 
+### Step 2 - option B : Receding horizon mode (online trajectory computation) 
 
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/tutorial2.gif">
 
@@ -95,7 +95,7 @@ For the receding horizon method, the chaser does not have full information of th
 
 ## 3.2 Simulation with gazebo
 
-This package provides a simulation environment employing wonderful package "rotors_simulator". There, the chaser is equipped with vision-sensor where you can check the actual capture of the target. In contrast to the *without gazebo*  mode, the initial spawn pose of the chaser   should be set with the arguments **chaser_x** , **chaser_y**.  
+This package provides a simulation environment by employing  package "rotors_simulator". There, the chaser is equipped with vision-sensor (vi-sensor) where you can check the actual capture of the target. In contrast to the [*without gazebo*  mode](#without), the initial spawn pose of the chaser   should be set with the arguments **chaser_x** , **chaser_y**.  
 
 ``` 
 roslaunch auto_chaser simulation_with_gazebo.launch
