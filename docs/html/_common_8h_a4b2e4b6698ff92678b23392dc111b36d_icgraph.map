@@ -1,0 +1,10 @@
+<map id="get_color_dist" name="get_color_dist">
+<area shape="rect" id="node2" href="$class_objects_handler.html#ae6da4f0f0a265c75722e02d68d519f07" title="ObjectsHandler::compute_edf" alt="" coords="156,5,351,32"/>
+<area shape="rect" id="node3" href="$class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="803,27,1013,53"/>
+<area shape="rect" id="node4" href="$class_objects_handler.html#a5744110d979850b3e2d8896793435d0c" title="ObjectsHandler::octomap\l_callback" alt="" coords="399,27,569,69"/>
+<area shape="rect" id="node5" href="$class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="617,77,755,104"/>
+<area shape="rect" id="node6" href="$class_wrapper.html#af336781e7d75d525e7b152366a0e0d93" title="Wrapper::init" alt="" coords="860,77,956,104"/>
+<area shape="rect" id="node7" href="$class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="1061,77,1224,104"/>
+<area shape="rect" id="node8" href="$class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="1272,77,1381,104"/>
+<area shape="rect" id="node9" href="$class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="1429,77,1617,104"/>
+</map>

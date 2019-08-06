@@ -1,0 +1,6 @@
+<map id="Wrapper::trigger_chasing" name="Wrapper::trigger_chasing">
+<area shape="rect" id="node2" href="$class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="220,5,387,32"/>
+<area shape="rect" id="node4" href="$class_q_node.html#a23bd7e0744ad4c7b5d5464485375bef1" title="QNode::trigger" alt="" coords="250,56,357,83"/>
+<area shape="rect" id="node3" href="$class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="435,5,623,32"/>
+<area shape="rect" id="node5" href="$class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="484,56,573,83"/>
+</map>

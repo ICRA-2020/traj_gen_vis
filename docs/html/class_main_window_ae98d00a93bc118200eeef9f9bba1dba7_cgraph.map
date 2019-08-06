@@ -1,0 +1,28 @@
+<map id="MainWindow::~MainWindow" name="MainWindow::~MainWindow">
+<area shape="rect" id="node2" href="$class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="270,47,379,74"/>
+<area shape="rect" id="node14" href="$class_target_manager.html#a1c0e48d7a623e8b7caa11c6b1832956b" title="TargetManager::global\l_path_generate" alt="" coords="249,99,400,140"/>
+<area shape="rect" id="node15" href="$_common_8h.html#a7770cb36d4f4c6e78ff68516ecb2123c" title="GetCurrentWorkingDir" alt="" coords="249,165,400,191"/>
+<area shape="rect" id="node16" href="$class_target_manager.html#a8b96689879cecac3d9109914eb6230ef" title="TargetManager::queue\l_file_load" alt="" coords="249,216,401,257"/>
+<area shape="rect" id="node17" href="$class_target_manager.html#a13242c4a8b96b97cfeddea19aabc1181" title="TargetManager::clear\l_waypoint" alt="" coords="252,281,397,323"/>
+<area shape="rect" id="node18" href="$class_target_manager.html#af362d78ae6b0cc0a3ea288b2c138f482" title="TargetManager::pop\l_waypoint" alt="" coords="255,347,394,388"/>
+<area shape="rect" id="node19" href="$class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="241,413,408,439"/>
+<area shape="rect" id="node3" href="$class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="458,47,621,74"/>
+<area shape="rect" id="node4" href="$class_target_manager.html#a293bcb3b559c6e7c4ef549873791f092" title="TargetManager::init" alt="" coords="676,22,811,49"/>
+<area shape="rect" id="node6" href="$class_wrapper.html#af336781e7d75d525e7b152366a0e0d93" title="Wrapper::init" alt="" coords="695,77,791,103"/>
+<area shape="rect" id="node5" href="$class_target_manager.html#adc84c02e4501b1a53556c766d50bc8b5" title="TargetManager::callback\l_waypoint" alt="" coords="864,12,1029,53"/>
+<area shape="rect" id="node7" href="$class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="878,78,1015,105"/>
+<area shape="rect" id="node8" href="$class_objects_handler.html#a5744110d979850b3e2d8896793435d0c" title="ObjectsHandler::octomap\l_callback" alt="" coords="1077,5,1248,47"/>
+<area shape="rect" id="node11" href="$class_objects_handler.html#a4c56416d3583b70d181d69d900b884b5" title="ObjectsHandler::callback\l_chaser_init_pose" alt="" coords="1079,71,1247,112"/>
+<area shape="rect" id="node13" href="$class_objects_handler.html#a28ac9c7ef998a413825cddca78324f61" title="callback function for control pose from wrapper. This is intended to replace the currnet chaser pose ..." alt="" coords="1079,136,1247,177"/>
+<area shape="rect" id="node9" href="$class_objects_handler.html#ae6da4f0f0a265c75722e02d68d519f07" title="ObjectsHandler::compute_edf" alt="" coords="1296,13,1491,39"/>
+<area shape="rect" id="node10" href="$_common_8h.html#a4b2e4b6698ff92678b23392dc111b36d" title="get_color_dist" alt="" coords="1539,13,1641,39"/>
+<area shape="rect" id="node12" href="$class_objects_handler.html#a968feba95e0707919b6c3632781510ba" title="ObjectsHandler::chaser\l_spawn" alt="" coords="1314,71,1473,112"/>
+<area shape="rect" id="node20" href="$_common_8h.html#a81915b091c29bc9aef6a74ab374f479a" title="extract_pnts_from_path" alt="" coords="460,354,619,381"/>
+<area shape="rect" id="node21" href="$class_target_manager.html#a747b82bf5cb4d1d3574dbc08a117538f" title="TargetManager::get\l_global_waypoints" alt="" coords="472,405,607,447"/>
+<area shape="rect" id="node22" href="$class_wrapper.html#a21a0e115ea80e053e4f2defd1362b92f" title="Wrapper::trigger_chasing" alt="" coords="456,471,623,498"/>
+<area shape="rect" id="node23" href="$class_objects_handler.html#a4793f1ed257c849b28f0386f635ee714" title="ObjectsHandler::get\l_prediction_seq" alt="" coords="674,333,813,375"/>
+<area shape="rect" id="node24" href="$class_objects_handler.html#afe849882d1feeef8316a45632381da54" title="ObjectsHandler::get\l_edf_grid_ptr" alt="" coords="674,399,813,440"/>
+<area shape="rect" id="node25" href="$class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56" title="ObjectsHandler::get\l_chaser_pose" alt="" coords="674,464,813,505"/>
+<area shape="rect" id="node26" href="$class_objects_handler.html#aa1af309b0e964ccb6df8dede045fa32b" title="ObjectsHandler::get\l_chaser_velocity" alt="" coords="674,529,813,571"/>
+<area shape="rect" id="node27" href="$class_objects_handler.html#a41d48832b07a4d4276147a99dd1d31bc" title="ObjectsHandler::get\l_chaser_acceleration" alt="" coords="671,595,816,636"/>
+</map>

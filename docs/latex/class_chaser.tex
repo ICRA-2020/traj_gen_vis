@@ -4,15 +4,6 @@
 
 {\ttfamily \#include $<$Chaser.\+h$>$}
 
-
-
-Collaboration diagram for Chaser\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=284pt]{class_chaser__coll__graph}
-\end{center}
-\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,29 +28,13 @@ Point \hyperlink{class_chaser_a7a42e3dd3ca45e343652318e591f87d1}{get\+\_\+contro
 \item 
 bool \hyperlink{class_chaser_a53af032471ad6bdc828c4eae78085813}{is\+\_\+complete\+\_\+chasing\+\_\+path}
 \end{DoxyCompactItemize}
-\subsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \hyperlink{class_chaser_a5169e2a07c5d86d144880be3d9c7d6b9}{preplan} ()
-\item 
-void \hyperlink{class_chaser_aa70b57b1d92a22f56199ee3d0460a4f7}{path\+\_\+complete} ()
-\end{DoxyCompactItemize}
-\subsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\hyperlink{class_preplanner}{Preplanner} \hyperlink{class_chaser_a090edb4f4bdb9da847f0980d3b188c57}{preplanner}
-\item 
-\hyperlink{class_smooth_planner}{Smooth\+Planner} \hyperlink{class_chaser_aab300ace64ce35c982c546cfce13f476}{smooth\+\_\+planner}
-\item 
-double \hyperlink{class_chaser_aa524a9495a94838a3d6b07942f1497dc}{spawn\+\_\+x}
-\item 
-double \hyperlink{class_chaser_ab7047204e49269b88f7393c61b6c2393}{spawn\+\_\+y}
-\item 
-double \hyperlink{class_chaser_a793c1d8800e02e5b7c13f973cacc5eff}{hovering\+\_\+z}
-\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+
+
+Definition at line 5 of file Chaser.\+h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -71,9 +46,9 @@ double \hyperlink{class_chaser_a793c1d8800e02e5b7c13f973cacc5eff}{hovering\+\_\+
 \end{DoxyParamCaption}
 )}\hypertarget{class_chaser_ae1179fa7b77db9c80468f88222e32f09}{}\label{class_chaser_ae1179fa7b77db9c80468f88222e32f09}
 
-\begin{DoxyCode}
-3 :\hyperlink{class_chaser_a53af032471ad6bdc828c4eae78085813}{is\_complete\_chasing\_path}(\textcolor{keyword}{false})\{\}
-\end{DoxyCode}
+
+Definition at line 3 of file Chaser.\+cpp.
+
 
 
 \subsection{Member Function Documentation}
@@ -90,32 +65,21 @@ double \hyperlink{class_chaser_a793c1d8800e02e5b7c13f973cacc5eff}{hovering\+\_\+
 \end{DoxyParamCaption}
 )}\hypertarget{class_chaser_a8feeca68466b9b4576ee9c99b624dfc5}{}\label{class_chaser_a8feeca68466b9b4576ee9c99b624dfc5}
 
-\begin{DoxyCode}
-16                                                                                                            
-                                        \{
-17     
-18     \textcolor{keywordtype}{bool} result = \textcolor{keyword}{false};
-19     
-20     \textcolor{comment}{// phase 1 pre planning }
-21     \hyperlink{class_chaser_a090edb4f4bdb9da847f0980d3b188c57}{preplanner}.\hyperlink{class_preplanner_a6f0b709012500a44679facf0e18b985a}{preplan}(global\_edf\_ptr,target\_pnts,chaser\_x0);
-22     ROS\_INFO(\textcolor{stringliteral}{"[Chaser] preplanning completed."});
-23 
-24     nav\_msgs::Path waypoints = \hyperlink{class_chaser_a090edb4f4bdb9da847f0980d3b188c57}{preplanner}.\hyperlink{class_preplanner_a1debbaa8e7ee64b2c22c514f89801cd1}{get\_preplanned\_waypoints}();
-25 
-26     \textcolor{keywordflow}{if}(waypoints.poses.size())\{
-27         \textcolor{comment}{// phase 2 smooth planning     }
-28         \hyperlink{class_chaser_aab300ace64ce35c982c546cfce13f476}{smooth\_planner}.\hyperlink{class_smooth_planner_afc03abbd5f6473f2bc952f70195326ac}{traj\_gen}(knots,waypoints,chaser\_v0,chaser\_a0);
-29         \textcolor{keywordflow}{if} (\hyperlink{class_chaser_aab300ace64ce35c982c546cfce13f476}{smooth\_planner}.\hyperlink{class_smooth_planner_aa9df69d4f514c7338ab2d066d38dd1a2}{planner}.is\_spline\_valid())
-30             \{ROS\_INFO(\textcolor{stringliteral}{"[Chaser] smooth path completed."}); 
-      \hyperlink{class_chaser_a53af032471ad6bdc828c4eae78085813}{is\_complete\_chasing\_path} = \textcolor{keyword}{true}; \textcolor{keywordflow}{return} \textcolor{keyword}{true};\}
-31         \textcolor{keywordflow}{else} 
-32             ROS\_WARN(\textcolor{stringliteral}{"[Chaser] smooth path incompleted."});
-33     \}\textcolor{keywordflow}{else}
-34         ROS\_WARN(\textcolor{stringliteral}{"[Chaser] preplanning failed"});
-35 
-36     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
-37 \}
-\end{DoxyCode}
+
+Definition at line 16 of file Chaser.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chaser_a8feeca68466b9b4576ee9c99b624dfc5_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Chaser@{Chaser}!eval\+\_\+acceleration@{eval\+\_\+acceleration}}
 \index{eval\+\_\+acceleration@{eval\+\_\+acceleration}!Chaser@{Chaser}}
 \subsubsection[{\texorpdfstring{eval\+\_\+acceleration(double t\+\_\+eval)}{eval_acceleration(double t_eval)}}]{\setlength{\rightskip}{0pt plus 5cm}Twist Chaser\+::eval\+\_\+acceleration (
@@ -124,11 +88,9 @@ double \hyperlink{class_chaser_a793c1d8800e02e5b7c13f973cacc5eff}{hovering\+\_\+
 \end{DoxyParamCaption}
 )}\hypertarget{class_chaser_a2fe36102d5a9befcb4c6ada3375260ed}{}\label{class_chaser_a2fe36102d5a9befcb4c6ada3375260ed}
 
-\begin{DoxyCode}
-54                                             \{
-55     \textcolor{keywordflow}{return} \hyperlink{class_chaser_aab300ace64ce35c982c546cfce13f476}{smooth\_planner}.\hyperlink{class_smooth_planner_aa9df69d4f514c7338ab2d066d38dd1a2}{planner}.accel\_eval\_spline(t\_eval);        
-56 \}
-\end{DoxyCode}
+
+Definition at line 54 of file Chaser.\+cpp.
+
 \index{Chaser@{Chaser}!eval\+\_\+point@{eval\+\_\+point}}
 \index{eval\+\_\+point@{eval\+\_\+point}!Chaser@{Chaser}}
 \subsubsection[{\texorpdfstring{eval\+\_\+point(double t\+\_\+eval)}{eval_point(double t_eval)}}]{\setlength{\rightskip}{0pt plus 5cm}Point Chaser\+::eval\+\_\+point (
@@ -137,11 +99,9 @@ double \hyperlink{class_chaser_a793c1d8800e02e5b7c13f973cacc5eff}{hovering\+\_\+
 \end{DoxyParamCaption}
 )}\hypertarget{class_chaser_a6dca60b8af1c63eff3235515255cf355}{}\label{class_chaser_a6dca60b8af1c63eff3235515255cf355}
 
-\begin{DoxyCode}
-45                                      \{    
-46     \textcolor{keywordflow}{return} \hyperlink{class_chaser_aab300ace64ce35c982c546cfce13f476}{smooth\_planner}.\hyperlink{class_smooth_planner_aa9df69d4f514c7338ab2d066d38dd1a2}{planner}.point\_eval\_spline(t\_eval);        
-47 \}
-\end{DoxyCode}
+
+Definition at line 45 of file Chaser.\+cpp.
+
 \index{Chaser@{Chaser}!eval\+\_\+velocity@{eval\+\_\+velocity}}
 \index{eval\+\_\+velocity@{eval\+\_\+velocity}!Chaser@{Chaser}}
 \subsubsection[{\texorpdfstring{eval\+\_\+velocity(double t\+\_\+eval)}{eval_velocity(double t_eval)}}]{\setlength{\rightskip}{0pt plus 5cm}Twist Chaser\+::eval\+\_\+velocity (
@@ -150,11 +110,9 @@ double \hyperlink{class_chaser_a793c1d8800e02e5b7c13f973cacc5eff}{hovering\+\_\+
 \end{DoxyParamCaption}
 )}\hypertarget{class_chaser_a208374e7b85f9a35c1c00ec4f1ec65c3}{}\label{class_chaser_a208374e7b85f9a35c1c00ec4f1ec65c3}
 
-\begin{DoxyCode}
-50                                         \{
-51     \textcolor{keywordflow}{return} \hyperlink{class_chaser_aab300ace64ce35c982c546cfce13f476}{smooth\_planner}.\hyperlink{class_smooth_planner_aa9df69d4f514c7338ab2d066d38dd1a2}{planner}.vel\_eval\_spline(t\_eval);        
-52 \}
-\end{DoxyCode}
+
+Definition at line 50 of file Chaser.\+cpp.
+
 \index{Chaser@{Chaser}!get\+\_\+control\+\_\+point@{get\+\_\+control\+\_\+point}}
 \index{get\+\_\+control\+\_\+point@{get\+\_\+control\+\_\+point}!Chaser@{Chaser}}
 \subsubsection[{\texorpdfstring{get\+\_\+control\+\_\+point(double t\+\_\+eval)}{get_control_point(double t_eval)}}]{\setlength{\rightskip}{0pt plus 5cm}Point Chaser\+::get\+\_\+control\+\_\+point (
@@ -175,18 +133,9 @@ obtains the latest control point. yaw will be selected from wrapper with informa
 Point the control point 
 \end{DoxyReturn}
 
-\begin{DoxyCode}
-65                                             \{    
-66     \textcolor{keywordflow}{if} (this->\hyperlink{class_chaser_a53af032471ad6bdc828c4eae78085813}{is\_complete\_chasing\_path})
-67         \textcolor{keywordflow}{return} \hyperlink{class_chaser_aab300ace64ce35c982c546cfce13f476}{smooth\_planner}.\hyperlink{class_smooth_planner_aa9df69d4f514c7338ab2d066d38dd1a2}{planner}.point\_eval\_spline(t\_eval); 
-68     \textcolor{keywordflow}{else}\{\textcolor{comment}{// hovering command at the spawning position with desired height      }
-69             Point hovering\_point;
-70             hovering\_point.x = \hyperlink{class_chaser_aa524a9495a94838a3d6b07942f1497dc}{spawn\_x};
-71             hovering\_point.y = \hyperlink{class_chaser_ab7047204e49269b88f7393c61b6c2393}{spawn\_y};
-72             hovering\_point.z = \hyperlink{class_chaser_a793c1d8800e02e5b7c13f973cacc5eff}{hovering\_z};        
-73         \textcolor{keywordflow}{return} hovering\_point;
-74     \}
-75 \}\end{DoxyCode}
+
+Definition at line 65 of file Chaser.\+cpp.
+
 \index{Chaser@{Chaser}!init@{init}}
 \index{init@{init}!Chaser@{Chaser}}
 \subsubsection[{\texorpdfstring{init(ros\+::\+Node\+Handle nh)}{init(ros::NodeHandle nh)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chaser\+::init (
@@ -195,32 +144,21 @@ Point the control point
 \end{DoxyParamCaption}
 )}\hypertarget{class_chaser_a3538485980643e885755608e4297d1f6}{}\label{class_chaser_a3538485980643e885755608e4297d1f6}
 
-\begin{DoxyCode}
-5                                  \{
-6 
-7     \hyperlink{class_chaser_a090edb4f4bdb9da847f0980d3b188c57}{preplanner}.\hyperlink{class_preplanner_aecde07364cbd05e2e46c95f4f5fd4951}{init}(nh);
-8     \hyperlink{class_chaser_aab300ace64ce35c982c546cfce13f476}{smooth\_planner}.\hyperlink{class_smooth_planner_a34508c873d458075880afbae0e9c933e}{init}(nh);
-9 
-10     \textcolor{comment}{// retreieve initial hovering command }
-11     nh.param(\textcolor{stringliteral}{"chaser\_init\_x"},\hyperlink{class_chaser_aa524a9495a94838a3d6b07942f1497dc}{spawn\_x},0.0);
-12     nh.param(\textcolor{stringliteral}{"chaser\_init\_y"},\hyperlink{class_chaser_ab7047204e49269b88f7393c61b6c2393}{spawn\_y},0.0);
-13     nh.param(\textcolor{stringliteral}{"chaser\_init\_z"},\hyperlink{class_chaser_a793c1d8800e02e5b7c13f973cacc5eff}{hovering\_z},1.0);
-14 \}
-\end{DoxyCode}
-\index{Chaser@{Chaser}!path\+\_\+complete@{path\+\_\+complete}}
-\index{path\+\_\+complete@{path\+\_\+complete}!Chaser@{Chaser}}
-\subsubsection[{\texorpdfstring{path\+\_\+complete()}{path_complete()}}]{\setlength{\rightskip}{0pt plus 5cm}void Chaser\+::path\+\_\+complete (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_chaser_aa70b57b1d92a22f56199ee3d0460a4f7}{}\label{class_chaser_aa70b57b1d92a22f56199ee3d0460a4f7}
-\index{Chaser@{Chaser}!preplan@{preplan}}
-\index{preplan@{preplan}!Chaser@{Chaser}}
-\subsubsection[{\texorpdfstring{preplan()}{preplan()}}]{\setlength{\rightskip}{0pt plus 5cm}void Chaser\+::preplan (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_chaser_a5169e2a07c5d86d144880be3d9c7d6b9}{}\label{class_chaser_a5169e2a07c5d86d144880be3d9c7d6b9}
+
+Definition at line 5 of file Chaser.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chaser_a3538485980643e885755608e4297d1f6_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Chaser@{Chaser}!session@{session}}
 \index{session@{session}!Chaser@{Chaser}}
 \subsubsection[{\texorpdfstring{session(double t)}{session(double t)}}]{\setlength{\rightskip}{0pt plus 5cm}void Chaser\+::session (
@@ -229,36 +167,34 @@ Point the control point
 \end{DoxyParamCaption}
 )}\hypertarget{class_chaser_a7d736728bb5327acf0d334d7d4b1b844}{}\label{class_chaser_a7d736728bb5327acf0d334d7d4b1b844}
 
-\begin{DoxyCode}
-39                             \{
-40     \hyperlink{class_chaser_a090edb4f4bdb9da847f0980d3b188c57}{preplanner}.\hyperlink{class_preplanner_a35f3bfb85ba14d7f0c72bda1522df69e}{publish}(); \textcolor{comment}{// markers     }
-41     \hyperlink{class_chaser_aab300ace64ce35c982c546cfce13f476}{smooth\_planner}.\hyperlink{class_smooth_planner_a2996c73522e93adff70eb68e18c55951}{publish}();  \textcolor{comment}{// markers }
-42 \}
-\end{DoxyCode}
+
+Definition at line 39 of file Chaser.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{class_chaser_a7d736728bb5327acf0d334d7d4b1b844_cgraph}
+\end{center}
+\end{figure}
+
+
 
 
 \subsection{Member Data Documentation}
-\index{Chaser@{Chaser}!hovering\+\_\+z@{hovering\+\_\+z}}
-\index{hovering\+\_\+z@{hovering\+\_\+z}!Chaser@{Chaser}}
-\subsubsection[{\texorpdfstring{hovering\+\_\+z}{hovering_z}}]{\setlength{\rightskip}{0pt plus 5cm}double Chaser\+::hovering\+\_\+z\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_chaser_a793c1d8800e02e5b7c13f973cacc5eff}{}\label{class_chaser_a793c1d8800e02e5b7c13f973cacc5eff}
 \index{Chaser@{Chaser}!is\+\_\+complete\+\_\+chasing\+\_\+path@{is\+\_\+complete\+\_\+chasing\+\_\+path}}
 \index{is\+\_\+complete\+\_\+chasing\+\_\+path@{is\+\_\+complete\+\_\+chasing\+\_\+path}!Chaser@{Chaser}}
 \subsubsection[{\texorpdfstring{is\+\_\+complete\+\_\+chasing\+\_\+path}{is_complete_chasing_path}}]{\setlength{\rightskip}{0pt plus 5cm}bool Chaser\+::is\+\_\+complete\+\_\+chasing\+\_\+path}\hypertarget{class_chaser_a53af032471ad6bdc828c4eae78085813}{}\label{class_chaser_a53af032471ad6bdc828c4eae78085813}
-\index{Chaser@{Chaser}!preplanner@{preplanner}}
-\index{preplanner@{preplanner}!Chaser@{Chaser}}
-\subsubsection[{\texorpdfstring{preplanner}{preplanner}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Preplanner} Chaser\+::preplanner\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_chaser_a090edb4f4bdb9da847f0980d3b188c57}{}\label{class_chaser_a090edb4f4bdb9da847f0980d3b188c57}
-\index{Chaser@{Chaser}!smooth\+\_\+planner@{smooth\+\_\+planner}}
-\index{smooth\+\_\+planner@{smooth\+\_\+planner}!Chaser@{Chaser}}
-\subsubsection[{\texorpdfstring{smooth\+\_\+planner}{smooth_planner}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Smooth\+Planner} Chaser\+::smooth\+\_\+planner\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_chaser_aab300ace64ce35c982c546cfce13f476}{}\label{class_chaser_aab300ace64ce35c982c546cfce13f476}
-\index{Chaser@{Chaser}!spawn\+\_\+x@{spawn\+\_\+x}}
-\index{spawn\+\_\+x@{spawn\+\_\+x}!Chaser@{Chaser}}
-\subsubsection[{\texorpdfstring{spawn\+\_\+x}{spawn_x}}]{\setlength{\rightskip}{0pt plus 5cm}double Chaser\+::spawn\+\_\+x\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_chaser_aa524a9495a94838a3d6b07942f1497dc}{}\label{class_chaser_aa524a9495a94838a3d6b07942f1497dc}
-\index{Chaser@{Chaser}!spawn\+\_\+y@{spawn\+\_\+y}}
-\index{spawn\+\_\+y@{spawn\+\_\+y}!Chaser@{Chaser}}
-\subsubsection[{\texorpdfstring{spawn\+\_\+y}{spawn_y}}]{\setlength{\rightskip}{0pt plus 5cm}double Chaser\+::spawn\+\_\+y\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_chaser_ab7047204e49269b88f7393c61b6c2393}{}\label{class_chaser_ab7047204e49269b88f7393c61b6c2393}
+
+
+Definition at line 18 of file Chaser.\+h.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/include/auto\+\_\+chaser/\hyperlink{_chaser_8h}{Chaser.\+h}\item 
-/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/src/auto\+\_\+chaser/\hyperlink{_chaser_8cpp}{Chaser.\+cpp}\end{DoxyCompactItemize}
+include/auto\+\_\+chaser/\hyperlink{_chaser_8h}{Chaser.\+h}\item 
+src/auto\+\_\+chaser/\hyperlink{_chaser_8cpp}{Chaser.\+cpp}\end{DoxyCompactItemize}

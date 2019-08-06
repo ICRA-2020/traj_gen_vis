@@ -1,0 +1,6 @@
+<map id="MainWindow::closeEvent" name="MainWindow::closeEvent">
+<area shape="rect" id="node2" href="$class_q_node.html#a770568addece696138f515d38408ff5c" title="QNode::shutdown" alt="" coords="253,5,379,32"/>
+<area shape="rect" id="node3" href="$class_main_window.html#a56a5e4d5e0a022e8c1ecf350d2916ade" title="MainWindow::WriteSettings" alt="" coords="224,56,408,83"/>
+<area shape="rect" id="node4" href="$class_q_node.html#ac21ae24311df97ac0e15c97179763b0e" title="QNode::nodeName" alt="" coords="456,56,591,83"/>
+<area shape="rect" id="node5" href="$class_q_node.html#a2b1b82bfd6e5e6187fe8216ba840bb09" title="QNode::wpnts_init" alt="" coords="639,56,769,83"/>
+</map>

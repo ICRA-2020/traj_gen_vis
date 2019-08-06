@@ -1,0 +1,6 @@
+<map id="QNode::writeOnBoard" name="QNode::writeOnBoard">
+<area shape="rect" id="node2" href="$class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="468,5,557,32"/>
+<area shape="rect" id="node3" href="$class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="204,81,371,108"/>
+<area shape="rect" id="node5" href="$class_q_node.html#a23bd7e0744ad4c7b5d5464485375bef1" title="QNode::trigger" alt="" coords="234,31,341,57"/>
+<area shape="rect" id="node4" href="$class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="419,81,607,108"/>
+</map>

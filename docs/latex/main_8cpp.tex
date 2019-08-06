@@ -1,5 +1,5 @@
-\hypertarget{main_8cpp}{}\section{/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/src/qt\+\_\+ui/main.cpp File Reference}
-\label{main_8cpp}\index{/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/src/qt\+\_\+ui/main.\+cpp@{/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/src/qt\+\_\+ui/main.\+cpp}}
+\hypertarget{main_8cpp}{}\section{src/qt\+\_\+ui/main.cpp File Reference}
+\label{main_8cpp}\index{src/qt\+\_\+ui/main.\+cpp@{src/qt\+\_\+ui/main.\+cpp}}
 {\ttfamily \#include \char`\"{}mainwindow.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$Q\+Application$>$}\\*
 {\ttfamily \#include $<$Qt\+Gui$>$}\\*
@@ -28,15 +28,6 @@ int \hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, cha
 \end{DoxyParamCaption}
 )}\hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
 
-\begin{DoxyCode}
-6 \{
-7     QApplication a(argc, argv);
-8     \hyperlink{class_q_node}{QNode} qnode(argc,argv,\textcolor{stringliteral}{"planner\_client"});
-9     \hyperlink{class_main_window}{MainWindow} w(&qnode);
-10 
-11     w.show();
-12     a.connect(&a, SIGNAL(lastWindowClosed()), &a, SLOT(quit()));
-13 
-14     \textcolor{keywordflow}{return} a.exec();
-15 \}
-\end{DoxyCode}
+
+Definition at line 5 of file main.\+cpp.
+
