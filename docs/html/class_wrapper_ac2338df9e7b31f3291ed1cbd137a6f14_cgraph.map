@@ -1,0 +1,5 @@
+<map id="Wrapper::get_control_pose" name="Wrapper::get_control_pose">
+<area shape="rect" id="node2" href="$class_objects_handler.html#a2b9e69afe54afea0380431d8f1f5142d" title="ObjectsHandler::get\l_target_pose" alt="" coords="232,5,371,47"/>
+<area shape="rect" id="node3" href="$class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56" title="ObjectsHandler::get\l_chaser_pose" alt="" coords="232,71,371,112"/>
+<area shape="rect" id="node4" href="$class_objects_handler.html#a07e9d105db04be181661dc979314de3c" title="ObjectsHandler::get\l_world_frame_id" alt="" coords="232,136,371,177"/>
+</map>

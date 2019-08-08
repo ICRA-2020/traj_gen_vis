@@ -4,15 +4,6 @@
 
 {\ttfamily \#include $<$Preplanner.\+h$>$}
 
-
-
-Collaboration diagram for Preplanner\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=212pt]{class_preplanner__coll__graph}
-\end{center}
-\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,49 +17,13 @@ void \hyperlink{class_preplanner_a35f3bfb85ba14d7f0c72bda1522df69e}{publish} ()
 \item 
 nav\+\_\+msgs\+::\+Path \hyperlink{class_preplanner_a1debbaa8e7ee64b2c22c514f89801cd1}{get\+\_\+preplanned\+\_\+waypoints} ()
 \end{DoxyCompactItemize}
-\subsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\hyperlink{_common_8h_a225da2de31d0161f43841ed31cac064c}{Vertex\+Path} \hyperlink{class_preplanner_adff9209bb0422e7105f8bd3ed577fffd}{dijkstra} (\hyperlink{_common_8h_a1f671d518f573b692b5efa57ed576f36}{Vertex\+\_\+d} v0, \hyperlink{_common_8h_a1f671d518f573b692b5efa57ed576f36}{Vertex\+\_\+d} vf)
-\item 
-\hyperlink{struct_field_params}{Field\+Params} \hyperlink{class_preplanner_a5b038984427471115b1f4be24abf43b0}{get\+\_\+local\+\_\+vsf\+\_\+param\+\_\+around\+\_\+target} (Point target\+\_\+pnt)
-\item 
-void \hyperlink{class_preplanner_a1482068998b627fb8e2093e1eafbffd8}{compute\+\_\+visibility\+\_\+field\+\_\+seq} (\hyperlink{struct_grid_field}{Grid\+Field} $\ast$global\+\_\+edf, vector$<$ Point $>$ target\+\_\+pnts)
-\item 
-void \hyperlink{class_preplanner_a9404e790bfccf6563a7d947e6d11afb7}{graph\+\_\+construct} (\hyperlink{struct_grid_field}{Grid\+Field} $\ast$global\+\_\+edf, Point x0)
-\item 
-void \hyperlink{class_preplanner_a02321bc5136138f8aebebc494b774374}{compute\+\_\+shortest\+\_\+path} ()
-\end{DoxyCompactItemize}
-\subsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\hyperlink{structchaser_1_1_preplanner_params}{chaser\+::\+Preplanner\+Params} \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}
-\item 
-string \hyperlink{class_preplanner_a08cb79c25bd4ded139a572672e4492cd}{world\+\_\+frame\+\_\+id}
-\item 
-vector$<$ shared\+\_\+ptr$<$ \hyperlink{struct_grid_field}{Grid\+Field} $>$ $>$ \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\+\_\+field\+\_\+ptr\+\_\+seq}
-\item 
-\hyperlink{_common_8h_a45f376d452c699e18013842e64602733}{Graph} \hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\+\_\+graph}
-\item 
-\hyperlink{_common_8h_a25b10a034823d9ab576650719f0d331c}{Descriptor\+Map} \hyperlink{class_preplanner_a45603cfb24429584c4fc8bc42474e1ff}{descriptor\+\_\+map}
-\item 
-ros\+::\+Publisher \hyperlink{class_preplanner_a8dafcd99dc50e89404c4f33a688eba6c}{pub\+\_\+vsf\+\_\+vis}
-\item 
-ros\+::\+Publisher \hyperlink{class_preplanner_a9655e452a9d0e228b8c2d8cdeac8ce6b}{pub\+\_\+preplanned\+\_\+path}
-\item 
-ros\+::\+Publisher \hyperlink{class_preplanner_a87dc12e474ee43c9e2b095ec64ab08ce}{pub\+\_\+waypoints}
-\item 
-visualization\+\_\+msgs\+::\+Marker \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\+\_\+visibility\+\_\+field\+\_\+base}
-\item 
-visualization\+\_\+msgs\+::\+Marker\+Array \hyperlink{class_preplanner_abcee90044b5d5935168ed132e3dfc8a6}{markers\+\_\+visibility\+\_\+field\+\_\+seq}
-\item 
-visualization\+\_\+msgs\+::\+Marker \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\+\_\+wpnts}
-\item 
-nav\+\_\+msgs\+::\+Path \hyperlink{class_preplanner_ace035c98e9dc23739402d346976d567b}{preplanned\+\_\+path}
-\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+
+
+Definition at line 4 of file Preplanner.\+h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -80,267 +35,12 @@ nav\+\_\+msgs\+::\+Path \hyperlink{class_preplanner_ace035c98e9dc23739402d346976
 \end{DoxyParamCaption}
 )}\hypertarget{class_preplanner_a4314b705278a0e3e070d5389dbb8196e}{}\label{class_preplanner_a4314b705278a0e3e070d5389dbb8196e}
 
-\begin{DoxyCode}
-3 \{\};
-\end{DoxyCode}
+
+Definition at line 3 of file Preplanner.\+cpp.
+
 
 
 \subsection{Member Function Documentation}
-\index{Preplanner@{Preplanner}!compute\+\_\+shortest\+\_\+path@{compute\+\_\+shortest\+\_\+path}}
-\index{compute\+\_\+shortest\+\_\+path@{compute\+\_\+shortest\+\_\+path}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{compute\+\_\+shortest\+\_\+path()}{compute_shortest_path()}}]{\setlength{\rightskip}{0pt plus 5cm}void Preplanner\+::compute\+\_\+shortest\+\_\+path (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_a02321bc5136138f8aebebc494b774374}{}\label{class_preplanner_a02321bc5136138f8aebebc494b774374}
-
-\begin{DoxyCode}
-309                                       \{
-310 
-311     ROS\_INFO(\textcolor{stringliteral}{"shortest path requested."});
-312     \hyperlink{_common_8h_a225da2de31d0161f43841ed31cac064c}{VertexPath} solution\_seq = \hyperlink{class_preplanner_adff9209bb0422e7105f8bd3ed577fffd}{dijkstra}(\hyperlink{class_preplanner_a45603cfb24429584c4fc8bc42474e1ff}{descriptor\_map}[\textcolor{stringliteral}{"x0"}],
-      \hyperlink{class_preplanner_a45603cfb24429584c4fc8bc42474e1ff}{descriptor\_map}[\textcolor{stringliteral}{"xf"}]);
-313     \textcolor{comment}{// if path exist }
-314     \textcolor{keywordflow}{if}(solution\_seq.size())\{
-315 
-316         solution\_seq.pop\_back();
-317 
-318         \textcolor{comment}{// from graph path to real path }
-319         \hyperlink{class_preplanner_ace035c98e9dc23739402d346976d567b}{preplanned\_path}.poses.clear();
-320         \textcolor{comment}{// marker update  }
-321         \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.points.resize(solution\_seq.size());
-322         \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.colors.resize(solution\_seq.size());  
-323 
-324 
-325         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} it = solution\_seq.begin();it<solution\_seq.end();it++)\{
-326             geometry\_msgs::PoseStamped pose\_stamped;
-327 
-328             pose\_stamped.pose.position = *it;
-329             \hyperlink{class_preplanner_ace035c98e9dc23739402d346976d567b}{preplanned\_path}.poses.push\_back(pose\_stamped);
-330 
-331             \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.colors.push\_back(\hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.color);
-332             \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.points.push\_back(*it);
-333         \}
-334     
-335     \}
-336     \textcolor{keywordflow}{else}
-337         ROS\_WARN(\textcolor{stringliteral}{"[Preplanner] The preplanning couldn't be updated. (smooth planner may try to make path on
-       old preplan.) "});
-338     
-339     
-340 \}
-\end{DoxyCode}
-\index{Preplanner@{Preplanner}!compute\+\_\+visibility\+\_\+field\+\_\+seq@{compute\+\_\+visibility\+\_\+field\+\_\+seq}}
-\index{compute\+\_\+visibility\+\_\+field\+\_\+seq@{compute\+\_\+visibility\+\_\+field\+\_\+seq}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{compute\+\_\+visibility\+\_\+field\+\_\+seq(\+Grid\+Field $\ast$global\+\_\+edf, vector$<$ Point $>$ target\+\_\+pnts)}{compute_visibility_field_seq(GridField *global_edf, vector< Point > target_pnts)}}]{\setlength{\rightskip}{0pt plus 5cm}void Preplanner\+::compute\+\_\+visibility\+\_\+field\+\_\+seq (
-\begin{DoxyParamCaption}
-\item[{{\bf Grid\+Field} $\ast$}]{global\+\_\+edf, }
-\item[{vector$<$ Point $>$}]{target\+\_\+pnts}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_a1482068998b627fb8e2093e1eafbffd8}{}\label{class_preplanner_a1482068998b627fb8e2093e1eafbffd8}
-
-\begin{DoxyCode}
-92                                                                                             \{
-93     \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}.resize(target\_pnts.size());
-94     \textcolor{keywordtype}{float} numeric\_threshold = 1\hyperlink{namespace__setup__util_acdce690b925de33d6249bbbfa1109d61}{e}-2;
-95     \textcolor{keywordtype}{int} t = 1;
-96     \textcolor{keywordtype}{float} max\_score = -1;  \textcolor{comment}{// for visualization }
-97     \textcolor{comment}{// for each target pnt}
-98     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = target\_pnts.begin();it<target\_pnts.end();it++,t++)\{
-99         
-100         \textcolor{comment}{// get local conservative grid map around the current target point}
-101         \textcolor{keywordtype}{int} VSF\_MODE = 1;
-102         \textcolor{keywordflow}{try}\{
-103 
-104             \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].reset(\textcolor{keyword}{new} \hyperlink{struct_grid_field}{GridField}(
-      \hyperlink{class_preplanner_a5b038984427471115b1f4be24abf43b0}{get\_local\_vsf\_param\_around\_target}(*it))); 
-105         \}
-106         \textcolor{keywordflow}{catch}(\textcolor{keywordtype}{bool} ex)\{
-107             ROS\_ERROR(\textcolor{stringliteral}{"failed to make visibility scoric field."});
-108 
-109         \}
-110         \textcolor{comment}{// field value update with edf grid }
-111         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} ix = 0 ; ix<\hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].get()->Nx ; ix++)
-112             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} iy = 0 ; iy<\hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].get()->Ny ; iy++)
-113                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} iz = 0 ; iz<\hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].get()->Nz ; iz++)\{
-114                     
-115                     \textcolor{comment}{// assign visibilty value with minimum clamping to evaluated node }
-116                     Point eval\_pnt = \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].get()->getCellPnt(Vector3i(ix,
-      iy,iz));      
-117                     \textcolor{keywordtype}{float} vs = global\_edf->\hyperlink{struct_grid_field_af9f5144af2f0cdb99784ea54c42a8516}{getRayMin}(*it,eval\_pnt,
-      \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a2abe7915546a5d2ebde667a1d5ccfb44}{vs\_min}); \textcolor{comment}{// visibility score from distance field                    }
-118                     \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].get()->field\_vals[ix][iy][iz] = vs;
-119 
-120                     \textcolor{comment}{// let's save the point if certain condition is satified (for graph construction)      
-                }
-121                     
-122                     Vector3i pnt\_idx\_in\_edf = global\_edf->\hyperlink{struct_grid_field_a1a70c2de6239c1b086d01dc89b161b7c}{getCellIdx}(eval\_pnt);
-123                     \textcolor{keywordtype}{float} edf\_val = global\_edf->\hyperlink{struct_grid_field_a46802a85d9533d4371d12597f0247c7d}{field\_vals}[pnt\_idx\_in\_edf(0)][pnt\_idx\_in\_edf(1)][
-      pnt\_idx\_in\_edf(2)];  
-124                     Vector3f bearing\_vec =(\hyperlink{_common_8h_a3e35de4eb7396984c2c5018768885d91}{geo2eigen}(eval\_pnt) - 
-      \hyperlink{_common_8h_a3e35de4eb7396984c2c5018768885d91}{geo2eigen}(*it)); 
-125                     \textcolor{keywordtype}{float} relative\_dist = bearing\_vec.norm();                      
-126                     \textcolor{keywordtype}{float} azim = atan2(bearing\_vec(2),Vector2f(bearing\_vec(0),bearing\_vec(1)).norm());
-127                     
-128                     \textcolor{keywordflow}{if}(edf\_val > \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a409be3b01b1b4853919d5b34e529c49a}{r\_safe} && \textcolor{comment}{// safe }
-129                         relative\_dist > \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_aeef51c9ac61b5fa70c853463a27ff879}{d\_trakcing\_min} && \textcolor{comment}{// tracking spec}
-130                         relative\_dist < \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ad6659842d3039da7b064532a090651d3}{d\_trakcing\_max} && \textcolor{comment}{// tracking spec}
-131                         vs > \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a2abe7915546a5d2ebde667a1d5ccfb44}{vs\_min} + numeric\_threshold  && \textcolor{comment}{// non-occlusion}
-132                         azim < \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ab357e30646928070cd553ccf14be0beb}{max\_azim})  \textcolor{comment}{// tracking spec }
-133                         \textcolor{comment}{// save}
-134                         \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].get()->saved\_points.push\_back(eval\_pnt);
-135                     
-136                     \textcolor{keywordflow}{if} (vs >= max\_score)
-137                         max\_score = vs;
-138 
-139                 \}
-140         std::cout<<\textcolor{stringliteral}{"[Preplanner] nodes at time "}<<t<<\textcolor{stringliteral}{" are "}<<\hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].get()
-      ->saved\_points.size()<<std::endl;
-141     \}
-142 
-143     \textcolor{comment}{// save the markers}
-144 
-145     \textcolor{comment}{// marker initialization     }
-146     \hyperlink{class_preplanner_abcee90044b5d5935168ed132e3dfc8a6}{markers\_visibility\_field\_seq}.markers.clear();    
-147 
-148     \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.header.stamp = ros::Time::now();
-149     \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.header.frame\_id = 
-      \hyperlink{class_preplanner_a08cb79c25bd4ded139a572672e4492cd}{world\_frame\_id};
-150     \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.points.clear();
-151     \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.colors.clear();
-152     t = 1;
-153 
-154     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = target\_pnts.begin();it<target\_pnts.end();it++,t++)\{ \textcolor{comment}{// for time}
-155         \textcolor{keywordtype}{int} idx = 0;
-156         \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.ns = \textcolor{stringliteral}{"time\_"}+to\_string(t);
-157 
-158         \textcolor{comment}{// we draw only saved points from above }
-159         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it\_node = \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].\textcolor{keyword}{get}()->saved\_points.begin() ; it\_node <
-       \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].get()->saved\_points.end() ; it\_node++,idx++)\{
-160             Vector3i key = \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].get()->getCellIdx(*it\_node);
-161             \textcolor{keywordtype}{float} vs = \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].get()->field\_vals[key(0)][key(1)][key(2)];
-162             \textcolor{comment}{// std::cout<<vs<<std::endl;}
-163             \textcolor{comment}{// marker update}
-164             std\_msgs::ColorRGBA color;
-165             \hyperlink{_common_8h_a75aaebf1a8b822524cc6af51a0cd83ef}{get\_color}((vs-\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a2abe7915546a5d2ebde667a1d5ccfb44}{vs\_min})/(max\_score-\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.
-      \hyperlink{structchaser_1_1_preplanner_params_a2abe7915546a5d2ebde667a1d5ccfb44}{vs\_min}),color.r,color.g,color.b);            
-166             color.a = 0.1;
-167 
-168             \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.colors.push\_back(color);
-169             \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.points.push\_back(*it\_node);
-170             idx ++;
-171         \}
-172 
-173         \hyperlink{class_preplanner_abcee90044b5d5935168ed132e3dfc8a6}{markers\_visibility\_field\_seq}.markers.push\_back(
-      \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base});
-174         \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.points.clear();
-175         \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.colors.clear();
-176         
-177     \}
-178 \}
-\end{DoxyCode}
-\index{Preplanner@{Preplanner}!dijkstra@{dijkstra}}
-\index{dijkstra@{dijkstra}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{dijkstra(\+Vertex\+\_\+d v0, Vertex\+\_\+d vf)}{dijkstra(Vertex_d v0, Vertex_d vf)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vertex\+Path} Preplanner\+::dijkstra (
-\begin{DoxyParamCaption}
-\item[{{\bf Vertex\+\_\+d}}]{v0, }
-\item[{{\bf Vertex\+\_\+d}}]{vf}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_adff9209bb0422e7105f8bd3ed577fffd}{}\label{class_preplanner_adff9209bb0422e7105f8bd3ed577fffd}
-
-\begin{DoxyCode}
-253                                                       \{
-254     
-255 
-256 
-257     \textcolor{comment}{// Create things for Dijkstra}
-258     std::vector<Vertex\_d> predecessors(boost::num\_vertices(\hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph})); \textcolor{comment}{// To store parents}
-259     std::vector<Weight> distances(boost::num\_vertices(\hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph})); \textcolor{comment}{// To store distances}
-260 
-261     \hyperlink{_common_8h_a7fb6309a04472de0c8cb8c74ebf92c5e}{IndexMap} indexMap = boost::get(boost::vertex\_index, \hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph});
-262     \hyperlink{_common_8h_a7a347729377841627777cbe0a6becbf9}{NameMap} nameMap = boost::get(boost::vertex\_name, \hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph});
-263 
-264     \hyperlink{_common_8h_a3e372f12838999c89bb6fafe2c9b4363}{PredecessorMap} predecessorMap(&predecessors[0], indexMap);
-265     \hyperlink{_common_8h_acab893c91ba1c4e4415b652ccebeea6a}{DistanceMap} distanceMap(&distances[0], indexMap);    
-266 
-267     boost::dijkstra\_shortest\_paths(\hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph}, v0, boost::distance\_map(distanceMap).predecessor\_map(
-      predecessorMap));
-268 
-269     \textcolor{keyword}{typedef} std::vector<Graph::edge\_descriptor> PathType;
-270 
-271     PathType path;
-272     \hyperlink{_common_8h_a1f671d518f573b692b5efa57ed576f36}{Vertex\_d} v = vf; \textcolor{comment}{// We want to start at the destination and work our way back to the source}
-273     \textcolor{keywordflow}{for}(\hyperlink{_common_8h_a1f671d518f573b692b5efa57ed576f36}{Vertex\_d} u = predecessorMap[v]; \textcolor{comment}{// Start by setting 'u' to the destintaion node's
-       predecessor}
-274         u != v; \textcolor{comment}{// Keep tracking the path until we get to the source}
-275         v = u, u = predecessorMap[v]) \textcolor{comment}{// Set the current vertex to the current predecessor, and the
-       predecessor to one level up}
-276     \{
-277         std::pair<Graph::edge\_descriptor, bool> edgePair = boost::edge(u, v, 
-      \hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph});
-278         Graph::edge\_descriptor edge = edgePair.first;
-279 
-280         path.push\_back( edge );
-281     \}
-282 
-283     \textcolor{keywordflow}{if} (path.size())
-284     \{
-285        ROS\_INFO(\textcolor{stringliteral}{"path exist"});
-286         \textcolor{comment}{// Write shortest path}
-287         \textcolor{keywordtype}{float} totalDistance = 0;
-288 
-289         \hyperlink{_common_8h_a225da2de31d0161f43841ed31cac064c}{VertexPath} vertex\_path1;
-290         \hyperlink{_common_8h_a225da2de31d0161f43841ed31cac064c}{VertexPath} vertex\_path2;
-291         \textcolor{keywordflow}{for}(PathType::reverse\_iterator pathIterator = path.rbegin(); pathIterator != path.rend(); ++
-      pathIterator)
-292         \{
-293 
-294 \textcolor{comment}{//            ROS\_INFO("path insertion");}
-295             vertex\_path1.push\_back(nameMap[boost::source(*pathIterator, \hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph})]);
-296             vertex\_path2.push\_back(nameMap[boost::target(*pathIterator, \hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph})]);
-297         \}
-298 
-299         vertex\_path1.push\_back(vertex\_path2.back());
-300         \textcolor{keywordflow}{return} vertex\_path1;
-301     \}
-302     \textcolor{keywordflow}{else}\{
-303         ROS\_WARN(\textcolor{stringliteral}{"[Preplanner] path does not exist. returning zero length path. "});
-304         \textcolor{keywordflow}{return} \hyperlink{_common_8h_a225da2de31d0161f43841ed31cac064c}{VertexPath}();
-305     \}    
-306 \}
-\end{DoxyCode}
-\index{Preplanner@{Preplanner}!get\+\_\+local\+\_\+vsf\+\_\+param\+\_\+around\+\_\+target@{get\+\_\+local\+\_\+vsf\+\_\+param\+\_\+around\+\_\+target}}
-\index{get\+\_\+local\+\_\+vsf\+\_\+param\+\_\+around\+\_\+target@{get\+\_\+local\+\_\+vsf\+\_\+param\+\_\+around\+\_\+target}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{get\+\_\+local\+\_\+vsf\+\_\+param\+\_\+around\+\_\+target(\+Point target\+\_\+pnt)}{get_local_vsf_param_around_target(Point target_pnt)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Field\+Params} Preplanner\+::get\+\_\+local\+\_\+vsf\+\_\+param\+\_\+around\+\_\+target (
-\begin{DoxyParamCaption}
-\item[{Point}]{target\+\_\+pnt}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_a5b038984427471115b1f4be24abf43b0}{}\label{class_preplanner_a5b038984427471115b1f4be24abf43b0}
-
-\begin{DoxyCode}
-70                                                                          \{
-71 
-72     \hyperlink{struct_field_params}{FieldParams} vsf\_param;    
-73     \textcolor{keywordtype}{double} lx,ly,lz;
-74     \textcolor{comment}{// lx = ly = 2*params.d\_trakcing\_max * cos(params.max\_azim);}
-75     lx = ly = 4*\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ad6659842d3039da7b064532a090651d3}{d\_trakcing\_max} ;
-76     lz = \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ad6659842d3039da7b064532a090651d3}{d\_trakcing\_max} * sin(\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ab357e30646928070cd553ccf14be0beb}{max\_azim}) - 
-      \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_aeef51c9ac61b5fa70c853463a27ff879}{d\_trakcing\_min} * sin(\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_aa6846dd2e2d69d5f0d5a9b30710db6e1}{min\_azim}) ;
-77 
-78     vsf\_param.\hyperlink{struct_field_params_ae702824fca4d3a4b4bbf4ac90084e3a7}{x0} = target\_pnt.x - lx/2;
-79     vsf\_param.\hyperlink{struct_field_params_ae9d400dadcfaaff44706adae06664c83}{y0} = target\_pnt.y - ly/2;
-80     vsf\_param.\hyperlink{struct_field_params_a51178f64cc93a37d6d8f774228c24a0f}{z0} = target\_pnt.z;
-81     vsf\_param.\hyperlink{struct_field_params_a9738077907a76512e49cb284ee3f1949}{lx} = lx;
-82     vsf\_param.\hyperlink{struct_field_params_afb39ded77b5714992e9b2f8c5d735d30}{ly} = ly;
-83     vsf\_param.\hyperlink{struct_field_params_ae7532b58aed59f5b47233e57b67acc1a}{lz} = lz;
-84     
-85     vsf\_param.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution} = \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ac30a8ee32bae78f84b863234853f6497}{vsf\_resolution};
-86     vsf\_param.\hyperlink{struct_field_params_ae6eabaa6e593c9dbac48b2f96bea80ec}{ray\_stride\_res} =  \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ac30a8ee32bae78f84b863234853f6497}{vsf\_resolution}; \textcolor{comment}{// not used for
-       vsf grid }
-87 
-88     \textcolor{keywordflow}{return} vsf\_param;
-89 \};
-\end{DoxyCode}
 \index{Preplanner@{Preplanner}!get\+\_\+preplanned\+\_\+waypoints@{get\+\_\+preplanned\+\_\+waypoints}}
 \index{get\+\_\+preplanned\+\_\+waypoints@{get\+\_\+preplanned\+\_\+waypoints}!Preplanner@{Preplanner}}
 \subsubsection[{\texorpdfstring{get\+\_\+preplanned\+\_\+waypoints()}{get_preplanned_waypoints()}}]{\setlength{\rightskip}{0pt plus 5cm}nav\+\_\+msgs\+::\+Path Preplanner\+::get\+\_\+preplanned\+\_\+waypoints (
@@ -349,96 +49,21 @@ nav\+\_\+msgs\+::\+Path \hyperlink{class_preplanner_ace035c98e9dc23739402d346976
 \end{DoxyParamCaption}
 )}\hypertarget{class_preplanner_a1debbaa8e7ee64b2c22c514f89801cd1}{}\label{class_preplanner_a1debbaa8e7ee64b2c22c514f89801cd1}
 
-\begin{DoxyCode}
-356 \{\textcolor{keywordflow}{return} \hyperlink{class_preplanner_ace035c98e9dc23739402d346976d567b}{preplanned\_path};\}
-\end{DoxyCode}
-\index{Preplanner@{Preplanner}!graph\+\_\+construct@{graph\+\_\+construct}}
-\index{graph\+\_\+construct@{graph\+\_\+construct}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{graph\+\_\+construct(\+Grid\+Field $\ast$global\+\_\+edf, Point x0)}{graph_construct(GridField *global_edf, Point x0)}}]{\setlength{\rightskip}{0pt plus 5cm}void Preplanner\+::graph\+\_\+construct (
-\begin{DoxyParamCaption}
-\item[{{\bf Grid\+Field} $\ast$}]{global\+\_\+edf, }
-\item[{Point}]{x0}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_a9404e790bfccf6563a7d947e6d11afb7}{}\label{class_preplanner_a9404e790bfccf6563a7d947e6d11afb7}
 
-\begin{DoxyCode}
-181                                                               \{
-182     
-183     \textcolor{comment}{// init graph with the initial position of chaser }
-184     \hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph} = \hyperlink{_common_8h_a45f376d452c699e18013842e64602733}{Graph}();
-185     \hyperlink{class_preplanner_a45603cfb24429584c4fc8bc42474e1ff}{descriptor\_map}.clear();
-186     
-187     vector<Node<Point>> prev\_layer;
-188     \hyperlink{struct_node}{Node<Point>} initial\_node; initial\_node.\hyperlink{struct_node_a01b9071c0de774c720b64583262d1559}{value} = x0; initial\_node.
-      \hyperlink{struct_node_a795bdc93cbf63ccddcdf2168d858492c}{name} = \textcolor{stringliteral}{"x0"};
-189     prev\_layer.push\_back(initial\_node);
-190     
-191     \hyperlink{_common_8h_a1f671d518f573b692b5efa57ed576f36}{Vertex\_d} v0 = boost::add\_vertex(x0,\hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph});
-192     \hyperlink{class_preplanner_a45603cfb24429584c4fc8bc42474e1ff}{descriptor\_map}.insert(make\_pair(\hyperlink{_common_8h_a817e52d0171d1503034d4cbe7fd89a1b}{VertexName}(\textcolor{stringliteral}{"x0"}),v0));
-193  
-194     \textcolor{keywordtype}{int} H = \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}.size(); \textcolor{comment}{// total prediction horizon }
-195     \textcolor{keywordtype}{int} N\_edge = 0; 
-196     \textcolor{keywordtype}{int} N\_edge\_sub = 0;
-197 
-198     \textcolor{comment}{// in case of t = 0, we don't need (just current step). }
-199     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} t = 1; t<H;t++)\{
-200         N\_edge\_sub = 0;
-201         \hyperlink{struct_grid_field}{GridField}* cur\_vsf\_ptr = \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t].get();        
-202         vector<Node<Point>> cur\_layer = cur\_vsf\_ptr->\hyperlink{struct_grid_field_acd8fd9f0893ad94aa4f20b4b4d81802a}{generate\_node}(t); \textcolor{comment}{// current layer   }
-203 
-204         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it\_cur = cur\_layer.begin() ; it\_cur<cur\_layer.end(); it\_cur++)\{
-205             
-206             \textcolor{comment}{// step1 :  let's register the node(pnt,name) in the current layer into graph }
-207             Point cur\_pnt = it\_cur->value; Vector3f cur\_vec = \hyperlink{_common_8h_a3e35de4eb7396984c2c5018768885d91}{geo2eigen}(cur\_pnt); 
-208             \hyperlink{_common_8h_a1f671d518f573b692b5efa57ed576f36}{Vertex\_d} cur\_vert = boost::add\_vertex(cur\_pnt,\hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph});
-209             \hyperlink{class_preplanner_a45603cfb24429584c4fc8bc42474e1ff}{descriptor\_map}.insert(make\_pair(it\_cur->name,cur\_vert));
-210             
-211             \textcolor{comment}{// call the previous layer  }
-212             \hyperlink{struct_grid_field}{GridField}* prev\_vsf\_ptr = \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[t-1].get();              
-                
-213             
-214             \textcolor{comment}{// step2 : let's connect with previous layer and add edges }
-215             \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} it\_prev = prev\_layer.begin(); it\_prev < prev\_layer.end();it\_prev++)\{ \textcolor{comment}{// prev\_layer }
-216                 \hyperlink{_common_8h_a1f671d518f573b692b5efa57ed576f36}{Vertex\_d} prev\_vert = \hyperlink{class_preplanner_a45603cfb24429584c4fc8bc42474e1ff}{descriptor\_map}[it\_prev->name];
-217                 Point prev\_pnt = it\_prev->value; Vector3f prev\_vec = \hyperlink{_common_8h_a3e35de4eb7396984c2c5018768885d91}{geo2eigen}(prev\_pnt);
-218 
-219                 \textcolor{comment}{// this condition should be satisfied to be connected }
-220                 \textcolor{keywordflow}{if}(((cur\_vec-prev\_vec).norm() < \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a90021bd30b7e88b50cf9317ff3673482}{d\_connect\_max}) && (global\_edf->
-      \hyperlink{struct_grid_field_af9f5144af2f0cdb99784ea54c42a8516}{getRayMin}(cur\_pnt,prev\_pnt,0) > \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a409be3b01b1b4853919d5b34e529c49a}{r\_safe}) )\{
-221                     \textcolor{keywordtype}{float} weight = (cur\_vec-prev\_vec).norm() + 
-222                             \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a1778793e5b16806c867291c1a5471a04}{w\_v}*1/sqrt(cur\_vsf\_ptr->\hyperlink{struct_grid_field_a3e49ca50129cb18db833bd4168c5d254}{getRayMean}(cur\_pnt,prev\_pnt) 
-      * prev\_vsf\_ptr->\hyperlink{struct_grid_field_a3e49ca50129cb18db833bd4168c5d254}{getRayMean}(prev\_pnt,cur\_pnt)) 
-223                             + \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ae443edaa7e2912a6a7643272305c91f5}{w\_d}*abs((\hyperlink{_common_8h_a3e35de4eb7396984c2c5018768885d91}{geo2eigen}(cur\_vsf\_ptr->
-      \hyperlink{struct_grid_field_aacd39f9388090694e5c428cc612fd887}{getCentre}()) - cur\_vec).norm() - \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a6a950244cbb256abb9a4e93388c0177f}{d\_trakcing\_des});                     
-224                     boost::add\_edge(prev\_vert,cur\_vert,weight,\hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph});
-225                     \textcolor{keywordflow}{if}(weight <1\hyperlink{namespace__setup__util_acdce690b925de33d6249bbbfa1109d61}{e}-4)
-226                         ROS\_WARN(\textcolor{stringliteral}{"weight is zero"});
-227                     N\_edge ++;
-228                     N\_edge\_sub++;
-229                 \}
-230             \}            
-231         \}
-232         prev\_layer = cur\_layer;
-233         cout<<\textcolor{stringliteral}{"[Preplanner] connected edge to this layer: "}<<N\_edge\_sub<<std::endl;
-234     \}
-235     
-236     cout<<\textcolor{stringliteral}{"[Preplanner] total number of edges "}<<N\_edge<<std::endl;
-237 
-238 
-239     \textcolor{comment}{// graph finishing }
-240 
-241     \hyperlink{struct_grid_field}{GridField}* prev\_vsf\_ptr = \hyperlink{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{vsf\_field\_ptr\_seq}[H-1].get();
-242     \hyperlink{_common_8h_a1f671d518f573b692b5efa57ed576f36}{Vertex\_d} vf = boost::add\_vertex(Point(),\hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph});
-243     \hyperlink{class_preplanner_a45603cfb24429584c4fc8bc42474e1ff}{descriptor\_map}.insert(make\_pair(\hyperlink{_common_8h_a817e52d0171d1503034d4cbe7fd89a1b}{VertexName}(\textcolor{stringliteral}{"xf"}),vf));
-244 
-245     \textcolor{comment}{// step2 : let's connect with previous layer }
-246     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} it\_prev = prev\_layer.begin(); it\_prev < prev\_layer.end();it\_prev++)\{ \textcolor{comment}{// prev\_layer }
-247         \hyperlink{_common_8h_a1f671d518f573b692b5efa57ed576f36}{Vertex\_d} prev\_vert = \hyperlink{class_preplanner_a45603cfb24429584c4fc8bc42474e1ff}{descriptor\_map}[it\_prev->name];
-248         \textcolor{comment}{// this condition should be satisfied to be connected }
-249             boost::add\_edge(prev\_vert,vf,0,\hyperlink{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{di\_graph});
-250     \}
-251 \}
-\end{DoxyCode}
+Definition at line 356 of file Preplanner.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_preplanner_a1debbaa8e7ee64b2c22c514f89801cd1_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Preplanner@{Preplanner}!init@{init}}
 \index{init@{init}!Preplanner@{Preplanner}}
 \subsubsection[{\texorpdfstring{init(ros\+::\+Node\+Handle nh)}{init(ros::NodeHandle nh)}}]{\setlength{\rightskip}{0pt plus 5cm}void Preplanner\+::init (
@@ -447,74 +72,33 @@ nav\+\_\+msgs\+::\+Path \hyperlink{class_preplanner_ace035c98e9dc23739402d346976
 \end{DoxyParamCaption}
 )}\hypertarget{class_preplanner_aecde07364cbd05e2e46c95f4f5fd4951}{}\label{class_preplanner_aecde07364cbd05e2e46c95f4f5fd4951}
 
-\begin{DoxyCode}
-5                                      \{
-6 
-7     \textcolor{comment}{// preplanner params parsing }
-8     nh.param(\textcolor{stringliteral}{"w\_v"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a1778793e5b16806c867291c1a5471a04}{w\_v},5.0);       
-9     nh.param(\textcolor{stringliteral}{"w\_d"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ae443edaa7e2912a6a7643272305c91f5}{w\_d},1.5);            
-10     nh.param(\textcolor{stringliteral}{"r\_safe"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a409be3b01b1b4853919d5b34e529c49a}{r\_safe},0.5);
-11     nh.param(\textcolor{stringliteral}{"min\_z"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ad23cd70894c614834c2a80e35de3e373}{min\_z},0.4);
-12     nh.param(\textcolor{stringliteral}{"vs\_min"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a2abe7915546a5d2ebde667a1d5ccfb44}{vs\_min},0.3);
-13     nh.param(\textcolor{stringliteral}{"vsf\_resolution"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ac30a8ee32bae78f84b863234853f6497}{vsf\_resolution},0.7);
-14     nh.param(\textcolor{stringliteral}{"d\_connect\_max"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a90021bd30b7e88b50cf9317ff3673482}{d\_connect\_max},2.5);
-15 
-16     nh.param(\textcolor{stringliteral}{"max\_tracking\_distance"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ad6659842d3039da7b064532a090651d3}{d\_trakcing\_max},4.0);
-17     nh.param(\textcolor{stringliteral}{"min\_tracking\_distance"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_aeef51c9ac61b5fa70c853463a27ff879}{d\_trakcing\_min},1.0);
-18     nh.param(\textcolor{stringliteral}{"des\_tracking\_distance"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_a6a950244cbb256abb9a4e93388c0177f}{d\_trakcing\_des},2.5);
-19     nh.param(\textcolor{stringliteral}{"max\_azim"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ab357e30646928070cd553ccf14be0beb}{max\_azim},(3.141592/4));
-20     nh.param(\textcolor{stringliteral}{"min\_azim"},\hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_aa6846dd2e2d69d5f0d5a9b30710db6e1}{min\_azim},(3.141592/7));
-21 
-22 
-23     \textcolor{comment}{// world\_frame\_id }
-24     nh.param<\textcolor{keywordtype}{string}>(\textcolor{stringliteral}{"world\_frame\_id"},\hyperlink{class_preplanner_a08cb79c25bd4ded139a572672e4492cd}{world\_frame\_id},\textcolor{stringliteral}{"/world"});
-25     nh.param<\textcolor{keywordtype}{string}>(\textcolor{stringliteral}{"world\_frame\_id"},\hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.header.
-      frame\_id,\textcolor{stringliteral}{"/world"});
-26     nh.param<\textcolor{keywordtype}{string}>(\textcolor{stringliteral}{"world\_frame\_id"},\hyperlink{class_preplanner_ace035c98e9dc23739402d346976d567b}{preplanned\_path}.header.frame\_id,\textcolor{stringliteral}{"/world"});
-27 
-28     \textcolor{comment}{// marker initialize }
-29     
-30     \textcolor{comment}{// waypoints }
-31     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.header.frame\_id = \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.
-      header.frame\_id;
-32     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.ns = \textcolor{stringliteral}{"waypoints"};
-33     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.id = 0;
-34     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.type = visualization\_msgs::Marker::SPHERE\_LIST;
-35     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.color.r = 14.0/255.0;
-36     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.color.g = 50.0/255.0;
-37     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.color.b = 1.0;
-38     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.color.a = 0.3;
-39     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.pose.orientation.w = 1.0;
-40     \textcolor{keywordtype}{double} scale = 0.08; 
-41     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.scale.x = scale;
-42     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.scale.y = scale;
-43     \hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts}.scale.z = scale;    
-44 
-45     \textcolor{comment}{// vsf\_grid\_seq }
-46 
-47     \textcolor{comment}{// marker base}
-48     visualization\_msgs::Marker marker;
-49     marker.header.frame\_id = \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base}.header.frame\_id;;
-50     marker.action = visualization\_msgs::Marker::ADD;
-51     marker.type = visualization\_msgs::Marker::CUBE\_LIST;      
-52     marker.pose.orientation.x = 0;
-53     marker.pose.orientation.y = 0;
-54     marker.pose.orientation.z = 0;
-55     marker.pose.orientation.w = 1;                  
-56     marker.scale.x = \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ac30a8ee32bae78f84b863234853f6497}{vsf\_resolution};
-57     marker.scale.y = \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ac30a8ee32bae78f84b863234853f6497}{vsf\_resolution};
-58     marker.scale.z = \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ac30a8ee32bae78f84b863234853f6497}{vsf\_resolution};
-59     \hyperlink{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{markers\_visibility\_field\_base} = marker; 
-60 
-61 
-62     \textcolor{comment}{// ros initialize }
-63     \hyperlink{class_preplanner_a8dafcd99dc50e89404c4f33a688eba6c}{pub\_vsf\_vis} = nh.advertise<visualization\_msgs::MarkerArray>(\textcolor{stringliteral}{"vsf\_grid\_seq"},1);
-64     \hyperlink{class_preplanner_a87dc12e474ee43c9e2b095ec64ab08ce}{pub\_waypoints} = nh.advertise<visualization\_msgs::Marker>(\textcolor{stringliteral}{"preplanned\_waypoints"},1);    
-65     \hyperlink{class_preplanner_a9655e452a9d0e228b8c2d8cdeac8ce6b}{pub\_preplanned\_path} = nh.advertise<nav\_msgs::Path>(\textcolor{stringliteral}{"preplanned\_path"},1);
-66 
-67 
-68 \};
-\end{DoxyCode}
+
+Definition at line 5 of file Preplanner.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_preplanner_aecde07364cbd05e2e46c95f4f5fd4951_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{class_preplanner_aecde07364cbd05e2e46c95f4f5fd4951_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Preplanner@{Preplanner}!preplan@{preplan}}
 \index{preplan@{preplan}!Preplanner@{Preplanner}}
 \subsubsection[{\texorpdfstring{preplan(\+Grid\+Field $\ast$global\+\_\+edf\+\_\+ptr, vector$<$ Point $>$ target\+\_\+pnts, Point chaser\+\_\+init)}{preplan(GridField *global_edf_ptr, vector< Point > target_pnts, Point chaser_init)}}]{\setlength{\rightskip}{0pt plus 5cm}void Preplanner\+::preplan (
@@ -525,20 +109,21 @@ nav\+\_\+msgs\+::\+Path \hyperlink{class_preplanner_ace035c98e9dc23739402d346976
 \end{DoxyParamCaption}
 )}\hypertarget{class_preplanner_a6f0b709012500a44679facf0e18b985a}{}\label{class_preplanner_a6f0b709012500a44679facf0e18b985a}
 
-\begin{DoxyCode}
-343                                                                                          \{
-344 
-345 
-346 
-347     \textcolor{comment}{// set the height of the moving target }
-348     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} it = target\_pnts.begin(); it<target\_pnts.end(); it++)
-349         it->z = \hyperlink{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{params}.\hyperlink{structchaser_1_1_preplanner_params_ad23cd70894c614834c2a80e35de3e373}{min\_z} + 1\hyperlink{namespace__setup__util_acdce690b925de33d6249bbbfa1109d61}{e}-3;
-350 
-351     \hyperlink{class_preplanner_a1482068998b627fb8e2093e1eafbffd8}{compute\_visibility\_field\_seq}(global\_edf,target\_pnts);  
-352     \hyperlink{class_preplanner_a9404e790bfccf6563a7d947e6d11afb7}{graph\_construct}(global\_edf,chaser\_init);        
-353     \hyperlink{class_preplanner_a02321bc5136138f8aebebc494b774374}{compute\_shortest\_path}();   
-354 \}
-\end{DoxyCode}
+
+Definition at line 343 of file Preplanner.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{class_preplanner_a6f0b709012500a44679facf0e18b985a_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Preplanner@{Preplanner}!publish@{publish}}
 \index{publish@{publish}!Preplanner@{Preplanner}}
 \subsubsection[{\texorpdfstring{publish()}{publish()}}]{\setlength{\rightskip}{0pt plus 5cm}void Preplanner\+::publish (
@@ -547,57 +132,24 @@ nav\+\_\+msgs\+::\+Path \hyperlink{class_preplanner_ace035c98e9dc23739402d346976
 \end{DoxyParamCaption}
 )}\hypertarget{class_preplanner_a35f3bfb85ba14d7f0c72bda1522df69e}{}\label{class_preplanner_a35f3bfb85ba14d7f0c72bda1522df69e}
 
-\begin{DoxyCode}
-358                         \{
-359     \textcolor{comment}{// vsf seq}
-360     \hyperlink{class_preplanner_a8dafcd99dc50e89404c4f33a688eba6c}{pub\_vsf\_vis}.publish(\hyperlink{class_preplanner_abcee90044b5d5935168ed132e3dfc8a6}{markers\_visibility\_field\_seq});
-361     \textcolor{comment}{// waypoints}
-362     \hyperlink{class_preplanner_a87dc12e474ee43c9e2b095ec64ab08ce}{pub\_waypoints}.publish(\hyperlink{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{marker\_wpnts});
-363     \textcolor{comment}{// preplanned path }
-364     \hyperlink{class_preplanner_a9655e452a9d0e228b8c2d8cdeac8ce6b}{pub\_preplanned\_path}.publish(\hyperlink{class_preplanner_ace035c98e9dc23739402d346976d567b}{preplanned\_path});
-365 \}\end{DoxyCode}
+
+Definition at line 358 of file Preplanner.\+cpp.
 
 
-\subsection{Member Data Documentation}
-\index{Preplanner@{Preplanner}!descriptor\+\_\+map@{descriptor\+\_\+map}}
-\index{descriptor\+\_\+map@{descriptor\+\_\+map}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{descriptor\+\_\+map}{descriptor_map}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Descriptor\+Map} Preplanner\+::descriptor\+\_\+map\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_a45603cfb24429584c4fc8bc42474e1ff}{}\label{class_preplanner_a45603cfb24429584c4fc8bc42474e1ff}
-\index{Preplanner@{Preplanner}!di\+\_\+graph@{di\+\_\+graph}}
-\index{di\+\_\+graph@{di\+\_\+graph}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{di\+\_\+graph}{di_graph}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Graph} Preplanner\+::di\+\_\+graph\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}{}\label{class_preplanner_af588e8495d5e78dd5a746f7c640daa4d}
-\index{Preplanner@{Preplanner}!marker\+\_\+wpnts@{marker\+\_\+wpnts}}
-\index{marker\+\_\+wpnts@{marker\+\_\+wpnts}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{marker\+\_\+wpnts}{marker_wpnts}}]{\setlength{\rightskip}{0pt plus 5cm}visualization\+\_\+msgs\+::\+Marker Preplanner\+::marker\+\_\+wpnts\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}{}\label{class_preplanner_adcc96f6ec12d7cb9980aa0c889b4ccd1}
-\index{Preplanner@{Preplanner}!markers\+\_\+visibility\+\_\+field\+\_\+base@{markers\+\_\+visibility\+\_\+field\+\_\+base}}
-\index{markers\+\_\+visibility\+\_\+field\+\_\+base@{markers\+\_\+visibility\+\_\+field\+\_\+base}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{markers\+\_\+visibility\+\_\+field\+\_\+base}{markers_visibility_field_base}}]{\setlength{\rightskip}{0pt plus 5cm}visualization\+\_\+msgs\+::\+Marker Preplanner\+::markers\+\_\+visibility\+\_\+field\+\_\+base\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}{}\label{class_preplanner_a9c4d6a5e43241831b0ad11bdaf99ab16}
-\index{Preplanner@{Preplanner}!markers\+\_\+visibility\+\_\+field\+\_\+seq@{markers\+\_\+visibility\+\_\+field\+\_\+seq}}
-\index{markers\+\_\+visibility\+\_\+field\+\_\+seq@{markers\+\_\+visibility\+\_\+field\+\_\+seq}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{markers\+\_\+visibility\+\_\+field\+\_\+seq}{markers_visibility_field_seq}}]{\setlength{\rightskip}{0pt plus 5cm}visualization\+\_\+msgs\+::\+Marker\+Array Preplanner\+::markers\+\_\+visibility\+\_\+field\+\_\+seq\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_abcee90044b5d5935168ed132e3dfc8a6}{}\label{class_preplanner_abcee90044b5d5935168ed132e3dfc8a6}
-\index{Preplanner@{Preplanner}!params@{params}}
-\index{params@{params}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{params}{params}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf chaser\+::\+Preplanner\+Params} Preplanner\+::params\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}{}\label{class_preplanner_a679cc4b70f041aff73769e7ec92dc5d0}
-\index{Preplanner@{Preplanner}!preplanned\+\_\+path@{preplanned\+\_\+path}}
-\index{preplanned\+\_\+path@{preplanned\+\_\+path}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{preplanned\+\_\+path}{preplanned_path}}]{\setlength{\rightskip}{0pt plus 5cm}nav\+\_\+msgs\+::\+Path Preplanner\+::preplanned\+\_\+path\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_ace035c98e9dc23739402d346976d567b}{}\label{class_preplanner_ace035c98e9dc23739402d346976d567b}
-\index{Preplanner@{Preplanner}!pub\+\_\+preplanned\+\_\+path@{pub\+\_\+preplanned\+\_\+path}}
-\index{pub\+\_\+preplanned\+\_\+path@{pub\+\_\+preplanned\+\_\+path}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{pub\+\_\+preplanned\+\_\+path}{pub_preplanned_path}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher Preplanner\+::pub\+\_\+preplanned\+\_\+path\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_a9655e452a9d0e228b8c2d8cdeac8ce6b}{}\label{class_preplanner_a9655e452a9d0e228b8c2d8cdeac8ce6b}
-\index{Preplanner@{Preplanner}!pub\+\_\+vsf\+\_\+vis@{pub\+\_\+vsf\+\_\+vis}}
-\index{pub\+\_\+vsf\+\_\+vis@{pub\+\_\+vsf\+\_\+vis}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{pub\+\_\+vsf\+\_\+vis}{pub_vsf_vis}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher Preplanner\+::pub\+\_\+vsf\+\_\+vis\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_a8dafcd99dc50e89404c4f33a688eba6c}{}\label{class_preplanner_a8dafcd99dc50e89404c4f33a688eba6c}
-\index{Preplanner@{Preplanner}!pub\+\_\+waypoints@{pub\+\_\+waypoints}}
-\index{pub\+\_\+waypoints@{pub\+\_\+waypoints}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{pub\+\_\+waypoints}{pub_waypoints}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher Preplanner\+::pub\+\_\+waypoints\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_a87dc12e474ee43c9e2b095ec64ab08ce}{}\label{class_preplanner_a87dc12e474ee43c9e2b095ec64ab08ce}
-\index{Preplanner@{Preplanner}!vsf\+\_\+field\+\_\+ptr\+\_\+seq@{vsf\+\_\+field\+\_\+ptr\+\_\+seq}}
-\index{vsf\+\_\+field\+\_\+ptr\+\_\+seq@{vsf\+\_\+field\+\_\+ptr\+\_\+seq}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{vsf\+\_\+field\+\_\+ptr\+\_\+seq}{vsf_field_ptr_seq}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$shared\+\_\+ptr$<${\bf Grid\+Field}$>$ $>$ Preplanner\+::vsf\+\_\+field\+\_\+ptr\+\_\+seq\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}{}\label{class_preplanner_aab0f91e34b86eaa581c7642ba5059308}
-\index{Preplanner@{Preplanner}!world\+\_\+frame\+\_\+id@{world\+\_\+frame\+\_\+id}}
-\index{world\+\_\+frame\+\_\+id@{world\+\_\+frame\+\_\+id}!Preplanner@{Preplanner}}
-\subsubsection[{\texorpdfstring{world\+\_\+frame\+\_\+id}{world_frame_id}}]{\setlength{\rightskip}{0pt plus 5cm}string Preplanner\+::world\+\_\+frame\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_preplanner_a08cb79c25bd4ded139a572672e4492cd}{}\label{class_preplanner_a08cb79c25bd4ded139a572672e4492cd}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{class_preplanner_a35f3bfb85ba14d7f0c72bda1522df69e_icgraph}
+\end{center}
+\end{figure}
+
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/include/auto\+\_\+chaser/\hyperlink{_preplanner_8h}{Preplanner.\+h}\item 
-/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/src/auto\+\_\+chaser/\hyperlink{_preplanner_8cpp}{Preplanner.\+cpp}\end{DoxyCompactItemize}
+include/auto\+\_\+chaser/\hyperlink{_preplanner_8h}{Preplanner.\+h}\item 
+src/auto\+\_\+chaser/\hyperlink{_preplanner_8cpp}{Preplanner.\+cpp}\end{DoxyCompactItemize}

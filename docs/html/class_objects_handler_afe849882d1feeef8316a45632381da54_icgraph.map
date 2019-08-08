@@ -1,0 +1,8 @@
+<map id="ObjectsHandler::get_edf_grid_ptr" name="ObjectsHandler::get_edf_grid_ptr">
+<area shape="rect" id="node2" href="$class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="192,5,403,32"/>
+<area shape="rect" id="node3" href="$class_wrapper.html#a21a0e115ea80e053e4f2defd1362b92f" title="Wrapper::trigger_chasing" alt="" coords="214,56,381,83"/>
+<area shape="rect" id="node4" href="$class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="451,31,617,57"/>
+<area shape="rect" id="node6" href="$class_q_node.html#a23bd7e0744ad4c7b5d5464485375bef1" title="QNode::trigger" alt="" coords="481,81,587,108"/>
+<area shape="rect" id="node5" href="$class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="665,31,853,57"/>
+<area shape="rect" id="node7" href="$class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="715,81,804,108"/>
+</map>

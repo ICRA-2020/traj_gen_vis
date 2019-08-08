@@ -1,5 +1,5 @@
-\hypertarget{_common_8h}{}\section{/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/include/auto\+\_\+chaser/\+Common.h File Reference}
-\label{_common_8h}\index{/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/include/auto\+\_\+chaser/\+Common.\+h@{/home/jbs/catkin\+\_\+ws/src/traj\+\_\+gen\+\_\+vis\+\_\+developing/include/auto\+\_\+chaser/\+Common.\+h}}
+\hypertarget{_common_8h}{}\section{include/auto\+\_\+chaser/\+Common.h File Reference}
+\label{_common_8h}\index{include/auto\+\_\+chaser/\+Common.\+h@{include/auto\+\_\+chaser/\+Common.\+h}}
 {\ttfamily \#include $<$ros/ros.\+h$>$}\\*
 {\ttfamily \#include $<$sensor\+\_\+msgs/\+Point\+Cloud2.\+h$>$}\\*
 {\ttfamily \#include $<$geometry\+\_\+msgs/\+Pose\+Stamped.\+h$>$}\\*
@@ -111,7 +111,7 @@ vector$<$ Point $>$ \hyperlink{_common_8h_a81915b091c29bc9aef6a74ab374f479a}{ext
 \item 
 Vector3f \hyperlink{_common_8h_a3e35de4eb7396984c2c5018768885d91}{geo2eigen} (const Point \&)
 \item 
-void \hyperlink{_common_8h_a75aaebf1a8b822524cc6af51a0cd83ef}{get\+\_\+color} (float x\+\_\+in, float \&r, float \&g, float \&b)
+void \hyperlink{_common_8h_a75aaebf1a8b822524cc6af51a0cd83ef}{get\+\_\+color} (float x\+\_\+in, float \&r, float \&g, float \&\hyperlink{jquery_8js_a2fa551895933fae935a0a6b87282241d}{b})
 \item 
 void \hyperlink{_common_8h_a4b2e4b6698ff92678b23392dc111b36d}{get\+\_\+color\+\_\+dist} (float dist\+\_\+val, std\+\_\+msgs\+::\+Color\+R\+G\+BA \&color, float max\+\_\+plot\+\_\+dist\+\_\+val)
 \end{DoxyCompactItemize}
@@ -123,43 +123,95 @@ void \hyperlink{_common_8h_a4b2e4b6698ff92678b23392dc111b36d}{get\+\_\+color\+\_
 \subsubsection[{\texorpdfstring{Get\+Current\+Dir}{GetCurrentDir}}]{\setlength{\rightskip}{0pt plus 5cm}\#define Get\+Current\+Dir~getcwd}\hypertarget{_common_8h_af0c0d1034a71f8aa3a08cda83c9d4e7a}{}\label{_common_8h_af0c0d1034a71f8aa3a08cda83c9d4e7a}
 
 
+Definition at line 56 of file Common.\+h.
+
+
+
 \subsection{Typedef Documentation}
 \index{Common.\+h@{Common.\+h}!Descriptor\+Map@{Descriptor\+Map}}
 \index{Descriptor\+Map@{Descriptor\+Map}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Descriptor\+Map}{DescriptorMap}}]{\setlength{\rightskip}{0pt plus 5cm}typedef map$<${\bf Vertex\+Name},{\bf Vertex\+\_\+d}$>$ {\bf Descriptor\+Map}}\hypertarget{_common_8h_a25b10a034823d9ab576650719f0d331c}{}\label{_common_8h_a25b10a034823d9ab576650719f0d331c}
+
+
+Definition at line 82 of file Common.\+h.
+
 \index{Common.\+h@{Common.\+h}!Distance\+Map@{Distance\+Map}}
 \index{Distance\+Map@{Distance\+Map}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Distance\+Map}{DistanceMap}}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::iterator\+\_\+property\+\_\+map$<$ {\bf Weight}$\ast$, {\bf Index\+Map}, {\bf Weight}, {\bf Weight}\& $>$ {\bf Distance\+Map}}\hypertarget{_common_8h_acab893c91ba1c4e4415b652ccebeea6a}{}\label{_common_8h_acab893c91ba1c4e4415b652ccebeea6a}
+
+
+Definition at line 80 of file Common.\+h.
+
 \index{Common.\+h@{Common.\+h}!Graph@{Graph}}
 \index{Graph@{Graph}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Graph}{Graph}}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::adjacency\+\_\+list$<$ boost\+::listS, boost\+::vecS, boost\+::directedS, {\bf Name\+Property}, {\bf Weight\+Property} $>$ {\bf Graph}}\hypertarget{_common_8h_a45f376d452c699e18013842e64602733}{}\label{_common_8h_a45f376d452c699e18013842e64602733}
+
+
+Definition at line 72 of file Common.\+h.
+
 \index{Common.\+h@{Common.\+h}!Index\+Map@{Index\+Map}}
 \index{Index\+Map@{Index\+Map}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Index\+Map}{IndexMap}}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::property\+\_\+map$<$ {\bf Graph}, boost\+::vertex\+\_\+index\+\_\+t $>$\+::type {\bf Index\+Map}}\hypertarget{_common_8h_a7fb6309a04472de0c8cb8c74ebf92c5e}{}\label{_common_8h_a7fb6309a04472de0c8cb8c74ebf92c5e}
+
+
+Definition at line 76 of file Common.\+h.
+
 \index{Common.\+h@{Common.\+h}!Name\+Map@{Name\+Map}}
 \index{Name\+Map@{Name\+Map}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Name\+Map}{NameMap}}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::property\+\_\+map$<$ {\bf Graph}, boost\+::vertex\+\_\+name\+\_\+t $>$\+::type {\bf Name\+Map}}\hypertarget{_common_8h_a7a347729377841627777cbe0a6becbf9}{}\label{_common_8h_a7a347729377841627777cbe0a6becbf9}
+
+
+Definition at line 77 of file Common.\+h.
+
 \index{Common.\+h@{Common.\+h}!Name\+Property@{Name\+Property}}
 \index{Name\+Property@{Name\+Property}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Name\+Property}{NameProperty}}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::property$<$boost\+::vertex\+\_\+name\+\_\+t, Point$>$ {\bf Name\+Property}}\hypertarget{_common_8h_ae8aea6c699e4a47da0110059c52e94d1}{}\label{_common_8h_ae8aea6c699e4a47da0110059c52e94d1}
+
+
+Definition at line 69 of file Common.\+h.
+
 \index{Common.\+h@{Common.\+h}!Predecessor\+Map@{Predecessor\+Map}}
 \index{Predecessor\+Map@{Predecessor\+Map}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Predecessor\+Map}{PredecessorMap}}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::iterator\+\_\+property\+\_\+map$<$ {\bf Vertex\+\_\+d}$\ast$, {\bf Index\+Map}, {\bf Vertex\+\_\+d}, {\bf Vertex\+\_\+d}\& $>$ {\bf Predecessor\+Map}}\hypertarget{_common_8h_a3e372f12838999c89bb6fafe2c9b4363}{}\label{_common_8h_a3e372f12838999c89bb6fafe2c9b4363}
+
+
+Definition at line 79 of file Common.\+h.
+
 \index{Common.\+h@{Common.\+h}!Vertex\+\_\+d@{Vertex\+\_\+d}}
 \index{Vertex\+\_\+d@{Vertex\+\_\+d}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Vertex\+\_\+d}{Vertex_d}}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::graph\+\_\+traits$<$ {\bf Graph} $>$\+::vertex\+\_\+descriptor {\bf Vertex\+\_\+d}}\hypertarget{_common_8h_a1f671d518f573b692b5efa57ed576f36}{}\label{_common_8h_a1f671d518f573b692b5efa57ed576f36}
+
+
+Definition at line 73 of file Common.\+h.
+
 \index{Common.\+h@{Common.\+h}!Vertex\+Name@{Vertex\+Name}}
 \index{Vertex\+Name@{Vertex\+Name}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Vertex\+Name}{VertexName}}]{\setlength{\rightskip}{0pt plus 5cm}typedef string {\bf Vertex\+Name}}\hypertarget{_common_8h_a817e52d0171d1503034d4cbe7fd89a1b}{}\label{_common_8h_a817e52d0171d1503034d4cbe7fd89a1b}
+
+
+Definition at line 75 of file Common.\+h.
+
 \index{Common.\+h@{Common.\+h}!Vertex\+Path@{Vertex\+Path}}
 \index{Vertex\+Path@{Vertex\+Path}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Vertex\+Path}{VertexPath}}]{\setlength{\rightskip}{0pt plus 5cm}typedef vector$<$Point$>$ {\bf Vertex\+Path}}\hypertarget{_common_8h_a225da2de31d0161f43841ed31cac064c}{}\label{_common_8h_a225da2de31d0161f43841ed31cac064c}
+
+
+Definition at line 81 of file Common.\+h.
+
 \index{Common.\+h@{Common.\+h}!Weight@{Weight}}
 \index{Weight@{Weight}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Weight}{Weight}}]{\setlength{\rightskip}{0pt plus 5cm}typedef double {\bf Weight}}\hypertarget{_common_8h_a5b53e5716aeadbb040a52c9c8c124c74}{}\label{_common_8h_a5b53e5716aeadbb040a52c9c8c124c74}
-Boost graph library \index{Common.\+h@{Common.\+h}!Weight\+Property@{Weight\+Property}}
+Boost graph library 
+
+Definition at line 66 of file Common.\+h.
+
+\index{Common.\+h@{Common.\+h}!Weight\+Property@{Weight\+Property}}
 \index{Weight\+Property@{Weight\+Property}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Weight\+Property}{WeightProperty}}]{\setlength{\rightskip}{0pt plus 5cm}typedef boost\+::property$<$boost\+::edge\+\_\+weight\+\_\+t, {\bf Weight}$>$ {\bf Weight\+Property}}\hypertarget{_common_8h_adafd959ae5e10fee25f0d54353dc5714}{}\label{_common_8h_adafd959ae5e10fee25f0d54353dc5714}
+
+
+Definition at line 67 of file Common.\+h.
+
 
 
 \subsection{Function Documentation}
@@ -171,16 +223,21 @@ Boost graph library \index{Common.\+h@{Common.\+h}!Weight\+Property@{Weight\+Pro
 \end{DoxyParamCaption}
 )}\hypertarget{_common_8h_a81915b091c29bc9aef6a74ab374f479a}{}\label{_common_8h_a81915b091c29bc9aef6a74ab374f479a}
 Functions 
-\begin{DoxyCode}
-10                                                        \{
-11 
-12   vector<Point> pnt\_seq;
-13   \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} it = path.poses.begin(); it<path.poses.end();it++)\{
-14     pnt\_seq.push\_back(it->pose.position);
-15   \}
-16   \textcolor{keywordflow}{return} pnt\_seq;
-17 \};
-\end{DoxyCode}
+
+Definition at line 10 of file Common.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_common_8h_a81915b091c29bc9aef6a74ab374f479a_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Common.\+h@{Common.\+h}!geo2eigen@{geo2eigen}}
 \index{geo2eigen@{geo2eigen}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{geo2eigen(const Point \&)}{geo2eigen(const Point &)}}]{\setlength{\rightskip}{0pt plus 5cm}Vector3f geo2eigen (
@@ -189,12 +246,21 @@ Functions
 \end{DoxyParamCaption}
 )}\hypertarget{_common_8h_a3e35de4eb7396984c2c5018768885d91}{}\label{_common_8h_a3e35de4eb7396984c2c5018768885d91}
 
-\begin{DoxyCode}
-19                                     \{
-20 
-21   \textcolor{keywordflow}{return} Vector3f(pnt.x,pnt.y,pnt.z);
-22 \};
-\end{DoxyCode}
+
+Definition at line 19 of file Common.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_common_8h_a3e35de4eb7396984c2c5018768885d91_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Common.\+h@{Common.\+h}!get\+\_\+color@{get\+\_\+color}}
 \index{get\+\_\+color@{get\+\_\+color}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{get\+\_\+color(float x\+\_\+in, float \&r, float \&g, float \&b)}{get_color(float x_in, float &r, float &g, float &b)}}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+color (
@@ -206,46 +272,21 @@ Functions
 \end{DoxyParamCaption}
 )}\hypertarget{_common_8h_a75aaebf1a8b822524cc6af51a0cd83ef}{}\label{_common_8h_a75aaebf1a8b822524cc6af51a0cd83ef}
 
-\begin{DoxyCode}
-51 \{
-52   \textcolor{comment}{// Only important if the number of colors is small. In which case the rest is}
-53   \textcolor{comment}{// still wrong anyway}
-54   \textcolor{comment}{// x = linspace(0,1,jj)' * (1-1/jj) + 1/jj;}
-55   \textcolor{comment}{//}
-56   \textcolor{keyword}{const} \textcolor{keywordtype}{double} rone = 0.8;
-57   \textcolor{keyword}{const} \textcolor{keywordtype}{double} gone = 1.0;
-58   \textcolor{keyword}{const} \textcolor{keywordtype}{double} bone = 1.0;
-59   \textcolor{keywordtype}{float} x = x\_in;
-60   x = (x\_in<0 ? 0 : (x>1 ? 1 : x));
-61 
-62   \textcolor{keywordflow}{if} (x<1. / 8.)
-63   \{
-64     r = 0;
-65     g = 0;
-66     b = bone*(0.5 + (x) / (1. / 8.)*0.5);
-67   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x<3. / 8.)
-68   \{
-69     r = 0;
-70     g = gone*(x - 1. / 8.) / (3. / 8. - 1. / 8.);
-71     b = bone;
-72   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x<5. / 8.)
-73   \{
-74     r = rone*(x - 3. / 8.) / (5. / 8. - 3. / 8.);
-75     g = gone;
-76     b = (bone - (x - 3. / 8.) / (5. / 8. - 3. / 8.));
-77   \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (x<7. / 8.)
-78   \{
-79     r = rone;
-80     g = (gone - (x - 5. / 8.) / (7. / 8. - 5. / 8.));
-81     b = 0;
-82   \} \textcolor{keywordflow}{else}
-83   \{
-84     r = (rone - (x - 7. / 8.) / (1. - 7. / 8.)*0.5);
-85     g = 0;
-86     b = 0;
-87   \}
-88 \}
-\end{DoxyCode}
+
+Definition at line 50 of file Common.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_common_8h_a75aaebf1a8b822524cc6af51a0cd83ef_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Common.\+h@{Common.\+h}!get\+\_\+color\+\_\+dist@{get\+\_\+color\+\_\+dist}}
 \index{get\+\_\+color\+\_\+dist@{get\+\_\+color\+\_\+dist}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{get\+\_\+color\+\_\+dist(float dist\+\_\+val, std\+\_\+msgs\+::\+Color\+R\+G\+B\+A \&color, float max\+\_\+plot\+\_\+dist\+\_\+val)}{get_color_dist(float dist_val, std_msgs::ColorRGBA &color, float max_plot_dist_val)}}]{\setlength{\rightskip}{0pt plus 5cm}void get\+\_\+color\+\_\+dist (
@@ -256,32 +297,21 @@ Functions
 \end{DoxyParamCaption}
 )}\hypertarget{_common_8h_a4b2e4b6698ff92678b23392dc111b36d}{}\label{_common_8h_a4b2e4b6698ff92678b23392dc111b36d}
 
-\begin{DoxyCode}
-25                                                                                      \{
-26 \textcolor{comment}{// error region }
-27   \textcolor{keywordflow}{if}(dist\_val<0)\{
-28       color.r = 0.5;
-29       color.g = 0.0;
-30       color.b = 0.0;
-31       color.a = 0.2;
-32 
-33   \}
-34 \textcolor{comment}{//   else if(dist\_val == 0.2)\{}
-35 \textcolor{comment}{//       color.r = 0;}
-36 \textcolor{comment}{//       color.g = 0;}
-37 \textcolor{comment}{//       color.b = 1;}
-38 \textcolor{comment}{//   \}}
-39   \textcolor{comment}{// normal region }
-40   \textcolor{keywordflow}{else}\{                   
-41       color.r = pow(dist\_val/max\_plot\_dist\_val,3);
-42       color.g = pow(dist\_val/max\_plot\_dist\_val,3);
-43       color.b = pow(dist\_val/max\_plot\_dist\_val,3);
-44   \}
-45   \textcolor{comment}{// plot only cells in this bound}
-46   \textcolor{keywordflow}{if}(dist\_val<max\_plot\_dist\_val)
-47       color.a = 0.2;
-48 \};
-\end{DoxyCode}
+
+Definition at line 25 of file Common.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_common_8h_a4b2e4b6698ff92678b23392dc111b36d_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Common.\+h@{Common.\+h}!Get\+Current\+Working\+Dir@{Get\+Current\+Working\+Dir}}
 \index{Get\+Current\+Working\+Dir@{Get\+Current\+Working\+Dir}!Common.\+h@{Common.\+h}}
 \subsubsection[{\texorpdfstring{Get\+Current\+Working\+Dir(void)}{GetCurrentWorkingDir(void)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Get\+Current\+Working\+Dir (
@@ -290,11 +320,18 @@ Functions
 \end{DoxyParamCaption}
 )}\hypertarget{_common_8h_a7770cb36d4f4c6e78ff68516ecb2123c}{}\label{_common_8h_a7770cb36d4f4c6e78ff68516ecb2123c}
 
-\begin{DoxyCode}
-2                                       \{
-3     \textcolor{keywordtype}{char} buff[FILENAME\_MAX];
-4     \hyperlink{_common_8h_af0c0d1034a71f8aa3a08cda83c9d4e7a}{GetCurrentDir}( buff, FILENAME\_MAX );
-5     std::string current\_working\_dir(buff);
-6     \textcolor{keywordflow}{return} current\_working\_dir; 
-7 \}
-\end{DoxyCode}
+
+Definition at line 2 of file Common.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_common_8h_a7770cb36d4f4c6e78ff68516ecb2123c_icgraph}
+\end{center}
+\end{figure}
+
+
