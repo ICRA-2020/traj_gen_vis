@@ -35,8 +35,11 @@ message("auto chaser libs : ${AUTO_CHASER_LIBS}")
 # ROS 
 find_package(catkin REQUIRED roscpp 
 sensor_msgs tf geometry_msgs octomap_msgs message_generation nav_msgs traj_gen gazebo_msgs
-qt_build trajectory_msgs  mav_msgs
+qt_build trajectory_msgs  mav_msgs chomp_predict
 )
+
+
+message("catkin path: ${catkin_INCLUDE_DIRS}")
 
 catkin_package(
  INCLUDE_DIRS include
@@ -55,7 +58,7 @@ set(CMAKE_AUTOUIC ON)
 # this comes from qt_build's qt-ros.cmake which is automatically 
 # included via the dependency call in manifest.xml
 rosbuild_prepare_qt4(QtCore QtGui) # Add the appropriate components to the component list here
-set(QT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/qt_ui)
+set(QT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/qt_ui_infomode)
 set(QT_FORMS ${QT_DIR}/mainwindow.ui) # by adding this, the catkin build make ui_mainWindow.h
 file(GLOB QT_MOC   ${QT_DIR}/*.h)
 file(GLOB QT_SOURCES ${QT_DIR}/*.cpp)
@@ -66,5 +69,12 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 message("qt form path: ${CMAKE_CURRENT_BINARY_DIR}")
 
 
-add_executable(${PROJECT_NAME}_run src/qt_ui/main.cpp ${AUTO_CHASER_LIBS} ${QT_FORMS_CPP} ${QT_SOURCES} ${QT_MOC_HPP} ${qpOASES_LIBS} )
+## prior information mode 
+add_executable(${PROJECT_NAME}_run src/qt_ui_infomode/main.cpp ${AUTO_CHASER_LIBS} ${QT_FORMS_CPP} ${QT_SOURCES} ${QT_MOC_HPP} ${qpOASES_LIBS} )
 target_link_libraries(${PROJECT_NAME}_run ${catkin_LIBRARIES} ${QT_LIBRARIES})
+
+
+## prediction mode 
+add_executable(${PROJECT_NAME}_run_predict_mode src/qt_ui_predictmode/main_test.cpp ${AUTO_CHASER_LIBS}  ${qpOASES_LIBS} )
+target_link_libraries(${PROJECT_NAME}_run_predict_mode ${catkin_LIBRARIES})
+

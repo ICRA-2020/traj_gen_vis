@@ -34,7 +34,6 @@
         <param name="pred_seq" value="4" /> 
 		<param name="early_end_time" value="0.1" /> 
 
-
         <!-- target_trajectory -->        
         <param name="target/safe_corridor_r" value="0.2" />
 		<param name="target/N_safe_pnts" value="2" />
@@ -56,8 +55,6 @@
         <param name="max_azim" type="double" value="$(eval 3.141592/5)" />	
         <param name="min_azim" type="double" value="$(eval 3.141592/7)" />	
 		<param name="chaser_init_z" type="double" value="1.0" /> <!--initial hovering height. should bigger than min_z-->	
-
-
 
 		<!--preplanning-->
 

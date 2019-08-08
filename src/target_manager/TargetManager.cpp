@@ -160,7 +160,12 @@ nav_msgs::Path TargetManager::get_global_waypoints(){
         
     return waypoints_seq;
 }
-
+/**
+ * @brief 
+ * 
+ * @param ts sim time = ros::Time::now - ref time  
+ * @return vector<Point> 
+ */
 vector<Point> TargetManager::eval_time_seq(VectorXd ts){
     vector<Point> point_seq;
     
@@ -169,4 +174,30 @@ vector<Point> TargetManager::eval_time_seq(VectorXd ts){
     }
 
     return point_seq;
+}
+
+
+TargetPredictor::TargetPredictor() {};
+
+void TargetPredictor::init(){
+    forecaster_ptr = new (CHOMP::ChompForecaster);
+}
+/**
+ * @brief evaluate time seq 
+ * 
+ * @param ts pure ros time!. not manipulated one or double type  
+ * @return vector<Point> 
+ */
+vector<Point> TargetPredictor::eval_time_seq(vector<ros::Time> ts){
+    
+    vector<Point> point_seq;
+    
+    for (int i = 0; i<ts.size();i++){    
+        point_seq.push_back(forecaster_ptr->eval_prediction(ts[i]));
+    }
+    return point_seq;
+};
+
+CHOMP::ChompForecaster* TargetPredictor::get_forecaster_ptr(){
+    return this->forecaster_ptr;
 }

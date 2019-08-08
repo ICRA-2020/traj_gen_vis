@@ -6,7 +6,8 @@
   
   <arg name="chaser_x" default="0.0"/>
   <arg name="chaser_y" default="0.0"/>
-  
+
+  <arg name= "real_target" default = "false"/> 
   <!--Octomap bt file path if any-->
   <!--If we are going to load pre-existing map from bt file-->
   <!--Else, we build from sensor-->
@@ -30,8 +31,7 @@
 
     
      <!--target spawn at defined position -->
-<!-- 		
-	<group ns ="$(arg target_name)">
+	<group if = "$( arg real_target)" ns ="$(arg target_name)">
 	<include file="$(find turtlebot_gazebo)/launch/includes/kobuki.launch.xml">
 		<arg name="base" value="kobuki"/>
 		<arg name="stacks" value="hexagons"/>
@@ -44,9 +44,9 @@
 		<param name="scale_linear" value="0.5" type="double"/>
 		<param name="scale_angular" value="1.5" type="double"/>
 		<remap from="turtlebot_teleop_keyboard/cmd_vel" to="cmd_vel_mux/input/teleop"/>
-	</node> -->
+	</node> 
 
-	<!-- </group> -->
+	</group>
 
 
      <!-- group name/MAV spawn at origin -->
