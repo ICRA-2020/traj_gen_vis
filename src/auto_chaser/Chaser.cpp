@@ -11,6 +11,7 @@ void Chaser::init(ros::NodeHandle nh){
     nh.param("chaser_init_x",spawn_x,0.0);
     nh.param("chaser_init_y",spawn_y,0.0);
     nh.param("chaser_init_z",hovering_z,1.0);
+    
 }
 
 bool Chaser::chase_update(GridField* global_edf_ptr,vector<Point> target_pnts,Point chaser_x0,Twist chaser_v0,Twist chaser_a0,TimeSeries knots){

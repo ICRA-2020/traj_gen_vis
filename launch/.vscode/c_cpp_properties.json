@@ -7,6 +7,7 @@
       },
       "includePath": [
         "/home/jbs/catkin_ws/devel/include",
+        "/home/jbs/catkin_ws/build/voxblox",
         "/opt/ros/kinetic/include",
         "/home/jbs/catkin_ws/src/ICRA_VCVS_SIM/include",
         "/home/jbs/catkin_ws/src/traj_gen_vis_developing/include",

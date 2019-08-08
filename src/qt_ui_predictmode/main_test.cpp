@@ -16,10 +16,21 @@ int main(int argc, char * argv[]){
     target_predictor.init();
     chaser_wrapper.init(nh);
 
-    bool trigger_cond = false;
+    bool trigger_chasing_cond = false;
+    bool trigger_predict_cond = true;
+
+
     ros::Rate loop_rate (20);
 
+
+
     while(ros::ok){
+        // predictor session 
+        target_predictor.get_forecaster_ptr()->publish_routine();
+        trigger_predict_cond = target_predictor.get_forecaster_ptr()->get_predict_condition();
+
+
+        // chaser session 
         if(target_predictor.get_forecaster_ptr()->is_predicted)
             ROS_INFO("[Target Predictor] prediction started. procede chasing.");
         ros::spinOnce();
