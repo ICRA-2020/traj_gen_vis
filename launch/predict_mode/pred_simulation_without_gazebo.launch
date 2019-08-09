@@ -1,97 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<launch>
-
-<arg name="mav_name" default="firefly"/>
-<arg name="target_name" default="target"/>
-<arg name="world_name" default="map3"/>
-<arg name="chaser_x" default="0"/>
-<arg name="chaser_y" default="0"/>
-
-
-<!-- prepare gazebo environment -->
-
-<include file ="$(find auto_chaser)/launch/gazebo_env.launch">
-    <arg name="real_target" value="true"/> 
-    <arg name="mav_name" value="$(arg mav_name)"/> 
-    <arg name="target_name" value="$(arg target_name)"/> 
-    <arg name="world_name" value="$(arg world_name)"/> 
-    <arg name="chaser_x" value="$(arg chaser_x)"/> 
-    <arg name="chaser_y" value="$(arg chaser_y)"/> 
-</include>
+    <launch>
+    <arg name="mav_name" default="firefly"/>
+    <arg name="target_name" default="target"/>
+    <arg name="world_name" default="map3"/>
+    <arg name="chaser_x" default="0"/>
+    <arg name="chaser_y" default="0"/>
 
 
-<!-- auto_chaser with prediction-->
-    <node pkg="auto_chaser" type="auto_chaser_run_predict_mode" name="auto_chaser" output="screen" >
-       
-        <!-- target predictor -->
-          
-		<rosparam command="load" file="$(find chomp_predict)/params/chomp_param_map3.yaml" />		
-        <param name= "map_file_name" value = "$(find chomp_predict)/worlds/$(arg world_name).bt" />
-       
-	   
-	   <!-- common -->
-        <param name="world_frame_id" value="/world" />
-        <param name="mav_name" value="$(arg mav_name)" />
-        <param name="target_frame_id" value="/target" />
-        <param name="min_z" value="0.4" />
-        <param name="chaser_init_x" value="$(arg chaser_x)" />
-        <param name="chaser_init_y" value="$(arg chaser_y)" />
-        <param name="chaser_init_z" value="1" /> <!--for hovering -->
-        <param name="run_mode" value="1" /> <!-- 0: simulation without gazebo/ 1: with gazebo -->
-        <param name="pred_horizon" value="4" /> 
-        <param name="pred_seq" value="4" /> 
-		<param name="early_end_time" value="0.1" /> 
+    <!-- only octomap. no gazebo related module -->
+        <include file = "$(find auto_chaser)/launch/octomap_base.launch">
+            <arg name = "world_name" value = "$(arg world_name)"/>
+        </include>
 
-        <!-- target_trajectory -->        
-        <param name="target/safe_corridor_r" value="0.2" />
-		<param name="target/N_safe_pnts" value="2" />
-		<param name="target/objective_derivative" value="3" />
-		<param name="target/w_deviation" value="0.0005" />
 
-        <!-- chaser parameter -->     
+    <!-- rviz -->	
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/rviz.rviz"/>
 
-        <!--edf-->	
-        <param name="edf_resolution" type="double" value="0.3" />	
-        <param name="edf_max_dist" type="double" value="2.0" />
-        <param name="edf_max_plot_dist" type="double" value="1.0" />
-        <param name="edf_stride_resolution" type="double" value="0.3" />
+    <!-- rosbag play -->
 
-        <!--chasing spec-->
-        <param name="max_tracking_distance" type="double" value="4.0" />	
-        <param name="min_tracking_distance" type="double" value="0.5" />	
-        <param name="des_tracking_distance" type="double" value="2.5" />	
-        <param name="max_azim" type="double" value="$(eval 3.141592/5)" />	
-        <param name="min_azim" type="double" value="$(eval 3.141592/7)" />	
-		<param name="chaser_init_z" type="double" value="1.0" /> <!--initial hovering height. should bigger than min_z-->	
 
-		<!--preplanning-->
-
-		<!--vsf-->
-		<param name="vsf_resolution" type="double" value="0.5" />	
-		<param name="vs_min" type="double" value="0.3" />	
-	
-		<!--graph-->
-		<param name="d_connect_max" type="double" value="3.0" />	
-		<param name="r_safe" type="double" value="0.3" /> <!--the lower bound of edf along edge -->	
-		<param name="w_v" type="double" value="5.0" />	
-		<param name="w_d" type="double" value="5.5" />	
-		
-
-		<!--smooth planning-->
-		<param name="chaser/safe_corridor_r" type="double" value="0.2" />		 
-		<param name="chaser/verbose" type="bool" value="false" />	
-		<param name="chaser/N_safe_pnts" type="int" value="3" />	
-		<param name="chaser/objective_derivative" type="int" value="3" />	
-		<param name="chaser/w_deviation" type="double" value="0.5" />	
-		<param name="chaser/poly_order" type="int" value="6" />	
-
+    <!-- auto_chaser with prediction-->
+        <node pkg="auto_chaser" type="auto_chaser_run_predict_mode" name="auto_chaser" output="screen" >
         
+            <!-- 1. target predictor -->
+            <rosparam command="load" file="$(find chomp_predict)/params/chomp_param_map3.yaml" />		
+            <param name= "map_file_name" value = "$(find chomp_predict)/worlds/$(arg world_name).bt" />
+            
+            <!-- common -->
+            <param name="world_frame_id" value="/world" />
+            <param name="mav_name" value="$(arg mav_name)" />
+            <param name="target_frame_id" value="/target" />
+            <param name="min_z" value="0.4" />
+            <param name="chaser_init_x" value="$(arg chaser_x)" />
+            <param name="chaser_init_y" value="$(arg chaser_y)" />
+            <param name="chaser_init_z" value="1" /> <!--for hovering -->
+            <param name="run_mode" value="0" /> <!-- 0: simulation without gazebo/ 1: with gazebo -->
+            <param name="pred_horizon" value="3" />  <!--should be lower than the horizon of predictor-->
+            <param name="pred_seq" value="4" /> 
+            <param name="early_end_time" value="0.2" /> 
+
+            <!-- chaser parameter -->     
+
+            <!--edf-->	
+            <param name="edf_resolution" type="double" value="0.3" />	
+            <param name="edf_max_dist" type="double" value="2.0" />
+            <param name="edf_max_plot_dist" type="double" value="1.0" />
+            <param name="edf_stride_resolution" type="double" value="0.3" />
+
+            <!--chasing spec-->
+            <param name="max_tracking_distance" type="double" value="4.0" />	
+            <param name="min_tracking_distance" type="double" value="0.5" />	
+            <param name="des_tracking_distance" type="double" value="2.5" />	
+            <param name="max_azim" type="double" value="$(eval 3.141592/5)" />	
+            <param name="min_azim" type="double" value="$(eval 3.141592/7)" />	
+            <param name="chaser_init_z" type="double" value="1.0" /> <!--initial hovering height. should bigger than min_z-->	
+
+            <!--preplanning-->
+
+            <!--vsf-->
+            <param name="vsf_resolution" type="double" value="0.5" />	
+            <param name="vs_min" type="double" value="0.3" />	
+        
+            <!--graph-->
+            <param name="d_connect_max" type="double" value="3.0" />	
+            <param name="r_safe" type="double" value="0.3" /> <!--the lower bound of edf along edge -->	
+            <param name="w_v" type="double" value="5.0" />	
+            <param name="w_d" type="double" value="5.5" />	
+            
+
+            <!--smooth planning-->
+            <param name="chaser/safe_corridor_r" type="double" value="0.2" />		 
+            <param name="chaser/verbose" type="bool" value="false" />	
+            <param name="chaser/N_safe_pnts" type="int" value="3" />	
+            <param name="chaser/objective_derivative" type="int" value="3" />	
+            <param name="chaser/w_deviation" type="double" value="0.5" />	
+            <param name="chaser/poly_order" type="int" value="6" />	
+        </node>
 
 
-    </node>
 
 
-
-
-
-</launch>
+    </launch>

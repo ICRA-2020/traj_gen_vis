@@ -215,14 +215,16 @@ void Preplanner::graph_construct(GridField* global_edf,Point x0){
             for(auto it_prev = prev_layer.begin(); it_prev < prev_layer.end();it_prev++){ // prev_layer 
                 Vertex_d prev_vert = descriptor_map[it_prev->name];
                 Point prev_pnt = it_prev->value; Vector3f prev_vec = geo2eigen(prev_pnt);
-
+				
                 // this condition should be satisfied to be connected 
                 if(((cur_vec-prev_vec).norm() < params.d_connect_max) && (global_edf->getRayMin(cur_pnt,prev_pnt,0) > params.r_safe) ){
-                    float weight = (cur_vec-prev_vec).norm() + 
+						float weight = (cur_vec-prev_vec).norm() + 
                             params.w_v*1/sqrt(cur_vsf_ptr->getRayMean(cur_pnt,prev_pnt) * prev_vsf_ptr->getRayMean(prev_pnt,cur_pnt)) 
                             + params.w_d*abs((geo2eigen(cur_vsf_ptr->getCentre()) - cur_vec).norm() - params.d_trakcing_des);                     
                     boost::add_edge(prev_vert,cur_vert,weight,di_graph);
-                    if(weight <1e-4)
+                    
+					
+					if(weight <1e-4)
                         ROS_WARN("weight is zero");
                     N_edge ++;
                     N_edge_sub++;

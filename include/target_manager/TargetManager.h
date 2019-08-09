@@ -65,12 +65,23 @@ class TargetPredictor{
      * @brief chomp forecast for target prediction  
      * Forecaster was defined as a point to avoid creating nodehandle before ros::init
      */
-        CHOMP::ChompForecaster* forecaster_ptr; 
+        CHOMP::ChompForecaster* forecaster_ptr; // the core of prediction  
+        ros::NodeHandle nh_private; // for a name space (predictor)
+        ros::Publisher pub_marker_pred_seq; 
+        ros::Subscriber sub_pose_target; // if no tf type for target is available, instead pose available, then  
+        visualization_msgs::Marker marker_prediction_seq; // for checking the seed of chasing 
+        tf::TransformBroadcaster* br_ptr; // broadcasting the transform (why?.. in gazebo mode)
+        void callback_target_pose(PoseStampedConstPtr target_pose_ptr); 
+        PoseStamped current_target_pose; 
+        string target_frame_id;
+        string world_frame_id;
+
     public: 
-      
         TargetPredictor();
         void init(); 
-        vector<Point> eval_time_seq(vector<ros::Time> ts);    
+        void session();
+        void braodcast_target_tf(); 
+        vector<Point> eval_time_seq(VectorXd ts);    
         CHOMP::ChompForecaster* get_forecaster_ptr();
 };
 

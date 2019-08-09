@@ -106,7 +106,6 @@ void TargetManager::pop_waypoint(){
 
 void TargetManager::broadcast_target_tf(double t_eval){    
 
-    tf::TransformBroadcaster br; 
 
     Point eval_point = planner.point_eval_spline(t_eval);
     // Twist eval_vel = planner.vel_eval_spline(t_eval);
@@ -181,23 +180,85 @@ TargetPredictor::TargetPredictor() {};
 
 void TargetPredictor::init(){
     forecaster_ptr = new (CHOMP::ChompForecaster);
+    nh_private = ros::NodeHandle("~predictor");
+    ros::NodeHandle nh("~");
+    
+    nh.param<string>("target_frame_id",target_frame_id,"/target");
+    nh.param<string>("world_frame_id",world_frame_id,"/world");
+    pub_marker_pred_seq = nh_private.advertise<visualization_msgs::Marker>("prediction_pnts_for_chasing",1);
+
+    // marker initialization 
+    marker_prediction_seq.type = visualization_msgs::Marker::SPHERE_LIST;        
+    marker_prediction_seq.action = 0;
+    marker_prediction_seq.header.frame_id = world_frame_id;
+    double scale = 0.15;
+    marker_prediction_seq.pose.orientation.w = 1;
+    marker_prediction_seq.scale.x = scale;
+    marker_prediction_seq.scale.y = scale;
+    marker_prediction_seq.scale.z = scale;
+    marker_prediction_seq.color.r = 1;
+    marker_prediction_seq.color.a = 1;
+    
+    // transform boradcaster 
+    br_ptr = new tf::TransformBroadcaster; 
+
+    // if necessary, subscribe
+    sub_pose_target = nh.subscribe("/target_pose",1,&TargetPredictor::callback_target_pose,this);
 }
+
 /**
  * @brief evaluate time seq 
- * 
  * @param ts pure ros time!. not manipulated one or double type  
  * @return vector<Point> 
  */
-vector<Point> TargetPredictor::eval_time_seq(vector<ros::Time> ts){
+vector<Point> TargetPredictor::eval_time_seq(VectorXd ts){
     
     vector<Point> point_seq;
-    
+    marker_prediction_seq.points.clear();
     for (int i = 0; i<ts.size();i++){    
-        point_seq.push_back(forecaster_ptr->eval_prediction(ts[i]));
+        ros::Time t_eval_ros(ts(i));
+        Point pt = forecaster_ptr->eval_prediction(t_eval_ros);
+        point_seq.push_back(pt);
+        marker_prediction_seq.points.push_back(pt);
     }
     return point_seq;
 };
 
 CHOMP::ChompForecaster* TargetPredictor::get_forecaster_ptr(){
     return this->forecaster_ptr;
+};
+
+/**
+ * @brief redundant function - in practice, just convert subscribed pose to tf   
+ * It is not desirable to evalute predicted traj with current time. It is just prediction, not actual current tf of target as of now
+ */
+
+void TargetPredictor::braodcast_target_tf(){
+    // will broadcast tf information independent of external unit  
+    
+    tf::Transform transform;
+    // float target_yaw = atan2(eval_vel.linear.y,eval_vel.linear.x);
+    tf::Quaternion q;
+    q.setRPY(0, 0, 0);
+
+    transform.setOrigin(tf::Vector3(current_target_pose.pose.position.x,
+                                    current_target_pose.pose.position.y,
+                                    current_target_pose.pose.position.z));
+    transform.setRotation(q);
+    br_ptr->sendTransform(tf::StampedTransform(transform,ros::Time::now(),world_frame_id,target_frame_id));
+};
+
+void TargetPredictor::session(){
+    
+    // forecaster 
+    get_forecaster_ptr()->session(); // ref time = ros::Time    
+    // ros
+    pub_marker_pred_seq.publish(marker_prediction_seq);
+    braodcast_target_tf();
 }
+
+void TargetPredictor::callback_target_pose(PoseStampedConstPtr target_pose_ptr){
+    current_target_pose = *target_pose_ptr;
+}
+
+

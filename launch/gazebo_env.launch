@@ -23,7 +23,7 @@
      <!-- world generation -->
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find traj_gen_chasing)/worlds/$(arg world_name).world" />
+    <arg name="world_name" value="$(find auto_chaser)/worlds/$(arg world_name).world" />
     <arg name="paused" value="false"/> <!--if this enabled, ros time paused also-->
     <arg name="gui" value="false"/> 
     </include>
@@ -89,7 +89,7 @@
 
 	
 	<!-- octomap server -->
-	<node pkg="octomap_server" type="octomap_tracking_server_node" name="octomap_talker" output="screen" args="$(find traj_gen_chasing)/worlds/$(arg world_name).bt"> 
+	<node pkg="octomap_server" type="octomap_tracking_server_node" name="octomap_talker" output="screen" args="$(find auto_chaser)/worlds/$(arg world_name).bt"> 
 	
 
 	<!--node pkg="octomap_server" type="octomap_tracking_server_node" name="octomap_talker" output="screen"-->

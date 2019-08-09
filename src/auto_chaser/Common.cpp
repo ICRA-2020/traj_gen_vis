@@ -311,7 +311,7 @@ float GridField::getRayMean(Point pnt1,Point pnt2){
         
     Vector3f stride_vec;        
     if(tot_length == 0)
-        stride_vec.setZero();
+        return 0.0;
     else 
         stride_vec = (pnt2_vec - pnt1_vec).normalized()*params.ray_stride_res; 
 
