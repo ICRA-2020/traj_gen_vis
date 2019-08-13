@@ -3,13 +3,9 @@ Panels:
     Help Height: 78
     Name: Displays
     Property Tree Widget:
-      Expanded:
-        - /Global Options1
-        - /Status1
-        - /Path4
-        - /Marker9
-      Splitter Ratio: 0.590123475
-    Tree Height: 536
+      Expanded: ~
+      Splitter Ratio: 0.720977604
+    Tree Height: 558
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -80,7 +76,7 @@ Visualization Manager:
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: /planner_client/vsf_grid
-      Name: MarkerArray
+      Name: vsf
       Namespaces:
         {}
       Queue Size: 100
@@ -88,7 +84,7 @@ Visualization Manager:
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: /occupied_cells_vis_array
-      Name: MarkerArray
+      Name: octomap
       Namespaces:
         map: true
       Queue Size: 100
@@ -96,7 +92,7 @@ Visualization Manager:
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: /auto_chaser/target_waypoints
-      Name: MarkerArray
+      Name: target waypoints
       Namespaces:
         {}
       Queue Size: 100
@@ -104,7 +100,7 @@ Visualization Manager:
     - Class: rviz/MarkerArray
       Enabled: false
       Marker Topic: /auto_chaser/vsf_grid_seq
-      Name: MarkerArray
+      Name: vsf_grid
       Namespaces:
         {}
       Queue Size: 100
@@ -112,7 +108,7 @@ Visualization Manager:
     - Class: rviz/Marker
       Enabled: false
       Marker Topic: /auto_chaser/edf_grid
-      Name: Marker
+      Name: edf
       Namespaces:
         {}
       Queue Size: 100
@@ -120,7 +116,7 @@ Visualization Manager:
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /auto_chaser/preplanned_waypoints
-      Name: Marker
+      Name: preplanning
       Namespaces:
         waypoints: true
       Queue Size: 100
@@ -135,7 +131,7 @@ Visualization Manager:
       Length: 0.300000012
       Line Style: Lines
       Line Width: 0.0599999987
-      Name: Path
+      Name: preplanning_path
       Offset:
         X: 0
         Y: 0
@@ -158,7 +154,7 @@ Visualization Manager:
       Length: 0.300000012
       Line Style: Billboards
       Line Width: 0.0799999982
-      Name: Path
+      Name: target global path
       Offset:
         X: 0
         Y: 0
@@ -181,7 +177,7 @@ Visualization Manager:
       Length: 0.300000012
       Line Style: Billboards
       Line Width: 0.0299999993
-      Name: Path
+      Name: smooth path
       Offset:
         X: 0
         Y: 0
@@ -195,13 +191,13 @@ Visualization Manager:
       Unreliable: false
       Value: true
     - Class: rviz/Marker
-      Enabled: false
+      Enabled: true
       Marker Topic: /auto_chaser/chasing_corridor
-      Name: Marker
+      Name: chasing corridor (multi)
       Namespaces:
-        {}
+        "": true
       Queue Size: 100
-      Value: false
+      Value: true
     - Alpha: 1
       Axes Length: 1
       Axes Radius: 0.100000001
@@ -210,7 +206,7 @@ Visualization Manager:
       Enabled: true
       Head Length: 0.200000003
       Head Radius: 0.100000001
-      Name: Pose
+      Name: mav control pose
       Shaft Length: 0.5
       Shaft Radius: 0.0299999993
       Shape: Arrow
@@ -218,25 +214,9 @@ Visualization Manager:
       Unreliable: false
       Value: true
     - Class: rviz/Marker
-      Enabled: false
+      Enabled: true
       Marker Topic: /auto_chaser/smooth_path_knots
-      Name: Marker
-      Namespaces:
-        {}
-      Queue Size: 100
-      Value: false
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: /auto_chaser/predictor/chomp_goal
-      Name: Marker
-      Namespaces:
-        {}
-      Queue Size: 100
-      Value: true
-    - Class: rviz/Marker
-      Enabled: true
-      Marker Topic: /auto_chaser/predictor/chomp_goal
-      Name: Marker
+      Name: smooth path knots
       Namespaces:
         {}
       Queue Size: 100
@@ -244,7 +224,7 @@ Visualization Manager:
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /auto_chaser/predictor/chomp_obsrv
-      Name: Marker
+      Name: target observation
       Namespaces:
         {}
       Queue Size: 100
@@ -259,7 +239,7 @@ Visualization Manager:
       Length: 0.300000012
       Line Style: Billboards
       Line Width: 0.0299999993
-      Name: Path
+      Name: target prediction (path)
       Offset:
         X: 0
         Y: 0
@@ -298,7 +278,7 @@ Visualization Manager:
       Length: 0.300000012
       Line Style: Lines
       Line Width: 0.0299999993
-      Name: Path
+      Name: target prediction (traj)
       Offset:
         X: 0
         Y: 0
@@ -317,6 +297,14 @@ Visualization Manager:
       Name: Marker
       Namespaces:
         "": true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /auto_chaser/chasing_corridor_single
+      Name: chasing corridor (single)
+      Namespaces:
+        {}
       Queue Size: 100
       Value: true
   Enabled: true
@@ -344,41 +332,41 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 52.9088478
+      Distance: 25.1229191
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 8.98713875
-        Y: 6.61446571
-        Z: 0.0511296205
+        X: 7.45554829
+        Y: 4.86844254
+        Z: -0.480080158
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.54979634
+      Pitch: 1.56979632
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.67353964
+      Yaw: 4.69851637
     Saved: ~
 Window Geometry:
   Displays:
-    collapsed: false
+    collapsed: true
   Height: 1028
-  Hide Left Dock: false
+  Hide Left Dock: true
   Hide Right Dock: true
-  QMainWindow State: 000000ff00000000fd0000000400000000000001a40000037afc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006100fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000028000000cd0000006100fffffffb000000100044006900730070006c00610079007301000000fb000002a7000000d700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000ad00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000003a00000003efc0100000002fb0000000800540069006d00650100000000000003a00000030000fffffffb0000000800540069006d00650100000000000004500000000000000000000001f60000037a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001ed00000396fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006100fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000001e0054006f006f006c002000500072006f00700065007200740069006500730000000028000000d30000006100fffffffb000000100044006900730070006c0061007900730000000101000002bd000000d700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000ad00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000003a00000003efc0100000002fb0000000800540069006d00650100000000000003a00000030000fffffffb0000000800540069006d00650100000000000004500000000000000000000003a00000037a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
     collapsed: false
   Tool Properties:
-    collapsed: false
+    collapsed: true
   Views:
     collapsed: true
   Width: 928
-  X: 65
+  X: 992
   Y: 24

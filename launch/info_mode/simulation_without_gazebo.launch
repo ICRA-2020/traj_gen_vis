@@ -89,16 +89,12 @@
 		<!--smooth planning-->
 		<param name="chaser/safe_corridor_r" type="double" value="0.2" />		 
 		<param name="chaser/verbose" type="bool" value="false" />	
-		<param name="chaser/N_safe_pnts" type="int" value="3" />	
+		<param name="chaser/N_safe_pnts" type="int" value="3" /> <!-- N_safe_pnts + 2 (initial + final in seg) = actual control points-->	
 		<param name="chaser/objective_derivative" type="int" value="3" />	
 		<param name="chaser/w_deviation" type="double" value="0.5" />	
 		<param name="chaser/poly_order" type="int" value="6" />	
+		<param name="chaser/is_multi_corridor" type="bool" value="false" />	
 		
-
-
-
-
-
 
     </node>
 

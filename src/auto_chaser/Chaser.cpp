@@ -7,7 +7,7 @@ void Chaser::init(ros::NodeHandle nh){
     preplanner.init(nh);
     smooth_planner.init(nh);
 
-    // retreieve initial hovering command 
+    // retreieve initial hovering command (word spwan is misleading.)
     nh.param("chaser_init_x",spawn_x,0.0);
     nh.param("chaser_init_y",spawn_y,0.0);
     nh.param("chaser_init_z",hovering_z,1.0);
@@ -18,17 +18,24 @@ bool Chaser::chase_update(GridField* global_edf_ptr,vector<Point> target_pnts,Po
     
     bool result = false;
     
+    std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
     // phase 1 pre planning 
     preplanner.preplan(global_edf_ptr,target_pnts,chaser_x0);
-    ROS_INFO("[Chaser] preplanning completed.");
+    std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 
+    double diff = std::chrono::duration_cast<chrono::nanoseconds>( end - begin ).count()*1e-9;
+    ROS_INFO("[Chaser] preplanning completed within %f [sec] ", diff );
+    
     nav_msgs::Path waypoints = preplanner.get_preplanned_waypoints();
 
     if(waypoints.poses.size()){
-        // phase 2 smooth planning     
+        // phase 2 smooth planning    
+        begin = std::chrono::steady_clock::now();
         smooth_planner.traj_gen(knots,waypoints,chaser_v0,chaser_a0);
+        end = std::chrono::steady_clock::now();
+        diff = std::chrono::duration_cast<chrono::nanoseconds>( end - begin ).count()*1e-9;
         if (smooth_planner.planner.is_spline_valid())
-            {ROS_INFO("[Chaser] smooth path completed."); is_complete_chasing_path = true; return true;}
+            {ROS_INFO("[Chaser] smooth path completed within %f [sec].",diff); is_complete_chasing_path = true; return true;}
         else 
             ROS_WARN("[Chaser] smooth path incompleted.");
     }else

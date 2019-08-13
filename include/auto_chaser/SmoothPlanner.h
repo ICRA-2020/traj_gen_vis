@@ -10,10 +10,12 @@ class SmoothPlanner{
         // ros 
         ros::Publisher pub_path; // publihser for path 
         ros::Publisher pub_chasing_corridor; 
+        ros::Publisher pub_chasing_corridor_single; // in case of single corridor  
         ros::Publisher pub_knots;  
         
         string world_frame_id; 
         visualization_msgs::Marker chasing_corridor;
+        visualization_msgs::MarkerArray chasing_corridor_single;
         nav_msgs::Path chasing_smooth_path;
         visualization_msgs::Marker marker_knots;
 

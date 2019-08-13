@@ -3,9 +3,10 @@
     <arg name="mav_name" default="firefly"/>
     <arg name="target_name" default="target"/>
     <arg name="world_name" default="map3"/>
-    <arg name="chaser_x" default="0"/>
+    <arg name="chaser_x" default="2.0"/>
     <arg name="chaser_y" default="0"/>
-
+    <arg name="future_horizon" default="4"/>
+	<arg name = "trigger_error" default = "0.8">
 
     <!-- only octomap. no gazebo related module -->
         <include file = "$(find auto_chaser)/launch/octomap_base.launch">
@@ -25,7 +26,9 @@
             <!-- 1. target predictor -->
             <rosparam command="load" file="$(find chomp_predict)/params/chomp_param_map3.yaml" />		
             <param name= "map_file_name" value = "$(find chomp_predict)/worlds/$(arg world_name).bt" />
-            
+			<param name= "pred_param/prediction_horizon" value = "$(arg future_horizon)"/>            
+			<param name= "pred_param/trigger_tol_accum_error" value = "$(arg trigger_error)"/>            
+
             <!-- common -->
             <param name="world_frame_id" value="/world" />
             <param name="mav_name" value="$(arg mav_name)" />
@@ -35,7 +38,7 @@
             <param name="chaser_init_y" value="$(arg chaser_y)" />
             <param name="chaser_init_z" value="1" /> <!--for hovering -->
             <param name="run_mode" value="0" /> <!-- 0: simulation without gazebo/ 1: with gazebo -->
-            <param name="pred_horizon" value="3" />  <!--should be lower than the horizon of predictor-->
+            <param name="pred_horizon" value="$(arg future_horizon)" />  <!--should be lower than the horizon of predictor-->
             <param name="pred_seq" value="4" /> 
             <param name="early_end_time" value="0.2" /> 
 
@@ -48,9 +51,9 @@
             <param name="edf_stride_resolution" type="double" value="0.3" />
 
             <!--chasing spec-->
-            <param name="max_tracking_distance" type="double" value="4.0" />	
+            <param name="max_tracking_distance" type="double" value="3.0" />	
             <param name="min_tracking_distance" type="double" value="0.5" />	
-            <param name="des_tracking_distance" type="double" value="2.5" />	
+            <param name="des_tracking_distance" type="double" value="1.5" />	
             <param name="max_azim" type="double" value="$(eval 3.141592/5)" />	
             <param name="min_azim" type="double" value="$(eval 3.141592/7)" />	
             <param name="chaser_init_z" type="double" value="1.0" /> <!--initial hovering height. should bigger than min_z-->	
@@ -58,14 +61,15 @@
             <!--preplanning-->
 
             <!--vsf-->
-            <param name="vsf_resolution" type="double" value="0.5" />	
+            <param name="vsf_resolution" type="double" value="0.3" />	
             <param name="vs_min" type="double" value="0.3" />	
         
             <!--graph-->
-            <param name="d_connect_max" type="double" value="3.0" />	
-            <param name="r_safe" type="double" value="0.3" /> <!--the lower bound of edf along edge -->	
+            <param name="d_connect_max" type="double" value="2.0" />	
+            <param name="r_safe" type="double" value="0.2" /> <!--the lower bound of edf along edge -->	
+		
             <param name="w_v" type="double" value="5.0" />	
-            <param name="w_d" type="double" value="5.5" />	
+            <param name="w_d" type="double" value="7.5" />	
             
 
             <!--smooth planning-->
@@ -75,7 +79,10 @@
             <param name="chaser/objective_derivative" type="int" value="3" />	
             <param name="chaser/w_deviation" type="double" value="0.5" />	
             <param name="chaser/poly_order" type="int" value="6" />	
+			<param name="chaser/is_multi_corridor" type="bool" value="false" />	
         </node>
+
+
 
 
 

@@ -54,28 +54,32 @@ int main(int argc, char * argv[]){
 
     ros::Rate loop_rate (20);
     ros::Time t_ros_start = ros::Time::now();
-    
+     
     double t_cur;
     double last_chasing_trigger_time = 0 ;
     bool chasing_trigger_condition;
-
+    bool trigger_success = true;
     while(ros::ok()){
         t_cur = (ros::Time::now() - t_ros_start).toSec(); // current simulation time 
 
         // predictor session 
         // chaser session 
         chaser_wrapper.session(t_cur); // ref time = double (t_sim) 
-        target_predictor.session(); 
+        bool is_new_prediction = target_predictor.session(); 
 
         // check the trigger condition 
         chasing_trigger_condition = (last_chasing_trigger_time == 0 
-            or (t_cur - last_chasing_trigger_time) > pred_horizon - early_end_time) ;
-        chasing_trigger_condition = chasing_trigger_condition and target_predictor.get_forecaster_ptr()->get_predict_condition();
+            or (t_cur - last_chasing_trigger_time) > pred_horizon - early_end_time) 
+            or is_new_prediction;
 
+        chasing_trigger_condition = chasing_trigger_condition and target_predictor.get_forecaster_ptr()->get_predict_condition();
+        
         // if conditions are met, trigger chasing trajectory
         if(chasing_trigger_condition){            
             ROS_INFO("[MAIN_TESTER] time : %f - chasing triggered!",t_cur);
-            trigger(&target_predictor,&chaser_wrapper,t_cur,ros::Time::now());
+            trigger_success = trigger(&target_predictor,&chaser_wrapper,t_cur,ros::Time::now());
+            if (not trigger_success)
+                ROS_WARN("[MAIN TESTER] current chasing is not reliable.");
             last_chasing_trigger_time = t_cur;
         }
         loop_rate.sleep();

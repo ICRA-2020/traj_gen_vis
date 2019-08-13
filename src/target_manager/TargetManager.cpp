@@ -13,7 +13,8 @@ void TargetManager::init(ros::NodeHandle nh){
     nh.param<int>("target/poly_order",traj_option.poly_order,6);
     nh.param<double>("target/w_deviation",traj_option.w_d,0.005);
     nh.param<bool>("target/is_waypoint_soft",traj_option.is_waypoint_soft,false);
-    
+    traj_option.is_multi_corridor = true;
+    traj_option.is_single_corridor = false;
     nh.param("min_z",min_z,0.4);   
 
     // register 
@@ -248,13 +249,14 @@ void TargetPredictor::braodcast_target_tf(){
     br_ptr->sendTransform(tf::StampedTransform(transform,ros::Time::now(),world_frame_id,target_frame_id));
 };
 
-void TargetPredictor::session(){
+bool TargetPredictor::session(){
     
     // forecaster 
-    get_forecaster_ptr()->session(); // ref time = ros::Time    
+    bool is_new_pred = get_forecaster_ptr()->session(); // ref time = ros::Time    
     // ros
     pub_marker_pred_seq.publish(marker_prediction_seq);
     braodcast_target_tf();
+    return is_new_pred;
 }
 
 void TargetPredictor::callback_target_pose(PoseStampedConstPtr target_pose_ptr){

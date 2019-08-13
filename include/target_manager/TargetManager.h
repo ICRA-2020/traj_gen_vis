@@ -79,7 +79,7 @@ class TargetPredictor{
     public: 
         TargetPredictor();
         void init(); 
-        void session();
+        bool  session();
         void braodcast_target_tf(); 
         vector<Point> eval_time_seq(VectorXd ts);    
         CHOMP::ChompForecaster* get_forecaster_ptr();

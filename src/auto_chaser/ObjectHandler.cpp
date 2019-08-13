@@ -256,7 +256,7 @@ void ObjectsHandler::chaser_spawn(PoseStamped spawn_pose){
     is_chaser_recieved = true;
     is_chaser_spawned = true;    
     
-    if(run_mode == 0){ // without gazebo : update chaser pose
+    if(run_mode == 0){ // without gazebo : update chaser pose with initial one 
         chaser_pose = spawn_pose;
         chaser_pose.pose.position.z = chaser_init_z;
 
