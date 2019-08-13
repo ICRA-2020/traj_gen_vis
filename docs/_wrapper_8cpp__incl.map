@@ -1,8 +1,0 @@
-<map id="/home/jbs/catkin_ws/src/traj_gen_vis_developing/src/auto_chaser/Wrapper.cpp" name="/home/jbs/catkin_ws/src/traj_gen_vis_developing/src/auto_chaser/Wrapper.cpp">
-<area shape="rect" id="node2" href="$_wrapper_8h.html" title="auto_chaser/Wrapper.h" alt="" coords="3325,109,3482,136"/>
-<area shape="rect" id="node3" href="$_chaser_8h.html" title="auto_chaser/Chaser.h" alt="" coords="3231,184,3381,211"/>
-<area shape="rect" id="node44" href="$_object_handler_8h.html" title="auto_chaser/ObjectHandler.h" alt="" coords="3405,184,3596,211"/>
-<area shape="rect" id="node4" href="$_preplanner_8h.html" title="auto_chaser/Preplanner.h" alt="" coords="3293,259,3463,285"/>
-<area shape="rect" id="node42" href="$_smooth_planner_8h.html" title="auto_chaser/SmoothPlanner.h" alt="" coords="3071,259,3269,285"/>
-<area shape="rect" id="node5" href="$_common_8h.html" title="auto_chaser/Common.h" alt="" coords="3297,333,3459,360"/>
-</map>

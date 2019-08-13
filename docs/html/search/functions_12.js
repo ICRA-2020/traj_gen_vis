@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['updatecell',['updateCell',['../struct_grid_field.html#a5f9debacee6e66e30a30ad7e0759ff15',1,'GridField::updateCell(Point pnt, float val)'],['../struct_grid_field.html#aeec99711fdc1486528b34fddff21c33f',1,'GridField::updateCell(Vector3i idx, float val)']]],
-  ['updatestripes',['updateStripes',['../dynsections_8js.html#a8f7493ad859d4fbf2523917511ee7177',1,'dynsections.js']]]
+  ['_7emainwindow',['~MainWindow',['../class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7',1,'MainWindow']]],
+  ['_7eqnode',['~QNode',['../class_q_node.html#afed12669e9aed3e70721f507804778ca',1,'QNode']]]
 ];

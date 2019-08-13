@@ -1,7 +1,0 @@
-<map id="MainWindow::~MainWindow" name="MainWindow::~MainWindow">
-<area shape="rect" id="node2" href="$class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="270,5,379,32"/>
-<area shape="rect" id="node4" href="$_common_8cpp.html#a7770cb36d4f4c6e78ff68516ecb2123c" title="GetCurrentWorkingDir" alt="" coords="249,56,400,83"/>
-<area shape="rect" id="node5" href="$class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="241,107,408,133"/>
-<area shape="rect" id="node3" href="$class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="456,5,619,32"/>
-<area shape="rect" id="node6" href="$_common_8cpp.html#a50cd37bbde872deb08960a0ee2748930" title="extract_pnts_from_path" alt="" coords="458,107,617,133"/>
-</map>

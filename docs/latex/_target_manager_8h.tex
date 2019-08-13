@@ -1,13 +1,14 @@
 \hypertarget{_target_manager_8h}{}\section{include/target\+\_\+manager/\+Target\+Manager.h File Reference}
 \label{_target_manager_8h}\index{include/target\+\_\+manager/\+Target\+Manager.\+h@{include/target\+\_\+manager/\+Target\+Manager.\+h}}
 {\ttfamily \#include \char`\"{}traj\+\_\+gen/\+Poly\+Traj\+Gen.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}chomp\+\_\+predict/chomp\+\_\+predict.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$tf/transform\+\_\+broadcaster.\+h$>$}\\*
 Include dependency graph for Target\+Manager.\+h\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=346pt]{_target_manager_8h__incl}
+\includegraphics[width=350pt]{_target_manager_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:
@@ -22,4 +23,6 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_target_manager}{Target\+Manager}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Target manager to be used in no-\/prediction mode (prior target path is precomputed before simulation) \end{DoxyCompactList}\item 
+class \hyperlink{class_target_predictor}{Target\+Predictor}
+\begin{DoxyCompactList}\small\item\em Target predictor in prediction mode. \end{DoxyCompactList}\end{DoxyCompactItemize}

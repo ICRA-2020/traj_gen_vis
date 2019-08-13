@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>My Project: SmoothPlanner Class Reference</title>
+<title>auto chaser: SmoothPlanner Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">auto chaser
    </div>
   </td>
  </tr>
@@ -116,12 +116,16 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a7b8400f711456291e567d0fc204c274b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cd9de34963f445a21a6d0101346b071"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#a7cd9de34963f445a21a6d0101346b071">pub_chasing_corridor</a></td></tr>
 <tr class="separator:a7cd9de34963f445a21a6d0101346b071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f023865c692f4fdaa830204fc533018"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#a2f023865c692f4fdaa830204fc533018">pub_chasing_corridor_single</a></td></tr>
+<tr class="separator:a2f023865c692f4fdaa830204fc533018"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ee67bceac6d60409542a2250b2ccd08"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#a7ee67bceac6d60409542a2250b2ccd08">pub_knots</a></td></tr>
 <tr class="separator:a7ee67bceac6d60409542a2250b2ccd08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade278c4209b962d8342a2ee30e718c8b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">world_frame_id</a></td></tr>
 <tr class="separator:ade278c4209b962d8342a2ee30e718c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addf7aab458c1407f23e3544bd76ac82b"><td class="memItemLeft" align="right" valign="top">visualization_msgs::Marker&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#addf7aab458c1407f23e3544bd76ac82b">chasing_corridor</a></td></tr>
 <tr class="separator:addf7aab458c1407f23e3544bd76ac82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb1a985fe214b76a1a6d7462ad3ddf80"><td class="memItemLeft" align="right" valign="top">visualization_msgs::MarkerArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#acb1a985fe214b76a1a6d7462ad3ddf80">chasing_corridor_single</a></td></tr>
+<tr class="separator:acb1a985fe214b76a1a6d7462ad3ddf80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a33038c6041ff972bea7765780b56d0"><td class="memItemLeft" align="right" valign="top">nav_msgs::Path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#a6a33038c6041ff972bea7765780b56d0">chasing_smooth_path</a></td></tr>
 <tr class="separator:a6a33038c6041ff972bea7765780b56d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeeab9ce830d4960babdc84c82da94ea"><td class="memItemLeft" align="right" valign="top">visualization_msgs::Marker&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#afeeab9ce830d4960babdc84c82da94ea">marker_knots</a></td></tr>
@@ -190,7 +194,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_smooth_planner_8cpp_source.html#l00044">44</a> of file <a class="el" href="_smooth_planner_8cpp_source.html">SmoothPlanner.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_smooth_planner_8cpp_source.html#l00053">53</a> of file <a class="el" href="_smooth_planner_8cpp_source.html">SmoothPlanner.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -240,7 +244,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_smooth_planner_8cpp_source.html#l00028">28</a> of file <a class="el" href="_smooth_planner_8cpp_source.html">SmoothPlanner.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_smooth_planner_8cpp_source.html#l00035">35</a> of file <a class="el" href="_smooth_planner_8cpp_source.html">SmoothPlanner.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -265,7 +269,21 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00016">16</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00017">17</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acb1a985fe214b76a1a6d7462ad3ddf80"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">visualization_msgs::MarkerArray SmoothPlanner::chasing_corridor_single</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00018">18</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
 
 </div>
 </div>
@@ -279,7 +297,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00017">17</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00019">19</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
 
 </div>
 </div>
@@ -293,7 +311,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00018">18</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00020">20</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
 
 </div>
 </div>
@@ -339,6 +357,20 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a2f023865c692f4fdaa830204fc533018"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::Publisher SmoothPlanner::pub_chasing_corridor_single</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00013">13</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a7ee67bceac6d60409542a2250b2ccd08"></a>
 <div class="memitem">
 <div class="memproto">
@@ -349,7 +381,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00013">13</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00014">14</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
 
 </div>
 </div>
@@ -377,7 +409,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00015">15</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00016">16</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
 
 </div>
 </div>

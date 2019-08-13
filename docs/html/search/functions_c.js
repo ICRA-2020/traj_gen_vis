@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['objectshandler',['ObjectsHandler',['../class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7',1,'ObjectsHandler::ObjectsHandler()'],['../class_objects_handler.html#a5d3298d7029619c1931d3dda34278e05',1,'ObjectsHandler::ObjectsHandler(ros::NodeHandle nh)']]],
-  ['octomap_5fcallback',['octomap_callback',['../class_objects_handler.html#a5744110d979850b3e2d8896793435d0c',1,'ObjectsHandler']]],
-  ['on_5finit',['on_init',['../class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e',1,'QNode']]]
+  ['qnode',['QNode',['../class_q_node.html#af26ee8c152283b4a1999dc5d4bd67908',1,'QNode']]],
+  ['queue_5ffile_5fload',['queue_file_load',['../class_target_manager.html#a8b96689879cecac3d9109914eb6230ef',1,'TargetManager::queue_file_load(vector&lt; geometry_msgs::PoseStamped &gt; &amp;wpnt_replace)'],['../class_target_manager.html#a861a5feb4828c3174308781eb0efc915',1,'TargetManager::queue_file_load(int, vector&lt; geometry_msgs::PoseStamped &gt; &amp;)']]]
 ];

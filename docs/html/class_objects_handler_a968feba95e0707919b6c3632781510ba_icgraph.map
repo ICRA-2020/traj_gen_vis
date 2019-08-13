@@ -3,7 +3,8 @@
 <area shape="rect" id="node3" href="$class_objects_handler.html#a4c56416d3583b70d181d69d900b884b5" title="ObjectsHandler::callback\l_chaser_init_pose" alt="" coords="212,35,380,76"/>
 <area shape="rect" id="node4" href="$class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="428,85,565,111"/>
 <area shape="rect" id="node5" href="$class_wrapper.html#af336781e7d75d525e7b152366a0e0d93" title="Wrapper::init" alt="" coords="671,85,767,111"/>
-<area shape="rect" id="node6" href="$class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="872,85,1035,111"/>
-<area shape="rect" id="node7" href="$class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="1083,85,1192,111"/>
-<area shape="rect" id="node8" href="$class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="1240,85,1428,111"/>
+<area shape="rect" id="node6" href="$class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="872,59,1035,86"/>
+<area shape="rect" id="node9" href="$main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="928,110,979,137"/>
+<area shape="rect" id="node7" href="$class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="1083,59,1192,86"/>
+<area shape="rect" id="node8" href="$class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="1240,59,1428,86"/>
 </map>

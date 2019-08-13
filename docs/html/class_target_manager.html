@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>My Project: TargetManager Class Reference</title>
+<title>auto chaser: TargetManager Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">auto chaser
    </div>
   </td>
  </tr>
@@ -93,6 +93,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Target manager to be used in no-prediction mode (prior target path is precomputed before simulation)  
+ <a href="class_target_manager.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_target_manager_8h_source.html">TargetManager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -138,8 +141,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ac60d6fea0aeb2e64da49bf0a9713b0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_target_manager_8h_source.html#l00010">10</a> of file <a class="el" href="_target_manager_8h_source.html">TargetManager.h</a>.</p>
+<div class="textblock"><p>Target manager to be used in no-prediction mode (prior target path is precomputed before simulation) </p>
+
+<p>Definition at line <a class="el" href="_target_manager_8h_source.html#l00012">12</a> of file <a class="el" href="_target_manager_8h_source.html">TargetManager.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a3c7f0783381de386b697d8f27846aed1"></a>
 <div class="memitem">
@@ -173,7 +177,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00107">107</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00108">108</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -202,7 +206,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00026">26</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00027">27</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -232,7 +236,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00095">95</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00096">96</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -259,8 +263,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ts</td><td>sim time = ros::Time::now - ref time </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>vector&lt;Point&gt; </dd></dl>
 
-<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00164">164</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00169">169</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -317,7 +328,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00060">60</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00061">61</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -384,7 +395,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00101">101</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00102">102</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -466,7 +477,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00086">86</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_target_manager_8cpp_source.html#l00087">87</a> of file <a class="el" href="_target_manager_8cpp_source.html">TargetManager.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>

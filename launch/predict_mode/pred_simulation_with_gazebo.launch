@@ -6,12 +6,14 @@
 <arg name="world_name" default="map3"/>
 <arg name="chaser_x" default="0"/>
 <arg name="chaser_y" default="0"/>
+<arg name="future_horizon" default="4"/>
+<arg name = "trigger_error" default = "0.8">
 
 
 <!-- prepare gazebo environment -->
 
 <include file ="$(find auto_chaser)/launch/gazebo_env.launch">
-    <arg name="real_target" value="true"/> 
+    <arg name="real_target" value="true"/> <!--will you spawn target in the world? -->
     <arg name="mav_name" value="$(arg mav_name)"/> 
     <arg name="target_name" value="$(arg target_name)"/> 
     <arg name="world_name" value="$(arg world_name)"/> 

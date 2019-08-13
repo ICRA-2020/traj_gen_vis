@@ -1,5 +1,6 @@
 <map id="Wrapper::init" name="Wrapper::init">
 <area shape="rect" id="node2" href="$class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="149,5,312,32"/>
+<area shape="rect" id="node5" href="$main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="205,56,256,83"/>
 <area shape="rect" id="node3" href="$class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="360,5,469,32"/>
 <area shape="rect" id="node4" href="$class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="517,5,705,32"/>
 </map>

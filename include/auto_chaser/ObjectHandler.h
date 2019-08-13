@@ -7,10 +7,13 @@ class ObjectsHandler{
         ros::Subscriber sub_octomap;
         ros::Subscriber sub_chaser_init_pose; // user input from rviz
         ros::Subscriber sub_chaser_control_pose; // active only run mode 0
+        ros::Subscriber sub_target_pose; // this will be actived if is_target_tf = true
+        
         ros::Publisher pub_edf;
         visualization_msgs::Marker markers_edf; // Euclidean distance field   
         tf::TransformListener* tf_listener; // don't have initial copy constructor 
         tf::TransformBroadcaster* tf_talker; // chaser tf broadcast in mode 0
+
 
         // id         
         string world_frame_id;
@@ -48,11 +51,14 @@ class ObjectsHandler{
         bool is_control_received = false;
         bool is_chaser_spawned = false;
         bool is_insert_permit = false;
-        
+        bool is_target_tf = true; // is target pose received in the form of tf ?         
+
+
         // this is added. The object_handler should also be able to distinguish whether the subscribed control pose is for hovering         
         // if the control pose was for hovering, Then it should be ignored. Instead the object_handler should trust the spawn position from user   
         bool is_path_solved = false;
-        
+
+
         ObjectsHandler(){};
         void init(ros::NodeHandle nh);
         void compute_edf();
@@ -71,6 +77,7 @@ class ObjectsHandler{
         GridField* get_edf_grid_ptr(); 
 
         void octomap_callback(const octomap_msgs::Octomap& msg);
+        void callback_target_pose(const PoseStampedConstPtr& msg);
         void chaser_spawn(PoseStamped spawn_pose);
         void callback_chaser_init_pose(const geometry_msgs::PoseStampedConstPtr& chaser_init_pose);
         void callback_chaser_control_pose(const geometry_msgs::PoseStampedConstPtr& chaser_control_pose);

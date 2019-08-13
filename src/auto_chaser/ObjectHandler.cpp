@@ -52,7 +52,9 @@ void ObjectsHandler::init(ros::NodeHandle nh){
 
     sub_chaser_init_pose = nh.subscribe("/chaser_init_pose",1,&ObjectsHandler::callback_chaser_init_pose,this);
     sub_chaser_control_pose = nh.subscribe("mav_pose_desired",1,&ObjectsHandler::callback_chaser_control_pose,this);
-    
+    if (not is_target_tf)
+        sub_target_pose = nh.subscribe("/target_pose",1,&ObjectsHandler::callback_target_pose,this);
+
     ROS_INFO("Object handler initialized."); 
 }
 
@@ -128,12 +130,12 @@ void ObjectsHandler::tf_update(){
     
     if(run_mode == 1){
         // mode 1 : gazebo simulation mode 
-        // chaser(from gazebo) and target(from target manager) to be listened.  
+        // chaser(from gazebo) and target(from target manager, if is_target_tf = true) to be listened.  
         string objects_frame_id[2];
         objects_frame_id[0] = target_frame_id;
         objects_frame_id[1] = chaser_frame_id;
-        
-        for (int i=0;i<2;i++){            
+        int start = int(is_target_tf);        
+        for (int i=start;i<2;i++){            
             tf::StampedTransform transform;    
             // 
             try{
@@ -282,6 +284,12 @@ void ObjectsHandler::callback_chaser_control_pose(const geometry_msgs::PoseStamp
     
 }
 
+void ObjectsHandler::callback_target_pose(const PoseStampedConstPtr& msg){
+
+    target_pose = *msg;
+    is_target_recieved = true;
+    ROS_INFO_ONCE("[Object Handler] target pose received!");
+}
 
 vector<Point> ObjectsHandler::get_prediction_seq(){
     

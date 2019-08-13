@@ -1,0 +1,133 @@
+\hypertarget{main__test_8cpp}{}\section{src/qt\+\_\+ui\+\_\+predictmode/main\+\_\+test.cpp File Reference}
+\label{main__test_8cpp}\index{src/qt\+\_\+ui\+\_\+predictmode/main\+\_\+test.\+cpp@{src/qt\+\_\+ui\+\_\+predictmode/main\+\_\+test.\+cpp}}
+{\ttfamily \#include $<$auto\+\_\+chaser/\+Common.\+h$>$}\\*
+{\ttfamily \#include $<$auto\+\_\+chaser/\+Wrapper.\+h$>$}\\*
+{\ttfamily \#include $<$target\+\_\+manager/\+Target\+Manager.\+h$>$}\\*
+Include dependency graph for main\+\_\+test.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__test_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{main__test_8cpp_ac367b226934e0e06e2ebf329fa937326}{trigger} (\hyperlink{class_target_predictor}{Target\+Predictor} $\ast$predictor, \hyperlink{class_wrapper}{Wrapper} $\ast$chasing\+\_\+wrapper, double t\+\_\+cur, ros\+::\+Time t\+\_\+ros)
+\begin{DoxyCompactList}\small\item\em should be triggered only prediction exists t\+\_\+cur and t\+\_\+ros are redundant actually \end{DoxyCompactList}\item 
+int \hyperlink{main__test_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{main__test_8cpp_a385a7e94f52688d051c1adc612e02c5b}{pred\+\_\+horizon}
+\item 
+double \hyperlink{main__test_8cpp_a3e81603c8e5eae7a8c7a18c083d87206}{early\+\_\+end\+\_\+time}
+\item 
+int \hyperlink{main__test_8cpp_a01c1274d37d3f9abd004dc69004b001f}{pred\+\_\+seq}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{main\+\_\+test.\+cpp@{main\+\_\+test.\+cpp}!main@{main}}
+\index{main@{main}!main\+\_\+test.\+cpp@{main\+\_\+test.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$argv[])}{main(int argc, char *argv[])}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}\hypertarget{main__test_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{}\label{main__test_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+Definition at line 37 of file main\+\_\+test.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__test_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{main\+\_\+test.\+cpp@{main\+\_\+test.\+cpp}!trigger@{trigger}}
+\index{trigger@{trigger}!main\+\_\+test.\+cpp@{main\+\_\+test.\+cpp}}
+\subsubsection[{\texorpdfstring{trigger(\+Target\+Predictor $\ast$predictor, Wrapper $\ast$chasing\+\_\+wrapper, double t\+\_\+cur, ros\+::\+Time t\+\_\+ros)}{trigger(TargetPredictor *predictor, Wrapper *chasing_wrapper, double t_cur, ros::Time t_ros)}}]{\setlength{\rightskip}{0pt plus 5cm}bool trigger (
+\begin{DoxyParamCaption}
+\item[{{\bf Target\+Predictor} $\ast$}]{predictor, }
+\item[{{\bf Wrapper} $\ast$}]{chasing\+\_\+wrapper, }
+\item[{double}]{t\+\_\+cur, }
+\item[{ros\+::\+Time}]{t\+\_\+ros}
+\end{DoxyParamCaption}
+)}\hypertarget{main__test_8cpp_ac367b226934e0e06e2ebf329fa937326}{}\label{main__test_8cpp_ac367b226934e0e06e2ebf329fa937326}
+
+
+should be triggered only prediction exists t\+\_\+cur and t\+\_\+ros are redundant actually 
+
+
+\begin{DoxyParams}{Parameters}
+{\em predictor} & \\
+\hline
+{\em chasing\+\_\+wrapper} & \\
+\hline
+{\em t\+\_\+cur} & simulation time. for numerical stability, this time scale is preferred. This time will be used for chaser \\
+\hline
+{\em t\+\_\+ros} & ros time. This will be used in chomp prediction. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 22 of file main\+\_\+test.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main__test_8cpp_ac367b226934e0e06e2ebf329fa937326_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{main__test_8cpp_ac367b226934e0e06e2ebf329fa937326_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\index{main\+\_\+test.\+cpp@{main\+\_\+test.\+cpp}!early\+\_\+end\+\_\+time@{early\+\_\+end\+\_\+time}}
+\index{early\+\_\+end\+\_\+time@{early\+\_\+end\+\_\+time}!main\+\_\+test.\+cpp@{main\+\_\+test.\+cpp}}
+\subsubsection[{\texorpdfstring{early\+\_\+end\+\_\+time}{early_end_time}}]{\setlength{\rightskip}{0pt plus 5cm}double early\+\_\+end\+\_\+time}\hypertarget{main__test_8cpp_a3e81603c8e5eae7a8c7a18c083d87206}{}\label{main__test_8cpp_a3e81603c8e5eae7a8c7a18c083d87206}
+
+
+Definition at line 7 of file main\+\_\+test.\+cpp.
+
+\index{main\+\_\+test.\+cpp@{main\+\_\+test.\+cpp}!pred\+\_\+horizon@{pred\+\_\+horizon}}
+\index{pred\+\_\+horizon@{pred\+\_\+horizon}!main\+\_\+test.\+cpp@{main\+\_\+test.\+cpp}}
+\subsubsection[{\texorpdfstring{pred\+\_\+horizon}{pred_horizon}}]{\setlength{\rightskip}{0pt plus 5cm}double pred\+\_\+horizon}\hypertarget{main__test_8cpp_a385a7e94f52688d051c1adc612e02c5b}{}\label{main__test_8cpp_a385a7e94f52688d051c1adc612e02c5b}
+
+
+Definition at line 6 of file main\+\_\+test.\+cpp.
+
+\index{main\+\_\+test.\+cpp@{main\+\_\+test.\+cpp}!pred\+\_\+seq@{pred\+\_\+seq}}
+\index{pred\+\_\+seq@{pred\+\_\+seq}!main\+\_\+test.\+cpp@{main\+\_\+test.\+cpp}}
+\subsubsection[{\texorpdfstring{pred\+\_\+seq}{pred_seq}}]{\setlength{\rightskip}{0pt plus 5cm}int pred\+\_\+seq}\hypertarget{main__test_8cpp_a01c1274d37d3f9abd004dc69004b001f}{}\label{main__test_8cpp_a01c1274d37d3f9abd004dc69004b001f}
+
+
+Definition at line 8 of file main\+\_\+test.\+cpp.
+

@@ -6,7 +6,7 @@
     <arg name="chaser_x" default="2.0"/>
     <arg name="chaser_y" default="0"/>
     <arg name="future_horizon" default="4"/>
-	<arg name = "trigger_error" default = "0.8">
+	<arg name = "trigger_error" default = "0.8"/>
 
     <!-- only octomap. no gazebo related module -->
         <include file = "$(find auto_chaser)/launch/octomap_base.launch">

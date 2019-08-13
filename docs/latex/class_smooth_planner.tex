@@ -26,11 +26,15 @@ ros\+::\+Publisher \hyperlink{class_smooth_planner_a7b8400f711456291e567d0fc204c
 \item 
 ros\+::\+Publisher \hyperlink{class_smooth_planner_a7cd9de34963f445a21a6d0101346b071}{pub\+\_\+chasing\+\_\+corridor}
 \item 
+ros\+::\+Publisher \hyperlink{class_smooth_planner_a2f023865c692f4fdaa830204fc533018}{pub\+\_\+chasing\+\_\+corridor\+\_\+single}
+\item 
 ros\+::\+Publisher \hyperlink{class_smooth_planner_a7ee67bceac6d60409542a2250b2ccd08}{pub\+\_\+knots}
 \item 
 string \hyperlink{class_smooth_planner_ade278c4209b962d8342a2ee30e718c8b}{world\+\_\+frame\+\_\+id}
 \item 
 visualization\+\_\+msgs\+::\+Marker \hyperlink{class_smooth_planner_addf7aab458c1407f23e3544bd76ac82b}{chasing\+\_\+corridor}
+\item 
+visualization\+\_\+msgs\+::\+Marker\+Array \hyperlink{class_smooth_planner_acb1a985fe214b76a1a6d7462ad3ddf80}{chasing\+\_\+corridor\+\_\+single}
 \item 
 nav\+\_\+msgs\+::\+Path \hyperlink{class_smooth_planner_a6a33038c6041ff972bea7765780b56d0}{chasing\+\_\+smooth\+\_\+path}
 \item 
@@ -92,7 +96,7 @@ Here is the caller graph for this function\+:
 )}\hypertarget{class_smooth_planner_a2996c73522e93adff70eb68e18c55951}{}\label{class_smooth_planner_a2996c73522e93adff70eb68e18c55951}
 
 
-Definition at line 44 of file Smooth\+Planner.\+cpp.
+Definition at line 53 of file Smooth\+Planner.\+cpp.
 
 
 
@@ -118,7 +122,7 @@ Here is the caller graph for this function\+:
 )}\hypertarget{class_smooth_planner_afc03abbd5f6473f2bc952f70195326ac}{}\label{class_smooth_planner_afc03abbd5f6473f2bc952f70195326ac}
 
 
-Definition at line 28 of file Smooth\+Planner.\+cpp.
+Definition at line 35 of file Smooth\+Planner.\+cpp.
 
 
 
@@ -140,21 +144,28 @@ Here is the caller graph for this function\+:
 \subsubsection[{\texorpdfstring{chasing\+\_\+corridor}{chasing_corridor}}]{\setlength{\rightskip}{0pt plus 5cm}visualization\+\_\+msgs\+::\+Marker Smooth\+Planner\+::chasing\+\_\+corridor}\hypertarget{class_smooth_planner_addf7aab458c1407f23e3544bd76ac82b}{}\label{class_smooth_planner_addf7aab458c1407f23e3544bd76ac82b}
 
 
-Definition at line 16 of file Smooth\+Planner.\+h.
+Definition at line 17 of file Smooth\+Planner.\+h.
+
+\index{Smooth\+Planner@{Smooth\+Planner}!chasing\+\_\+corridor\+\_\+single@{chasing\+\_\+corridor\+\_\+single}}
+\index{chasing\+\_\+corridor\+\_\+single@{chasing\+\_\+corridor\+\_\+single}!Smooth\+Planner@{Smooth\+Planner}}
+\subsubsection[{\texorpdfstring{chasing\+\_\+corridor\+\_\+single}{chasing_corridor_single}}]{\setlength{\rightskip}{0pt plus 5cm}visualization\+\_\+msgs\+::\+Marker\+Array Smooth\+Planner\+::chasing\+\_\+corridor\+\_\+single}\hypertarget{class_smooth_planner_acb1a985fe214b76a1a6d7462ad3ddf80}{}\label{class_smooth_planner_acb1a985fe214b76a1a6d7462ad3ddf80}
+
+
+Definition at line 18 of file Smooth\+Planner.\+h.
 
 \index{Smooth\+Planner@{Smooth\+Planner}!chasing\+\_\+smooth\+\_\+path@{chasing\+\_\+smooth\+\_\+path}}
 \index{chasing\+\_\+smooth\+\_\+path@{chasing\+\_\+smooth\+\_\+path}!Smooth\+Planner@{Smooth\+Planner}}
 \subsubsection[{\texorpdfstring{chasing\+\_\+smooth\+\_\+path}{chasing_smooth_path}}]{\setlength{\rightskip}{0pt plus 5cm}nav\+\_\+msgs\+::\+Path Smooth\+Planner\+::chasing\+\_\+smooth\+\_\+path}\hypertarget{class_smooth_planner_a6a33038c6041ff972bea7765780b56d0}{}\label{class_smooth_planner_a6a33038c6041ff972bea7765780b56d0}
 
 
-Definition at line 17 of file Smooth\+Planner.\+h.
+Definition at line 19 of file Smooth\+Planner.\+h.
 
 \index{Smooth\+Planner@{Smooth\+Planner}!marker\+\_\+knots@{marker\+\_\+knots}}
 \index{marker\+\_\+knots@{marker\+\_\+knots}!Smooth\+Planner@{Smooth\+Planner}}
 \subsubsection[{\texorpdfstring{marker\+\_\+knots}{marker_knots}}]{\setlength{\rightskip}{0pt plus 5cm}visualization\+\_\+msgs\+::\+Marker Smooth\+Planner\+::marker\+\_\+knots}\hypertarget{class_smooth_planner_afeeab9ce830d4960babdc84c82da94ea}{}\label{class_smooth_planner_afeeab9ce830d4960babdc84c82da94ea}
 
 
-Definition at line 18 of file Smooth\+Planner.\+h.
+Definition at line 20 of file Smooth\+Planner.\+h.
 
 \index{Smooth\+Planner@{Smooth\+Planner}!option@{option}}
 \index{option@{option}!Smooth\+Planner@{Smooth\+Planner}}
@@ -177,12 +188,19 @@ Definition at line 7 of file Smooth\+Planner.\+h.
 
 Definition at line 12 of file Smooth\+Planner.\+h.
 
+\index{Smooth\+Planner@{Smooth\+Planner}!pub\+\_\+chasing\+\_\+corridor\+\_\+single@{pub\+\_\+chasing\+\_\+corridor\+\_\+single}}
+\index{pub\+\_\+chasing\+\_\+corridor\+\_\+single@{pub\+\_\+chasing\+\_\+corridor\+\_\+single}!Smooth\+Planner@{Smooth\+Planner}}
+\subsubsection[{\texorpdfstring{pub\+\_\+chasing\+\_\+corridor\+\_\+single}{pub_chasing_corridor_single}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher Smooth\+Planner\+::pub\+\_\+chasing\+\_\+corridor\+\_\+single}\hypertarget{class_smooth_planner_a2f023865c692f4fdaa830204fc533018}{}\label{class_smooth_planner_a2f023865c692f4fdaa830204fc533018}
+
+
+Definition at line 13 of file Smooth\+Planner.\+h.
+
 \index{Smooth\+Planner@{Smooth\+Planner}!pub\+\_\+knots@{pub\+\_\+knots}}
 \index{pub\+\_\+knots@{pub\+\_\+knots}!Smooth\+Planner@{Smooth\+Planner}}
 \subsubsection[{\texorpdfstring{pub\+\_\+knots}{pub_knots}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher Smooth\+Planner\+::pub\+\_\+knots}\hypertarget{class_smooth_planner_a7ee67bceac6d60409542a2250b2ccd08}{}\label{class_smooth_planner_a7ee67bceac6d60409542a2250b2ccd08}
 
 
-Definition at line 13 of file Smooth\+Planner.\+h.
+Definition at line 14 of file Smooth\+Planner.\+h.
 
 \index{Smooth\+Planner@{Smooth\+Planner}!pub\+\_\+path@{pub\+\_\+path}}
 \index{pub\+\_\+path@{pub\+\_\+path}!Smooth\+Planner@{Smooth\+Planner}}
@@ -196,7 +214,7 @@ Definition at line 11 of file Smooth\+Planner.\+h.
 \subsubsection[{\texorpdfstring{world\+\_\+frame\+\_\+id}{world_frame_id}}]{\setlength{\rightskip}{0pt plus 5cm}string Smooth\+Planner\+::world\+\_\+frame\+\_\+id}\hypertarget{class_smooth_planner_ade278c4209b962d8342a2ee30e718c8b}{}\label{class_smooth_planner_ade278c4209b962d8342a2ee30e718c8b}
 
 
-Definition at line 15 of file Smooth\+Planner.\+h.
+Definition at line 16 of file Smooth\+Planner.\+h.
 
 
 

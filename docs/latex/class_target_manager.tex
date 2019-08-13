@@ -2,6 +2,11 @@
 \label{class_target_manager}\index{Target\+Manager@{Target\+Manager}}
 
 
+Target manager to be used in no-\/prediction mode (prior target path is precomputed before simulation)  
+
+
+
+
 {\ttfamily \#include $<$Target\+Manager.\+h$>$}
 
 \subsection*{Public Member Functions}
@@ -49,9 +54,9 @@ double \hyperlink{class_target_manager_ac60d6fea0aeb2e64da49bf0a9713b0b2}{button
 
 
 \subsection{Detailed Description}
+Target manager to be used in no-\/prediction mode (prior target path is precomputed before simulation) 
 
-
-Definition at line 10 of file Target\+Manager.\+h.
+Definition at line 12 of file Target\+Manager.\+h.
 
 
 
@@ -79,7 +84,7 @@ Definition at line 3 of file Target\+Manager.\+cpp.
 )}\hypertarget{class_target_manager_a2f60f20f32700c71852fea340cdf1240}{}\label{class_target_manager_a2f60f20f32700c71852fea340cdf1240}
 
 
-Definition at line 107 of file Target\+Manager.\+cpp.
+Definition at line 108 of file Target\+Manager.\+cpp.
 
 
 
@@ -102,7 +107,7 @@ Here is the caller graph for this function\+:
 )}\hypertarget{class_target_manager_adc84c02e4501b1a53556c766d50bc8b5}{}\label{class_target_manager_adc84c02e4501b1a53556c766d50bc8b5}
 
 
-Definition at line 26 of file Target\+Manager.\+cpp.
+Definition at line 27 of file Target\+Manager.\+cpp.
 
 
 
@@ -125,7 +130,7 @@ Here is the caller graph for this function\+:
 )}\hypertarget{class_target_manager_a13242c4a8b96b97cfeddea19aabc1181}{}\label{class_target_manager_a13242c4a8b96b97cfeddea19aabc1181}
 
 
-Definition at line 95 of file Target\+Manager.\+cpp.
+Definition at line 96 of file Target\+Manager.\+cpp.
 
 
 
@@ -147,8 +152,16 @@ Here is the caller graph for this function\+:
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_a63bbc724844890316a654380d0354e93}{}\label{class_target_manager_a63bbc724844890316a654380d0354e93}
 
+\begin{DoxyParams}{Parameters}
+{\em ts} & sim time = ros\+::\+Time\+::now -\/ ref time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Point$>$ 
+\end{DoxyReturn}
 
-Definition at line 164 of file Target\+Manager.\+cpp.
+
+Definition at line 169 of file Target\+Manager.\+cpp.
 
 
 
@@ -194,7 +207,7 @@ Here is the caller graph for this function\+:
 )}\hypertarget{class_target_manager_a1c0e48d7a623e8b7caa11c6b1832956b}{}\label{class_target_manager_a1c0e48d7a623e8b7caa11c6b1832956b}
 
 
-Definition at line 60 of file Target\+Manager.\+cpp.
+Definition at line 61 of file Target\+Manager.\+cpp.
 
 
 
@@ -252,7 +265,7 @@ Here is the caller graph for this function\+:
 )}\hypertarget{class_target_manager_af362d78ae6b0cc0a3ea288b2c138f482}{}\label{class_target_manager_af362d78ae6b0cc0a3ea288b2c138f482}
 
 
-Definition at line 101 of file Target\+Manager.\+cpp.
+Definition at line 102 of file Target\+Manager.\+cpp.
 
 
 
@@ -306,7 +319,7 @@ Here is the caller graph for this function\+:
 )}\hypertarget{class_target_manager_a4af88c70bb8a0af0171ee9a49536d5c0}{}\label{class_target_manager_a4af88c70bb8a0af0171ee9a49536d5c0}
 
 
-Definition at line 86 of file Target\+Manager.\+cpp.
+Definition at line 87 of file Target\+Manager.\+cpp.
 
 
 

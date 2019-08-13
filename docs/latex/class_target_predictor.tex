@@ -1,0 +1,139 @@
+\hypertarget{class_target_predictor}{}\section{Target\+Predictor Class Reference}
+\label{class_target_predictor}\index{Target\+Predictor@{Target\+Predictor}}
+
+
+Target predictor in prediction mode.  
+
+
+
+
+{\ttfamily \#include $<$Target\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_target_predictor_ad03a40479459db38b5b7117b96e89522}{Target\+Predictor} ()
+\item 
+void \hyperlink{class_target_predictor_a3db2b852f165a35a2e709d7e2f486dde}{init} ()
+\item 
+bool \hyperlink{class_target_predictor_a4468a320a84ad7abb6ed9a6e388acf1f}{session} ()
+\item 
+void \hyperlink{class_target_predictor_a8c032da6eff34ce4c596c62ac8e3a804}{braodcast\+\_\+target\+\_\+tf} ()
+\begin{DoxyCompactList}\small\item\em redundant function -\/ in practice, just convert subscribed pose to tf It is not desirable to evalute predicted traj with current time. It is just prediction, not actual current tf of target as of now \end{DoxyCompactList}\item 
+vector$<$ Point $>$ \hyperlink{class_target_predictor_ac136ae7ec5c7745065f0f5662a909beb}{eval\+\_\+time\+\_\+seq} (Vector\+Xd ts)
+\begin{DoxyCompactList}\small\item\em evaluate time seq \end{DoxyCompactList}\item 
+C\+H\+O\+M\+P\+::\+Chomp\+Forecaster $\ast$ \hyperlink{class_target_predictor_a56fbf63019d226246a84700c7b5f5b38}{get\+\_\+forecaster\+\_\+ptr} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Target predictor in prediction mode. 
+
+Definition at line 62 of file Target\+Manager.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Target\+Predictor@{Target\+Predictor}!Target\+Predictor@{Target\+Predictor}}
+\index{Target\+Predictor@{Target\+Predictor}!Target\+Predictor@{Target\+Predictor}}
+\subsubsection[{\texorpdfstring{Target\+Predictor()}{TargetPredictor()}}]{\setlength{\rightskip}{0pt plus 5cm}Target\+Predictor\+::\+Target\+Predictor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_target_predictor_ad03a40479459db38b5b7117b96e89522}{}\label{class_target_predictor_ad03a40479459db38b5b7117b96e89522}
+
+
+Definition at line 180 of file Target\+Manager.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\index{Target\+Predictor@{Target\+Predictor}!braodcast\+\_\+target\+\_\+tf@{braodcast\+\_\+target\+\_\+tf}}
+\index{braodcast\+\_\+target\+\_\+tf@{braodcast\+\_\+target\+\_\+tf}!Target\+Predictor@{Target\+Predictor}}
+\subsubsection[{\texorpdfstring{braodcast\+\_\+target\+\_\+tf()}{braodcast_target_tf()}}]{\setlength{\rightskip}{0pt plus 5cm}void Target\+Predictor\+::braodcast\+\_\+target\+\_\+tf (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_target_predictor_a8c032da6eff34ce4c596c62ac8e3a804}{}\label{class_target_predictor_a8c032da6eff34ce4c596c62ac8e3a804}
+
+
+redundant function -\/ in practice, just convert subscribed pose to tf It is not desirable to evalute predicted traj with current time. It is just prediction, not actual current tf of target as of now 
+
+
+
+Definition at line 237 of file Target\+Manager.\+cpp.
+
+\index{Target\+Predictor@{Target\+Predictor}!eval\+\_\+time\+\_\+seq@{eval\+\_\+time\+\_\+seq}}
+\index{eval\+\_\+time\+\_\+seq@{eval\+\_\+time\+\_\+seq}!Target\+Predictor@{Target\+Predictor}}
+\subsubsection[{\texorpdfstring{eval\+\_\+time\+\_\+seq(\+Vector\+Xd ts)}{eval_time_seq(VectorXd ts)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ Point $>$ Target\+Predictor\+::eval\+\_\+time\+\_\+seq (
+\begin{DoxyParamCaption}
+\item[{Vector\+Xd}]{ts}
+\end{DoxyParamCaption}
+)}\hypertarget{class_target_predictor_ac136ae7ec5c7745065f0f5662a909beb}{}\label{class_target_predictor_ac136ae7ec5c7745065f0f5662a909beb}
+
+
+evaluate time seq 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ts} & pure ros time!. not manipulated one or double type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Point$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 215 of file Target\+Manager.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{class_target_predictor_ac136ae7ec5c7745065f0f5662a909beb_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Target\+Predictor@{Target\+Predictor}!get\+\_\+forecaster\+\_\+ptr@{get\+\_\+forecaster\+\_\+ptr}}
+\index{get\+\_\+forecaster\+\_\+ptr@{get\+\_\+forecaster\+\_\+ptr}!Target\+Predictor@{Target\+Predictor}}
+\subsubsection[{\texorpdfstring{get\+\_\+forecaster\+\_\+ptr()}{get_forecaster_ptr()}}]{\setlength{\rightskip}{0pt plus 5cm}C\+H\+O\+M\+P\+::\+Chomp\+Forecaster $\ast$ Target\+Predictor\+::get\+\_\+forecaster\+\_\+ptr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_target_predictor_a56fbf63019d226246a84700c7b5f5b38}{}\label{class_target_predictor_a56fbf63019d226246a84700c7b5f5b38}
+
+
+Definition at line 228 of file Target\+Manager.\+cpp.
+
+\index{Target\+Predictor@{Target\+Predictor}!init@{init}}
+\index{init@{init}!Target\+Predictor@{Target\+Predictor}}
+\subsubsection[{\texorpdfstring{init()}{init()}}]{\setlength{\rightskip}{0pt plus 5cm}void Target\+Predictor\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_target_predictor_a3db2b852f165a35a2e709d7e2f486dde}{}\label{class_target_predictor_a3db2b852f165a35a2e709d7e2f486dde}
+
+
+Definition at line 182 of file Target\+Manager.\+cpp.
+
+\index{Target\+Predictor@{Target\+Predictor}!session@{session}}
+\index{session@{session}!Target\+Predictor@{Target\+Predictor}}
+\subsubsection[{\texorpdfstring{session()}{session()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Target\+Predictor\+::session (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_target_predictor_a4468a320a84ad7abb6ed9a6e388acf1f}{}\label{class_target_predictor_a4468a320a84ad7abb6ed9a6e388acf1f}
+
+
+Definition at line 252 of file Target\+Manager.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/target\+\_\+manager/\hyperlink{_target_manager_8h}{Target\+Manager.\+h}\item 
+src/target\+\_\+manager/\hyperlink{_target_manager_8cpp}{Target\+Manager.\+cpp}\end{DoxyCompactItemize}
