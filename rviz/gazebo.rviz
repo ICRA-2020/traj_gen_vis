@@ -141,6 +141,8 @@ Visualization Manager:
           Value: true
         map3_1st_0__Wall_8:
           Value: true
+        target:
+          Value: true
         target/base_footprint:
           Value: false
         target__base_footprint:
@@ -280,6 +282,8 @@ Visualization Manager:
               {}
             unit_cylinder_0__link:
               {}
+          target:
+            {}
       Update Interval: 0
       Value: true
     - Class: rviz/Axes
@@ -310,7 +314,7 @@ Visualization Manager:
       Marker Topic: /auto_chaser/target_waypoints
       Name: MarkerArray
       Namespaces:
-        {}
+        "": true
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -483,13 +487,13 @@ Visualization Manager:
         Value: true
       Zoom Factor: 1
     - Class: rviz/MarkerArray
-      Enabled: true
+      Enabled: false
       Marker Topic: /auto_chaser/vsf_grid_seq
       Name: MarkerArray
       Namespaces:
         {}
       Queue Size: 100
-      Value: true
+      Value: false
     - Alpha: 1
       Axes Length: 1
       Axes Radius: 0.100000001
@@ -504,6 +508,14 @@ Visualization Manager:
       Shape: Arrow
       Topic: /target_pose
       Unreliable: false
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /auto_chaser/chasing_corridor_single
+      Name: MarkerArray
+      Namespaces:
+        sf_corridor: true
+      Queue Size: 100
       Value: true
   Enabled: true
   Global Options:
@@ -537,18 +549,18 @@ Visualization Manager:
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 6.04018641
-        Y: 2.47886133
-        Z: 14.3519802
+        X: 6.15506315
+        Y: 2.55527759
+        Z: 14.3837051
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.56979632
+      Pitch: 1.34479654
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.13358045
+      Yaw: 3.72858191
     Saved: ~
 Window Geometry:
   Camera:

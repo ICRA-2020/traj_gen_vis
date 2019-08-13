@@ -76,8 +76,10 @@
 		<param name="chaser/objective_derivative" type="int" value="3" />	
 		<param name="chaser/w_deviation" type="double" value="0.5" />	
 		<param name="chaser/poly_order" type="int" value="6" />	
+		<param name="chaser/is_multi_corridor" type="bool" value="false" />	
 	
     </node>
 
+ <node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/gazebo.rviz"/>
 
 </launch>
