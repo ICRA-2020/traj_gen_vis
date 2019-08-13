@@ -89,10 +89,10 @@
 
 
 <!-- tf 2 pose for target  -->
-<node pkg="px4_code" type="tf2poseStamped_node" name="tf2pose" output="screen" >
-   		<param name="map_frame" value="world" />
-		<param name="base_frame" value="/target__base_footprint" />
-		<param name="output_pose_topic" value="/target_pose" />
+<node if = "$(arg real_target)"   pkg="px4_code" type="tf2poseStamped_node" name="tf2pose" output="screen" >
+   		<param name="~map_frame" value="world" />
+		<param name="~base_frame" value="/target__base_footprint" />
+		<param name="~output_pose_topic" value="/target_pose" />
 			  
 </node>
 

@@ -87,10 +87,11 @@ return false; }
 void TargetManager::session(double t_eval){
 
     pub_marker_waypoints.publish(wpnt_markerArray);
-    if(is_path){
-        pub_path.publish(global_path);
-        broadcast_target_tf(t_eval);
-    }
+ 	// we have to do braodcasting only in runmode  =0 	
+			if(is_path){
+				pub_path.publish(global_path);
+				broadcast_target_tf(t_eval);
+			}
 }
 
 void TargetManager::clear_waypoint(){
@@ -186,7 +187,9 @@ void TargetPredictor::init(){
     
     nh.param<string>("target_frame_id",target_frame_id,"/target");
     nh.param<string>("world_frame_id",world_frame_id,"/world");
+    nh.param<int>("run_mode",run_mode,0);
     pub_marker_pred_seq = nh_private.advertise<visualization_msgs::Marker>("prediction_pnts_for_chasing",1);
+    
 
     // marker initialization 
     marker_prediction_seq.type = visualization_msgs::Marker::SPHERE_LIST;        
@@ -255,7 +258,8 @@ bool TargetPredictor::session(){
     bool is_new_pred = get_forecaster_ptr()->session(); // ref time = ros::Time    
     // ros
     pub_marker_pred_seq.publish(marker_prediction_seq);
-    braodcast_target_tf();
+    if (run_mode == 0)
+		braodcast_target_tf();
     return is_new_pred;
 }
 

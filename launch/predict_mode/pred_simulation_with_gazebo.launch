@@ -7,7 +7,7 @@
 <arg name="chaser_x" default="1.4"/>
 <arg name="chaser_y" default="0.0"/>
 <arg name="future_horizon" default="4"/>
-<arg name = "trigger_error" default = "0.8"/>
+<arg name ="trigger_error" default = "0.8"/>
 
 
 <!-- prepare gazebo environment -->

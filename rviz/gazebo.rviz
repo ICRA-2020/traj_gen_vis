@@ -61,6 +61,8 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        Untitled__Stairs_1:
+          Value: true
         firefly/base_link:
           Value: true
         firefly/base_link_inertia:
@@ -127,27 +129,47 @@ Visualization Manager:
           Value: false
         ground_plane__link:
           Value: false
-        map.world__Wall_0:
+        map3_1st_0__Wall_10:
           Value: true
-        map.world__Wall_2:
+        map3_1st_0__Wall_13:
           Value: true
-        map.world__Wall_4:
+        map3_1st_0__Wall_3:
           Value: true
-        map.world__Wall_6:
+        map3_1st_0__Wall_6:
           Value: true
-        map.world__Wall_9:
+        map3_1st_0__Wall_7:
           Value: true
-        table__link:
+        map3_1st_0__Wall_8:
           Value: true
         target/base_footprint:
           Value: false
-        target/odom:
-          Value: true
         target__base_footprint:
           Value: false
-        target__wheel_left_link:
+        unit_box_0__link:
           Value: true
-        target__wheel_right_link:
+        unit_box_0_clone_0__link:
+          Value: true
+        unit_box_0_clone__link:
+          Value: true
+        unit_box_0_clone_clone_0__link:
+          Value: true
+        unit_box_0_clone_clone_0_clone__link:
+          Value: true
+        unit_box_0_clone_clone__link:
+          Value: true
+        unit_box_1_0__link:
+          Value: true
+        unit_box_1_0_clone_0__link:
+          Value: true
+        unit_box_1_0_clone__link:
+          Value: true
+        unit_box_1__link:
+          Value: true
+        unit_box_2__link:
+          Value: true
+        unit_box_3__link:
+          Value: true
+        unit_cylinder_0__link:
           Value: true
         world:
           Value: true
@@ -163,6 +185,8 @@ Visualization Manager:
           firefly/vi_sensor/base_link:
             {}
           gazebo_world:
+            Untitled__Stairs_1:
+              {}
             firefly__firefly/base_link:
               firefly/base_link:
                 firefly/base_link_inertia:
@@ -218,24 +242,43 @@ Visualization Manager:
               {}
             ground_plane__link:
               {}
-            map.world__Wall_0:
+            map3_1st_0__Wall_10:
               {}
-            map.world__Wall_2:
+            map3_1st_0__Wall_13:
               {}
-            map.world__Wall_4:
+            map3_1st_0__Wall_3:
               {}
-            map.world__Wall_6:
+            map3_1st_0__Wall_6:
               {}
-            map.world__Wall_9:
+            map3_1st_0__Wall_7:
               {}
-            table__link:
+            map3_1st_0__Wall_8:
               {}
-            target__base_footprint:
-              target/base_footprint:
-                {}
-            target__wheel_left_link:
+            unit_box_0__link:
               {}
-            target__wheel_right_link:
+            unit_box_0_clone_0__link:
+              {}
+            unit_box_0_clone__link:
+              {}
+            unit_box_0_clone_clone_0__link:
+              {}
+            unit_box_0_clone_clone_0_clone__link:
+              {}
+            unit_box_0_clone_clone__link:
+              {}
+            unit_box_1_0__link:
+              {}
+            unit_box_1_0_clone_0__link:
+              {}
+            unit_box_1_0_clone__link:
+              {}
+            unit_box_1__link:
+              {}
+            unit_box_2__link:
+              {}
+            unit_box_3__link:
+              {}
+            unit_cylinder_0__link:
               {}
       Update Interval: 0
       Value: true
@@ -291,7 +334,7 @@ Visualization Manager:
       Marker Topic: /auto_chaser/preplanned_waypoints
       Name: Marker
       Namespaces:
-        {}
+        waypoints: true
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -368,7 +411,7 @@ Visualization Manager:
       Marker Topic: /auto_chaser/chasing_corridor
       Name: Marker
       Namespaces:
-        {}
+        "": true
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -387,13 +430,13 @@ Visualization Manager:
       Unreliable: false
       Value: true
     - Class: rviz/Marker
-      Enabled: true
+      Enabled: false
       Marker Topic: /auto_chaser/smooth_path_knots
       Name: Marker
       Namespaces:
         {}
       Queue Size: 100
-      Value: true
+      Value: false
     - Class: rviz/Image
       Enabled: false
       Image Topic: ""
@@ -494,9 +537,9 @@ Visualization Manager:
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 6.48821259
-        Y: 1.30999911
-        Z: 14.352437
+        X: 6.04018641
+        Y: 2.47886133
+        Z: 14.3519802
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false

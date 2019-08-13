@@ -69,7 +69,9 @@ class TargetPredictor{
         ros::NodeHandle nh_private; // for a name space (predictor)
         ros::Publisher pub_marker_pred_seq; 
         ros::Subscriber sub_pose_target; // if no tf type for target is available, instead pose available, then  
-        visualization_msgs::Marker marker_prediction_seq; // for checking the seed of chasing 
+        
+		int run_mode; // 0 : no gazebo / 1 : gazebo
+		visualization_msgs::Marker marker_prediction_seq; // for checking the seed of chasing 
         tf::TransformBroadcaster* br_ptr; // broadcasting the transform (why?.. in gazebo mode)
         void callback_target_pose(PoseStampedConstPtr target_pose_ptr); 
         PoseStamped current_target_pose; 

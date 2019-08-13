@@ -135,7 +135,7 @@ void ObjectsHandler::tf_update(){
         string objects_frame_id[2];
         objects_frame_id[0] = target_frame_id;
         objects_frame_id[1] = chaser_frame_id;
-        int start = int(is_target_tf);        
+        int start = int(not is_target_tf);        
         for (int i=start;i<2;i++){            
             tf::StampedTransform transform;    
             // 
@@ -153,6 +153,7 @@ void ObjectsHandler::tf_update(){
                 pose_stamped.pose.orientation.y = transform.getRotation().getY();
                 pose_stamped.pose.orientation.z = transform.getRotation().getZ();
                 pose_stamped.pose.orientation.w = transform.getRotation().getW();
+					
 
 
 
@@ -164,7 +165,8 @@ void ObjectsHandler::tf_update(){
 
             }
             catch (tf::TransformException ex){
-                if (i==0)
+                
+				if (i==0)
                     ROS_ERROR_ONCE("[Objects handler] tf of target does not exist. ",ex.what());  
                 else
                     ROS_ERROR_ONCE("[Objects handler] tf of chaser does not exist. ",ex.what());  
@@ -181,7 +183,7 @@ void ObjectsHandler::tf_update(){
         tf::StampedTransform transform;    
         try{
             tf_listener->lookupTransform(world_frame_id,target_frame_id,ros::Time(0), transform);
-            PoseStamped pose_stamped;
+			PoseStamped pose_stamped;
             pose_stamped.header.stamp = ros::Time::now();
             pose_stamped.header.frame_id = world_frame_id;
 

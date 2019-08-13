@@ -118,6 +118,7 @@ geometry_msgs::PoseStamped Wrapper::get_control_pose(double t_eval){
     
     // decide yawing direction so that the local x-axis heads to the target 
     // For this, if the target has not been uploaded yet, then the MAV heads to the last observed target position 
+	//ROS_INFO("[DEBUG: Wrapper] recognized chaser pose : [%f , %f]",target_pose.pose.position.x,target_pose.pose.position.x);
     float yaw = atan2(-chaser_pose.pose.position.y+target_pose.pose.position.y,
                         -chaser_pose.pose.position.x+target_pose.pose.position.x);
     tf::Quaternion q;
