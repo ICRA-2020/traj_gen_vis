@@ -4,10 +4,10 @@
 <arg name="mav_name" default="firefly"/>
 <arg name="target_name" default="target"/>
 <arg name="world_name" default="map3"/>
-<arg name="chaser_x" default="0"/>
-<arg name="chaser_y" default="0"/>
+<arg name="chaser_x" default="1.4"/>
+<arg name="chaser_y" default="0.0"/>
 <arg name="future_horizon" default="4"/>
-<arg name = "trigger_error" default = "0.8">
+<arg name = "trigger_error" default = "0.8"/>
 
 
 <!-- prepare gazebo environment -->
@@ -22,6 +22,7 @@
 </include>
 
 
+
 <!-- auto_chaser with prediction-->
     <node pkg="auto_chaser" type="auto_chaser_run_predict_mode" name="auto_chaser" output="screen" >
        
@@ -34,7 +35,7 @@
 	   <!-- common -->
         <param name="world_frame_id" value="/world" />
         <param name="mav_name" value="$(arg mav_name)" />
-        <param name="target_frame_id" value="/target" />
+        <param name="target_frame_id" value="/target__base_footprint" />
         <param name="min_z" value="0.4" />
         <param name="chaser_init_x" value="$(arg chaser_x)" />
         <param name="chaser_init_y" value="$(arg chaser_y)" />
@@ -43,6 +44,8 @@
         <param name="pred_horizon" value="4" /> 
         <param name="pred_seq" value="4" /> 
 		<param name="early_end_time" value="0.1" /> 
+        <param name="world_frame_id" value="/world" />
+        <param name="is_target_tf" value="true" />
 
         <!-- target_trajectory -->        
         <param name="target/safe_corridor_r" value="0.2" />
@@ -86,6 +89,7 @@
 		<param name="chaser/objective_derivative" type="int" value="3" />	
 		<param name="chaser/w_deviation" type="double" value="0.5" />	
 		<param name="chaser/poly_order" type="int" value="6" />	
+		<param name="chaser/is_multi_corridor" type="bool" value="false" />	
 
         
 
@@ -94,6 +98,7 @@
 
 
 
+ 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/rviz_gazebo_pred.rviz"/>
 
 
 </launch>

@@ -1,21 +1,14 @@
 Panels:
   - Class: rviz/Displays
-    Help Height: 78
+    Help Height: 0
     Name: Displays
     Property Tree Widget:
       Expanded:
-        - /Global Options1
-        - /Status1
-        - /Grid1
+        - /TF1
         - /TF1/Frames1
-        - /Axes1
         - /Image1
-        - /Image2
-        - /Camera1
-        - /MarkerArray5
-        - /MarkerArray5/Namespaces1
-      Splitter Ratio: 0.461824954
-    Tree Height: 298
+      Splitter Ratio: 0.592535019
+    Tree Height: 345
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -34,14 +27,14 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: Camera
+    SyncSource: Image
 Visualization Manager:
   Class: ""
   Displays:
     - Alpha: 0.5
       Cell Size: 1
       Class: rviz/Grid
-      Color: 133; 133; 136
+      Color: 226; 226; 231
       Enabled: true
       Line Style:
         Line Width: 0.0299999993
@@ -53,7 +46,7 @@ Visualization Manager:
         Y: 0
         Z: 0
       Plane: XY
-      Plane Cell Count: 100
+      Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
     - Class: rviz/TF
@@ -61,6 +54,8 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        Untitled__Stairs_1:
+          Value: false
         firefly/base_link:
           Value: true
         firefly/base_link_inertia:
@@ -127,28 +122,56 @@ Visualization Manager:
           Value: false
         ground_plane__link:
           Value: false
-        map.world__Wall_0:
-          Value: true
-        map.world__Wall_2:
-          Value: true
-        map.world__Wall_4:
-          Value: true
-        map.world__Wall_6:
-          Value: true
-        map.world__Wall_9:
-          Value: true
-        table__link:
+        map3_1st_0__Wall_10:
+          Value: false
+        map3_1st_0__Wall_13:
+          Value: false
+        map3_1st_0__Wall_3:
+          Value: false
+        map3_1st_0__Wall_6:
+          Value: false
+        map3_1st_0__Wall_7:
+          Value: false
+        map3_1st_0__Wall_8:
+          Value: false
+        target:
           Value: true
         target/base_footprint:
           Value: false
         target/odom:
-          Value: true
+          Value: false
         target__base_footprint:
           Value: false
         target__wheel_left_link:
-          Value: true
+          Value: false
         target__wheel_right_link:
-          Value: true
+          Value: false
+        unit_box_0__link:
+          Value: false
+        unit_box_0_clone_0__link:
+          Value: false
+        unit_box_0_clone__link:
+          Value: false
+        unit_box_0_clone_clone_0__link:
+          Value: false
+        unit_box_0_clone_clone_0_clone__link:
+          Value: false
+        unit_box_0_clone_clone__link:
+          Value: false
+        unit_box_1_0__link:
+          Value: false
+        unit_box_1_0_clone_0__link:
+          Value: false
+        unit_box_1_0_clone__link:
+          Value: false
+        unit_box_1__link:
+          Value: false
+        unit_box_2__link:
+          Value: false
+        unit_box_3__link:
+          Value: false
+        unit_cylinder_0__link:
+          Value: false
         world:
           Value: true
       Marker Scale: 1
@@ -163,6 +186,8 @@ Visualization Manager:
           firefly/vi_sensor/base_link:
             {}
           gazebo_world:
+            Untitled__Stairs_1:
+              {}
             firefly__firefly/base_link:
               firefly/base_link:
                 firefly/base_link_inertia:
@@ -218,17 +243,17 @@ Visualization Manager:
               {}
             ground_plane__link:
               {}
-            map.world__Wall_0:
+            map3_1st_0__Wall_10:
               {}
-            map.world__Wall_2:
+            map3_1st_0__Wall_13:
               {}
-            map.world__Wall_4:
+            map3_1st_0__Wall_3:
               {}
-            map.world__Wall_6:
+            map3_1st_0__Wall_6:
               {}
-            map.world__Wall_9:
+            map3_1st_0__Wall_7:
               {}
-            table__link:
+            map3_1st_0__Wall_8:
               {}
             target__base_footprint:
               target/base_footprint:
@@ -237,19 +262,47 @@ Visualization Manager:
               {}
             target__wheel_right_link:
               {}
+            unit_box_0__link:
+              {}
+            unit_box_0_clone_0__link:
+              {}
+            unit_box_0_clone__link:
+              {}
+            unit_box_0_clone_clone_0__link:
+              {}
+            unit_box_0_clone_clone_0_clone__link:
+              {}
+            unit_box_0_clone_clone__link:
+              {}
+            unit_box_1_0__link:
+              {}
+            unit_box_1_0_clone_0__link:
+              {}
+            unit_box_1_0_clone__link:
+              {}
+            unit_box_1__link:
+              {}
+            unit_box_2__link:
+              {}
+            unit_box_3__link:
+              {}
+            unit_cylinder_0__link:
+              {}
+          target:
+            {}
       Update Interval: 0
       Value: true
     - Class: rviz/Axes
       Enabled: true
-      Length: 0.5
+      Length: 1
       Name: Axes
-      Radius: 0.0500000007
+      Radius: 0.100000001
       Reference Frame: <Fixed Frame>
       Value: true
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: /planner_client/vsf_grid
-      Name: MarkerArray
+      Name: vsf
       Namespaces:
         {}
       Queue Size: 100
@@ -257,7 +310,7 @@ Visualization Manager:
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: /occupied_cells_vis_array
-      Name: MarkerArray
+      Name: octomap
       Namespaces:
         map: true
       Queue Size: 100
@@ -265,7 +318,7 @@ Visualization Manager:
     - Class: rviz/MarkerArray
       Enabled: true
       Marker Topic: /auto_chaser/target_waypoints
-      Name: MarkerArray
+      Name: target waypoints
       Namespaces:
         {}
       Queue Size: 100
@@ -273,7 +326,7 @@ Visualization Manager:
     - Class: rviz/MarkerArray
       Enabled: false
       Marker Topic: /auto_chaser/vsf_grid_seq
-      Name: MarkerArray
+      Name: vsf_grid
       Namespaces:
         {}
       Queue Size: 100
@@ -281,7 +334,7 @@ Visualization Manager:
     - Class: rviz/Marker
       Enabled: false
       Marker Topic: /auto_chaser/edf_grid
-      Name: Marker
+      Name: edf
       Namespaces:
         {}
       Queue Size: 100
@@ -289,9 +342,9 @@ Visualization Manager:
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /auto_chaser/preplanned_waypoints
-      Name: Marker
+      Name: preplanning
       Namespaces:
-        {}
+        waypoints: true
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -304,7 +357,7 @@ Visualization Manager:
       Length: 0.300000012
       Line Style: Lines
       Line Width: 0.0599999987
-      Name: Path
+      Name: preplanning_path
       Offset:
         X: 0
         Y: 0
@@ -327,7 +380,7 @@ Visualization Manager:
       Length: 0.300000012
       Line Style: Billboards
       Line Width: 0.0799999982
-      Name: Path
+      Name: target global path
       Offset:
         X: 0
         Y: 0
@@ -350,7 +403,7 @@ Visualization Manager:
       Length: 0.300000012
       Line Style: Billboards
       Line Width: 0.0299999993
-      Name: Path
+      Name: smooth path
       Offset:
         X: 0
         Y: 0
@@ -366,105 +419,147 @@ Visualization Manager:
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /auto_chaser/chasing_corridor
-      Name: Marker
+      Name: chasing corridor (multi)
       Namespaces:
-        {}
+        "": true
       Queue Size: 100
       Value: true
     - Alpha: 1
       Axes Length: 1
       Axes Radius: 0.100000001
       Class: rviz/Pose
-      Color: 255; 25; 0
+      Color: 0; 0; 255
       Enabled: true
-      Head Length: 0.300000012
+      Head Length: 0.200000003
       Head Radius: 0.100000001
-      Name: Pose
-      Shaft Length: 1
-      Shaft Radius: 0.0500000007
+      Name: mav control pose
+      Shaft Length: 0.5
+      Shaft Radius: 0.0299999993
       Shape: Arrow
-      Topic: /auto_chaser/mav_control_pose
+      Topic: /auto_chaser/mav_pose_desired
       Unreliable: false
       Value: true
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: /auto_chaser/smooth_path_knots
+      Name: smooth path knots
+      Namespaces:
+        knots: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /auto_chaser/predictor/chomp_obsrv
+      Name: target observation
+      Namespaces:
+        "": true
+      Queue Size: 100
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 85; 170; 255
+      Enabled: true
+      Head Diameter: 0.300000012
+      Head Length: 0.200000003
+      Length: 0.300000012
+      Line Style: Billboards
+      Line Width: 0.0299999993
+      Name: target prediction (path)
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.0299999993
+      Shaft Diameter: 0.100000001
+      Shaft Length: 0.100000001
+      Topic: /auto_chaser/predictor/chomp_solution_path
+      Unreliable: false
+      Value: true
+    - Class: rviz/Marker
+      Enabled: false
+      Marker Topic: /auto_chaser/predictor/chomp_sol_pnts
       Name: Marker
       Namespaces:
         {}
       Queue Size: 100
-      Value: true
-    - Class: rviz/Image
-      Enabled: false
-      Image Topic: ""
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
       Value: false
-    - Class: rviz/Image
-      Enabled: false
-      Image Topic: /firefly/vi_sensor/camera_depth/camera/image_raw
-      Max Value: 1
-      Median window: 5
-      Min Value: 0
-      Name: Image
-      Normalize Range: true
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
-      Value: false
-    - Class: rviz/Camera
+    - Class: rviz/Marker
       Enabled: true
-      Image Rendering: background
-      Image Topic: /firefly/vi_sensor/camera_depth/camera/image_raw
-      Name: Camera
-      Overlay Alpha: 0.5
-      Queue Size: 2
-      Transport Hint: raw
-      Unreliable: false
-      Value: true
-      Visibility:
-        Axes: true
-        Grid: true
-        Image: true
-        Marker: true
-        MarkerArray: true
-        Path: true
-        Pose: true
-        TF: true
-        Value: true
-      Zoom Factor: 1
-    - Class: rviz/MarkerArray
-      Enabled: true
-      Marker Topic: /auto_chaser/vsf_grid_seq
-      Name: MarkerArray
+      Marker Topic: /auto_chaser/predictor/chomp_goal
+      Name: Marker
       Namespaces:
-        {}
+        "": true
       Queue Size: 100
       Value: true
     - Alpha: 1
-      Axes Length: 1
-      Axes Radius: 0.100000001
-      Class: rviz/Pose
-      Color: 255; 25; 0
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 25; 255; 0
       Enabled: true
-      Head Length: 0.300000012
-      Head Radius: 0.100000001
-      Name: Pose
-      Shaft Length: 1
-      Shaft Radius: 0.0500000007
-      Shape: Arrow
-      Topic: /target_pose
+      Head Diameter: 0.300000012
+      Head Length: 0.200000003
+      Length: 0.300000012
+      Line Style: Lines
+      Line Width: 0.0299999993
+      Name: target prediction (traj)
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.0299999993
+      Shaft Diameter: 0.100000001
+      Shaft Length: 0.100000001
+      Topic: /auto_chaser/prediction_traj
+      Unreliable: false
+      Value: true
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /auto_chaser/predictor/prediction_pnts_for_chasing
+      Name: Marker
+      Namespaces:
+        "": true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /auto_chaser/chasing_corridor_single
+      Name: chasing corridor (single)
+      Namespaces:
+        sf_corridor: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/Image
+      Enabled: false
+      Image Topic: /firefly/vi_sensor/camera_depth/depth/disparity
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: false
+    - Class: rviz/Image
+      Enabled: true
+      Image Topic: /firefly/vi_sensor/camera_depth/camera/image_raw
+      Max Value: 1
+      Median window: 5
+      Min Value: 0
+      Name: Image
+      Normalize Range: true
+      Queue Size: 2
+      Transport Hint: raw
       Unreliable: false
       Value: true
   Enabled: true
   Global Options:
-    Background Color: 214; 214; 214
+    Background Color: 202; 202; 202
     Default Light: true
     Fixed Frame: world
     Frame Rate: 30
@@ -487,16 +582,16 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 12.2252445
+      Distance: 20.2064266
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 6.48821259
-        Y: 1.30999911
-        Z: 14.352437
+        X: 2.90893698
+        Y: 2.41824579
+        Z: 1.39126503
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
@@ -505,7 +600,7 @@ Visualization Manager:
       Pitch: 1.56979632
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.13358045
+      Yaw: 3.12350488
     Saved: ~
 Window Geometry:
   Camera:
@@ -517,7 +612,7 @@ Window Geometry:
   Hide Right Dock: true
   Image:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd00000004000000000000016a000003a2fc020000000bfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006100fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000000000000b20000006100fffffffb000000100044006900730070006c00610079007301000000b8000001b9000000d700fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d00610067006500000002350000009d0000001600fffffffb0000000a0049006d00610067006500000001b0000001210000001600fffffffb0000000c00430061006d00650072006101000002770000012b0000001600ffffff000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000ad00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000003a00000003efc0100000002fb0000000800540069006d00650100000000000003a00000030000fffffffb0000000800540069006d0065010000000000000450000000000000000000000230000003a200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730000000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001ce0000037afc020000000dfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006100fffffffb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb0000001e0054006f006f006c002000500072006f007000650072007400690065007301000000280000008f0000006100fffffffc000000bd0000019a000000d700fffffffa000000010100000002fb0000000c00430061006d0065007200610000000000ffffffff0000006700000067fb000000100044006900730070006c00610079007301000000000000016a0000016a00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000000a0049006d0061006700650000000000ffffffff0000000000000000fb0000000a0049006d0061006700650000000000ffffffff0000000000000000fb0000000c00430061006d00650072006100000002d9000000c90000001600000016fb0000000a0049006d006100670065000000024f0000009f0000001600fffffffb0000000a0049006d006100670065010000025d000001450000001600ffffff000000010000010f000002c4fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a005600690065007700730000000028000002c4000000ad00fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000003a00000003efc0100000002fb0000000800540069006d00650100000000000003a00000030000fffffffb0000000800540069006d00650100000000000004500000000000000000000001cc0000037a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -527,5 +622,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 928
-  X: 992
+  X: 65
   Y: 24

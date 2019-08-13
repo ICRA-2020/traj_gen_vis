@@ -19,6 +19,7 @@ void ObjectsHandler::init(ros::NodeHandle nh){
     nh.param("edf_resolution",edf_grid_params.resolution,0.5);  
     nh.param("edf_stride_resolution",edf_grid_params.ray_stride_res,0.3);  
     nh.param("run_mode",run_mode,0);  
+    nh.param("is_target_tf",is_target_tf,true);  
 
 
     target_pose.header.frame_id = world_frame_id;

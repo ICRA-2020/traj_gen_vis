@@ -2,7 +2,7 @@
 <launch>
   <arg name="mav_name" default="firefly"/>
   <arg name="target_name" default="target"/>
-  <arg name="world_name" default="map1"/>
+  <arg name="world_name" default="map3"/>
   
   <arg name="chaser_x" default="0.0"/>
   <arg name="chaser_y" default="0.0"/>
@@ -54,6 +54,9 @@
 	<group ns ="$(arg mav_name)">
 
 		<include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
+		<arg name="x" value="$(arg chaser_x)" />
+		<arg name="y" value="$(arg chaser_y)" />
+
 		<arg name="mav_name" value="$(arg mav_name)" />
 		<arg name="model" value="$(find rotors_description)/urdf/mav_with_vi_sensor.gazebo"/>
 		<arg name="enable_logging" value="$(arg enable_logging)" />
@@ -85,6 +88,13 @@
 	</group>
 
 
+<!-- tf 2 pose for target  -->
+<node pkg="px4_code" type="tf2poseStamped_node" name="tf2pose" output="screen" >
+   		<param name="map_frame" value="world" />
+		<param name="base_frame" value="/target__base_footprint" />
+		<param name="output_pose_topic" value="/target_pose" />
+			  
+</node>
 
 
 	
@@ -124,6 +134,6 @@
 	
 	
 
- 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/gazebo.rviz"/>
+ 	<!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/gazebo.rviz"/-->
 
 </launch>
