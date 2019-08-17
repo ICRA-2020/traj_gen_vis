@@ -10,9 +10,15 @@
 <arg name ="trigger_error" default = "0.8"/>
 
 
+<!-- only octomap. no gazebo related module -->
+<include file = "$(find auto_chaser)/launch/octomap_base.launch">
+	<arg name = "world_name" value = "$(arg world_name)"/>
+</include>
+
+
 
 <!-- tf 2 pose for target  -->
-<node pkg="px4_code" type="tf2poseStamped_node" name="tf2pose" output="screen" >
+<node pkg="px4_code" type="tf2poseStamped_node" name="tf2pose_target" output="screen" >
    		<param name="~map_frame" value="world" />
 		<param name="~base_frame" value="/$(arg target_name)__base_footprint" />
 		<param name="~output_pose_topic" value="/target_pose" /> <!--this topic is subscribed by chomp predict-->
@@ -32,9 +38,8 @@
         <param name="world_frame_id" value="/world" />
         <param name="mav_name" value="$(arg mav_name)" />
         <param name="target_frame_id" value="/target__base_footprint" />
+        <param name="chaser_frame_id" value="/iris_fpv_cam__iris__base_link" />
         <param name="min_z" value="0.4" />
-        <param name="chaser_init_x" value="$(arg chaser_x)" />
-        <param name="chaser_init_y" value="$(arg chaser_y)" />
         <param name="chaser_init_z" value="1" /> <!--for hovering -->
         <param name="run_mode" value="1" /> <!-- 0: simulation without gazebo/ 1: with gazebo -->
         <param name="pred_horizon" value="4" /> 
@@ -87,7 +92,7 @@
 		<param name="chaser/poly_order" type="int" value="6" />	
 		<param name="chaser/is_multi_corridor" type="bool" value="false" />	
 
-		<!--only iin sitl mode -->
+		<!--only in sitl mode -->
 		<!--topic remapping -->        
 		<remap from = "~mav_pose_desired" to = "/mav_wrapper/setpoint_planning"/>
 
@@ -95,7 +100,7 @@
 
 
 
- 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/rviz_gazebo_pred.rviz"/>
+ 	<!--node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/rviz_gazebo_pred.rviz"/-->
 
 
 </launch>

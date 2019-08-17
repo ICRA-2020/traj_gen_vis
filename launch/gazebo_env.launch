@@ -25,7 +25,7 @@
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find auto_chaser)/worlds/$(arg world_name).world" />
     <arg name="paused" value="false"/> <!--if this enabled, ros time paused also-->
-    <arg name="gui" value="true"/> 
+    <arg name="gui" value="false"/> 
     </include>
 
 

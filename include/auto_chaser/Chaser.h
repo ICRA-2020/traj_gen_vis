@@ -27,7 +27,7 @@ class Chaser{
         Twist eval_velocity(double t_eval);
         Twist eval_acceleration(double t_eval);
         Point get_control_point(double t_eval); // get the current control point 
-
+        double get_hovering_z();
 };
 
 

@@ -32,10 +32,27 @@ void Wrapper::session(double t){
     // (2) chaser
     chaser.session(t);
     // (3) wrapper 
-    if (chaser.is_complete_chasing_path or run_mode == 1){
+    if (run_mode == 0 ){
         pub_control_pose(t);
         pub_control_traj(t);
     }
+    else // run mode 1 
+        if(chaser.is_complete_chasing_path){        
+            ROS_INFO_ONCE("[Wrapper] current chaser pose = planning ");
+            pub_control_pose(t);
+            pub_control_traj(t);
+        }
+        else // if no chasing path 
+            if (objects_handler.is_chaser_recieved){
+                // if chaser pose received    
+                ROS_INFO_ONCE("[Wrapper] current chaser pose = desired ");
+
+                pub_control_pose(objects_handler.get_chaser_pose());
+                pub_control_traj(objects_handler.get_chaser_pose());
+            }else{
+                ROS_WARN_ONCE("[Wrapper] chaser pose not recieved. not publising control pose yet");
+            }
+        
 }
 
 // chasing session called 
@@ -137,6 +154,39 @@ geometry_msgs::PoseStamped Wrapper::get_control_pose(double t_eval){
     chaser_pose_desired.pose.orientation.w = q.w();
     return chaser_pose_desired;
 }
+
+
+void Wrapper::pub_control_pose(geometry_msgs::PoseStamped pose){
+    pose.pose.position.z = chaser.get_hovering_z();
+    pub_control_mav_vis.publish(pose);
+}
+
+
+void Wrapper::pub_control_traj(geometry_msgs::PoseStamped chaser_pose_desired){
+
+    // convert the pose information into trajectory_msgs (only conversion)
+    chaser_pose_desired.pose.position.z = chaser.get_hovering_z();
+
+    // get the position 
+    Vector3d chaser_point_desired;
+    chaser_point_desired(0) = chaser_pose_desired.pose.position.x;
+    chaser_point_desired(1) = chaser_pose_desired.pose.position.y;
+    chaser_point_desired(2) = chaser_pose_desired.pose.position.z;
+    // get the orientation 
+    tf::Quaternion q;
+    q.setX(chaser_pose_desired.pose.orientation.x);
+    q.setY(chaser_pose_desired.pose.orientation.y);
+    q.setZ(chaser_pose_desired.pose.orientation.z);
+    q.setW(chaser_pose_desired.pose.orientation.w);
+    tf::Matrix3x3 q_mat(q);
+    double roll,pitch,yaw;
+    q_mat.getRPY(roll,pitch,yaw);
+    // finishing the trajectory topic 
+    trajectory_msgs::MultiDOFJointTrajectory chaser_traj_desired;
+    mav_msgs::msgMultiDofJointTrajectoryFromPositionYaw(chaser_point_desired,yaw, &chaser_traj_desired);
+    pub_control_mav.publish(chaser_traj_desired);
+}
+
 /**
  * @brief publish the control visualization (geometry_msgs) 
  * 
@@ -145,6 +195,10 @@ geometry_msgs::PoseStamped Wrapper::get_control_pose(double t_eval){
 void Wrapper::pub_control_pose(double t_eval){
     pub_control_mav_vis.publish(get_control_pose(t_eval));
 }
+
+
+
+
 /**
  * @brief publish the control visualization (trajectory_msgs) 
  * 

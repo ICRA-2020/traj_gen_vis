@@ -40,5 +40,7 @@ class Wrapper{
         void pub_control_pose(double t_eval); 
         void pub_control_traj(double t_eval);
 
+        void pub_control_pose(PoseStamped control_pose); 
+        void pub_control_traj(PoseStamped control_pose);
 
 };

@@ -14,6 +14,10 @@ void Chaser::init(ros::NodeHandle nh){
     
 }
 
+double Chaser::get_hovering_z(){
+
+    return hovering_z;
+};
 bool Chaser::chase_update(GridField* global_edf_ptr,vector<Point> target_pnts,Point chaser_x0,Twist chaser_v0,Twist chaser_a0,TimeSeries knots){
     
     bool result = false;
@@ -73,7 +77,8 @@ Twist Chaser::eval_acceleration(double t_eval){
 Point Chaser::get_control_point(double t_eval){    
     if (this->is_complete_chasing_path)
         return smooth_planner.planner.point_eval_spline(t_eval); 
-    else{// hovering command at the spawning position with desired height      
+    else{// hovering command at the spawning position with desired height. the following lines will be executed only run mode 0      
+            
             Point hovering_point;
             hovering_point.x = spawn_x;
             hovering_point.y = spawn_y;
