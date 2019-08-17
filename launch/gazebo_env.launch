@@ -25,12 +25,12 @@
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find auto_chaser)/worlds/$(arg world_name).world" />
     <arg name="paused" value="false"/> <!--if this enabled, ros time paused also-->
-    <arg name="gui" value="false"/> 
+    <arg name="gui" value="true"/> 
     </include>
 
 
     
-     <!--target spawn at defined position -->
+    <!--target spawn at defined position -->
 	<group if = "$( arg real_target)" ns ="$(arg target_name)">
 	<include file="$(find turtlebot_gazebo)/launch/includes/kobuki.launch.xml">
 		<arg name="base" value="kobuki"/>
@@ -39,6 +39,7 @@
 		<arg name="3d_sensor" value="kinect"/>
 		<arg name="init_pose" value="-x 2.5 -y 1.0"/>
 	</include>
+
 
 	<node pkg="turtlebot_teleop" type="turtlebot_teleop_key" name="turtlebot_teleop_keyboard"  output="screen" launch-prefix="xterm -e">
 		<param name="scale_linear" value="0.5" type="double"/>

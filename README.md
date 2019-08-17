@@ -54,7 +54,7 @@ The package is gazebo simulator for MAV. This is used for simulation of chasing 
 
 [download here](http://github.com/OctoMap/octomap)
 
-# 3.  Usag
+# 3.  Usage
 
 ## 3.0 Common procedure - map and target trajectory 
 
@@ -103,6 +103,28 @@ roslaunch auto_chaser simulation_with_gazebo.launch
 ```
 
 The remaining procedure is the same with the section 3.1.   
+
+#### In case of real target (More explanation should be added)
+User should modify ```/opt/ros/kinetic/share/turtlebot_gazebo/launch/includes/kobuki.launch.xml```
+in order to add additional arguments for convenience. 
+
+```
+  <arg name="base"/>
+  <arg name="stacks"/>
+  <arg name="3d_sensor"/>
+  <arg name="init_pose"/>
+  <arg name="robot_name"/>
+  
+  <arg name="urdf_file" default="$(find xacro)/xacro.py '$(find turtlebot_description)/robots/$(arg base)_$(arg stacks)_$(arg 3d_sensor).urdf.xacro'" />
+  <param name="robot_description" command="$(arg urdf_file)" />
+  
+  <!-- Gazebo model spawner -->
+  <node name="spawn_turtlebot_model" pkg="gazebo_ros" type="spawn_model"
+        args=" -unpause -urdf $(arg init_pose) -param robot_description -model $(robot_name)"/>
+  
+```
+
+
 
 # 4. ROS Node API 
 

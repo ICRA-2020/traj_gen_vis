@@ -10,17 +10,13 @@
 <arg name ="trigger_error" default = "0.8"/>
 
 
-<!-- prepare gazebo environment -->
 
-<include file ="$(find auto_chaser)/launch/gazebo_env.launch">
-    <arg name="real_target" value="true"/> <!--will you spawn target in the world? -->
-    <arg name="mav_name" value="$(arg mav_name)"/> 
-    <arg name="target_name" value="$(arg target_name)"/> 
-    <arg name="world_name" value="$(arg world_name)"/> 
-    <arg name="chaser_x" value="$(arg chaser_x)"/> 
-    <arg name="chaser_y" value="$(arg chaser_y)"/> 
-</include>
-
+<!-- tf 2 pose for target  -->
+<node pkg="px4_code" type="tf2poseStamped_node" name="tf2pose" output="screen" >
+   		<param name="~map_frame" value="world" />
+		<param name="~base_frame" value="/$(arg target_name)__base_footprint" />
+		<param name="~output_pose_topic" value="/target_pose" /> <!--this topic is subscribed by chomp predict-->
+</node>
 
 
 <!-- auto_chaser with prediction-->
@@ -91,8 +87,9 @@
 		<param name="chaser/poly_order" type="int" value="6" />	
 		<param name="chaser/is_multi_corridor" type="bool" value="false" />	
 
-        
-
+		<!--only iin sitl mode -->
+		<!--topic remapping -->        
+		<remap from = "~mav_pose_desired" to = "/mav_wrapper/setpoint_planning"/>
 
     </node>
 
