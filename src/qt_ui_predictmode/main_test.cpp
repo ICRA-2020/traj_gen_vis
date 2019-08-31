@@ -68,8 +68,8 @@ int main(int argc, char * argv[]){
         bool is_new_prediction = target_predictor.session(); 
 
         // check the trigger condition 
-        chasing_trigger_condition = (last_chasing_trigger_time == 0 
-            or (t_cur - last_chasing_trigger_time) > pred_horizon - early_end_time) 
+        chasing_trigger_condition = last_chasing_trigger_time == 0 
+            // or (t_cur - last_chasing_trigger_time) > pred_horizon - early_end_time) 
             or is_new_prediction;
 
         chasing_trigger_condition = chasing_trigger_condition and target_predictor.get_forecaster_ptr()->get_predict_condition();

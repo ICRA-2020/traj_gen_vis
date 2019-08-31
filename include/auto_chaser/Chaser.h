@@ -16,6 +16,8 @@ class Chaser{
 
     public:
         bool is_complete_chasing_path; // is there any complete chasing path
+        bool is_log; 
+        string log_dir; 
 
         Chaser();
         void init(ros::NodeHandle nh);

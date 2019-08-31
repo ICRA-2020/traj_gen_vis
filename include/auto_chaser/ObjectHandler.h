@@ -20,7 +20,9 @@ class ObjectsHandler{
         string chaser_frame_id;
         string target_frame_id;
         
-
+        string log_dir; 
+        bool is_log; 
+        
         // topic
         string octomap_topic_name;    
 

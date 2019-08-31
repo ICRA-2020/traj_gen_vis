@@ -21,6 +21,8 @@ void ObjectsHandler::init(ros::NodeHandle nh){
     nh.param("run_mode",run_mode,0);  
     nh.param("is_target_tf",is_target_tf,true);  
 
+    nh.param("is_log",is_log,false);
+    nh.param<string>("log_dir",log_dir,"/home/jbs");
 
     target_pose.header.frame_id = world_frame_id;
     chaser_pose.header.frame_id = world_frame_id;
@@ -154,14 +156,40 @@ void ObjectsHandler::tf_update(){
                 pose_stamped.pose.orientation.z = transform.getRotation().getZ();
                 pose_stamped.pose.orientation.w = transform.getRotation().getW();
 					
-
-
-
+                
                 if (i==0)
-                    {ROS_INFO_ONCE("[Objects handler] tf of target received. "); is_target_recieved = true; target_pose = pose_stamped;} 
+                    {ROS_INFO_ONCE("[Objects handler] tf of target received. "); is_target_recieved = true;
+                    
+                    
+                    if (is_log){
+                        // file write
+                        std::ofstream wnpt_file;
+                        wnpt_file.open((log_dir+"/target_history.txt").c_str(),ios_base::app);
+
+                        if(wnpt_file.is_open()){
+                            wnpt_file<<pose_stamped.pose.position.x<<","<<pose_stamped.pose.position.y<<","<<pose_stamped.pose.position.z<<"\n";
+                            wnpt_file.close();    
+                        }else
+                            cout<<"logging file for target pose is not opend"<<endl;
+                    }
+                    
+                     target_pose = pose_stamped;} 
                 else
                     {ROS_INFO_ONCE("[Objects handler] tf of chaser received. "); is_chaser_recieved = true;
-                             chaser_pose = pose_stamped; is_chaser_spawned = true;}  
+
+                        if (is_log){
+                            // file write
+                            std::ofstream wnpt_file;
+                            wnpt_file.open((log_dir+"/chaser_history.txt").c_str(),ios_base::app);
+
+                            if(wnpt_file.is_open()){
+                                wnpt_file<<pose_stamped.pose.position.x<<","<<pose_stamped.pose.position.y<<","<<pose_stamped.pose.position.z<<"\n";
+                                wnpt_file.close();    
+                            }else
+                                cout<<"logging file for chaser pose is not opend"<<endl;
+                        }                    
+                        
+                        chaser_pose = pose_stamped; is_chaser_spawned = true;}  
 
             }
             catch (tf::TransformException ex){
@@ -173,6 +201,8 @@ void ObjectsHandler::tf_update(){
             
             }
         }
+
+
 
     }
     else{
@@ -292,6 +322,19 @@ void ObjectsHandler::callback_target_pose(const PoseStampedConstPtr& msg){
     target_pose = *msg;
     is_target_recieved = true;
     ROS_INFO_ONCE("[Object Handler] target pose received!");
+    if (is_log){
+        // file write
+        std::ofstream wnpt_file;
+        wnpt_file.open((log_dir+"/target_history.txt").c_str(),ios_base::app);
+
+        if(wnpt_file.is_open()){
+            wnpt_file<<msg->pose.position.x<<","<<msg->pose.position.y<<","<<msg->pose.position.z<<"\n";
+            wnpt_file.close();    
+        }else
+            cout<<"logging file for target pose is not opend"<<endl;
+    }
+
+
 }
 
 vector<Point> ObjectsHandler::get_prediction_seq(){

@@ -119,7 +119,7 @@
 		<param name="color/r" value="0.4" />
 		<param name="color/g" value="0.4" />
 		<param name="color/b" value="0.4" />
-		<param name="color/a" value="1.0" />
+		<param name="color/a" value="0.3" />
 		
 		<param name="occupancy_max_z" value="" />
 		<param name="occupancy_min_z" value="0.2" />

@@ -11,6 +11,11 @@ void Chaser::init(ros::NodeHandle nh){
     nh.param("chaser_init_x",spawn_x,0.0);
     nh.param("chaser_init_y",spawn_y,0.0);
     nh.param("chaser_init_z",hovering_z,1.0);
+
+    nh.param("is_log",is_log,false);
+    nh.param<string>("log_dir",log_dir,"/home/jbs");
+    
+
     
 }
 
@@ -27,8 +32,9 @@ bool Chaser::chase_update(GridField* global_edf_ptr,vector<Point> target_pnts,Po
     preplanner.preplan(global_edf_ptr,target_pnts,chaser_x0);
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 
-    double diff = std::chrono::duration_cast<chrono::nanoseconds>( end - begin ).count()*1e-9;
-    ROS_INFO("[Chaser] preplanning completed within %f [sec] ", diff );
+    double diff1 = std::chrono::duration_cast<chrono::nanoseconds>( end - begin ).count()*1e-9;
+    double diff2;
+    ROS_INFO("[Chaser] preplanning completed within %f [sec] ", diff1 );
     
     nav_msgs::Path waypoints = preplanner.get_preplanned_waypoints();
 
@@ -37,9 +43,23 @@ bool Chaser::chase_update(GridField* global_edf_ptr,vector<Point> target_pnts,Po
         begin = std::chrono::steady_clock::now();
         smooth_planner.traj_gen(knots,waypoints,chaser_v0,chaser_a0);
         end = std::chrono::steady_clock::now();
-        diff = std::chrono::duration_cast<chrono::nanoseconds>( end - begin ).count()*1e-9;
+        diff2 = std::chrono::duration_cast<chrono::nanoseconds>( end - begin ).count()*1e-9;
         if (smooth_planner.planner.is_spline_valid())
-            {ROS_INFO("[Chaser] smooth path completed within %f [sec].",diff); is_complete_chasing_path = true; return true;}
+            {ROS_INFO("[Chaser] smooth path completed within %f [sec].",diff2); is_complete_chasing_path = true; 
+            
+            if(is_log){
+                // file write
+                std::ofstream wnpt_file;
+                wnpt_file.open((log_dir+"/chaser_compute_time.txt").c_str(),ios_base::app);
+
+                if(wnpt_file.is_open()){
+                    wnpt_file<<diff1<<","<<diff2<<"\n";
+                    wnpt_file.close();    
+                }else
+                    cout<<"logging file for compute time is not opend"<<endl;
+            }
+            
+            return true;}
         else 
             ROS_WARN("[Chaser] smooth path incompleted.");
     }else
