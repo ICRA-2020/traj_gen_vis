@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+	<arg name = "bag_seq_number" value = "3" />
+    <arg name = "vis_level" value = "5" />
+    <!-- <arg name = "vis_level" value = "5" /> -->
+
+    <node pkg="auto_chaser" type="auto_chaser_analyzer" name="auto_chaser_anal" output="screen">
+        <param name = "/use_sim_time" value = "false"/>
+		<param name="octomap_file" value="$(find auto_chaser)/worlds/map3.bt"/>
+		<param name="chaser_file" value="$(find auto_chaser)/log/map3/n$(arg bag_seq_number)/wv_$(arg vis_level)/chaser_history.txt"/>
+        <param name="target_file" value="$(find auto_chaser)/log/map3/n$(arg bag_seq_number)/wv_$(arg vis_level)/target_history.txt"/>
+        <param name="write_path" value="$(find auto_chaser)/log/map3/n$(arg bag_seq_number)/wv_$(arg vis_level)"/>
+    </node> 
+</launch>

@@ -161,33 +161,33 @@ void ObjectsHandler::tf_update(){
                     {ROS_INFO_ONCE("[Objects handler] tf of target received. "); is_target_recieved = true;
                     
                     
-                    if (is_log){
-                        // file write
-                        std::ofstream wnpt_file;
-                        wnpt_file.open((log_dir+"/target_history.txt").c_str(),ios_base::app);
+                    // if (is_log){
+                    //     // file write
+                    //     std::ofstream wnpt_file;
+                    //     wnpt_file.open((log_dir+"/target_history.txt").c_str(),ios_base::app);
 
-                        if(wnpt_file.is_open()){
-                            wnpt_file<<pose_stamped.pose.position.x<<","<<pose_stamped.pose.position.y<<","<<pose_stamped.pose.position.z<<"\n";
-                            wnpt_file.close();    
-                        }else
-                            cout<<"logging file for target pose is not opend"<<endl;
-                    }
+                    //     if(wnpt_file.is_open()){
+                    //         wnpt_file<<pose_stamped.pose.position.x<<","<<pose_stamped.pose.position.y<<","<<pose_stamped.pose.position.z<<"\n";
+                    //         wnpt_file.close();    
+                    //     }else
+                    //         cout<<"logging file for target pose is not opend"<<endl;
+                    // }
                     
                      target_pose = pose_stamped;} 
                 else
                     {ROS_INFO_ONCE("[Objects handler] tf of chaser received. "); is_chaser_recieved = true;
 
-                        if (is_log){
-                            // file write
-                            std::ofstream wnpt_file;
-                            wnpt_file.open((log_dir+"/chaser_history.txt").c_str(),ios_base::app);
+                        // if (is_log){
+                        //     // file write
+                        //     std::ofstream wnpt_file;
+                        //     wnpt_file.open((log_dir+"/chaser_history.txt").c_str(),ios_base::app);
 
-                            if(wnpt_file.is_open()){
-                                wnpt_file<<pose_stamped.pose.position.x<<","<<pose_stamped.pose.position.y<<","<<pose_stamped.pose.position.z<<"\n";
-                                wnpt_file.close();    
-                            }else
-                                cout<<"logging file for chaser pose is not opend"<<endl;
-                        }                    
+                        //     if(wnpt_file.is_open()){
+                        //         wnpt_file<<pose_stamped.pose.position.x<<","<<pose_stamped.pose.position.y<<","<<pose_stamped.pose.position.z<<"\n";
+                        //         wnpt_file.close();    
+                        //     }else
+                        //         cout<<"logging file for chaser pose is not opend"<<endl;
+                        // }                    
                         
                         chaser_pose = pose_stamped; is_chaser_spawned = true;}  
 
@@ -323,7 +323,7 @@ void ObjectsHandler::callback_target_pose(const PoseStampedConstPtr& msg){
     is_target_recieved = true;
     ROS_INFO_ONCE("[Object Handler] target pose received!");
     if (is_log){
-        // file write
+        // file write for target 
         std::ofstream wnpt_file;
         wnpt_file.open((log_dir+"/target_history.txt").c_str(),ios_base::app);
 
@@ -332,6 +332,18 @@ void ObjectsHandler::callback_target_pose(const PoseStampedConstPtr& msg){
             wnpt_file.close();    
         }else
             cout<<"logging file for target pose is not opend"<<endl;
+
+        // file write for chaser 
+        std::ofstream wnpt_file2;
+        wnpt_file2.open((log_dir+"/chaser_history.txt").c_str(),ios_base::app);
+
+        if(wnpt_file2.is_open()){
+            wnpt_file2<<chaser_pose.pose.position.x<<","<<chaser_pose.pose.position.y<<","<<chaser_pose.pose.position.z<<"\n";
+            wnpt_file2.close();    
+        }else
+            cout<<"logging file for chaser pose is not opend"<<endl;         
+
+
     }
 
 

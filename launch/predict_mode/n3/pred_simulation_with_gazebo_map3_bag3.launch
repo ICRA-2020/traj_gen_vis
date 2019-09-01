@@ -82,8 +82,8 @@
 		<!--graph-->
 		<param name="d_connect_max" type="double" value="3.0" />	
 		<param name="r_safe" type="double" value="0.34" /> <!--the lower bound of edf along edge -->	
-		<param name="w_v" type="double" value="5.0" />	
-		<param name="w_d" type="double" value="7.5" />	
+		<param name="w_v" type="double" value="0.1" />	
+		<param name="w_d" type="double" value="4.5" />	
 		
 
 		<!--smooth planning-->

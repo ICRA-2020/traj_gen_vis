@@ -78,3 +78,10 @@ target_link_libraries(${PROJECT_NAME}_run ${catkin_LIBRARIES} ${QT_LIBRARIES})
 add_executable(${PROJECT_NAME}_run_predict_mode src/qt_ui_predictmode/main_test.cpp ${AUTO_CHASER_LIBS}  ${qpOASES_LIBS} )
 target_link_libraries(${PROJECT_NAME}_run_predict_mode ${catkin_LIBRARIES})
 
+
+## anlyzer 
+add_executable(${PROJECT_NAME}_analyzer src/analyzer/anal_main.cpp ${AUTO_CHASER_LIBS}  ${qpOASES_LIBS} src/analyzer/anal_server.cpp )
+target_link_libraries( ${PROJECT_NAME}_analyzer ${catkin_LIBRARIES})
+
+
+
