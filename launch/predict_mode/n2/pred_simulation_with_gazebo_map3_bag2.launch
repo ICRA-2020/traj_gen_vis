@@ -41,7 +41,7 @@
         <param name="world_frame_id" value="/world" />
         <param name="mav_name" value="$(arg mav_name)" />
         <param name="target_frame_id" value="/target__base_footprint" />
-        <param name="min_z" value="0.4" />
+        <param name="min_z" value="0.6" />
         <param name="chaser_init_x" value="$(arg chaser_x)" />
         <param name="chaser_init_y" value="$(arg chaser_y)" />
         <param name="chaser_init_z" value="1.5" /> <!--for hovering -->

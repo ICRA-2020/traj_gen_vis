@@ -46,7 +46,7 @@
         <param name="run_mode" value="1" /> <!-- 0: simulation without gazebo/ 1: with gazebo -->
         <param name="pred_horizon" value="4" /> 
         <param name="pred_seq" value="4" /> 
-		<param name="early_end_time" value="0.1" /> 
+		<param name="early_end_time" value="0.01" /> 
         <param name="world_frame_id" value="/world" />
         <param name="is_target_tf" value="false" /> <!--true : listen target tf / false listen target pose stamped -->
         <param name="log_dir" value="$(find auto_chaser)/log/$(arg world_name)" /> <!--true : listen target tf / false listen target pose stamped -->
@@ -87,7 +87,7 @@
 		
 
 		<!--smooth planning-->
-		<param name="chaser/safe_corridor_r" type="double" value="0.2" />		 
+		<param name="chaser/safe_corridor_r" type="double" value="0.3" />		 
 		<param name="chaser/verbose" type="bool" value="false" />	
 		<param name="chaser/N_safe_pnts" type="int" value="3" />	
 		<param name="chaser/objective_derivative" type="int" value="3" />	

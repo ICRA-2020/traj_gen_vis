@@ -195,8 +195,10 @@ void Preplanner::graph_construct(GridField* global_edf,Point x0){
     int N_edge = 0; 
     int N_edge_sub = 0;
 
+    GridField* prev_vsf_ptr; 
+
     // in case of t = 0, we don't need (just current step). 
-    for(int t = 1; t<H;t++){
+    for(int t = 0; t<H;t++){
         N_edge_sub = 0;
         GridField* cur_vsf_ptr = vsf_field_ptr_seq[t].get();        
         vector<Node<Point>> cur_layer = cur_vsf_ptr->generate_node(t); // current layer   
@@ -208,8 +210,9 @@ void Preplanner::graph_construct(GridField* global_edf,Point x0){
             Vertex_d cur_vert = boost::add_vertex(cur_pnt,di_graph);
             descriptor_map.insert(make_pair(it_cur->name,cur_vert));
             
-            // call the previous layer  
-            GridField* prev_vsf_ptr = vsf_field_ptr_seq[t-1].get();                        
+            // call the previous layer
+            if (t>0 )  
+                prev_vsf_ptr = vsf_field_ptr_seq[t-1].get();                        
             
             // step2 : let's connect with previous layer and add edges 
             for(auto it_prev = prev_layer.begin(); it_prev < prev_layer.end();it_prev++){ // prev_layer 
@@ -218,9 +221,19 @@ void Preplanner::graph_construct(GridField* global_edf,Point x0){
 				
                 // this condition should be satisfied to be connected 
                 if(((cur_vec-prev_vec).norm() < params.d_connect_max) && (global_edf->getRayMin(cur_pnt,prev_pnt,0) > params.r_safe) ){
-						float weight = (cur_vec-prev_vec).norm() + 
-                            params.w_v*1/sqrt(cur_vsf_ptr->getRayMean(cur_pnt,prev_pnt) * prev_vsf_ptr->getRayMean(prev_pnt,cur_pnt)) 
+                        float weight;
+                        if (t == 0)
+						weight = (cur_vec-prev_vec).norm() + 
+                            params.w_v*1/sqrt(cur_vsf_ptr->getRayMean(cur_pnt,prev_pnt)) 
                             + params.w_d*abs((geo2eigen(cur_vsf_ptr->getCentre()) - cur_vec).norm() - params.d_trakcing_des);                     
+                        else
+                        {
+                         weight = (cur_vec-prev_vec).norm() + 
+                            params.w_v*1/sqrt(cur_vsf_ptr->getRayMean(cur_pnt,prev_pnt) * prev_vsf_ptr->getRayMean(prev_pnt,cur_pnt)) 
+                            + params.w_d*abs((geo2eigen(cur_vsf_ptr->getCentre()) - cur_vec).norm() - params.d_trakcing_des);
+                        }
+                        
+                                        
                     boost::add_edge(prev_vert,cur_vert,weight,di_graph);
                     
 					
@@ -240,7 +253,7 @@ void Preplanner::graph_construct(GridField* global_edf,Point x0){
 
     // graph finishing 
 
-    GridField* prev_vsf_ptr = vsf_field_ptr_seq[H-1].get();
+    prev_vsf_ptr = vsf_field_ptr_seq[H-1].get();
     Vertex_d vf = boost::add_vertex(Point(),di_graph);
     descriptor_map.insert(make_pair(VertexName("xf"),vf));
 

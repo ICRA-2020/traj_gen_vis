@@ -24,12 +24,15 @@ bool trigger(TargetPredictor* predictor,Wrapper* chasing_wrapper,double t_cur,ro
 
     // extract the prediction points (ros time)
     VectorXd pred_horizon_vec_ros(pred_seq);
-    pred_horizon_vec_ros.setLinSpaced(pred_seq,t_ros.toSec(),t_ros.toSec() + pred_horizon); 
+    
+    double dt = double(pred_horizon) / pred_seq;
+
+    pred_horizon_vec_ros.setLinSpaced(pred_seq,t_ros.toSec()+dt,t_ros.toSec() + pred_horizon); 
     vector<Point> target_seq = predictor->eval_time_seq(pred_horizon_vec_ros); 
 
     // trigger chasing (sim time) 
-    VectorXd pred_horizon_vec(pred_seq);
-    pred_horizon_vec.setLinSpaced(pred_seq,t_cur, t_cur + pred_horizon); 
+    VectorXd pred_horizon_vec(pred_seq+1);
+    pred_horizon_vec.setLinSpaced(pred_seq+1,t_cur, t_cur + pred_horizon); 
     return chasing_wrapper->trigger_chasing(target_seq,pred_horizon_vec);
 };
 
@@ -69,7 +72,7 @@ int main(int argc, char * argv[]){
 
         // check the trigger condition 
         chasing_trigger_condition = last_chasing_trigger_time == 0 
-            // or (t_cur - last_chasing_trigger_time) > pred_horizon - early_end_time) 
+            or ((t_cur - last_chasing_trigger_time) > pred_horizon - early_end_time) 
             or is_new_prediction;
 
         chasing_trigger_condition = chasing_trigger_condition and target_predictor.get_forecaster_ptr()->get_predict_condition();
