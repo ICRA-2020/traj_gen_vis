@@ -110,6 +110,9 @@ bool Wrapper::trigger_chasing(vector<Point> target_pred_seq,TimeSeries chasing_k
         chaser_init_point = chaser.eval_point(t_planning_start);
         chaser_init_vel = chaser.eval_velocity(t_planning_start);
         chaser_init_acc = chaser.eval_acceleration(t_planning_start);
+        printf( "[Wrapper] based on this vel = [%f,%f,%f] /  accel = [%f,%f,%f]",
+                chaser_init_vel.linear.x,chaser_init_vel.linear.y,chaser_init_vel.linear.z,
+                chaser_init_acc.linear.x,chaser_init_acc.linear.y,chaser_init_acc.linear.z );     
     }
 
     // chasing policy update 
