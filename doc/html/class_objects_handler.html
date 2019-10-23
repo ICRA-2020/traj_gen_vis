@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">auto_chaser
-   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_objects_handler.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,26 +82,18 @@ $(document).ready(function(){initNavTree('class_objects_handler.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_objects_handler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ObjectsHandler Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="">ObjectHandler.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for ObjectsHandler:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_objects_handler__coll__graph.png" border="0" usemap="#_objects_handler_coll__map" alt="Collaboration graph"/></div>
-<map name="_objects_handler_coll__map" id="_objects_handler_coll__map">
-<area shape="rect" id="node2" href="struct_field_params.html" title="FieldParams" alt="" coords="14,5,109,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<p><code>#include &lt;<a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -145,16 +113,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa1af309b0e964ccb6df8dede045fa32b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41d48832b07a4d4276147a99dd1d31bc"><td class="memItemLeft" align="right" valign="top">Twist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a41d48832b07a4d4276147a99dd1d31bc">get_chaser_acceleration</a> ()</td></tr>
 <tr class="separator:a41d48832b07a4d4276147a99dd1d31bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e9d105db04be181661dc979314de3c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a07e9d105db04be181661dc979314de3c">get_world_frame_id</a> ()</td></tr>
+<tr class="separator:a07e9d105db04be181661dc979314de3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a988bdf05045c40348b34ae8beecd8884"><td class="memItemLeft" align="right" valign="top">octomap::OcTree *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a988bdf05045c40348b34ae8beecd8884">get_octree_obj_ptr</a> ()</td></tr>
 <tr class="separator:a988bdf05045c40348b34ae8beecd8884"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe849882d1feeef8316a45632381da54"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_grid_field.html">GridField</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#afe849882d1feeef8316a45632381da54">get_edf_grid_ptr</a> ()</td></tr>
 <tr class="separator:afe849882d1feeef8316a45632381da54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5744110d979850b3e2d8896793435d0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a5744110d979850b3e2d8896793435d0c">octomap_callback</a> (const octomap_msgs::Octomap &amp;msg)</td></tr>
 <tr class="separator:a5744110d979850b3e2d8896793435d0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ee7bac0ddf6a18e58ca8183e64ff67a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a5ee7bac0ddf6a18e58ca8183e64ff67a">callback_target_pose</a> (const PoseStampedConstPtr &amp;msg)</td></tr>
+<tr class="separator:a5ee7bac0ddf6a18e58ca8183e64ff67a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a968feba95e0707919b6c3632781510ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a968feba95e0707919b6c3632781510ba">chaser_spawn</a> (PoseStamped spawn_pose)</td></tr>
 <tr class="separator:a968feba95e0707919b6c3632781510ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c56416d3583b70d181d69d900b884b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a4c56416d3583b70d181d69d900b884b5">callback_chaser_init_pose</a> (const geometry_msgs::PoseStampedConstPtr &amp;chaser_init_pose)</td></tr>
 <tr class="separator:a4c56416d3583b70d181d69d900b884b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28ac9c7ef998a413825cddca78324f61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a28ac9c7ef998a413825cddca78324f61">callback_chaser_control_pose</a> (const geometry_msgs::PoseStampedConstPtr &amp;chaser_control_pose)</td></tr>
+<tr class="memdesc:a28ac9c7ef998a413825cddca78324f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">callback function for control pose from wrapper. This is intended to replace the currnet chaser pose directly with desired pose  <a href="#a28ac9c7ef998a413825cddca78324f61">More...</a><br /></td></tr>
+<tr class="separator:a28ac9c7ef998a413825cddca78324f61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6896e4f9863bd1a4fbc8498d0cb20f09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a6896e4f9863bd1a4fbc8498d0cb20f09">tf_update</a> ()</td></tr>
 <tr class="separator:a6896e4f9863bd1a4fbc8498d0cb20f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16cf7fca3059a03da4ec795f2af7fb74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a16cf7fca3059a03da4ec795f2af7fb74">publish</a> ()</td></tr>
@@ -178,58 +153,19 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a16165ae7c0167ba8d2a0151a8a4fbfd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaefe98eb412d4c32cda2bf0bd602ae7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#acaefe98eb412d4c32cda2bf0bd602ae7">is_insert_permit</a> = false</td></tr>
 <tr class="separator:acaefe98eb412d4c32cda2bf0bd602ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a3b384ae3f8f66557b1c1ac04523fb330"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a3b384ae3f8f66557b1c1ac04523fb330">sub_octomap</a></td></tr>
-<tr class="separator:a3b384ae3f8f66557b1c1ac04523fb330"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a2e098b85260b71c88b81dadd6ca58a"><td class="memItemLeft" align="right" valign="top">ros::Subscriber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a9a2e098b85260b71c88b81dadd6ca58a">sub_chaser_init_pose</a></td></tr>
-<tr class="separator:a9a2e098b85260b71c88b81dadd6ca58a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86a1f98983b533f77bf17867affb5251"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a86a1f98983b533f77bf17867affb5251">pub_edf</a></td></tr>
-<tr class="separator:a86a1f98983b533f77bf17867affb5251"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6904dcaaad790234569760df0fb0ac2"><td class="memItemLeft" align="right" valign="top">visualization_msgs::Marker&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a></td></tr>
-<tr class="separator:ad6904dcaaad790234569760df0fb0ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea45bba31aa769008386100725bda66b"><td class="memItemLeft" align="right" valign="top">tf::TransformListener *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#aea45bba31aa769008386100725bda66b">tf_listener</a></td></tr>
-<tr class="separator:aea45bba31aa769008386100725bda66b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af49de4eabb124e2ee6c9e12ebb31bca3"><td class="memItemLeft" align="right" valign="top">tf::TransformBroadcaster *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#af49de4eabb124e2ee6c9e12ebb31bca3">tf_talker</a></td></tr>
-<tr class="separator:af49de4eabb124e2ee6c9e12ebb31bca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c0586ae7467bb8a3df8ad247ac7b10b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">world_frame_id</a></td></tr>
-<tr class="separator:a1c0586ae7467bb8a3df8ad247ac7b10b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e8d08bf5d76d69f1768b53fd799953c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a3e8d08bf5d76d69f1768b53fd799953c">chaser_frame_id</a></td></tr>
-<tr class="separator:a3e8d08bf5d76d69f1768b53fd799953c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a616768386c4c7da9af4da3d07bd936"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a7a616768386c4c7da9af4da3d07bd936">target_frame_id</a></td></tr>
-<tr class="separator:a7a616768386c4c7da9af4da3d07bd936"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70b5e252a180d919653c7b53aff6f534"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a70b5e252a180d919653c7b53aff6f534">octomap_topic_name</a></td></tr>
-<tr class="separator:a70b5e252a180d919653c7b53aff6f534"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad436bfd8b262f473f0e4ca92b3c3402b"><td class="memItemLeft" align="right" valign="top">PoseStamped&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#ad436bfd8b262f473f0e4ca92b3c3402b">target_pose</a></td></tr>
-<tr class="separator:ad436bfd8b262f473f0e4ca92b3c3402b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79fd5f872a40cca5ea599f1e83dcb3ad"><td class="memItemLeft" align="right" valign="top">PoseStamped&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a></td></tr>
-<tr class="separator:a79fd5f872a40cca5ea599f1e83dcb3ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74e3f3b4bf263711c389190a595368e2"><td class="memItemLeft" align="right" valign="top">Twist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a74e3f3b4bf263711c389190a595368e2">chaser_vel</a></td></tr>
-<tr class="separator:a74e3f3b4bf263711c389190a595368e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36db60068ada56b9142b3d6ef0437749"><td class="memItemLeft" align="right" valign="top">Twist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a36db60068ada56b9142b3d6ef0437749">chaser_acc</a></td></tr>
-<tr class="separator:a36db60068ada56b9142b3d6ef0437749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76ad7ca7513755408c02dd36dea94c6e"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; octomap::OcTree &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a76ad7ca7513755408c02dd36dea94c6e">octree_ptr</a></td></tr>
-<tr class="separator:a76ad7ca7513755408c02dd36dea94c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa96d8c71f5e8c6423c88d3302220d4cf"><td class="memItemLeft" align="right" valign="top">DynamicEDTOctomap *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#aa96d8c71f5e8c6423c88d3302220d4cf">edf_ptr</a></td></tr>
-<tr class="separator:aa96d8c71f5e8c6423c88d3302220d4cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2063609510d5ad8f136a275b0d127c1"><td class="memItemLeft" align="right" valign="top">shared_ptr&lt; <a class="el" href="struct_grid_field.html">GridField</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#af2063609510d5ad8f136a275b0d127c1">edf_grid_ptr</a></td></tr>
-<tr class="separator:af2063609510d5ad8f136a275b0d127c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8c10c7a10aeb8abf1a44b7361f646e6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#ac8c10c7a10aeb8abf1a44b7361f646e6">min_z</a></td></tr>
-<tr class="separator:ac8c10c7a10aeb8abf1a44b7361f646e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa991434e17ca1144c80633ff7530534c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#aa991434e17ca1144c80633ff7530534c">chaser_init_z</a></td></tr>
-<tr class="separator:aa991434e17ca1144c80633ff7530534c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a577e8b62f1e55d36330048fb9fd3a432"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a577e8b62f1e55d36330048fb9fd3a432">edf_max_viz_dist</a></td></tr>
-<tr class="separator:a577e8b62f1e55d36330048fb9fd3a432"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae71885df3c4e28f45be7bb0e5a383293"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#ae71885df3c4e28f45be7bb0e5a383293">edf_max_dist</a></td></tr>
-<tr class="separator:ae71885df3c4e28f45be7bb0e5a383293"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46ed8cfd250b183909a7d3a1f56cee6b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_field_params.html">FieldParams</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a></td></tr>
-<tr class="separator:a46ed8cfd250b183909a7d3a1f56cee6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95908d5b00f62b629dc7f20acb714292"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a95908d5b00f62b629dc7f20acb714292">run_mode</a></td></tr>
-<tr class="separator:a95908d5b00f62b629dc7f20acb714292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98d5880c9ab3a4b227d8c57403213f65"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a98d5880c9ab3a4b227d8c57403213f65">is_target_tf</a> = true</td></tr>
+<tr class="separator:a98d5880c9ab3a4b227d8c57403213f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8d1ea6646024f0a03e154a7c2c07682"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#ad8d1ea6646024f0a03e154a7c2c07682">is_path_solved</a> = false</td></tr>
+<tr class="separator:ad8d1ea6646024f0a03e154a7c2c07682"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a057b7b0a2fa3eca3a83b0d8de54e0f60"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a057b7b0a2fa3eca3a83b0d8de54e0f60">log_dir</a></td></tr>
+<tr class="separator:a057b7b0a2fa3eca3a83b0d8de54e0f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a953cbc6386a438635bd1b12a8e479b38"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_objects_handler.html#a953cbc6386a438635bd1b12a8e479b38">is_log</a></td></tr>
+<tr class="separator:a953cbc6386a438635bd1b12a8e479b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00004">4</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a932c6bc722daa78f4f8e31894911c4c7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -250,7 +186,36 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{};</div></div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00065">65</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a932c6bc722daa78f4f8e31894911c4c7_cgraph.png" border="0" usemap="#class_objects_handler_a932c6bc722daa78f4f8e31894911c4c7_cgraph" alt=""/></div>
+<map name="class_objects_handler_a932c6bc722daa78f4f8e31894911c4c7_cgraph" id="class_objects_handler_a932c6bc722daa78f4f8e31894911c4c7_cgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="276,169,413,195"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a5744110d979850b3e2d8896793435d0c" title="ObjectsHandler::octomap\l_callback" alt="" coords="473,59,644,100"/>
+<area shape="rect" id="node4" href="class_objects_handler.html#ae6da4f0f0a265c75722e02d68d519f07" title="ObjectsHandler::compute_edf" alt="" coords="692,37,887,63"/>
+<area shape="rect" id="node6" href="class_objects_handler.html#a4c56416d3583b70d181d69d900b884b5" title="ObjectsHandler::callback\l_chaser_init_pose" alt="" coords="475,255,643,296"/>
+<area shape="rect" id="node7" href="class_objects_handler.html#a968feba95e0707919b6c3632781510ba" title="ObjectsHandler::chaser\l_spawn" alt="" coords="710,284,869,325"/>
+<area shape="rect" id="node8" href="class_objects_handler.html#a28ac9c7ef998a413825cddca78324f61" title="callback function for control pose from wrapper. This is intended to replace the currnet chaser pose ..." alt="" coords="475,124,643,165"/>
+<area shape="rect" id="node9" href="class_objects_handler.html#a5ee7bac0ddf6a18e58ca8183e64ff67a" title="ObjectsHandler::callback\l_target_pose" alt="" coords="475,189,643,231"/>
+<area shape="rect" id="node10" href="class_objects_handler.html#a2b9e69afe54afea0380431d8f1f5142d" title="ObjectsHandler::get\l_target_pose" alt="" coords="275,372,414,413"/>
+<area shape="rect" id="node11" href="class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56" title="ObjectsHandler::get\l_chaser_pose" alt="" coords="275,437,414,479"/>
+<area shape="rect" id="node12" href="class_objects_handler.html#aa1af309b0e964ccb6df8dede045fa32b" title="ObjectsHandler::get\l_chaser_velocity" alt="" coords="275,503,414,544"/>
+<area shape="rect" id="node13" href="class_objects_handler.html#a41d48832b07a4d4276147a99dd1d31bc" title="ObjectsHandler::get\l_chaser_acceleration" alt="" coords="272,568,417,609"/>
+<area shape="rect" id="node14" href="class_objects_handler.html#a07e9d105db04be181661dc979314de3c" title="ObjectsHandler::get\l_world_frame_id" alt="" coords="275,633,414,675"/>
+<area shape="rect" id="node15" href="class_objects_handler.html#a988bdf05045c40348b34ae8beecd8884" title="ObjectsHandler::get\l_octree_obj_ptr" alt="" coords="275,699,414,740"/>
+<area shape="rect" id="node16" href="class_objects_handler.html#afe849882d1feeef8316a45632381da54" title="ObjectsHandler::get\l_edf_grid_ptr" alt="" coords="275,764,414,805"/>
+<area shape="rect" id="node17" href="class_objects_handler.html#a6896e4f9863bd1a4fbc8498d0cb20f09" title="ObjectsHandler::tf\l_update" alt="" coords="281,829,409,871"/>
+<area shape="rect" id="node18" href="class_objects_handler.html#a16cf7fca3059a03da4ec795f2af7fb74" title="ObjectsHandler::publish" alt="" coords="264,895,425,922"/>
+<area shape="rect" id="node19" href="class_objects_handler.html#a4793f1ed257c849b28f0386f635ee714" title="ObjectsHandler::get\l_prediction_seq" alt="" coords="275,947,414,988"/>
+<area shape="rect" id="node5" href="_common_8h.html#a4b2e4b6698ff92678b23392dc111b36d" title="get_color_dist" alt="" coords="935,37,1037,63"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a5d3298d7029619c1931d3dda34278e05"></a>
@@ -266,10 +231,54 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;{};</div></div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00003">3</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a28ac9c7ef998a413825cddca78324f61"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ObjectsHandler::callback_chaser_control_pose </td>
+          <td>(</td>
+          <td class="paramtype">const geometry_msgs::PoseStampedConstPtr &amp;&#160;</td>
+          <td class="paramname"><em>chaser_control_pose</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>callback function for control pose from wrapper. This is intended to replace the currnet chaser pose directly with desired pose </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chaser_control_pose</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00311">311</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a28ac9c7ef998a413825cddca78324f61_icgraph.png" border="0" usemap="#class_objects_handler_a28ac9c7ef998a413825cddca78324f61_icgraph" alt=""/></div>
+<map name="class_objects_handler_a28ac9c7ef998a413825cddca78324f61_icgraph" id="class_objects_handler_a28ac9c7ef998a413825cddca78324f61_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="407,5,617,32"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="221,56,359,83"/>
+<area shape="rect" id="node4" href="class_wrapper.html#af336781e7d75d525e7b152366a0e0d93" title="Wrapper::init" alt="" coords="464,56,560,83"/>
+<area shape="rect" id="node5" href="class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="665,31,828,57"/>
+<area shape="rect" id="node8" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="721,81,772,108"/>
+<area shape="rect" id="node6" href="class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="876,31,985,57"/>
+<area shape="rect" id="node7" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="1033,31,1221,57"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a4c56416d3583b70d181d69d900b884b5"></a>
 <div class="memitem">
 <div class="memproto">
@@ -283,8 +292,69 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                                                                                                      {</div><div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div><div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <a class="code" href="class_objects_handler.html#a968feba95e0707919b6c3632781510ba">chaser_spawn</a>(*chaser_init_pose);    </div><div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;}</div><div class="ttc" id="class_objects_handler_html_a968feba95e0707919b6c3632781510ba"><div class="ttname"><a href="class_objects_handler.html#a968feba95e0707919b6c3632781510ba">ObjectsHandler::chaser_spawn</a></div><div class="ttdeci">void chaser_spawn(PoseStamped spawn_pose)</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:249</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00302">302</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a4c56416d3583b70d181d69d900b884b5_cgraph.png" border="0" usemap="#class_objects_handler_a4c56416d3583b70d181d69d900b884b5_cgraph" alt=""/></div>
+<map name="class_objects_handler_a4c56416d3583b70d181d69d900b884b5_cgraph" id="class_objects_handler_a4c56416d3583b70d181d69d900b884b5_cgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a968feba95e0707919b6c3632781510ba" title="ObjectsHandler::chaser\l_spawn" alt="" coords="221,5,380,47"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a4c56416d3583b70d181d69d900b884b5_icgraph.png" border="0" usemap="#class_objects_handler_a4c56416d3583b70d181d69d900b884b5_icgraph" alt=""/></div>
+<map name="class_objects_handler_a4c56416d3583b70d181d69d900b884b5_icgraph" id="class_objects_handler_a4c56416d3583b70d181d69d900b884b5_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="407,5,617,32"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="221,56,359,83"/>
+<area shape="rect" id="node4" href="class_wrapper.html#af336781e7d75d525e7b152366a0e0d93" title="Wrapper::init" alt="" coords="464,56,560,83"/>
+<area shape="rect" id="node5" href="class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="665,31,828,57"/>
+<area shape="rect" id="node8" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="721,81,772,108"/>
+<area shape="rect" id="node6" href="class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="876,31,985,57"/>
+<area shape="rect" id="node7" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="1033,31,1221,57"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ee7bac0ddf6a18e58ca8183e64ff67a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ObjectsHandler::callback_target_pose </td>
+          <td>(</td>
+          <td class="paramtype">const PoseStampedConstPtr &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00318">318</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a5ee7bac0ddf6a18e58ca8183e64ff67a_icgraph.png" border="0" usemap="#class_objects_handler_a5ee7bac0ddf6a18e58ca8183e64ff67a_icgraph" alt=""/></div>
+<map name="class_objects_handler_a5ee7bac0ddf6a18e58ca8183e64ff67a_icgraph" id="class_objects_handler_a5ee7bac0ddf6a18e58ca8183e64ff67a_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="407,5,617,32"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="221,56,359,83"/>
+<area shape="rect" id="node4" href="class_wrapper.html#af336781e7d75d525e7b152366a0e0d93" title="Wrapper::init" alt="" coords="464,56,560,83"/>
+<area shape="rect" id="node5" href="class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="665,31,828,57"/>
+<area shape="rect" id="node8" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="721,81,772,108"/>
+<area shape="rect" id="node6" href="class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="876,31,985,57"/>
+<area shape="rect" id="node7" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="1033,31,1221,57"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a968feba95e0707919b6c3632781510ba"></a>
@@ -300,12 +370,26 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                                                       {</div><div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    ROS_INFO_ONCE(<span class="stringliteral">&quot;[Objects handler] spawning chaser.&quot;</span>); </div><div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    </div><div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <a class="code" href="class_objects_handler.html#a86f8528ff5697c87fc6a3fcd6ba0f42c">is_chaser_recieved</a> = <span class="keyword">true</span>;</div><div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <a class="code" href="class_objects_handler.html#a16165ae7c0167ba8d2a0151a8a4fbfd5">is_chaser_spawned</a> = <span class="keyword">true</span>;    </div><div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    </div><div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="class_objects_handler.html#a95908d5b00f62b629dc7f20acb714292">run_mode</a> == 0){</div><div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a> = spawn_pose;</div><div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a>.pose.position.z = <a class="code" href="class_objects_handler.html#aa991434e17ca1144c80633ff7530534c">chaser_init_z</a>;</div><div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div><div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    }<span class="keywordflow">else</span>{</div><div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="comment">// hover command </span></div><div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        </div><div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    }</div><div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div><div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;}</div><div class="ttc" id="class_objects_handler_html_aa991434e17ca1144c80633ff7530534c"><div class="ttname"><a href="class_objects_handler.html#aa991434e17ca1144c80633ff7530534c">ObjectsHandler::chaser_init_z</a></div><div class="ttdeci">double chaser_init_z</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:34</div></div>
-<div class="ttc" id="class_objects_handler_html_a16165ae7c0167ba8d2a0151a8a4fbfd5"><div class="ttname"><a href="class_objects_handler.html#a16165ae7c0167ba8d2a0151a8a4fbfd5">ObjectsHandler::is_chaser_spawned</a></div><div class="ttdeci">bool is_chaser_spawned</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:48</div></div>
-<div class="ttc" id="class_objects_handler_html_a95908d5b00f62b629dc7f20acb714292"><div class="ttname"><a href="class_objects_handler.html#a95908d5b00f62b629dc7f20acb714292">ObjectsHandler::run_mode</a></div><div class="ttdeci">int run_mode</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:38</div></div>
-<div class="ttc" id="class_objects_handler_html_a86f8528ff5697c87fc6a3fcd6ba0f42c"><div class="ttname"><a href="class_objects_handler.html#a86f8528ff5697c87fc6a3fcd6ba0f42c">ObjectsHandler::is_chaser_recieved</a></div><div class="ttdeci">bool is_chaser_recieved</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:44</div></div>
-<div class="ttc" id="class_objects_handler_html_a79fd5f872a40cca5ea599f1e83dcb3ad"><div class="ttname"><a href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">ObjectsHandler::chaser_pose</a></div><div class="ttdeci">PoseStamped chaser_pose</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:25</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00286">286</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a968feba95e0707919b6c3632781510ba_icgraph.png" border="0" usemap="#class_objects_handler_a968feba95e0707919b6c3632781510ba_icgraph" alt=""/></div>
+<map name="class_objects_handler_a968feba95e0707919b6c3632781510ba_icgraph" id="class_objects_handler_a968feba95e0707919b6c3632781510ba_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="613,34,824,61"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a4c56416d3583b70d181d69d900b884b5" title="ObjectsHandler::callback\l_chaser_init_pose" alt="" coords="212,35,380,76"/>
+<area shape="rect" id="node4" href="class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="428,85,565,111"/>
+<area shape="rect" id="node5" href="class_wrapper.html#af336781e7d75d525e7b152366a0e0d93" title="Wrapper::init" alt="" coords="671,85,767,111"/>
+<area shape="rect" id="node6" href="class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="872,59,1035,86"/>
+<area shape="rect" id="node9" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="928,110,979,137"/>
+<area shape="rect" id="node7" href="class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="1083,59,1192,86"/>
+<area shape="rect" id="node8" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="1240,59,1428,86"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ae6da4f0f0a265c75722e02d68d519f07"></a>
@@ -320,12 +404,36 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                                {</div><div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div><div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> ix = 0 ; ix&lt;<a class="code" href="class_objects_handler.html#af2063609510d5ad8f136a275b0d127c1">edf_grid_ptr</a>.get()-&gt;Nx ; ix++)</div><div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> iy = 0 ; iy&lt;<a class="code" href="class_objects_handler.html#af2063609510d5ad8f136a275b0d127c1">edf_grid_ptr</a>.get()-&gt;Ny ; iy++)</div><div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> iz = 0 ; iz&lt;<a class="code" href="class_objects_handler.html#af2063609510d5ad8f136a275b0d127c1">edf_grid_ptr</a>.get()-&gt;Nz ; iz++){</div><div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                Point eval_pnt = <a class="code" href="class_objects_handler.html#af2063609510d5ad8f136a275b0d127c1">edf_grid_ptr</a>.get()-&gt;getCellPnt(Vector3i(ix,iy,iz));  </div><div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                <span class="comment">// query edf value from edf mapper                       </span></div><div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                <span class="keywordtype">float</span> dist_val = <a class="code" href="class_objects_handler.html#aa96d8c71f5e8c6423c88d3302220d4cf">edf_ptr</a>-&gt;getDistance(octomap::point3d(eval_pnt.x,eval_pnt.y,eval_pnt.z));</div><div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div><div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                <span class="comment">// edf value assign to homogenous grid  </span></div><div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                <a class="code" href="class_objects_handler.html#af2063609510d5ad8f136a275b0d127c1">edf_grid_ptr</a>.get()-&gt;field_vals[ix][iy][iz] = dist_val;</div><div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div><div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                <span class="comment">// marker generation</span></div><div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                <span class="keywordflow">if</span>(dist_val&lt;<a class="code" href="class_objects_handler.html#a577e8b62f1e55d36330048fb9fd3a432">edf_max_viz_dist</a>){                </div><div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                    <span class="comment">// color </span></div><div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                    std_msgs::ColorRGBA color;                    </div><div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                    <a class="code" href="_common_8h.html#a4b2e4b6698ff92678b23392dc111b36d">get_color_dist</a>(dist_val,color,<a class="code" href="class_objects_handler.html#a577e8b62f1e55d36330048fb9fd3a432">edf_max_viz_dist</a>);</div><div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div><div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                    <span class="comment">// marker </span></div><div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;                    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.points.push_back(eval_pnt);</div><div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;                    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.colors.push_back(color);                    </div><div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;                }</div><div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            }    </div><div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div><div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}</div><div class="ttc" id="_common_8h_html_a4b2e4b6698ff92678b23392dc111b36d"><div class="ttname"><a href="_common_8h.html#a4b2e4b6698ff92678b23392dc111b36d">get_color_dist</a></div><div class="ttdeci">void get_color_dist(float dist_val, std_msgs::ColorRGBA &amp;color, float max_plot_dist_val)</div><div class="ttdef"><b>Definition:</b> Common.cpp:25</div></div>
-<div class="ttc" id="class_objects_handler_html_a577e8b62f1e55d36330048fb9fd3a432"><div class="ttname"><a href="class_objects_handler.html#a577e8b62f1e55d36330048fb9fd3a432">ObjectsHandler::edf_max_viz_dist</a></div><div class="ttdeci">double edf_max_viz_dist</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:35</div></div>
-<div class="ttc" id="class_objects_handler_html_af2063609510d5ad8f136a275b0d127c1"><div class="ttname"><a href="class_objects_handler.html#af2063609510d5ad8f136a275b0d127c1">ObjectsHandler::edf_grid_ptr</a></div><div class="ttdeci">shared_ptr&lt; GridField &gt; edf_grid_ptr</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:30</div></div>
-<div class="ttc" id="class_objects_handler_html_ad6904dcaaad790234569760df0fb0ac2"><div class="ttname"><a href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">ObjectsHandler::markers_edf</a></div><div class="ttdeci">visualization_msgs::Marker markers_edf</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:10</div></div>
-<div class="ttc" id="class_objects_handler_html_aa96d8c71f5e8c6423c88d3302220d4cf"><div class="ttname"><a href="class_objects_handler.html#aa96d8c71f5e8c6423c88d3302220d4cf">ObjectsHandler::edf_ptr</a></div><div class="ttdeci">DynamicEDTOctomap * edf_ptr</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:29</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00255">255</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_ae6da4f0f0a265c75722e02d68d519f07_cgraph.png" border="0" usemap="#class_objects_handler_ae6da4f0f0a265c75722e02d68d519f07_cgraph" alt=""/></div>
+<map name="class_objects_handler_ae6da4f0f0a265c75722e02d68d519f07_cgraph" id="class_objects_handler_ae6da4f0f0a265c75722e02d68d519f07_cgraph">
+<area shape="rect" id="node2" href="_common_8h.html#a4b2e4b6698ff92678b23392dc111b36d" title="get_color_dist" alt="" coords="248,5,351,32"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_ae6da4f0f0a265c75722e02d68d519f07_icgraph.png" border="0" usemap="#class_objects_handler_ae6da4f0f0a265c75722e02d68d519f07_icgraph" alt=""/></div>
+<map name="class_objects_handler_ae6da4f0f0a265c75722e02d68d519f07_icgraph" id="class_objects_handler_ae6da4f0f0a265c75722e02d68d519f07_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="652,27,863,53"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a5744110d979850b3e2d8896793435d0c" title="ObjectsHandler::octomap\l_callback" alt="" coords="248,27,419,69"/>
+<area shape="rect" id="node4" href="class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="467,77,604,104"/>
+<area shape="rect" id="node5" href="class_wrapper.html#af336781e7d75d525e7b152366a0e0d93" title="Wrapper::init" alt="" coords="709,77,805,104"/>
+<area shape="rect" id="node6" href="class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="911,52,1073,79"/>
+<area shape="rect" id="node9" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="967,103,1017,129"/>
+<area shape="rect" id="node7" href="class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="1121,52,1231,79"/>
+<area shape="rect" id="node8" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="1279,52,1467,79"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a41d48832b07a4d4276147a99dd1d31bc"></a>
@@ -340,8 +448,26 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="class_objects_handler.html#a36db60068ada56b9142b3d6ef0437749">chaser_acc</a>;};</div><div class="ttc" id="class_objects_handler_html_a36db60068ada56b9142b3d6ef0437749"><div class="ttname"><a href="class_objects_handler.html#a36db60068ada56b9142b3d6ef0437749">ObjectsHandler::chaser_acc</a></div><div class="ttdeci">Twist chaser_acc</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:27</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00125">125</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a41d48832b07a4d4276147a99dd1d31bc_icgraph.png" border="0" usemap="#class_objects_handler_a41d48832b07a4d4276147a99dd1d31bc_icgraph" alt=""/></div>
+<map name="class_objects_handler_a41d48832b07a4d4276147a99dd1d31bc_icgraph" id="class_objects_handler_a41d48832b07a4d4276147a99dd1d31bc_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="199,5,409,32"/>
+<area shape="rect" id="node3" href="class_wrapper.html#a21a0e115ea80e053e4f2defd1362b92f" title="Wrapper::trigger_chasing" alt="" coords="221,56,387,83"/>
+<area shape="rect" id="node4" href="class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="457,5,624,32"/>
+<area shape="rect" id="node6" href="class_q_node.html#a23bd7e0744ad4c7b5d5464485375bef1" title="QNode::trigger" alt="" coords="487,56,594,83"/>
+<area shape="rect" id="node8" href="main__test_8cpp.html#ac367b226934e0e06e2ebf329fa937326" title="should be triggered only prediction exists t_cur and t_ros are redundant actually ..." alt="" coords="511,107,570,133"/>
+<area shape="rect" id="node5" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="672,5,860,32"/>
+<area shape="rect" id="node7" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="721,56,811,83"/>
+<area shape="rect" id="node9" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="741,107,791,133"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a4ac7a7bb712575c2ff6ffbf37144cf56"></a>
@@ -356,8 +482,30 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a>;};</div><div class="ttc" id="class_objects_handler_html_a79fd5f872a40cca5ea599f1e83dcb3ad"><div class="ttname"><a href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">ObjectsHandler::chaser_pose</a></div><div class="ttdeci">PoseStamped chaser_pose</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:25</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00123">123</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a4ac7a7bb712575c2ff6ffbf37144cf56_icgraph.png" border="0" usemap="#class_objects_handler_a4ac7a7bb712575c2ff6ffbf37144cf56_icgraph" alt=""/></div>
+<map name="class_objects_handler_a4ac7a7bb712575c2ff6ffbf37144cf56_icgraph" id="class_objects_handler_a4ac7a7bb712575c2ff6ffbf37144cf56_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="192,5,403,32"/>
+<area shape="rect" id="node3" href="class_wrapper.html#a009ee5c325926f92df42319d5469a376" title="Wrapper::session" alt="" coords="701,157,825,184"/>
+<area shape="rect" id="node6" href="class_wrapper.html#a21a0e115ea80e053e4f2defd1362b92f" title="Wrapper::trigger_chasing" alt="" coords="458,56,625,83"/>
+<area shape="rect" id="node11" href="class_wrapper.html#ac2338df9e7b31f3291ed1cbd137a6f14" title="evalate the latest control pose from chaser " alt="" coords="208,157,387,184"/>
+<area shape="rect" id="node4" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="944,68,1033,95"/>
+<area shape="rect" id="node5" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="963,144,1014,171"/>
+<area shape="rect" id="node7" href="class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="680,5,847,32"/>
+<area shape="rect" id="node9" href="class_q_node.html#a23bd7e0744ad4c7b5d5464485375bef1" title="QNode::trigger" alt="" coords="710,56,817,83"/>
+<area shape="rect" id="node10" href="main__test_8cpp.html#ac367b226934e0e06e2ebf329fa937326" title="should be triggered only prediction exists t_cur and t_ros are redundant actually ..." alt="" coords="734,107,793,133"/>
+<area shape="rect" id="node8" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="895,5,1083,32"/>
+<area shape="rect" id="node12" href="class_wrapper.html#a94a786272ea8120469cb476d021c5b76" title="publish the control visualization (geometry_msgs) " alt="" coords="451,157,632,184"/>
+<area shape="rect" id="node13" href="class_wrapper.html#a7f0e09c8a675991a3c987e41c6b9ff9d" title="publish the control visualization (trajectory_msgs) " alt="" coords="456,208,627,235"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aa1af309b0e964ccb6df8dede045fa32b"></a>
@@ -372,8 +520,26 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="class_objects_handler.html#a74e3f3b4bf263711c389190a595368e2">chaser_vel</a>;};</div><div class="ttc" id="class_objects_handler_html_a74e3f3b4bf263711c389190a595368e2"><div class="ttname"><a href="class_objects_handler.html#a74e3f3b4bf263711c389190a595368e2">ObjectsHandler::chaser_vel</a></div><div class="ttdeci">Twist chaser_vel</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:26</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00124">124</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_aa1af309b0e964ccb6df8dede045fa32b_icgraph.png" border="0" usemap="#class_objects_handler_aa1af309b0e964ccb6df8dede045fa32b_icgraph" alt=""/></div>
+<map name="class_objects_handler_aa1af309b0e964ccb6df8dede045fa32b_icgraph" id="class_objects_handler_aa1af309b0e964ccb6df8dede045fa32b_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="192,5,403,32"/>
+<area shape="rect" id="node3" href="class_wrapper.html#a21a0e115ea80e053e4f2defd1362b92f" title="Wrapper::trigger_chasing" alt="" coords="214,56,381,83"/>
+<area shape="rect" id="node4" href="class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="451,5,617,32"/>
+<area shape="rect" id="node6" href="class_q_node.html#a23bd7e0744ad4c7b5d5464485375bef1" title="QNode::trigger" alt="" coords="481,56,587,83"/>
+<area shape="rect" id="node8" href="main__test_8cpp.html#ac367b226934e0e06e2ebf329fa937326" title="should be triggered only prediction exists t_cur and t_ros are redundant actually ..." alt="" coords="505,107,563,133"/>
+<area shape="rect" id="node5" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="665,5,853,32"/>
+<area shape="rect" id="node7" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="715,56,804,83"/>
+<area shape="rect" id="node9" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="734,107,785,133"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afe849882d1feeef8316a45632381da54"></a>
@@ -388,8 +554,26 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="class_objects_handler.html#af2063609510d5ad8f136a275b0d127c1">edf_grid_ptr</a>.get();};</div><div class="ttc" id="class_objects_handler_html_af2063609510d5ad8f136a275b0d127c1"><div class="ttname"><a href="class_objects_handler.html#af2063609510d5ad8f136a275b0d127c1">ObjectsHandler::edf_grid_ptr</a></div><div class="ttdeci">shared_ptr&lt; GridField &gt; edf_grid_ptr</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:30</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00128">128</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_afe849882d1feeef8316a45632381da54_icgraph.png" border="0" usemap="#class_objects_handler_afe849882d1feeef8316a45632381da54_icgraph" alt=""/></div>
+<map name="class_objects_handler_afe849882d1feeef8316a45632381da54_icgraph" id="class_objects_handler_afe849882d1feeef8316a45632381da54_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="192,5,403,32"/>
+<area shape="rect" id="node3" href="class_wrapper.html#a21a0e115ea80e053e4f2defd1362b92f" title="Wrapper::trigger_chasing" alt="" coords="214,56,381,83"/>
+<area shape="rect" id="node4" href="class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="451,5,617,32"/>
+<area shape="rect" id="node6" href="class_q_node.html#a23bd7e0744ad4c7b5d5464485375bef1" title="QNode::trigger" alt="" coords="481,56,587,83"/>
+<area shape="rect" id="node8" href="main__test_8cpp.html#ac367b226934e0e06e2ebf329fa937326" title="should be triggered only prediction exists t_cur and t_ros are redundant actually ..." alt="" coords="505,107,563,133"/>
+<area shape="rect" id="node5" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="665,5,853,32"/>
+<area shape="rect" id="node7" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="715,56,804,83"/>
+<area shape="rect" id="node9" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="734,107,785,133"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a988bdf05045c40348b34ae8beecd8884"></a>
@@ -404,8 +588,19 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;{<span class="keywordflow">return</span> <a class="code" href="class_objects_handler.html#a76ad7ca7513755408c02dd36dea94c6e">octree_ptr</a>.get();};</div><div class="ttc" id="class_objects_handler_html_a76ad7ca7513755408c02dd36dea94c6e"><div class="ttname"><a href="class_objects_handler.html#a76ad7ca7513755408c02dd36dea94c6e">ObjectsHandler::octree_ptr</a></div><div class="ttdeci">shared_ptr&lt; octomap::OcTree &gt; octree_ptr</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:28</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00127">127</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a988bdf05045c40348b34ae8beecd8884_icgraph.png" border="0" usemap="#class_objects_handler_a988bdf05045c40348b34ae8beecd8884_icgraph" alt=""/></div>
+<map name="class_objects_handler_a988bdf05045c40348b34ae8beecd8884_icgraph" id="class_objects_handler_a988bdf05045c40348b34ae8beecd8884_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="192,13,403,39"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a4793f1ed257c849b28f0386f635ee714"></a>
@@ -420,7 +615,26 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                                                {</div><div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    </div><div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    </div><div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;}</div></div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00350">350</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a4793f1ed257c849b28f0386f635ee714_icgraph.png" border="0" usemap="#class_objects_handler_a4793f1ed257c849b28f0386f635ee714_icgraph" alt=""/></div>
+<map name="class_objects_handler_a4793f1ed257c849b28f0386f635ee714_icgraph" id="class_objects_handler_a4793f1ed257c849b28f0386f635ee714_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="192,5,403,32"/>
+<area shape="rect" id="node3" href="class_wrapper.html#a21a0e115ea80e053e4f2defd1362b92f" title="Wrapper::trigger_chasing" alt="" coords="214,56,381,83"/>
+<area shape="rect" id="node4" href="class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="451,5,617,32"/>
+<area shape="rect" id="node6" href="class_q_node.html#a23bd7e0744ad4c7b5d5464485375bef1" title="QNode::trigger" alt="" coords="481,56,587,83"/>
+<area shape="rect" id="node8" href="main__test_8cpp.html#ac367b226934e0e06e2ebf329fa937326" title="should be triggered only prediction exists t_cur and t_ros are redundant actually ..." alt="" coords="505,107,563,133"/>
+<area shape="rect" id="node5" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="665,5,853,32"/>
+<area shape="rect" id="node7" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="715,56,804,83"/>
+<area shape="rect" id="node9" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="734,107,785,133"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a2b9e69afe54afea0380431d8f1f5142d"></a>
@@ -435,9 +649,58 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                                            {</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    PoseStamped pose(<a class="code" href="class_objects_handler.html#ad436bfd8b262f473f0e4ca92b3c3402b">target_pose</a>); </div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    pose.pose.position.z = <a class="code" href="class_objects_handler.html#ac8c10c7a10aeb8abf1a44b7361f646e6">min_z</a>; </div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span> pose;</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;};</div><div class="ttc" id="class_objects_handler_html_ac8c10c7a10aeb8abf1a44b7361f646e6"><div class="ttname"><a href="class_objects_handler.html#ac8c10c7a10aeb8abf1a44b7361f646e6">ObjectsHandler::min_z</a></div><div class="ttdeci">double min_z</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:33</div></div>
-<div class="ttc" id="class_objects_handler_html_ad436bfd8b262f473f0e4ca92b3c3402b"><div class="ttname"><a href="class_objects_handler.html#ad436bfd8b262f473f0e4ca92b3c3402b">ObjectsHandler::target_pose</a></div><div class="ttdeci">PoseStamped target_pose</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:24</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00116">116</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a2b9e69afe54afea0380431d8f1f5142d_icgraph.png" border="0" usemap="#class_objects_handler_a2b9e69afe54afea0380431d8f1f5142d_icgraph" alt=""/></div>
+<map name="class_objects_handler_a2b9e69afe54afea0380431d8f1f5142d_icgraph" id="class_objects_handler_a2b9e69afe54afea0380431d8f1f5142d_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="192,5,403,32"/>
+<area shape="rect" id="node3" href="class_wrapper.html#ac2338df9e7b31f3291ed1cbd137a6f14" title="evalate the latest control pose from chaser " alt="" coords="208,56,387,83"/>
+<area shape="rect" id="node4" href="class_wrapper.html#a94a786272ea8120469cb476d021c5b76" title="publish the control visualization (geometry_msgs) " alt="" coords="451,31,632,57"/>
+<area shape="rect" id="node8" href="class_wrapper.html#a7f0e09c8a675991a3c987e41c6b9ff9d" title="publish the control visualization (trajectory_msgs) " alt="" coords="456,81,627,108"/>
+<area shape="rect" id="node5" href="class_wrapper.html#a009ee5c325926f92df42319d5469a376" title="Wrapper::session" alt="" coords="680,56,804,83"/>
+<area shape="rect" id="node6" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="852,31,941,57"/>
+<area shape="rect" id="node7" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="871,81,922,108"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a07e9d105db04be181661dc979314de3c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string ObjectsHandler::get_world_frame_id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00126">126</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a07e9d105db04be181661dc979314de3c_icgraph.png" border="0" usemap="#class_objects_handler_a07e9d105db04be181661dc979314de3c_icgraph" alt=""/></div>
+<map name="class_objects_handler_a07e9d105db04be181661dc979314de3c_icgraph" id="class_objects_handler_a07e9d105db04be181661dc979314de3c_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="192,5,403,32"/>
+<area shape="rect" id="node3" href="class_wrapper.html#ac2338df9e7b31f3291ed1cbd137a6f14" title="evalate the latest control pose from chaser " alt="" coords="208,56,387,83"/>
+<area shape="rect" id="node4" href="class_wrapper.html#a94a786272ea8120469cb476d021c5b76" title="publish the control visualization (geometry_msgs) " alt="" coords="451,31,632,57"/>
+<area shape="rect" id="node8" href="class_wrapper.html#a7f0e09c8a675991a3c987e41c6b9ff9d" title="publish the control visualization (trajectory_msgs) " alt="" coords="456,81,627,108"/>
+<area shape="rect" id="node5" href="class_wrapper.html#a009ee5c325926f92df42319d5469a376" title="Wrapper::session" alt="" coords="680,56,804,83"/>
+<area shape="rect" id="node6" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="852,31,941,57"/>
+<area shape="rect" id="node7" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="871,81,922,108"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1ac7fcad5fa6033c2435ac49f2f9dff5"></a>
@@ -453,30 +716,40 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                                         {</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="comment">// parameters</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    nh.param&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;world_frame_id&quot;</span>,this-&gt;<a class="code" href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">world_frame_id</a>,<span class="stringliteral">&quot;/world&quot;</span>);</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    nh.param&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;target_frame_id&quot;</span>,this-&gt;<a class="code" href="class_objects_handler.html#a7a616768386c4c7da9af4da3d07bd936">target_frame_id</a>,<span class="stringliteral">&quot;/target__base_footprint&quot;</span>);</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    nh.param&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;chaser_frame_id&quot;</span>,this-&gt;<a class="code" href="class_objects_handler.html#a3e8d08bf5d76d69f1768b53fd799953c">chaser_frame_id</a>,<span class="stringliteral">&quot;/firefly/base_link&quot;</span>); </div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="comment">// edf grid param</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    nh.param(<span class="stringliteral">&quot;min_z&quot;</span>,<a class="code" href="class_objects_handler.html#ac8c10c7a10aeb8abf1a44b7361f646e6">min_z</a>,0.4);   </div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    nh.param(<span class="stringliteral">&quot;chaser_init_z&quot;</span>,<a class="code" href="class_objects_handler.html#aa991434e17ca1144c80633ff7530534c">chaser_init_z</a>,1.0);             </div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    nh.param(<span class="stringliteral">&quot;edf_max_dist&quot;</span>,<a class="code" href="class_objects_handler.html#ae71885df3c4e28f45be7bb0e5a383293">edf_max_dist</a>,2.0);  </div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    nh.param(<span class="stringliteral">&quot;edf_max_plot_dist&quot;</span>,<a class="code" href="class_objects_handler.html#a577e8b62f1e55d36330048fb9fd3a432">edf_max_viz_dist</a>,0.5);  </div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    nh.param(<span class="stringliteral">&quot;edf_resolution&quot;</span>,<a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>.<a class="code" href="struct_field_params.html#a520406c76b3abf392401626bc2161370">resolution</a>,0.5);  </div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    nh.param(<span class="stringliteral">&quot;edf_stride_resolution&quot;</span>,<a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>.<a class="code" href="struct_field_params.html#ae6eabaa6e593c9dbac48b2f96bea80ec">ray_stride_res</a>,0.3);  </div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    nh.param(<span class="stringliteral">&quot;run_mode&quot;</span>,<a class="code" href="class_objects_handler.html#a95908d5b00f62b629dc7f20acb714292">run_mode</a>,0);  </div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_objects_handler.html#ad436bfd8b262f473f0e4ca92b3c3402b">target_pose</a>.header.frame_id = <a class="code" href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">world_frame_id</a>;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a>.header.frame_id = <a class="code" href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">world_frame_id</a>;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.header.frame_id = <a class="code" href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">world_frame_id</a>;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.action = visualization_msgs::Marker::ADD;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.type = visualization_msgs::Marker::CUBE_LIST;      </div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.pose.orientation.x = 0;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.pose.orientation.y = 0;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.pose.orientation.z = 0;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.pose.orientation.w = 1;                  </div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.scale.x = <a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>.<a class="code" href="struct_field_params.html#a520406c76b3abf392401626bc2161370">resolution</a>;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.scale.y = <a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>.<a class="code" href="struct_field_params.html#a520406c76b3abf392401626bc2161370">resolution</a>;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>.scale.z = <a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>.<a class="code" href="struct_field_params.html#a520406c76b3abf392401626bc2161370">resolution</a>;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    </div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// topics </span></div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_objects_handler.html#aea45bba31aa769008386100725bda66b">tf_listener</a> = <span class="keyword">new</span> (tf::TransformListener);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_objects_handler.html#af49de4eabb124e2ee6c9e12ebb31bca3">tf_talker</a> = <span class="keyword">new</span> (tf::TransformBroadcaster);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_objects_handler.html#a86a1f98983b533f77bf17867affb5251">pub_edf</a> = nh.advertise&lt;visualization_msgs::Marker&gt;(<span class="stringliteral">&quot;edf_grid&quot;</span>,1);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// octomap            </span></div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    nh.param(<span class="stringliteral">&quot;is_octomap_full&quot;</span>,this-&gt;<a class="code" href="class_objects_handler.html#a56f70ac04c01e8b948a4b44fa5670f49">is_octomap_full</a>,<span class="keyword">true</span>);</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="class_objects_handler.html#a76ad7ca7513755408c02dd36dea94c6e">octree_ptr</a>.reset(<span class="keyword">new</span> octomap::OcTree(0.1)); <span class="comment">// arbitrary init</span></div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_objects_handler.html#a56f70ac04c01e8b948a4b44fa5670f49">is_octomap_full</a>)</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="class_objects_handler.html#a3b384ae3f8f66557b1c1ac04523fb330">sub_octomap</a> = nh.subscribe(<span class="stringliteral">&quot;/octomap_full&quot;</span>,1,&amp;<a class="code" href="class_objects_handler.html#a5744110d979850b3e2d8896793435d0c">ObjectsHandler::octomap_callback</a>,<span class="keyword">this</span>);   </div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">else</span></div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="class_objects_handler.html#a3b384ae3f8f66557b1c1ac04523fb330">sub_octomap</a> = nh.subscribe(<span class="stringliteral">&quot;/octomap_binary&quot;</span>,1,&amp;<a class="code" href="class_objects_handler.html#a5744110d979850b3e2d8896793435d0c">ObjectsHandler::octomap_callback</a>,<span class="keyword">this</span>);   </div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="class_objects_handler.html#a9a2e098b85260b71c88b81dadd6ca58a">sub_chaser_init_pose</a> = nh.subscribe(<span class="stringliteral">&quot;/chaser_init_pose&quot;</span>,1,&amp;<a class="code" href="class_objects_handler.html#a4c56416d3583b70d181d69d900b884b5">ObjectsHandler::callback_chaser_init_pose</a>,<span class="keyword">this</span>);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    ROS_INFO(<span class="stringliteral">&quot;Object handler initialized.&quot;</span>); </div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div><div class="ttc" id="class_objects_handler_html_a86a1f98983b533f77bf17867affb5251"><div class="ttname"><a href="class_objects_handler.html#a86a1f98983b533f77bf17867affb5251">ObjectsHandler::pub_edf</a></div><div class="ttdeci">ros::Publisher pub_edf</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:9</div></div>
-<div class="ttc" id="class_objects_handler_html_a7a616768386c4c7da9af4da3d07bd936"><div class="ttname"><a href="class_objects_handler.html#a7a616768386c4c7da9af4da3d07bd936">ObjectsHandler::target_frame_id</a></div><div class="ttdeci">string target_frame_id</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:17</div></div>
-<div class="ttc" id="class_objects_handler_html_a5744110d979850b3e2d8896793435d0c"><div class="ttname"><a href="class_objects_handler.html#a5744110d979850b3e2d8896793435d0c">ObjectsHandler::octomap_callback</a></div><div class="ttdeci">void octomap_callback(const octomap_msgs::Octomap &amp;msg)</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:56</div></div>
-<div class="ttc" id="class_objects_handler_html_a9a2e098b85260b71c88b81dadd6ca58a"><div class="ttname"><a href="class_objects_handler.html#a9a2e098b85260b71c88b81dadd6ca58a">ObjectsHandler::sub_chaser_init_pose</a></div><div class="ttdeci">ros::Subscriber sub_chaser_init_pose</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:8</div></div>
-<div class="ttc" id="class_objects_handler_html_aa991434e17ca1144c80633ff7530534c"><div class="ttname"><a href="class_objects_handler.html#aa991434e17ca1144c80633ff7530534c">ObjectsHandler::chaser_init_z</a></div><div class="ttdeci">double chaser_init_z</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:34</div></div>
-<div class="ttc" id="class_objects_handler_html_ae71885df3c4e28f45be7bb0e5a383293"><div class="ttname"><a href="class_objects_handler.html#ae71885df3c4e28f45be7bb0e5a383293">ObjectsHandler::edf_max_dist</a></div><div class="ttdeci">double edf_max_dist</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:36</div></div>
-<div class="ttc" id="class_objects_handler_html_a95908d5b00f62b629dc7f20acb714292"><div class="ttname"><a href="class_objects_handler.html#a95908d5b00f62b629dc7f20acb714292">ObjectsHandler::run_mode</a></div><div class="ttdeci">int run_mode</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:38</div></div>
-<div class="ttc" id="class_objects_handler_html_a577e8b62f1e55d36330048fb9fd3a432"><div class="ttname"><a href="class_objects_handler.html#a577e8b62f1e55d36330048fb9fd3a432">ObjectsHandler::edf_max_viz_dist</a></div><div class="ttdeci">double edf_max_viz_dist</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:35</div></div>
-<div class="ttc" id="class_objects_handler_html_ac8c10c7a10aeb8abf1a44b7361f646e6"><div class="ttname"><a href="class_objects_handler.html#ac8c10c7a10aeb8abf1a44b7361f646e6">ObjectsHandler::min_z</a></div><div class="ttdeci">double min_z</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:33</div></div>
-<div class="ttc" id="class_objects_handler_html_aea45bba31aa769008386100725bda66b"><div class="ttname"><a href="class_objects_handler.html#aea45bba31aa769008386100725bda66b">ObjectsHandler::tf_listener</a></div><div class="ttdeci">tf::TransformListener * tf_listener</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:11</div></div>
-<div class="ttc" id="class_objects_handler_html_a4c56416d3583b70d181d69d900b884b5"><div class="ttname"><a href="class_objects_handler.html#a4c56416d3583b70d181d69d900b884b5">ObjectsHandler::callback_chaser_init_pose</a></div><div class="ttdeci">void callback_chaser_init_pose(const geometry_msgs::PoseStampedConstPtr &amp;chaser_init_pose)</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:266</div></div>
-<div class="ttc" id="class_objects_handler_html_a76ad7ca7513755408c02dd36dea94c6e"><div class="ttname"><a href="class_objects_handler.html#a76ad7ca7513755408c02dd36dea94c6e">ObjectsHandler::octree_ptr</a></div><div class="ttdeci">shared_ptr&lt; octomap::OcTree &gt; octree_ptr</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:28</div></div>
-<div class="ttc" id="struct_field_params_html_ae6eabaa6e593c9dbac48b2f96bea80ec"><div class="ttname"><a href="struct_field_params.html#ae6eabaa6e593c9dbac48b2f96bea80ec">FieldParams::ray_stride_res</a></div><div class="ttdeci">double ray_stride_res</div><div class="ttdef"><b>Definition:</b> Common.h:103</div></div>
-<div class="ttc" id="class_objects_handler_html_a56f70ac04c01e8b948a4b44fa5670f49"><div class="ttname"><a href="class_objects_handler.html#a56f70ac04c01e8b948a4b44fa5670f49">ObjectsHandler::is_octomap_full</a></div><div class="ttdeci">bool is_octomap_full</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:43</div></div>
-<div class="ttc" id="class_objects_handler_html_a1c0586ae7467bb8a3df8ad247ac7b10b"><div class="ttname"><a href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">ObjectsHandler::world_frame_id</a></div><div class="ttdeci">string world_frame_id</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:15</div></div>
-<div class="ttc" id="class_objects_handler_html_ad436bfd8b262f473f0e4ca92b3c3402b"><div class="ttname"><a href="class_objects_handler.html#ad436bfd8b262f473f0e4ca92b3c3402b">ObjectsHandler::target_pose</a></div><div class="ttdeci">PoseStamped target_pose</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:24</div></div>
-<div class="ttc" id="class_objects_handler_html_a79fd5f872a40cca5ea599f1e83dcb3ad"><div class="ttname"><a href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">ObjectsHandler::chaser_pose</a></div><div class="ttdeci">PoseStamped chaser_pose</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:25</div></div>
-<div class="ttc" id="class_objects_handler_html_a46ed8cfd250b183909a7d3a1f56cee6b"><div class="ttname"><a href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">ObjectsHandler::edf_grid_params</a></div><div class="ttdeci">FieldParams edf_grid_params</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:37</div></div>
-<div class="ttc" id="class_objects_handler_html_af49de4eabb124e2ee6c9e12ebb31bca3"><div class="ttname"><a href="class_objects_handler.html#af49de4eabb124e2ee6c9e12ebb31bca3">ObjectsHandler::tf_talker</a></div><div class="ttdeci">tf::TransformBroadcaster * tf_talker</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:12</div></div>
-<div class="ttc" id="class_objects_handler_html_ad6904dcaaad790234569760df0fb0ac2"><div class="ttname"><a href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">ObjectsHandler::markers_edf</a></div><div class="ttdeci">visualization_msgs::Marker markers_edf</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:10</div></div>
-<div class="ttc" id="struct_field_params_html_a520406c76b3abf392401626bc2161370"><div class="ttname"><a href="struct_field_params.html#a520406c76b3abf392401626bc2161370">FieldParams::resolution</a></div><div class="ttdeci">double resolution</div><div class="ttdef"><b>Definition:</b> Common.h:102</div></div>
-<div class="ttc" id="class_objects_handler_html_a3b384ae3f8f66557b1c1ac04523fb330"><div class="ttname"><a href="class_objects_handler.html#a3b384ae3f8f66557b1c1ac04523fb330">ObjectsHandler::sub_octomap</a></div><div class="ttdeci">ros::Subscriber sub_octomap</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:7</div></div>
-<div class="ttc" id="class_objects_handler_html_a3e8d08bf5d76d69f1768b53fd799953c"><div class="ttname"><a href="class_objects_handler.html#a3e8d08bf5d76d69f1768b53fd799953c">ObjectsHandler::chaser_frame_id</a></div><div class="ttdeci">string chaser_frame_id</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:16</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00005">5</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a1ac7fcad5fa6033c2435ac49f2f9dff5_cgraph.png" border="0" usemap="#class_objects_handler_a1ac7fcad5fa6033c2435ac49f2f9dff5_cgraph" alt=""/></div>
+<map name="class_objects_handler_a1ac7fcad5fa6033c2435ac49f2f9dff5_cgraph" id="class_objects_handler_a1ac7fcad5fa6033c2435ac49f2f9dff5_cgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a5744110d979850b3e2d8896793435d0c" title="ObjectsHandler::octomap\l_callback" alt="" coords="191,5,361,47"/>
+<area shape="rect" id="node5" href="class_objects_handler.html#a4c56416d3583b70d181d69d900b884b5" title="ObjectsHandler::callback\l_chaser_init_pose" alt="" coords="192,71,360,112"/>
+<area shape="rect" id="node7" href="class_objects_handler.html#a28ac9c7ef998a413825cddca78324f61" title="callback function for control pose from wrapper. This is intended to replace the currnet chaser pose ..." alt="" coords="192,136,360,177"/>
+<area shape="rect" id="node8" href="class_objects_handler.html#a5ee7bac0ddf6a18e58ca8183e64ff67a" title="ObjectsHandler::callback\l_target_pose" alt="" coords="192,201,360,243"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#ae6da4f0f0a265c75722e02d68d519f07" title="ObjectsHandler::compute_edf" alt="" coords="409,13,604,39"/>
+<area shape="rect" id="node4" href="_common_8h.html#a4b2e4b6698ff92678b23392dc111b36d" title="get_color_dist" alt="" coords="652,13,755,39"/>
+<area shape="rect" id="node6" href="class_objects_handler.html#a968feba95e0707919b6c3632781510ba" title="ObjectsHandler::chaser\l_spawn" alt="" coords="427,71,586,112"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a1ac7fcad5fa6033c2435ac49f2f9dff5_icgraph.png" border="0" usemap="#class_objects_handler_a1ac7fcad5fa6033c2435ac49f2f9dff5_icgraph" alt=""/></div>
+<map name="class_objects_handler_a1ac7fcad5fa6033c2435ac49f2f9dff5_icgraph" id="class_objects_handler_a1ac7fcad5fa6033c2435ac49f2f9dff5_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="191,5,401,32"/>
+<area shape="rect" id="node3" href="class_wrapper.html#af336781e7d75d525e7b152366a0e0d93" title="Wrapper::init" alt="" coords="248,56,344,83"/>
+<area shape="rect" id="node4" href="class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="449,31,612,57"/>
+<area shape="rect" id="node7" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="505,81,556,108"/>
+<area shape="rect" id="node5" href="class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="660,31,769,57"/>
+<area shape="rect" id="node6" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="817,31,1005,57"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a5744110d979850b3e2d8896793435d0c"></a>
@@ -492,24 +765,36 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                                                   {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// we receive only once from octoamp server</span></div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (not <a class="code" href="class_objects_handler.html#acf1ef1b318defc2a39d87cea72689478">is_map_recieved</a>){</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="comment">// octomap subscribing </span></div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        octomap::AbstractOcTree* octree;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="class_objects_handler.html#a56f70ac04c01e8b948a4b44fa5670f49">is_octomap_full</a>)</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            octree=octomap_msgs::fullMsgToMap(msg);</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">else</span></div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            octree=octomap_msgs::binaryMsgToMap(msg);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        this-&gt;<a class="code" href="class_objects_handler.html#a76ad7ca7513755408c02dd36dea94c6e">octree_ptr</a>.reset((dynamic_cast&lt;octomap::OcTree*&gt;(octree)));</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        ROS_INFO_ONCE(<span class="stringliteral">&quot;[Objects handler] octomap received.&quot;</span>);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">double</span> x,y,z;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="class_objects_handler.html#a76ad7ca7513755408c02dd36dea94c6e">octree_ptr</a>.get()-&gt;getMetricMin(x,y,z);</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        octomap::point3d boundary_min(x,y,z); </div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        boundary_min.z() = <a class="code" href="class_objects_handler.html#ac8c10c7a10aeb8abf1a44b7361f646e6">min_z</a>;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <a class="code" href="class_objects_handler.html#a76ad7ca7513755408c02dd36dea94c6e">octree_ptr</a>.get()-&gt;getMetricMax(x,y,z);</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        octomap::point3d boundary_max(x,y,z); </div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">bool</span> unknownAsOccupied = <span class="keyword">false</span>;</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="comment">// Euclidean distance transform  </span></div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="class_objects_handler.html#aa96d8c71f5e8c6423c88d3302220d4cf">edf_ptr</a> = <span class="keyword">new</span> DynamicEDTOctomap(<a class="code" href="class_objects_handler.html#ae71885df3c4e28f45be7bb0e5a383293">edf_max_dist</a>,<a class="code" href="class_objects_handler.html#a76ad7ca7513755408c02dd36dea94c6e">octree_ptr</a>.get(),</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        boundary_min,</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        boundary_max,unknownAsOccupied);</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <a class="code" href="class_objects_handler.html#aa96d8c71f5e8c6423c88d3302220d4cf">edf_ptr</a>-&gt;update();    </div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">double</span> diff = std::chrono::duration_cast&lt;chrono::nanoseconds&gt;( end - begin ).count()*1<a class="code" href="namespace__setup__util.html#acdce690b925de33d6249bbbfa1109d61">e</a>-9;</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        ROS_INFO(<span class="stringliteral">&quot;[Objects handler] dynamic EDT computed in %f [sec]&quot;</span>,diff);</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="comment">// generate homogenous grid </span></div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>.<a class="code" href="struct_field_params.html#ae702824fca4d3a4b4bbf4ac90084e3a7">x0</a> = boundary_min.x();</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>.<a class="code" href="struct_field_params.html#ae9d400dadcfaaff44706adae06664c83">y0</a> = boundary_min.y();</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>.<a class="code" href="struct_field_params.html#a51178f64cc93a37d6d8f774228c24a0f">z0</a> = <a class="code" href="class_objects_handler.html#ac8c10c7a10aeb8abf1a44b7361f646e6">min_z</a>;</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>.<a class="code" href="struct_field_params.html#a9738077907a76512e49cb284ee3f1949">lx</a> = boundary_max.x() - boundary_min.x();</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>.<a class="code" href="struct_field_params.html#afb39ded77b5714992e9b2f8c5d735d30">ly</a> = boundary_max.y() - boundary_min.y();</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>.<a class="code" href="struct_field_params.html#ae7532b58aed59f5b47233e57b67acc1a">lz</a> = (boundary_max.z() - <a class="code" href="class_objects_handler.html#ac8c10c7a10aeb8abf1a44b7361f646e6">min_z</a>);</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <a class="code" href="class_objects_handler.html#af2063609510d5ad8f136a275b0d127c1">edf_grid_ptr</a>.reset(<span class="keyword">new</span> <a class="code" href="struct_grid_field.html">GridField</a>(<a class="code" href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">edf_grid_params</a>));</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="class_objects_handler.html#ae6da4f0f0a265c75722e02d68d519f07">compute_edf</a>();</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        is_map_recieved = <span class="keyword">true</span>;</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div><div class="ttc" id="struct_field_params_html_ae7532b58aed59f5b47233e57b67acc1a"><div class="ttname"><a href="struct_field_params.html#ae7532b58aed59f5b47233e57b67acc1a">FieldParams::lz</a></div><div class="ttdeci">double lz</div><div class="ttdef"><b>Definition:</b> Common.h:101</div></div>
-<div class="ttc" id="class_objects_handler_html_ae6da4f0f0a265c75722e02d68d519f07"><div class="ttname"><a href="class_objects_handler.html#ae6da4f0f0a265c75722e02d68d519f07">ObjectsHandler::compute_edf</a></div><div class="ttdeci">void compute_edf()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:218</div></div>
-<div class="ttc" id="struct_field_params_html_a9738077907a76512e49cb284ee3f1949"><div class="ttname"><a href="struct_field_params.html#a9738077907a76512e49cb284ee3f1949">FieldParams::lx</a></div><div class="ttdeci">double lx</div><div class="ttdef"><b>Definition:</b> Common.h:101</div></div>
-<div class="ttc" id="class_objects_handler_html_ae71885df3c4e28f45be7bb0e5a383293"><div class="ttname"><a href="class_objects_handler.html#ae71885df3c4e28f45be7bb0e5a383293">ObjectsHandler::edf_max_dist</a></div><div class="ttdeci">double edf_max_dist</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:36</div></div>
-<div class="ttc" id="namespace__setup__util_html_acdce690b925de33d6249bbbfa1109d61"><div class="ttname"><a href="namespace__setup__util.html#acdce690b925de33d6249bbbfa1109d61">_setup_util.e</a></div><div class="ttdeci">e</div><div class="ttdef"><b>Definition:</b> _setup_util.py:261</div></div>
-<div class="ttc" id="class_objects_handler_html_ac8c10c7a10aeb8abf1a44b7361f646e6"><div class="ttname"><a href="class_objects_handler.html#ac8c10c7a10aeb8abf1a44b7361f646e6">ObjectsHandler::min_z</a></div><div class="ttdeci">double min_z</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:33</div></div>
-<div class="ttc" id="class_objects_handler_html_acf1ef1b318defc2a39d87cea72689478"><div class="ttname"><a href="class_objects_handler.html#acf1ef1b318defc2a39d87cea72689478">ObjectsHandler::is_map_recieved</a></div><div class="ttdeci">bool is_map_recieved</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:45</div></div>
-<div class="ttc" id="struct_grid_field_html"><div class="ttname"><a href="struct_grid_field.html">GridField</a></div><div class="ttdef"><b>Definition:</b> Common.h:132</div></div>
-<div class="ttc" id="struct_field_params_html_ae702824fca4d3a4b4bbf4ac90084e3a7"><div class="ttname"><a href="struct_field_params.html#ae702824fca4d3a4b4bbf4ac90084e3a7">FieldParams::x0</a></div><div class="ttdeci">double x0</div><div class="ttdef"><b>Definition:</b> Common.h:100</div></div>
-<div class="ttc" id="struct_field_params_html_a51178f64cc93a37d6d8f774228c24a0f"><div class="ttname"><a href="struct_field_params.html#a51178f64cc93a37d6d8f774228c24a0f">FieldParams::z0</a></div><div class="ttdeci">double z0</div><div class="ttdef"><b>Definition:</b> Common.h:100</div></div>
-<div class="ttc" id="class_objects_handler_html_a76ad7ca7513755408c02dd36dea94c6e"><div class="ttname"><a href="class_objects_handler.html#a76ad7ca7513755408c02dd36dea94c6e">ObjectsHandler::octree_ptr</a></div><div class="ttdeci">shared_ptr&lt; octomap::OcTree &gt; octree_ptr</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:28</div></div>
-<div class="ttc" id="class_objects_handler_html_a56f70ac04c01e8b948a4b44fa5670f49"><div class="ttname"><a href="class_objects_handler.html#a56f70ac04c01e8b948a4b44fa5670f49">ObjectsHandler::is_octomap_full</a></div><div class="ttdeci">bool is_octomap_full</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:43</div></div>
-<div class="ttc" id="class_objects_handler_html_a46ed8cfd250b183909a7d3a1f56cee6b"><div class="ttname"><a href="class_objects_handler.html#a46ed8cfd250b183909a7d3a1f56cee6b">ObjectsHandler::edf_grid_params</a></div><div class="ttdeci">FieldParams edf_grid_params</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:37</div></div>
-<div class="ttc" id="class_objects_handler_html_af2063609510d5ad8f136a275b0d127c1"><div class="ttname"><a href="class_objects_handler.html#af2063609510d5ad8f136a275b0d127c1">ObjectsHandler::edf_grid_ptr</a></div><div class="ttdeci">shared_ptr&lt; GridField &gt; edf_grid_ptr</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:30</div></div>
-<div class="ttc" id="struct_field_params_html_afb39ded77b5714992e9b2f8c5d735d30"><div class="ttname"><a href="struct_field_params.html#afb39ded77b5714992e9b2f8c5d735d30">FieldParams::ly</a></div><div class="ttdeci">double ly</div><div class="ttdef"><b>Definition:</b> Common.h:101</div></div>
-<div class="ttc" id="struct_field_params_html_ae9d400dadcfaaff44706adae06664c83"><div class="ttname"><a href="struct_field_params.html#ae9d400dadcfaaff44706adae06664c83">FieldParams::y0</a></div><div class="ttdeci">double y0</div><div class="ttdef"><b>Definition:</b> Common.h:100</div></div>
-<div class="ttc" id="class_objects_handler_html_aa96d8c71f5e8c6423c88d3302220d4cf"><div class="ttname"><a href="class_objects_handler.html#aa96d8c71f5e8c6423c88d3302220d4cf">ObjectsHandler::edf_ptr</a></div><div class="ttdeci">DynamicEDTOctomap * edf_ptr</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:29</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00064">64</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a5744110d979850b3e2d8896793435d0c_cgraph.png" border="0" usemap="#class_objects_handler_a5744110d979850b3e2d8896793435d0c_cgraph" alt=""/></div>
+<map name="class_objects_handler_a5744110d979850b3e2d8896793435d0c_cgraph" id="class_objects_handler_a5744110d979850b3e2d8896793435d0c_cgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#ae6da4f0f0a265c75722e02d68d519f07" title="ObjectsHandler::compute_edf" alt="" coords="224,13,419,39"/>
+<area shape="rect" id="node3" href="_common_8h.html#a4b2e4b6698ff92678b23392dc111b36d" title="get_color_dist" alt="" coords="467,13,569,39"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a5744110d979850b3e2d8896793435d0c_icgraph.png" border="0" usemap="#class_objects_handler_a5744110d979850b3e2d8896793435d0c_icgraph" alt=""/></div>
+<map name="class_objects_handler_a5744110d979850b3e2d8896793435d0c_icgraph" id="class_objects_handler_a5744110d979850b3e2d8896793435d0c_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="409,5,620,32"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="224,56,361,83"/>
+<area shape="rect" id="node4" href="class_wrapper.html#af336781e7d75d525e7b152366a0e0d93" title="Wrapper::init" alt="" coords="467,56,563,83"/>
+<area shape="rect" id="node5" href="class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="668,31,831,57"/>
+<area shape="rect" id="node8" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="724,81,775,108"/>
+<area shape="rect" id="node6" href="class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="879,31,988,57"/>
+<area shape="rect" id="node7" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="1036,31,1224,57"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a16cf7fca3059a03da4ec795f2af7fb74"></a>
@@ -524,9 +809,22 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                            {</div><div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div><div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    <a class="code" href="class_objects_handler.html#a86a1f98983b533f77bf17867affb5251">pub_edf</a>.publish(<a class="code" href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">markers_edf</a>);</div><div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;}</div><div class="ttc" id="class_objects_handler_html_a86a1f98983b533f77bf17867affb5251"><div class="ttname"><a href="class_objects_handler.html#a86a1f98983b533f77bf17867affb5251">ObjectsHandler::pub_edf</a></div><div class="ttdeci">ros::Publisher pub_edf</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:9</div></div>
-<div class="ttc" id="class_objects_handler_html_ad6904dcaaad790234569760df0fb0ac2"><div class="ttname"><a href="class_objects_handler.html#ad6904dcaaad790234569760df0fb0ac2">ObjectsHandler::markers_edf</a></div><div class="ttdeci">visualization_msgs::Marker markers_edf</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:10</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00281">281</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a16cf7fca3059a03da4ec795f2af7fb74_icgraph.png" border="0" usemap="#class_objects_handler_a16cf7fca3059a03da4ec795f2af7fb74_icgraph" alt=""/></div>
+<map name="class_objects_handler_a16cf7fca3059a03da4ec795f2af7fb74_icgraph" id="class_objects_handler_a16cf7fca3059a03da4ec795f2af7fb74_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="215,5,425,32"/>
+<area shape="rect" id="node3" href="class_wrapper.html#a009ee5c325926f92df42319d5469a376" title="Wrapper::session" alt="" coords="258,56,382,83"/>
+<area shape="rect" id="node4" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="473,31,563,57"/>
+<area shape="rect" id="node5" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="493,81,543,108"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a6896e4f9863bd1a4fbc8498d0cb20f09"></a>
@@ -541,221 +839,25 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                              {</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    </div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    </div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="class_objects_handler.html#a95908d5b00f62b629dc7f20acb714292">run_mode</a> == 1){</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="comment">// mode 1 : gazebo simulation mode </span></div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="comment">// chaser and target to be listened </span></div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordtype">string</span> objects_frame_id[2];</div><div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        objects_frame_id[0] = <a class="code" href="class_objects_handler.html#a7a616768386c4c7da9af4da3d07bd936">target_frame_id</a>;</div><div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        objects_frame_id[1] = <a class="code" href="class_objects_handler.html#a3e8d08bf5d76d69f1768b53fd799953c">chaser_frame_id</a>;</div><div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        </div><div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=0;i&lt;2;i++){            </div><div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            tf::StampedTransform transform;    </div><div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            <span class="comment">// </span></div><div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <span class="keywordflow">try</span>{</div><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                <a class="code" href="class_objects_handler.html#aea45bba31aa769008386100725bda66b">tf_listener</a>-&gt;lookupTransform(<a class="code" href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">world_frame_id</a>,objects_frame_id[i],ros::Time(0), transform);</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                PoseStamped pose_stamped;</div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                pose_stamped.header.stamp = ros::Time::now();</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                pose_stamped.header.frame_id = <a class="code" href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">world_frame_id</a>;</div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                pose_stamped.pose.position.x = transform.getOrigin().getX();</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                pose_stamped.pose.position.y = transform.getOrigin().getY();</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                pose_stamped.pose.position.z = transform.getOrigin().getZ();</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div><div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;                pose_stamped.pose.orientation.x = transform.getRotation().getX();</div><div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                pose_stamped.pose.orientation.y = transform.getRotation().getY();</div><div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                pose_stamped.pose.orientation.z = transform.getRotation().getZ();</div><div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                pose_stamped.pose.orientation.w = transform.getRotation().getW();</div><div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div><div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div><div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div><div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                <span class="keywordflow">if</span> (i==0)</div><div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                    {ROS_INFO_ONCE(<span class="stringliteral">&quot;[Objects handler] tf of target received. &quot;</span>); <a class="code" href="class_objects_handler.html#a7691f3e1ec58e55ead30c50c555f169a">is_target_recieved</a> = <span class="keyword">true</span>; <a class="code" href="class_objects_handler.html#ad436bfd8b262f473f0e4ca92b3c3402b">target_pose</a> = pose_stamped;} </div><div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                <span class="keywordflow">else</span></div><div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                    {ROS_INFO_ONCE(<span class="stringliteral">&quot;[Objects handler] tf of chaser received. &quot;</span>); <a class="code" href="class_objects_handler.html#a86f8528ff5697c87fc6a3fcd6ba0f42c">is_chaser_recieved</a> = <span class="keyword">true</span>; <a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a> = pose_stamped;}  </div><div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div><div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            }</div><div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="keywordflow">catch</span> (tf::TransformException ex){</div><div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;                <span class="keywordflow">if</span> (i==0)</div><div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                    ROS_ERROR_ONCE(<span class="stringliteral">&quot;[Objects handler] tf of target does not exist. &quot;</span>,ex.what());  </div><div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                <span class="keywordflow">else</span></div><div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                    ROS_ERROR_ONCE(<span class="stringliteral">&quot;[Objects handler] tf of chaser does not exist. &quot;</span>,ex.what());  </div><div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            </div><div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;            }</div><div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        }</div><div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div><div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    }</div><div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">else</span>{</div><div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="comment">// mode 0 : no gazebo mode  </span></div><div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <span class="comment">// target to be listened and chaser to be broadcast  </span></div><div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div><div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="comment">// 1) target tf listen from target manager  </span></div><div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        tf::StampedTransform transform;    </div><div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">try</span>{</div><div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            <a class="code" href="class_objects_handler.html#aea45bba31aa769008386100725bda66b">tf_listener</a>-&gt;lookupTransform(<a class="code" href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">world_frame_id</a>,<a class="code" href="class_objects_handler.html#a7a616768386c4c7da9af4da3d07bd936">target_frame_id</a>,ros::Time(0), transform);</div><div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            PoseStamped pose_stamped;</div><div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            pose_stamped.header.stamp = ros::Time::now();</div><div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            pose_stamped.header.frame_id = <a class="code" href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">world_frame_id</a>;</div><div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div><div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            pose_stamped.pose.position.x = transform.getOrigin().getX();</div><div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            pose_stamped.pose.position.y = transform.getOrigin().getY();</div><div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            pose_stamped.pose.position.z = transform.getOrigin().getZ();</div><div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;</div><div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            pose_stamped.pose.orientation.x = transform.getRotation().getX();</div><div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            pose_stamped.pose.orientation.y = transform.getRotation().getY();</div><div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            pose_stamped.pose.orientation.z = transform.getRotation().getZ();</div><div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            pose_stamped.pose.orientation.w = transform.getRotation().getW();        </div><div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div><div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            ROS_INFO_ONCE(<span class="stringliteral">&quot;[Objects handler] tf of target received. &quot;</span>); <a class="code" href="class_objects_handler.html#a7691f3e1ec58e55ead30c50c555f169a">is_target_recieved</a> = <span class="keyword">true</span>; <a class="code" href="class_objects_handler.html#ad436bfd8b262f473f0e4ca92b3c3402b">target_pose</a> = pose_stamped;</div><div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        }</div><div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="keywordflow">catch</span> (tf::TransformException ex){</div><div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            ROS_ERROR_ONCE(<span class="stringliteral">&quot;[Objects handler] tf of target does not exist. &quot;</span>,ex.what());  </div><div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        }    </div><div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;            </div><div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="class_objects_handler.html#a16165ae7c0167ba8d2a0151a8a4fbfd5">is_chaser_spawned</a>){</div><div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div><div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <span class="comment">// 2) chaser tf broadcasting</span></div><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            tf::Quaternion q;</div><div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            q.setX(<a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a>.pose.orientation.x);</div><div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            q.setY(<a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a>.pose.orientation.y);</div><div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;            q.setZ(<a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a>.pose.orientation.z);</div><div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            q.setW(<a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a>.pose.orientation.w);</div><div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            </div><div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            transform.setOrigin(tf::Vector3(<a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a>.pose.position.x,<a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a>.pose.position.y,<a class="code" href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">chaser_pose</a>.pose.position.z));</div><div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            transform.setRotation(q);</div><div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <a class="code" href="class_objects_handler.html#af49de4eabb124e2ee6c9e12ebb31bca3">tf_talker</a>-&gt;sendTransform(tf::StampedTransform(transform,ros::Time::now(),<a class="code" href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">world_frame_id</a>,<a class="code" href="class_objects_handler.html#a3e8d08bf5d76d69f1768b53fd799953c">chaser_frame_id</a>));        </div><div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        }</div><div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">else</span>{</div><div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            ROS_INFO_ONCE(<span class="stringliteral">&quot;[Objects handler] please spawn target. &quot;</span>);  </div><div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        }</div><div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;     </div><div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    }   </div><div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div><div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div><div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;}</div><div class="ttc" id="class_objects_handler_html_a7691f3e1ec58e55ead30c50c555f169a"><div class="ttname"><a href="class_objects_handler.html#a7691f3e1ec58e55ead30c50c555f169a">ObjectsHandler::is_target_recieved</a></div><div class="ttdeci">bool is_target_recieved</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:46</div></div>
-<div class="ttc" id="class_objects_handler_html_a7a616768386c4c7da9af4da3d07bd936"><div class="ttname"><a href="class_objects_handler.html#a7a616768386c4c7da9af4da3d07bd936">ObjectsHandler::target_frame_id</a></div><div class="ttdeci">string target_frame_id</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:17</div></div>
-<div class="ttc" id="class_objects_handler_html_a16165ae7c0167ba8d2a0151a8a4fbfd5"><div class="ttname"><a href="class_objects_handler.html#a16165ae7c0167ba8d2a0151a8a4fbfd5">ObjectsHandler::is_chaser_spawned</a></div><div class="ttdeci">bool is_chaser_spawned</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:48</div></div>
-<div class="ttc" id="class_objects_handler_html_a95908d5b00f62b629dc7f20acb714292"><div class="ttname"><a href="class_objects_handler.html#a95908d5b00f62b629dc7f20acb714292">ObjectsHandler::run_mode</a></div><div class="ttdeci">int run_mode</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:38</div></div>
-<div class="ttc" id="class_objects_handler_html_aea45bba31aa769008386100725bda66b"><div class="ttname"><a href="class_objects_handler.html#aea45bba31aa769008386100725bda66b">ObjectsHandler::tf_listener</a></div><div class="ttdeci">tf::TransformListener * tf_listener</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:11</div></div>
-<div class="ttc" id="class_objects_handler_html_a86f8528ff5697c87fc6a3fcd6ba0f42c"><div class="ttname"><a href="class_objects_handler.html#a86f8528ff5697c87fc6a3fcd6ba0f42c">ObjectsHandler::is_chaser_recieved</a></div><div class="ttdeci">bool is_chaser_recieved</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:44</div></div>
-<div class="ttc" id="class_objects_handler_html_a1c0586ae7467bb8a3df8ad247ac7b10b"><div class="ttname"><a href="class_objects_handler.html#a1c0586ae7467bb8a3df8ad247ac7b10b">ObjectsHandler::world_frame_id</a></div><div class="ttdeci">string world_frame_id</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:15</div></div>
-<div class="ttc" id="class_objects_handler_html_ad436bfd8b262f473f0e4ca92b3c3402b"><div class="ttname"><a href="class_objects_handler.html#ad436bfd8b262f473f0e4ca92b3c3402b">ObjectsHandler::target_pose</a></div><div class="ttdeci">PoseStamped target_pose</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:24</div></div>
-<div class="ttc" id="class_objects_handler_html_a79fd5f872a40cca5ea599f1e83dcb3ad"><div class="ttname"><a href="class_objects_handler.html#a79fd5f872a40cca5ea599f1e83dcb3ad">ObjectsHandler::chaser_pose</a></div><div class="ttdeci">PoseStamped chaser_pose</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:25</div></div>
-<div class="ttc" id="class_objects_handler_html_af49de4eabb124e2ee6c9e12ebb31bca3"><div class="ttname"><a href="class_objects_handler.html#af49de4eabb124e2ee6c9e12ebb31bca3">ObjectsHandler::tf_talker</a></div><div class="ttdeci">tf::TransformBroadcaster * tf_talker</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:12</div></div>
-<div class="ttc" id="class_objects_handler_html_a3e8d08bf5d76d69f1768b53fd799953c"><div class="ttname"><a href="class_objects_handler.html#a3e8d08bf5d76d69f1768b53fd799953c">ObjectsHandler::chaser_frame_id</a></div><div class="ttdeci">string chaser_frame_id</div><div class="ttdef"><b>Definition:</b> ObjectHandler.h:16</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_object_handler_8cpp_source.html#l00131">131</a> of file <a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_objects_handler_a6896e4f9863bd1a4fbc8498d0cb20f09_icgraph.png" border="0" usemap="#class_objects_handler_a6896e4f9863bd1a4fbc8498d0cb20f09_icgraph" alt=""/></div>
+<map name="class_objects_handler_a6896e4f9863bd1a4fbc8498d0cb20f09_icgraph" id="class_objects_handler_a6896e4f9863bd1a4fbc8498d0cb20f09_icgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="181,5,392,32"/>
+<area shape="rect" id="node3" href="class_wrapper.html#a009ee5c325926f92df42319d5469a376" title="Wrapper::session" alt="" coords="225,56,349,83"/>
+<area shape="rect" id="node4" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="440,31,529,57"/>
+<area shape="rect" id="node5" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="459,81,510,108"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="a36db60068ada56b9142b3d6ef0437749"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Twist ObjectsHandler::chaser_acc</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3e8d08bf5d76d69f1768b53fd799953c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string ObjectsHandler::chaser_frame_id</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa991434e17ca1144c80633ff7530534c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double ObjectsHandler::chaser_init_z</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a79fd5f872a40cca5ea599f1e83dcb3ad"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">PoseStamped ObjectsHandler::chaser_pose</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a74e3f3b4bf263711c389190a595368e2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Twist ObjectsHandler::chaser_vel</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a46ed8cfd250b183909a7d3a1f56cee6b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_field_params.html">FieldParams</a> ObjectsHandler::edf_grid_params</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af2063609510d5ad8f136a275b0d127c1"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">shared_ptr&lt;<a class="el" href="struct_grid_field.html">GridField</a>&gt; ObjectsHandler::edf_grid_ptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae71885df3c4e28f45be7bb0e5a383293"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double ObjectsHandler::edf_max_dist</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a577e8b62f1e55d36330048fb9fd3a432"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double ObjectsHandler::edf_max_viz_dist</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa96d8c71f5e8c6423c88d3302220d4cf"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">DynamicEDTOctomap* ObjectsHandler::edf_ptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a class="anchor" id="a86f8528ff5697c87fc6a3fcd6ba0f42c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -765,6 +867,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00048">48</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
 
 </div>
 </div>
@@ -778,6 +882,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00052">52</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a88fb913340c535df81f3b7ae5f06df61"></a>
@@ -789,6 +895,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00051">51</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
 
 </div>
 </div>
@@ -802,6 +910,22 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00053">53</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a953cbc6386a438635bd1b12a8e479b38"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ObjectsHandler::is_log</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00062">62</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="acf1ef1b318defc2a39d87cea72689478"></a>
@@ -813,6 +937,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00049">49</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
 
 </div>
 </div>
@@ -826,6 +952,22 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00047">47</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad8d1ea6646024f0a03e154a7c2c07682"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ObjectsHandler::is_path_solved = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00059">59</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7691f3e1ec58e55ead30c50c555f169a"></a>
@@ -838,282 +980,48 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="ad6904dcaaad790234569760df0fb0ac2"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">visualization_msgs::Marker ObjectsHandler::markers_edf</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00050">50</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac8c10c7a10aeb8abf1a44b7361f646e6"></a>
+<a class="anchor" id="a98d5880c9ab3a4b227d8c57403213f65"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double ObjectsHandler::min_z</td>
+          <td class="memname">bool ObjectsHandler::is_target_tf = true</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00054">54</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a70b5e252a180d919653c7b53aff6f534"></a>
+<a class="anchor" id="a057b7b0a2fa3eca3a83b0d8de54e0f60"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string ObjectsHandler::octomap_topic_name</td>
+          <td class="memname">string ObjectsHandler::log_dir</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a76ad7ca7513755408c02dd36dea94c6e"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">shared_ptr&lt;octomap::OcTree&gt; ObjectsHandler::octree_ptr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a86a1f98983b533f77bf17867affb5251"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ros::Publisher ObjectsHandler::pub_edf</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a95908d5b00f62b629dc7f20acb714292"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ObjectsHandler::run_mode</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9a2e098b85260b71c88b81dadd6ca58a"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ros::Subscriber ObjectsHandler::sub_chaser_init_pose</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3b384ae3f8f66557b1c1ac04523fb330"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ros::Subscriber ObjectsHandler::sub_octomap</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7a616768386c4c7da9af4da3d07bd936"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string ObjectsHandler::target_frame_id</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad436bfd8b262f473f0e4ca92b3c3402b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">PoseStamped ObjectsHandler::target_pose</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aea45bba31aa769008386100725bda66b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tf::TransformListener* ObjectsHandler::tf_listener</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af49de4eabb124e2ee6c9e12ebb31bca3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">tf::TransformBroadcaster* ObjectsHandler::tf_talker</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1c0586ae7467bb8a3df8ad247ac7b10b"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">string ObjectsHandler::world_frame_id</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="_object_handler_8h_source.html#l00061">61</a> of file <a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>include/auto_chaser/<a class="el" href="">ObjectHandler.h</a></li>
-<li>src/auto_chaser/<a class="el" href="">ObjectHandler.cpp</a></li>
+<li>include/auto_chaser/<a class="el" href="_object_handler_8h_source.html">ObjectHandler.h</a></li>
+<li>src/auto_chaser/<a class="el" href="_object_handler_8cpp_source.html">ObjectHandler.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="class_objects_handler.html">ObjectsHandler</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
 </body>
 </html>

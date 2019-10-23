@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">auto_chaser
-   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_chaser.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,29 +82,18 @@ $(document).ready(function(){initNavTree('class_chaser.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_chaser-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Chaser Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="">Chaser.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for Chaser:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_chaser__coll__graph.png" border="0" usemap="#_chaser_coll__map" alt="Collaboration graph"/></div>
-<map name="_chaser_coll__map" id="_chaser_coll__map">
-<area shape="rect" id="node2" href="class_smooth_planner.html" title="SmoothPlanner" alt="" coords="5,95,116,121"/>
-<area shape="rect" id="node3" href="class_preplanner.html" title="Preplanner" alt="" coords="147,95,231,121"/>
-<area shape="rect" id="node4" href="structchaser_1_1_preplanner_params.html" title="chaser::PreplannerParams" alt="" coords="101,5,277,32"/>
-</map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<p><code>#include &lt;<a class="el" href="_chaser_8h_source.html">Chaser.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -146,34 +111,25 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a208374e7b85f9a35c1c00ec4f1ec65c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2fe36102d5a9befcb4c6ada3375260ed"><td class="memItemLeft" align="right" valign="top">Twist&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#a2fe36102d5a9befcb4c6ada3375260ed">eval_acceleration</a> (double t_eval)</td></tr>
 <tr class="separator:a2fe36102d5a9befcb4c6ada3375260ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a439adefdcbe7825ad80753ac5723ed41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#a439adefdcbe7825ad80753ac5723ed41">publish_control</a> (double t_eval)</td></tr>
-<tr class="separator:a439adefdcbe7825ad80753ac5723ed41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a42e3dd3ca45e343652318e591f87d1"><td class="memItemLeft" align="right" valign="top">Point&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#a7a42e3dd3ca45e343652318e591f87d1">get_control_point</a> (double t_eval)</td></tr>
+<tr class="memdesc:a7a42e3dd3ca45e343652318e591f87d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">obtains the latest control point. yaw will be selected from wrapper with information of target  <a href="#a7a42e3dd3ca45e343652318e591f87d1">More...</a><br /></td></tr>
+<tr class="separator:a7a42e3dd3ca45e343652318e591f87d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa7ce7ea18761dd1513cf9e85c6b4e48"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#aaa7ce7ea18761dd1513cf9e85c6b4e48">get_hovering_z</a> ()</td></tr>
+<tr class="separator:aaa7ce7ea18761dd1513cf9e85c6b4e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a53af032471ad6bdc828c4eae78085813"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#a53af032471ad6bdc828c4eae78085813">is_complete_chasing_path</a></td></tr>
 <tr class="separator:a53af032471ad6bdc828c4eae78085813"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a5169e2a07c5d86d144880be3d9c7d6b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#a5169e2a07c5d86d144880be3d9c7d6b9">preplan</a> ()</td></tr>
-<tr class="separator:a5169e2a07c5d86d144880be3d9c7d6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa70b57b1d92a22f56199ee3d0460a4f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#aa70b57b1d92a22f56199ee3d0460a4f7">path_complete</a> ()</td></tr>
-<tr class="separator:aa70b57b1d92a22f56199ee3d0460a4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a090edb4f4bdb9da847f0980d3b188c57"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_preplanner.html">Preplanner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#a090edb4f4bdb9da847f0980d3b188c57">preplanner</a></td></tr>
-<tr class="separator:a090edb4f4bdb9da847f0980d3b188c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab300ace64ce35c982c546cfce13f476"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">smooth_planner</a></td></tr>
-<tr class="separator:aab300ace64ce35c982c546cfce13f476"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eae070c2bad84e685bee6ce046245e3"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#a6eae070c2bad84e685bee6ce046245e3">pub_control_mav</a></td></tr>
-<tr class="separator:a6eae070c2bad84e685bee6ce046245e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadbc227c0bffe031c6411f8e00330f3f"><td class="memItemLeft" align="right" valign="top">geometry_msgs::PoseStamped&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#aadbc227c0bffe031c6411f8e00330f3f">pose_control_mav</a></td></tr>
-<tr class="separator:aadbc227c0bffe031c6411f8e00330f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33b880dd48d1d983001fa93ba1a1184f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#a33b880dd48d1d983001fa93ba1a1184f">is_log</a></td></tr>
+<tr class="separator:a33b880dd48d1d983001fa93ba1a1184f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d9ad4c7ca00bcda38d2bc809f3e7654"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_chaser.html#a9d9ad4c7ca00bcda38d2bc809f3e7654">log_dir</a></td></tr>
+<tr class="separator:a9d9ad4c7ca00bcda38d2bc809f3e7654"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_chaser_8h_source.html#l00005">5</a> of file <a class="el" href="_chaser_8h_source.html">Chaser.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae1179fa7b77db9c80468f88222e32f09"></a>
 <div class="memitem">
 <div class="memproto">
@@ -186,8 +142,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;:<a class="code" href="class_chaser.html#a53af032471ad6bdc828c4eae78085813">is_complete_chasing_path</a>(<span class="keyword">false</span>){}</div><div class="ttc" id="class_chaser_html_a53af032471ad6bdc828c4eae78085813"><div class="ttname"><a href="class_chaser.html#a53af032471ad6bdc828c4eae78085813">Chaser::is_complete_chasing_path</a></div><div class="ttdeci">bool is_complete_chasing_path</div><div class="ttdef"><b>Definition:</b> Chaser.h:19</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_chaser_8cpp_source.html#l00003">3</a> of file <a class="el" href="_chaser_8cpp_source.html">Chaser.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -238,14 +195,21 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;                                                                                                                                             {</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    </div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">bool</span> result = <span class="keyword">false</span>;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// phase 1 pre planning </span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_chaser.html#a090edb4f4bdb9da847f0980d3b188c57">preplanner</a>.<a class="code" href="class_preplanner.html#a6f0b709012500a44679facf0e18b985a">preplan</a>(global_edf_ptr,target_pnts,chaser_x0);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    ROS_INFO(<span class="stringliteral">&quot;[Chaser] preplanning completed.&quot;</span>);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    nav_msgs::Path waypoints = <a class="code" href="class_chaser.html#a090edb4f4bdb9da847f0980d3b188c57">preplanner</a>.<a class="code" href="class_preplanner.html#a1debbaa8e7ee64b2c22c514f89801cd1">get_preplanned_waypoints</a>();</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span>(waypoints.poses.size()){</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="comment">// phase 2 smooth planning     </span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">smooth_planner</a>.<a class="code" href="class_smooth_planner.html#afc03abbd5f6473f2bc952f70195326ac">traj_gen</a>(knots,waypoints,chaser_v0,chaser_a0);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">smooth_planner</a>.<a class="code" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a>.is_spline_valid())</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            {ROS_INFO(<span class="stringliteral">&quot;[Chaser] smooth path completed.&quot;</span>); <a class="code" href="class_chaser.html#a53af032471ad6bdc828c4eae78085813">is_complete_chasing_path</a> = <span class="keyword">true</span>; <span class="keywordflow">return</span> <span class="keyword">true</span>;}</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">else</span> </div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            ROS_WARN(<span class="stringliteral">&quot;[Chaser] smooth path incompleted.&quot;</span>);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }<span class="keywordflow">else</span></div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        ROS_WARN(<span class="stringliteral">&quot;[Chaser] preplanning failed&quot;</span>);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div><div class="ttc" id="class_chaser_html_a53af032471ad6bdc828c4eae78085813"><div class="ttname"><a href="class_chaser.html#a53af032471ad6bdc828c4eae78085813">Chaser::is_complete_chasing_path</a></div><div class="ttdeci">bool is_complete_chasing_path</div><div class="ttdef"><b>Definition:</b> Chaser.h:19</div></div>
-<div class="ttc" id="class_smooth_planner_html_afc03abbd5f6473f2bc952f70195326ac"><div class="ttname"><a href="class_smooth_planner.html#afc03abbd5f6473f2bc952f70195326ac">SmoothPlanner::traj_gen</a></div><div class="ttdeci">void traj_gen(TimeSeries knots, nav_msgs::Path waypoints, Twist v0, Twist a0)</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.cpp:28</div></div>
-<div class="ttc" id="class_preplanner_html_a6f0b709012500a44679facf0e18b985a"><div class="ttname"><a href="class_preplanner.html#a6f0b709012500a44679facf0e18b985a">Preplanner::preplan</a></div><div class="ttdeci">void preplan(GridField *global_edf_ptr, vector&lt; Point &gt; target_pnts, Point chaser_init)</div><div class="ttdef"><b>Definition:</b> Preplanner.cpp:337</div></div>
-<div class="ttc" id="class_chaser_html_aab300ace64ce35c982c546cfce13f476"><div class="ttname"><a href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">Chaser::smooth_planner</a></div><div class="ttdeci">SmoothPlanner smooth_planner</div><div class="ttdef"><b>Definition:</b> Chaser.h:8</div></div>
-<div class="ttc" id="class_chaser_html_a090edb4f4bdb9da847f0980d3b188c57"><div class="ttname"><a href="class_chaser.html#a090edb4f4bdb9da847f0980d3b188c57">Chaser::preplanner</a></div><div class="ttdeci">Preplanner preplanner</div><div class="ttdef"><b>Definition:</b> Chaser.h:7</div></div>
-<div class="ttc" id="class_preplanner_html_a1debbaa8e7ee64b2c22c514f89801cd1"><div class="ttname"><a href="class_preplanner.html#a1debbaa8e7ee64b2c22c514f89801cd1">Preplanner::get_preplanned_waypoints</a></div><div class="ttdeci">nav_msgs::Path get_preplanned_waypoints()</div><div class="ttdef"><b>Definition:</b> Preplanner.cpp:350</div></div>
-<div class="ttc" id="class_smooth_planner_html_aa9df69d4f514c7338ab2d066d38dd1a2"><div class="ttname"><a href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">SmoothPlanner::planner</a></div><div class="ttdeci">PathPlanner planner</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:7</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_chaser_8cpp_source.html#l00026">26</a> of file <a class="el" href="_chaser_8cpp_source.html">Chaser.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_chaser_a8feeca68466b9b4576ee9c99b624dfc5_cgraph.png" border="0" usemap="#class_chaser_a8feeca68466b9b4576ee9c99b624dfc5_cgraph" alt=""/></div>
+<map name="class_chaser_a8feeca68466b9b4576ee9c99b624dfc5_cgraph" id="class_chaser_a8feeca68466b9b4576ee9c99b624dfc5_cgraph">
+<area shape="rect" id="node2" href="class_preplanner.html#a6f0b709012500a44679facf0e18b985a" title="Preplanner::preplan" alt="" coords="229,5,364,32"/>
+<area shape="rect" id="node3" href="class_preplanner.html#a1debbaa8e7ee64b2c22c514f89801cd1" title="Preplanner::get_preplanned\l_waypoints" alt="" coords="207,57,387,98"/>
+<area shape="rect" id="node4" href="class_smooth_planner.html#afc03abbd5f6473f2bc952f70195326ac" title="SmoothPlanner::traj_gen" alt="" coords="214,123,379,149"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a2fe36102d5a9befcb4c6ada3375260ed"></a>
@@ -261,9 +225,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                            {</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">smooth_planner</a>.<a class="code" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a>.accel_eval_spline(t_eval);        </div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div><div class="ttc" id="class_chaser_html_aab300ace64ce35c982c546cfce13f476"><div class="ttname"><a href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">Chaser::smooth_planner</a></div><div class="ttdeci">SmoothPlanner smooth_planner</div><div class="ttdef"><b>Definition:</b> Chaser.h:8</div></div>
-<div class="ttc" id="class_smooth_planner_html_aa9df69d4f514c7338ab2d066d38dd1a2"><div class="ttname"><a href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">SmoothPlanner::planner</a></div><div class="ttdeci">PathPlanner planner</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:7</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_chaser_8cpp_source.html#l00086">86</a> of file <a class="el" href="_chaser_8cpp_source.html">Chaser.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a6dca60b8af1c63eff3235515255cf355"></a>
@@ -279,9 +243,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                     {    </div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">smooth_planner</a>.<a class="code" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a>.point_eval_spline(t_eval);        </div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div><div class="ttc" id="class_chaser_html_aab300ace64ce35c982c546cfce13f476"><div class="ttname"><a href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">Chaser::smooth_planner</a></div><div class="ttdeci">SmoothPlanner smooth_planner</div><div class="ttdef"><b>Definition:</b> Chaser.h:8</div></div>
-<div class="ttc" id="class_smooth_planner_html_aa9df69d4f514c7338ab2d066d38dd1a2"><div class="ttname"><a href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">SmoothPlanner::planner</a></div><div class="ttdeci">PathPlanner planner</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:7</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_chaser_8cpp_source.html#l00077">77</a> of file <a class="el" href="_chaser_8cpp_source.html">Chaser.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a208374e7b85f9a35c1c00ec4f1ec65c3"></a>
@@ -297,9 +261,53 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                                        {</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">smooth_planner</a>.<a class="code" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a>.vel_eval_spline(t_eval);        </div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div><div class="ttc" id="class_chaser_html_aab300ace64ce35c982c546cfce13f476"><div class="ttname"><a href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">Chaser::smooth_planner</a></div><div class="ttdeci">SmoothPlanner smooth_planner</div><div class="ttdef"><b>Definition:</b> Chaser.h:8</div></div>
-<div class="ttc" id="class_smooth_planner_html_aa9df69d4f514c7338ab2d066d38dd1a2"><div class="ttname"><a href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">SmoothPlanner::planner</a></div><div class="ttdeci">PathPlanner planner</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:7</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_chaser_8cpp_source.html#l00082">82</a> of file <a class="el" href="_chaser_8cpp_source.html">Chaser.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7a42e3dd3ca45e343652318e591f87d1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Point Chaser::get_control_point </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t_eval</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>obtains the latest control point. yaw will be selected from wrapper with information of target </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t_eval</td><td>evaluation time </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Point the control point </dd></dl>
+
+<p>Definition at line <a class="el" href="_chaser_8cpp_source.html#l00097">97</a> of file <a class="el" href="_chaser_8cpp_source.html">Chaser.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa7ce7ea18761dd1513cf9e85c6b4e48"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Chaser::get_hovering_z </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_chaser_8cpp_source.html#l00022">22</a> of file <a class="el" href="_chaser_8cpp_source.html">Chaser.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3538485980643e885755608e4297d1f6"></a>
@@ -315,79 +323,28 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                                 {</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="class_chaser.html#a090edb4f4bdb9da847f0980d3b188c57">preplanner</a>.<a class="code" href="class_preplanner.html#aecde07364cbd05e2e46c95f4f5fd4951">init</a>(nh);</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">smooth_planner</a>.<a class="code" href="class_smooth_planner.html#a34508c873d458075880afbae0e9c933e">init</a>(nh);</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="class_chaser.html#a6eae070c2bad84e685bee6ce046245e3">pub_control_mav</a> = nh.advertise&lt;PoseStamped&gt;(<span class="stringliteral">&quot;mav_control_pose&quot;</span>,1);</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div><div class="ttc" id="class_preplanner_html_aecde07364cbd05e2e46c95f4f5fd4951"><div class="ttname"><a href="class_preplanner.html#aecde07364cbd05e2e46c95f4f5fd4951">Preplanner::init</a></div><div class="ttdeci">void init(ros::NodeHandle nh)</div><div class="ttdef"><b>Definition:</b> Preplanner.cpp:5</div></div>
-<div class="ttc" id="class_chaser_html_aab300ace64ce35c982c546cfce13f476"><div class="ttname"><a href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">Chaser::smooth_planner</a></div><div class="ttdeci">SmoothPlanner smooth_planner</div><div class="ttdef"><b>Definition:</b> Chaser.h:8</div></div>
-<div class="ttc" id="class_chaser_html_a090edb4f4bdb9da847f0980d3b188c57"><div class="ttname"><a href="class_chaser.html#a090edb4f4bdb9da847f0980d3b188c57">Chaser::preplanner</a></div><div class="ttdeci">Preplanner preplanner</div><div class="ttdef"><b>Definition:</b> Chaser.h:7</div></div>
-<div class="ttc" id="class_chaser_html_a6eae070c2bad84e685bee6ce046245e3"><div class="ttname"><a href="class_chaser.html#a6eae070c2bad84e685bee6ce046245e3">Chaser::pub_control_mav</a></div><div class="ttdeci">ros::Publisher pub_control_mav</div><div class="ttdef"><b>Definition:</b> Chaser.h:10</div></div>
-<div class="ttc" id="class_smooth_planner_html_a34508c873d458075880afbae0e9c933e"><div class="ttname"><a href="class_smooth_planner.html#a34508c873d458075880afbae0e9c933e">SmoothPlanner::init</a></div><div class="ttdeci">void init(ros::NodeHandle nh)</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.cpp:5</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a class="anchor" id="aa70b57b1d92a22f56199ee3d0460a4f7"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Chaser::path_complete </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a5169e2a07c5d86d144880be3d9c7d6b9"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Chaser::preplan </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="_chaser_8cpp_source.html#l00005">5</a> of file <a class="el" href="_chaser_8cpp_source.html">Chaser.cpp</a>.</p>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_chaser_a3538485980643e885755608e4297d1f6_cgraph.png" border="0" usemap="#class_chaser_a3538485980643e885755608e4297d1f6_cgraph" alt=""/></div>
+<map name="class_chaser_a3538485980643e885755608e4297d1f6_cgraph" id="class_chaser_a3538485980643e885755608e4297d1f6_cgraph">
+<area shape="rect" id="node2" href="class_preplanner.html#aecde07364cbd05e2e46c95f4f5fd4951" title="Preplanner::init" alt="" coords="156,208,265,235"/>
+<area shape="rect" id="node11" href="class_smooth_planner.html#a34508c873d458075880afbae0e9c933e" title="SmoothPlanner::init" alt="" coords="143,259,279,285"/>
+<area shape="rect" id="node3" href="struct_grid_field.html#af9f5144af2f0cdb99784ea54c42a8516" title="GridField::getRayMin" alt="" coords="337,56,483,83"/>
+<area shape="rect" id="node5" href="struct_grid_field.html#a1a70c2de6239c1b086d01dc89b161b7c" title="GridField::getCellIdx" alt="" coords="745,81,887,108"/>
+<area shape="rect" id="node6" href="_common_8h.html#a3e35de4eb7396984c2c5018768885d91" title="geo2eigen" alt="" coords="369,157,451,184"/>
+<area shape="rect" id="node7" href="_common_8h.html#a75aaebf1a8b822524cc6af51a0cd83ef" title="get_color" alt="" coords="373,208,447,235"/>
+<area shape="rect" id="node8" href="struct_grid_field.html#acd8fd9f0893ad94aa4f20b4b4d81802a" title="GridField::generate_node" alt="" coords="327,259,493,285"/>
+<area shape="rect" id="node9" href="struct_grid_field.html#a3e49ca50129cb18db833bd4168c5d254" title="GridField::getRayMean" alt="" coords="541,233,697,260"/>
+<area shape="rect" id="node10" href="struct_grid_field.html#aacd39f9388090694e5c428cc612fd887" title="GridField::getCentre" alt="" coords="341,360,479,387"/>
+<area shape="rect" id="node4" href="struct_grid_field.html#a9b1f94c44fc47953c38b8e2fe815860d" title="GridField::getValue" alt="" coords="553,5,686,32"/>
+</map>
 </div>
-</div>
-<a class="anchor" id="a439adefdcbe7825ad80753ac5723ed41"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Chaser::publish_control </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>t_eval</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                         {</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="class_chaser.html#aadbc227c0bffe031c6411f8e00330f3f">pose_control_mav</a>.header.frame_id = <a class="code" href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">smooth_planner</a>.<a class="code" href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">world_frame_id</a>;</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="class_chaser.html#aadbc227c0bffe031c6411f8e00330f3f">pose_control_mav</a>.pose.position = <a class="code" href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">smooth_planner</a>.<a class="code" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a>.point_eval_spline(t_eval); </div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="class_chaser.html#a6eae070c2bad84e685bee6ce046245e3">pub_control_mav</a>.publish(<a class="code" href="class_chaser.html#aadbc227c0bffe031c6411f8e00330f3f">pose_control_mav</a>);</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div><div class="ttc" id="class_chaser_html_aadbc227c0bffe031c6411f8e00330f3f"><div class="ttname"><a href="class_chaser.html#aadbc227c0bffe031c6411f8e00330f3f">Chaser::pose_control_mav</a></div><div class="ttdeci">geometry_msgs::PoseStamped pose_control_mav</div><div class="ttdef"><b>Definition:</b> Chaser.h:11</div></div>
-<div class="ttc" id="class_chaser_html_aab300ace64ce35c982c546cfce13f476"><div class="ttname"><a href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">Chaser::smooth_planner</a></div><div class="ttdeci">SmoothPlanner smooth_planner</div><div class="ttdef"><b>Definition:</b> Chaser.h:8</div></div>
-<div class="ttc" id="class_smooth_planner_html_ade278c4209b962d8342a2ee30e718c8b"><div class="ttname"><a href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">SmoothPlanner::world_frame_id</a></div><div class="ttdeci">string world_frame_id</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:15</div></div>
-<div class="ttc" id="class_chaser_html_a6eae070c2bad84e685bee6ce046245e3"><div class="ttname"><a href="class_chaser.html#a6eae070c2bad84e685bee6ce046245e3">Chaser::pub_control_mav</a></div><div class="ttdeci">ros::Publisher pub_control_mav</div><div class="ttdef"><b>Definition:</b> Chaser.h:10</div></div>
-<div class="ttc" id="class_smooth_planner_html_aa9df69d4f514c7338ab2d066d38dd1a2"><div class="ttname"><a href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">SmoothPlanner::planner</a></div><div class="ttdeci">PathPlanner planner</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:7</div></div>
-</div><!-- fragment -->
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a7d736728bb5327acf0d334d7d4b1b844"></a>
@@ -403,13 +360,20 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                            {</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_chaser.html#a090edb4f4bdb9da847f0980d3b188c57">preplanner</a>.<a class="code" href="class_preplanner.html#a35f3bfb85ba14d7f0c72bda1522df69e">publish</a>(); <span class="comment">// markers     </span></div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">smooth_planner</a>.<a class="code" href="class_smooth_planner.html#a2996c73522e93adff70eb68e18c55951">publish</a>();  <span class="comment">// markers </span></div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_chaser.html#a53af032471ad6bdc828c4eae78085813">is_complete_chasing_path</a>){</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="class_chaser.html#a439adefdcbe7825ad80753ac5723ed41">publish_control</a>(t);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div><div class="ttc" id="class_chaser_html_a53af032471ad6bdc828c4eae78085813"><div class="ttname"><a href="class_chaser.html#a53af032471ad6bdc828c4eae78085813">Chaser::is_complete_chasing_path</a></div><div class="ttdeci">bool is_complete_chasing_path</div><div class="ttdef"><b>Definition:</b> Chaser.h:19</div></div>
-<div class="ttc" id="class_smooth_planner_html_a2996c73522e93adff70eb68e18c55951"><div class="ttname"><a href="class_smooth_planner.html#a2996c73522e93adff70eb68e18c55951">SmoothPlanner::publish</a></div><div class="ttdeci">void publish()</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.cpp:44</div></div>
-<div class="ttc" id="class_chaser_html_aab300ace64ce35c982c546cfce13f476"><div class="ttname"><a href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">Chaser::smooth_planner</a></div><div class="ttdeci">SmoothPlanner smooth_planner</div><div class="ttdef"><b>Definition:</b> Chaser.h:8</div></div>
-<div class="ttc" id="class_chaser_html_a090edb4f4bdb9da847f0980d3b188c57"><div class="ttname"><a href="class_chaser.html#a090edb4f4bdb9da847f0980d3b188c57">Chaser::preplanner</a></div><div class="ttdeci">Preplanner preplanner</div><div class="ttdef"><b>Definition:</b> Chaser.h:7</div></div>
-<div class="ttc" id="class_preplanner_html_a35f3bfb85ba14d7f0c72bda1522df69e"><div class="ttname"><a href="class_preplanner.html#a35f3bfb85ba14d7f0c72bda1522df69e">Preplanner::publish</a></div><div class="ttdeci">void publish()</div><div class="ttdef"><b>Definition:</b> Preplanner.cpp:352</div></div>
-<div class="ttc" id="class_chaser_html_a439adefdcbe7825ad80753ac5723ed41"><div class="ttname"><a href="class_chaser.html#a439adefdcbe7825ad80753ac5723ed41">Chaser::publish_control</a></div><div class="ttdeci">void publish_control(double t_eval)</div><div class="ttdef"><b>Definition:</b> Chaser.cpp:61</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_chaser_8cpp_source.html#l00071">71</a> of file <a class="el" href="_chaser_8cpp_source.html">Chaser.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_chaser_a7d736728bb5327acf0d334d7d4b1b844_cgraph.png" border="0" usemap="#class_chaser_a7d736728bb5327acf0d334d7d4b1b844_cgraph" alt=""/></div>
+<map name="class_chaser_a7d736728bb5327acf0d334d7d4b1b844_cgraph" id="class_chaser_a7d736728bb5327acf0d334d7d4b1b844_cgraph">
+<area shape="rect" id="node2" href="class_preplanner.html#a35f3bfb85ba14d7f0c72bda1522df69e" title="Preplanner::publish" alt="" coords="184,5,317,32"/>
+<area shape="rect" id="node3" href="class_smooth_planner.html#a2996c73522e93adff70eb68e18c55951" title="SmoothPlanner::publish" alt="" coords="171,56,331,83"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -423,102 +387,48 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="aadbc227c0bffe031c6411f8e00330f3f"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">geometry_msgs::PoseStamped Chaser::pose_control_mav</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="_chaser_8h_source.html#l00018">18</a> of file <a class="el" href="_chaser_8h_source.html">Chaser.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a090edb4f4bdb9da847f0980d3b188c57"></a>
+<a class="anchor" id="a33b880dd48d1d983001fa93ba1a1184f"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_preplanner.html">Preplanner</a> Chaser::preplanner</td>
+          <td class="memname">bool Chaser::is_log</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_chaser_8h_source.html#l00019">19</a> of file <a class="el" href="_chaser_8h_source.html">Chaser.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6eae070c2bad84e685bee6ce046245e3"></a>
+<a class="anchor" id="a9d9ad4c7ca00bcda38d2bc809f3e7654"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ros::Publisher Chaser::pub_control_mav</td>
+          <td class="memname">string Chaser::log_dir</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="aab300ace64ce35c982c546cfce13f476"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a> Chaser::smooth_planner</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="_chaser_8h_source.html#l00020">20</a> of file <a class="el" href="_chaser_8h_source.html">Chaser.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>include/auto_chaser/<a class="el" href="">Chaser.h</a></li>
-<li>src/auto_chaser/<a class="el" href="">Chaser.cpp</a></li>
+<li>include/auto_chaser/<a class="el" href="_chaser_8h_source.html">Chaser.h</a></li>
+<li>src/auto_chaser/<a class="el" href="_chaser_8cpp_source.html">Chaser.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="class_chaser.html">Chaser</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
 </body>
 </html>

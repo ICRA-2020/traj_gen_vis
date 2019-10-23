@@ -1,0 +1,8 @@
+<map id="ObjectsHandler::init" name="ObjectsHandler::init">
+<area shape="rect" id="node2" href="$class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="191,5,401,32"/>
+<area shape="rect" id="node3" href="$class_wrapper.html#af336781e7d75d525e7b152366a0e0d93" title="Wrapper::init" alt="" coords="248,56,344,83"/>
+<area shape="rect" id="node4" href="$class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="449,31,612,57"/>
+<area shape="rect" id="node7" href="$main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="505,81,556,108"/>
+<area shape="rect" id="node5" href="$class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="660,31,769,57"/>
+<area shape="rect" id="node6" href="$class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="817,31,1005,57"/>
+</map>

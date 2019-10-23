@@ -1,2 +1,6 @@
 <map id="QNode" name="QNode">
+<area shape="rect" id="node3" href="$class_wrapper.html" title="Wrapper" alt="" coords="102,95,173,121"/>
+<area shape="rect" id="node4" href="$class_chaser.html" title="Chaser" alt="" coords="49,5,113,32"/>
+<area shape="rect" id="node5" href="$class_objects_handler.html" title="ObjectsHandler" alt="" coords="137,5,249,32"/>
+<area shape="rect" id="node6" href="$class_target_manager.html" title="Target manager to be used in no&#45;prediction mode (prior target path is precomputed before simulation) ..." alt="" coords="204,95,313,121"/>
 </map>

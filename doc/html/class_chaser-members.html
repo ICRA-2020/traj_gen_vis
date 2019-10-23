@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">auto_chaser
-   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_chaser.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,7 @@ $(document).ready(function(){initNavTree('class_chaser.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">Chaser Member List</div>  </div>
@@ -119,25 +96,19 @@ $(document).ready(function(){initNavTree('class_chaser.html','');});
   <tr class="even"><td class="entry"><a class="el" href="class_chaser.html#a2fe36102d5a9befcb4c6ada3375260ed">eval_acceleration</a>(double t_eval)</td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_chaser.html#a6dca60b8af1c63eff3235515255cf355">eval_point</a>(double t_eval)</td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_chaser.html#a208374e7b85f9a35c1c00ec4f1ec65c3">eval_velocity</a>(double t_eval)</td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_chaser.html#a7a42e3dd3ca45e343652318e591f87d1">get_control_point</a>(double t_eval)</td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_chaser.html#aaa7ce7ea18761dd1513cf9e85c6b4e48">get_hovering_z</a>()</td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_chaser.html#a3538485980643e885755608e4297d1f6">init</a>(ros::NodeHandle nh)</td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_chaser.html#a53af032471ad6bdc828c4eae78085813">is_complete_chasing_path</a></td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_chaser.html#aa70b57b1d92a22f56199ee3d0460a4f7">path_complete</a>()</td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_chaser.html#aadbc227c0bffe031c6411f8e00330f3f">pose_control_mav</a></td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_chaser.html#a5169e2a07c5d86d144880be3d9c7d6b9">preplan</a>()</td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_chaser.html#a090edb4f4bdb9da847f0980d3b188c57">preplanner</a></td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_chaser.html#a6eae070c2bad84e685bee6ce046245e3">pub_control_mav</a></td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_chaser.html#a439adefdcbe7825ad80753ac5723ed41">publish_control</a>(double t_eval)</td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_chaser.html#a33b880dd48d1d983001fa93ba1a1184f">is_log</a></td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_chaser.html#a9d9ad4c7ca00bcda38d2bc809f3e7654">log_dir</a></td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_chaser.html#a7d736728bb5327acf0d334d7d4b1b844">session</a>(double t)</td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_chaser.html#aab300ace64ce35c982c546cfce13f476">smooth_planner</a></td><td class="entry"><a class="el" href="class_chaser.html">Chaser</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
 </body>
 </html>

@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">auto_chaser
-   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -75,21 +66,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('_wrapper_8h.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -104,6 +80,11 @@ $(document).ready(function(){initNavTree('_wrapper_8h.html','');});
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_074b6c1e429e781344401420870f5ae7.html">auto_chaser</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
@@ -111,18 +92,18 @@ $(document).ready(function(){initNavTree('_wrapper_8h.html','');});
 <div class="title">Wrapper.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="">auto_chaser/Chaser.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="">auto_chaser/ObjectHandler.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_chaser_8h_source.html">auto_chaser/Chaser.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_object_handler_8h_source.html">auto_chaser/ObjectHandler.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Wrapper.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_wrapper_8h__incl.png" border="0" usemap="#include_2auto__chaser_2_wrapper_8h" alt=""/></div>
 <map name="include_2auto__chaser_2_wrapper_8h" id="include_2auto__chaser_2_wrapper_8h">
-<area shape="rect" id="node2" href="_chaser_8h.html" title="auto_chaser/Chaser.h" alt="" coords="2859,95,3009,121"/>
-<area shape="rect" id="node40" href="_object_handler_8h.html" title="auto_chaser/ObjectHandler.h" alt="" coords="3033,95,3224,121"/>
-<area shape="rect" id="node3" href="_preplanner_8h.html" title="auto_chaser/Preplanner.h" alt="" coords="2921,169,3091,196"/>
-<area shape="rect" id="node38" href="_smooth_planner_8h.html" title="auto_chaser/SmoothPlanner.h" alt="" coords="2699,169,2897,196"/>
-<area shape="rect" id="node4" href="_common_8h.html" title="auto_chaser/Common.h" alt="" coords="2925,244,3087,271"/>
+<area shape="rect" id="node2" href="_chaser_8h.html" title="auto_chaser/Chaser.h" alt="" coords="3231,95,3381,121"/>
+<area shape="rect" id="node43" href="_object_handler_8h.html" title="auto_chaser/ObjectHandler.h" alt="" coords="3405,95,3596,121"/>
+<area shape="rect" id="node3" href="_preplanner_8h.html" title="auto_chaser/Preplanner.h" alt="" coords="3293,169,3463,196"/>
+<area shape="rect" id="node41" href="_smooth_planner_8h.html" title="auto_chaser/SmoothPlanner.h" alt="" coords="3071,169,3269,196"/>
+<area shape="rect" id="node4" href="_common_8h.html" title="auto_chaser/Common.h" alt="" coords="3297,244,3459,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -130,17 +111,20 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_wrapper_8h__dep__incl.png" border="0" usemap="#include_2auto__chaser_2_wrapper_8hdep" alt=""/></div>
 <map name="include_2auto__chaser_2_wrapper_8hdep" id="include_2auto__chaser_2_wrapper_8hdep">
-<area shape="rect" id="node2" href="_wrapper_8cpp.html" title="src/auto_chaser/Wrapper.cpp" alt="" coords="99,95,293,121"/>
-<area shape="rect" id="node3" href="qnode_8h.html" title="src/qt_ui/qnode.h" alt="" coords="317,95,440,121"/>
-<area shape="rect" id="node4" href="mainwindow_8h.html" title="src/qt_ui/mainwindow.h" alt="" coords="213,169,371,196"/>
-<area shape="rect" id="node8" href="qnode_8cpp.html" title="src/qt_ui/qnode.cpp" alt="" coords="396,169,532,196"/>
-<area shape="rect" id="node5" href="moc__mainwindow_8cpp.html" title="src/build&#45;qt_ui&#45;Desktop\l&#45;Debug/moc_mainwindow.cpp" alt="" coords="5,244,203,285"/>
-<area shape="rect" id="node6" href="main_8cpp.html" title="src/qt_ui/main.cpp" alt="" coords="227,251,357,278"/>
-<area shape="rect" id="node7" href="mainwindow_8cpp.html" title="src/qt_ui/mainwindow.cpp" alt="" coords="381,251,555,278"/>
+<area shape="rect" id="node2" href="anal__server_8h.html" title="include/analyzer/anal\l_server.h" alt="" coords="184,95,328,136"/>
+<area shape="rect" id="node5" href="_wrapper_8cpp.html" title="src/auto_chaser/Wrapper.cpp" alt="" coords="353,102,546,129"/>
+<area shape="rect" id="node6" href="qnode_8h.html" title="src/qt_ui_infomode\l/qnode.h" alt="" coords="570,95,702,136"/>
+<area shape="rect" id="node11" href="main__test_8cpp.html" title="src/qt_ui_predictmode\l/main_test.cpp" alt="" coords="726,95,877,136"/>
+<area shape="rect" id="node3" href="anal__main_8cpp.html" title="src/analyzer/anal_main.cpp" alt="" coords="5,191,187,218"/>
+<area shape="rect" id="node4" href="anal__server_8cpp.html" title="src/analyzer/anal_server.cpp" alt="" coords="211,191,400,218"/>
+<area shape="rect" id="node7" href="mainwindow_8h.html" title="src/qt_ui_infomode\l/mainwindow.h" alt="" coords="522,184,654,225"/>
+<area shape="rect" id="node10" href="qnode_8cpp.html" title="src/qt_ui_infomode\l/qnode.cpp" alt="" coords="678,184,810,225"/>
+<area shape="rect" id="node8" href="main_8cpp.html" title="src/qt_ui_infomode\l/main.cpp" alt="" coords="443,273,575,315"/>
+<area shape="rect" id="node9" href="mainwindow_8cpp.html" title="src/qt_ui_infomode\l/mainwindow.cpp" alt="" coords="599,273,731,315"/>
 </map>
 </div>
 </div>
-<p><a href="">Go to the source code of this file.</a></p>
+<p><a href="_wrapper_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -148,15 +132,11 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_074b6c1e429e781344401420870f5ae7.html">auto_chaser</a></li><li class="navelem"><a class="el" href="_wrapper_8h.html">Wrapper.h</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
 </body>
 </html>

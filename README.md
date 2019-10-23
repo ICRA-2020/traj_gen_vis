@@ -7,7 +7,7 @@
 
 *This package is devoted to generate an online chasing trajectory in response to the future movement of a moving target only for a short horizon. It assumes that the future trajectory of target is updated with a given time interval and priori map is given in the form of Octomap*  
 
-*I also wish that my package can provide a test enviroment for comparing different chasing algorithm*
+*I also wish that my package can provide a test environment for comparing different chasing algorithm*
 
 # Overview
 
@@ -32,7 +32,9 @@ The paper was accepted to IROS 2019  and preprinted in arXiv. If this package wa
 
 
 
-# 2 Installation
+# 2 Installation 
+
+We recommend to use this package in **ros-kinectic** (Ubuntu 16.04). 
 
 ## 2.1 Dependencies 
 
@@ -42,17 +44,39 @@ The package is trajectory generation library which is used for smooth path gener
 
 [download here](https://github.com/icsl-Jeon/traj_gen)
 
+
+
+### chomp_predict 
+
+The package is prediction module in case of unknown future trajectory  based on Covariant optimization 
+
+[download here](https://github.com/icsl-Jeon/chomp_predict)
+
+
+
 ### rotors_simulator
 
 The package is gazebo simulator for MAV. This is used for simulation of chasing planner in a virtual MAV platform
 
 [download here](https://github.com/ethz-asl/rotors_simulator)
 
+
+
 ### octomap
 
  We use octomap to represent the environment. dynamicEDT3D libraries also should be installed for Euclidean distance transform field(EDF). The visibility score field(VSF) will be computed based on the EDF.    
 
 [download here](http://github.com/OctoMap/octomap)
+
+
+
+### Others
+
+```
+sudo apt-get install ros-kinetic-qt-build
+```
+
+
 
 # 3.  Usage
 

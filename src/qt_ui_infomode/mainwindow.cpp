@@ -31,7 +31,7 @@ MainWindow::MainWindow(QNode* qnode,QWidget *parent) :
     
     QObject::connect(qnode, SIGNAL(rosShutdown()), this, SLOT(close()));
     QObject::connect(qnode,SIGNAL(writeOnBoard(QString)),this,SLOT(textEdit_write(QString)));
-
+    
     // load settings 
     ReadSettings();
 
@@ -49,6 +49,12 @@ void MainWindow::on_pushButton_ros_clicked()
     if(qnode->on_init()){
         ui->textEdit_board->append("ros connected.");
         qnode->is_connected = true;
+        
+        std::string log_dir = ui->lineEdit_logging_dir->text().toStdString();
+        cout << "[Main window] logging directory: " << log_dir << endl;
+        qnode->chaser_wrapper.objects_handler.log_dir = log_dir; 
+        qnode->chaser_wrapper.objects_handler.is_log = true; 
+        
 
     }else{
         ui->textEdit_board->append("failed. retry");

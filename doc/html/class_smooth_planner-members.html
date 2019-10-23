@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">auto_chaser
-   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_smooth_planner.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,7 @@ $(document).ready(function(){initNavTree('class_smooth_planner.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">SmoothPlanner Member List</div>  </div>
@@ -115,12 +92,14 @@ $(document).ready(function(){initNavTree('class_smooth_planner.html','');});
 <p>This is the complete list of members for <a class="el" href="class_smooth_planner.html">SmoothPlanner</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_smooth_planner.html#addf7aab458c1407f23e3544bd76ac82b">chasing_corridor</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_smooth_planner.html#a6a33038c6041ff972bea7765780b56d0">chasing_smooth_path</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_smooth_planner.html#a34508c873d458075880afbae0e9c933e">init</a>(ros::NodeHandle nh)</td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_smooth_planner.html#afeeab9ce830d4960babdc84c82da94ea">marker_knots</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">option</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_smooth_planner.html#a7cd9de34963f445a21a6d0101346b071">pub_chasing_corridor</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_smooth_planner.html#acb1a985fe214b76a1a6d7462ad3ddf80">chasing_corridor_single</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_smooth_planner.html#a6a33038c6041ff972bea7765780b56d0">chasing_smooth_path</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_smooth_planner.html#a34508c873d458075880afbae0e9c933e">init</a>(ros::NodeHandle nh)</td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_smooth_planner.html#afeeab9ce830d4960babdc84c82da94ea">marker_knots</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">option</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_smooth_planner.html#a7cd9de34963f445a21a6d0101346b071">pub_chasing_corridor</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_smooth_planner.html#a2f023865c692f4fdaa830204fc533018">pub_chasing_corridor_single</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_smooth_planner.html#a7ee67bceac6d60409542a2250b2ccd08">pub_knots</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_smooth_planner.html#a7b8400f711456291e567d0fc204c274b">pub_path</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_smooth_planner.html#a2996c73522e93adff70eb68e18c55951">publish</a>()</td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
@@ -128,14 +107,11 @@ $(document).ready(function(){initNavTree('class_smooth_planner.html','');});
   <tr><td class="entry"><a class="el" href="class_smooth_planner.html#afc03abbd5f6473f2bc952f70195326ac">traj_gen</a>(TimeSeries knots, nav_msgs::Path waypoints, Twist v0, Twist a0)</td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">world_frame_id</a></td><td class="entry"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
 </body>
 </html>

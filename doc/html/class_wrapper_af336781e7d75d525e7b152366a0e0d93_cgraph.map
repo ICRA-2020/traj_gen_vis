@@ -1,0 +1,10 @@
+<map id="Wrapper::init" name="Wrapper::init">
+<area shape="rect" id="node2" href="$class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="149,111,287,138"/>
+<area shape="rect" id="node3" href="$class_objects_handler.html#a5744110d979850b3e2d8896793435d0c" title="ObjectsHandler::octomap\l_callback" alt="" coords="335,5,505,47"/>
+<area shape="rect" id="node6" href="$class_objects_handler.html#a4c56416d3583b70d181d69d900b884b5" title="ObjectsHandler::callback\l_chaser_init_pose" alt="" coords="336,71,504,112"/>
+<area shape="rect" id="node8" href="$class_objects_handler.html#a28ac9c7ef998a413825cddca78324f61" title="callback function for control pose from wrapper. This is intended to replace the currnet chaser pose ..." alt="" coords="336,136,504,177"/>
+<area shape="rect" id="node9" href="$class_objects_handler.html#a5ee7bac0ddf6a18e58ca8183e64ff67a" title="ObjectsHandler::callback\l_target_pose" alt="" coords="336,201,504,243"/>
+<area shape="rect" id="node4" href="$class_objects_handler.html#ae6da4f0f0a265c75722e02d68d519f07" title="ObjectsHandler::compute_edf" alt="" coords="553,13,748,39"/>
+<area shape="rect" id="node5" href="$_common_8h.html#a4b2e4b6698ff92678b23392dc111b36d" title="get_color_dist" alt="" coords="796,13,899,39"/>
+<area shape="rect" id="node7" href="$class_objects_handler.html#a968feba95e0707919b6c3632781510ba" title="ObjectsHandler::chaser\l_spawn" alt="" coords="571,71,730,112"/>
+</map>

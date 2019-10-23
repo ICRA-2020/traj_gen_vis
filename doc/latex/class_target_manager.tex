@@ -2,6 +2,11 @@
 \label{class_target_manager}\index{Target\+Manager@{Target\+Manager}}
 
 
+Target manager to be used in no-\/prediction mode (prior target path is precomputed before simulation)  
+
+
+
+
 {\ttfamily \#include $<$Target\+Manager.\+h$>$}
 
 \subsection*{Public Member Functions}
@@ -46,38 +51,13 @@ double \hyperlink{class_target_manager_a8260c1908c073454b41d350a5ce9e435}{previo
 \item 
 double \hyperlink{class_target_manager_ac60d6fea0aeb2e64da49bf0a9713b0b2}{button\+\_\+elapsed} =0
 \end{DoxyCompactItemize}
-\subsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-Path\+Planner \hyperlink{class_target_manager_a93a451f39ff9c1c19dee2ea20bb0d678}{planner}
-\item 
-string \hyperlink{class_target_manager_a66612501d5cad51193df0f1adbfc52ed}{target\+\_\+frame\+\_\+id}
-\item 
-string \hyperlink{class_target_manager_aaab8041311692af50c7e8e3578072df2}{world\+\_\+frame\+\_\+id}
-\item 
-int \hyperlink{class_target_manager_a98732962b02b1930ed17e043dcaf478b}{mode}
-\item 
-double \hyperlink{class_target_manager_a4393e564cea5767b9c273fddad4b02b8}{min\+\_\+z}
-\item 
-ros\+::\+Publisher \hyperlink{class_target_manager_a676ec1f90b5595ac3dcc5c301d132298}{pub\+\_\+marker\+\_\+waypoints}
-\item 
-ros\+::\+Publisher \hyperlink{class_target_manager_a2aecbfd159c039a048a77601f4351504}{pub\+\_\+path}
-\item 
-ros\+::\+Subscriber \hyperlink{class_target_manager_ac8faa88743fb19a256daf68d68e081fb}{sub\+\_\+waypoints}
-\item 
-tf\+::\+Transform\+Broadcaster $\ast$ \hyperlink{class_target_manager_aa7eaef55d0b3b81ea1e72026730c5fd6}{br\+\_\+ptr}
-\item 
-visualization\+\_\+msgs\+::\+Marker\+Array \hyperlink{class_target_manager_afe26632f7b5444f6922016175b5c1a94}{wpnt\+\_\+marker\+Array}
-\item 
-nav\+\_\+msgs\+::\+Path \hyperlink{class_target_manager_a6e89e221ecb8f81b9ab9943870a661c3}{global\+\_\+path}
-\item 
-nav\+\_\+msgs\+::\+Path \hyperlink{class_target_manager_adde18a55a5e093c08584f625e76a0c9e}{waypoints\+\_\+seq}
-\item 
-Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f37}{traj\+\_\+option}
-\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Target manager to be used in no-\/prediction mode (prior target path is precomputed before simulation) 
+
+Definition at line 12 of file Target\+Manager.\+h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -89,9 +69,9 @@ Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f3
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_a3c7f0783381de386b697d8f27846aed1}{}\label{class_target_manager_a3c7f0783381de386b697d8f27846aed1}
 
-\begin{DoxyCode}
-3 \{\}
-\end{DoxyCode}
+
+Definition at line 3 of file Target\+Manager.\+cpp.
+
 
 
 \subsection{Member Function Documentation}
@@ -103,25 +83,21 @@ Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f3
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_a2f60f20f32700c71852fea340cdf1240}{}\label{class_target_manager_a2f60f20f32700c71852fea340cdf1240}
 
-\begin{DoxyCode}
-107                                                     \{    
-108 
-109     tf::TransformBroadcaster br; 
-110 
-111     Point eval\_point = \hyperlink{class_target_manager_a93a451f39ff9c1c19dee2ea20bb0d678}{planner}.point\_eval\_spline(t\_eval);
-112     \textcolor{comment}{// Twist eval\_vel = planner.vel\_eval\_spline(t\_eval);}
-113 
-114     tf::Transform transform;
-115     \textcolor{comment}{// float target\_yaw = atan2(eval\_vel.linear.y,eval\_vel.linear.x);}
-116     tf::Quaternion q;
-117     q.setRPY(0, 0, 0);
-118 
-119     transform.setOrigin(tf::Vector3(eval\_point.x,eval\_point.y,eval\_point.z));
-120     transform.setRotation(q);
-121     \hyperlink{class_target_manager_aa7eaef55d0b3b81ea1e72026730c5fd6}{br\_ptr}->sendTransform(tf::StampedTransform(transform,ros::Time::now(),
-      \hyperlink{class_target_manager_aaab8041311692af50c7e8e3578072df2}{world\_frame\_id},\hyperlink{class_target_manager_a66612501d5cad51193df0f1adbfc52ed}{target\_frame\_id}));
-122 \}
-\end{DoxyCode}
+
+Definition at line 109 of file Target\+Manager.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_target_manager_a2f60f20f32700c71852fea340cdf1240_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Target\+Manager@{Target\+Manager}!callback\+\_\+waypoint@{callback\+\_\+waypoint}}
 \index{callback\+\_\+waypoint@{callback\+\_\+waypoint}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{callback\+\_\+waypoint(const geometry\+\_\+msgs\+::\+Pose\+Stamped\+Const\+Ptr \&waypoint)}{callback_waypoint(const geometry_msgs::PoseStampedConstPtr &waypoint)}}]{\setlength{\rightskip}{0pt plus 5cm}void Target\+Manager\+::callback\+\_\+waypoint (
@@ -130,40 +106,21 @@ Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f3
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_adc84c02e4501b1a53556c766d50bc8b5}{}\label{class_target_manager_adc84c02e4501b1a53556c766d50bc8b5}
 
-\begin{DoxyCode}
-26                                                                                   \{
-27     \textcolor{keywordflow}{if} (\hyperlink{class_target_manager_adf8a01c0942c3aac0445403d8f0f4cce}{is\_insert\_permit})\{
-28         ROS\_INFO(\textcolor{stringliteral}{"point received"});
-29         \hyperlink{class_target_manager_a0bbcb1981504e3bc587c3a98f41a91e9}{queue}.push\_back(*pose);
-30         visualization\_msgs::Marker marker;
-31         
-32         marker.action = 0;
-33         marker.header.frame\_id = \hyperlink{class_target_manager_aaab8041311692af50c7e8e3578072df2}{world\_frame\_id};
-34         marker.type = visualization\_msgs::Marker::CUBE;
-35         marker.pose = pose->pose;
-36         \textcolor{keywordtype}{float} scale = 0.1;
-37         marker.scale.x = scale;
-38         marker.scale.y = scale;
-39         marker.scale.z = scale;
-40         marker.color.r = 1;
-41         marker.color.a = 1;
-42         marker.id = \hyperlink{class_target_manager_a0bbcb1981504e3bc587c3a98f41a91e9}{queue}.size();
-43         \hyperlink{class_target_manager_afe26632f7b5444f6922016175b5c1a94}{wpnt\_markerArray}.markers.push\_back(marker);
-44         
-45         \textcolor{comment}{// lets print in board  }
-46         \textcolor{keywordtype}{string} line = \textcolor{stringliteral}{"[Target manager] recieved point: "} 
-47                         + to\_string(pose->pose.position.x) + \textcolor{stringliteral}{" , "}
-48                         + to\_string(pose->pose.position.y);
-49         
-50         ROS\_INFO(line.c\_str());        
-51     \}\textcolor{keywordflow}{else}\{
-52          
-53  
-54         ROS\_WARN(\textcolor{stringliteral}{"[Target manager] insertion not allowed"});
-55         \textcolor{comment}{// std::cout<<"insertion not allowed"<<std::endl;}
-56     \}
-57 \}
-\end{DoxyCode}
+
+Definition at line 27 of file Target\+Manager.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_target_manager_adc84c02e4501b1a53556c766d50bc8b5_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Target\+Manager@{Target\+Manager}!clear\+\_\+waypoint@{clear\+\_\+waypoint}}
 \index{clear\+\_\+waypoint@{clear\+\_\+waypoint}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{clear\+\_\+waypoint()}{clear_waypoint()}}]{\setlength{\rightskip}{0pt plus 5cm}void Target\+Manager\+::clear\+\_\+waypoint (
@@ -172,13 +129,21 @@ Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f3
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_a13242c4a8b96b97cfeddea19aabc1181}{}\label{class_target_manager_a13242c4a8b96b97cfeddea19aabc1181}
 
-\begin{DoxyCode}
-95                                   \{
-96     \hyperlink{class_target_manager_a0bbcb1981504e3bc587c3a98f41a91e9}{queue}.clear();
-97     \hyperlink{class_target_manager_afe26632f7b5444f6922016175b5c1a94}{wpnt\_markerArray}.markers.clear();
-98     ROS\_INFO(\textcolor{stringliteral}{"[Target manager] queue cleared "});    
-99 \}
-\end{DoxyCode}
+
+Definition at line 97 of file Target\+Manager.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_target_manager_a13242c4a8b96b97cfeddea19aabc1181_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Target\+Manager@{Target\+Manager}!eval\+\_\+time\+\_\+seq@{eval\+\_\+time\+\_\+seq}}
 \index{eval\+\_\+time\+\_\+seq@{eval\+\_\+time\+\_\+seq}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{eval\+\_\+time\+\_\+seq(\+Vector\+Xd ts)}{eval_time_seq(VectorXd ts)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ Point $>$ Target\+Manager\+::eval\+\_\+time\+\_\+seq (
@@ -187,16 +152,29 @@ Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f3
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_a63bbc724844890316a654380d0354e93}{}\label{class_target_manager_a63bbc724844890316a654380d0354e93}
 
-\begin{DoxyCode}
-164                                                      \{
-165     vector<Point> point\_seq;
-166     
-167     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i<ts.size();i++)\{
-168         point\_seq.push\_back(\hyperlink{class_target_manager_a93a451f39ff9c1c19dee2ea20bb0d678}{planner}.point\_eval\_spline(ts(i)));
-169     \}
-170 
-171     \textcolor{keywordflow}{return} point\_seq;
-172 \}\end{DoxyCode}
+\begin{DoxyParams}{Parameters}
+{\em ts} & sim time = ros\+::\+Time\+::now -\/ ref time \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Point$>$ 
+\end{DoxyReturn}
+
+
+Definition at line 170 of file Target\+Manager.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_target_manager_a63bbc724844890316a654380d0354e93_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Target\+Manager@{Target\+Manager}!get\+\_\+global\+\_\+waypoints@{get\+\_\+global\+\_\+waypoints}}
 \index{get\+\_\+global\+\_\+waypoints@{get\+\_\+global\+\_\+waypoints}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{get\+\_\+global\+\_\+waypoints()}{get_global_waypoints()}}]{\setlength{\rightskip}{0pt plus 5cm}nav\+\_\+msgs\+::\+Path Target\+Manager\+::get\+\_\+global\+\_\+waypoints (
@@ -205,16 +183,21 @@ Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f3
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_a747b82bf5cb4d1d3574dbc08a117538f}{}\label{class_target_manager_a747b82bf5cb4d1d3574dbc08a117538f}
 
-\begin{DoxyCode}
-156                                                 \{
-157     \textcolor{comment}{// let's process the heights of target }
-158     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} it = \hyperlink{class_target_manager_adde18a55a5e093c08584f625e76a0c9e}{waypoints\_seq}.poses.begin(); it<\hyperlink{class_target_manager_adde18a55a5e093c08584f625e76a0c9e}{waypoints\_seq}.poses.end(); it++
-      )
-159         it->pose.position.z = \hyperlink{class_target_manager_a4393e564cea5767b9c273fddad4b02b8}{min\_z} + 0.001;
-160         
-161     \textcolor{keywordflow}{return} \hyperlink{class_target_manager_adde18a55a5e093c08584f625e76a0c9e}{waypoints\_seq};
-162 \}
-\end{DoxyCode}
+
+Definition at line 157 of file Target\+Manager.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_target_manager_a747b82bf5cb4d1d3574dbc08a117538f_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Target\+Manager@{Target\+Manager}!global\+\_\+path\+\_\+generate@{global\+\_\+path\+\_\+generate}}
 \index{global\+\_\+path\+\_\+generate@{global\+\_\+path\+\_\+generate}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{global\+\_\+path\+\_\+generate(double tf)}{global_path_generate(double tf)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Target\+Manager\+::global\+\_\+path\+\_\+generate (
@@ -223,34 +206,21 @@ Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f3
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_a1c0e48d7a623e8b7caa11c6b1832956b}{}\label{class_target_manager_a1c0e48d7a623e8b7caa11c6b1832956b}
 
-\begin{DoxyCode}
-60                                                  \{
-61 
-62     nav\_msgs::Path waypoints;
-63 
-64     waypoints.poses = \hyperlink{class_target_manager_a0bbcb1981504e3bc587c3a98f41a91e9}{queue};
-65     TimeSeries knots(\hyperlink{class_target_manager_a0bbcb1981504e3bc587c3a98f41a91e9}{queue}.size());
-66     \textcolor{keywordflow}{if}( \hyperlink{class_target_manager_a0bbcb1981504e3bc587c3a98f41a91e9}{queue}.empty())
-67         \{ ROS\_INFO(\textcolor{stringliteral}{"[Target manager] target waypoints empty"});   
-68 \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}
-69     \textcolor{comment}{// waypoints update }
-70     \hyperlink{class_target_manager_adde18a55a5e093c08584f625e76a0c9e}{waypoints\_seq} = waypoints;
-71     knots.setLinSpaced(\hyperlink{class_target_manager_a0bbcb1981504e3bc587c3a98f41a91e9}{queue}.size(),0,tf);
-72     \hyperlink{class_target_manager_a93a451f39ff9c1c19dee2ea20bb0d678}{planner}.path\_gen(knots,waypoints,geometry\_msgs::Twist(),geometry\_msgs::Twist(),
-      \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f37}{traj\_option}); 
-73     \textcolor{keywordflow}{if}(\hyperlink{class_target_manager_a93a451f39ff9c1c19dee2ea20bb0d678}{planner}.is\_spline\_valid())\{
-74         \hyperlink{class_target_manager_a507af7ce1ac562510c1b907553a2e596}{is\_path} = \textcolor{keyword}{true};
-75         \hyperlink{class_target_manager_a6e89e221ecb8f81b9ab9943870a661c3}{global\_path} = \hyperlink{class_target_manager_a93a451f39ff9c1c19dee2ea20bb0d678}{planner}.get\_path();
-76         \hyperlink{class_target_manager_a6e89e221ecb8f81b9ab9943870a661c3}{global\_path}.header.frame\_id  = \hyperlink{class_target_manager_aaab8041311692af50c7e8e3578072df2}{world\_frame\_id};
-77         ROS\_INFO(\textcolor{stringliteral}{"[Target manager] global path obtained."});    
-78         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
-79     \}
-80     \textcolor{keywordflow}{else}\{
-81         ROS\_INFO(\textcolor{stringliteral}{"[Target manager] path generatoin failed."});   
-82         \textcolor{keywordflow}{return} \textcolor{keyword}{false}; 
-83     \}
-84 \}
-\end{DoxyCode}
+
+Definition at line 61 of file Target\+Manager.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_target_manager_a1c0e48d7a623e8b7caa11c6b1832956b_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Target\+Manager@{Target\+Manager}!init@{init}}
 \index{init@{init}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{init(ros\+::\+Node\+Handle nh)}{init(ros::NodeHandle nh)}}]{\setlength{\rightskip}{0pt plus 5cm}void Target\+Manager\+::init (
@@ -259,30 +229,33 @@ Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f3
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_a293bcb3b559c6e7c4ef549873791f092}{}\label{class_target_manager_a293bcb3b559c6e7c4ef549873791f092}
 
-\begin{DoxyCode}
-5                                         \{
-6 
-7     \textcolor{comment}{// paramter parsing for option }
-8     nh.param<\textcolor{keywordtype}{string}>(\textcolor{stringliteral}{"world\_frame\_id"},\hyperlink{class_target_manager_aaab8041311692af50c7e8e3578072df2}{world\_frame\_id},\textcolor{stringliteral}{"/world"});
-9     nh.param<\textcolor{keywordtype}{string}>(\textcolor{stringliteral}{"target\_frame\_id"},\hyperlink{class_target_manager_a66612501d5cad51193df0f1adbfc52ed}{target\_frame\_id},\textcolor{stringliteral}{"/target"});
-10     nh.param<\textcolor{keywordtype}{double}>(\textcolor{stringliteral}{"target/safe\_corridor\_r"},\hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f37}{traj\_option}.safe\_r,0.2);
-11     nh.param<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"target/N\_safe\_pnts"},\hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f37}{traj\_option}.N\_safe\_pnts,2);
-12     nh.param<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"target/objective\_derivative"},\hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f37}{traj\_option}.objective\_derivative,3);
-13     nh.param<\textcolor{keywordtype}{int}>(\textcolor{stringliteral}{"target/poly\_order"},\hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f37}{traj\_option}.poly\_order,6);
-14     nh.param<\textcolor{keywordtype}{double}>(\textcolor{stringliteral}{"target/w\_deviation"},\hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f37}{traj\_option}.w\_d,0.005);
-15     nh.param<\textcolor{keywordtype}{bool}>(\textcolor{stringliteral}{"target/is\_waypoint\_soft"},\hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f37}{traj\_option}.is\_waypoint\_soft,\textcolor{keyword}{false});
-16     
-17     nh.param(\textcolor{stringliteral}{"min\_z"},\hyperlink{class_target_manager_a4393e564cea5767b9c273fddad4b02b8}{min\_z},0.4);   
-18 
-19     \textcolor{comment}{// register }
-20     \hyperlink{class_target_manager_a676ec1f90b5595ac3dcc5c301d132298}{pub\_marker\_waypoints} = nh.advertise<visualization\_msgs::MarkerArray>(\textcolor{stringliteral}{"
-      target\_waypoints"},1);
-21     \hyperlink{class_target_manager_ac8faa88743fb19a256daf68d68e081fb}{sub\_waypoints} = nh.subscribe(\textcolor{stringliteral}{"/target\_waypoints"},1,&
-      \hyperlink{class_target_manager_adc84c02e4501b1a53556c766d50bc8b5}{TargetManager::callback\_waypoint},\textcolor{keyword}{this});
-22     \hyperlink{class_target_manager_a2aecbfd159c039a048a77601f4351504}{pub\_path} = nh.advertise<nav\_msgs::Path>(\textcolor{stringliteral}{"target\_global\_path"},1);
-23     \hyperlink{class_target_manager_aa7eaef55d0b3b81ea1e72026730c5fd6}{br\_ptr} = \textcolor{keyword}{new} tf::TransformBroadcaster();
-24 \}
-\end{DoxyCode}
+
+Definition at line 5 of file Target\+Manager.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{class_target_manager_a293bcb3b559c6e7c4ef549873791f092_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_target_manager_a293bcb3b559c6e7c4ef549873791f092_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Target\+Manager@{Target\+Manager}!pop\+\_\+waypoint@{pop\+\_\+waypoint}}
 \index{pop\+\_\+waypoint@{pop\+\_\+waypoint}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{pop\+\_\+waypoint()}{pop_waypoint()}}]{\setlength{\rightskip}{0pt plus 5cm}void Target\+Manager\+::pop\+\_\+waypoint (
@@ -291,13 +264,21 @@ Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f3
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_af362d78ae6b0cc0a3ea288b2c138f482}{}\label{class_target_manager_af362d78ae6b0cc0a3ea288b2c138f482}
 
-\begin{DoxyCode}
-101                                 \{
-102     \hyperlink{class_target_manager_a0bbcb1981504e3bc587c3a98f41a91e9}{queue}.pop\_back();
-103     \hyperlink{class_target_manager_afe26632f7b5444f6922016175b5c1a94}{wpnt\_markerArray}.markers.pop\_back();
-104     ROS\_INFO(\textcolor{stringliteral}{"[Target manager] queue pop "});    
-105 \}
-\end{DoxyCode}
+
+Definition at line 103 of file Target\+Manager.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_target_manager_af362d78ae6b0cc0a3ea288b2c138f482_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Target\+Manager@{Target\+Manager}!queue\+\_\+file\+\_\+load@{queue\+\_\+file\+\_\+load}}
 \index{queue\+\_\+file\+\_\+load@{queue\+\_\+file\+\_\+load}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{queue\+\_\+file\+\_\+load(vector$<$ geometry\+\_\+msgs\+::\+Pose\+Stamped $>$ \&wpnt\+\_\+replace)}{queue_file_load(vector< geometry_msgs::PoseStamped > &wpnt_replace)}}]{\setlength{\rightskip}{0pt plus 5cm}void Target\+Manager\+::queue\+\_\+file\+\_\+load (
@@ -306,40 +287,21 @@ Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f3
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_a8b96689879cecac3d9109914eb6230ef}{}\label{class_target_manager_a8b96689879cecac3d9109914eb6230ef}
 
-\begin{DoxyCode}
-124                                                                                  \{
-125 
-126     this->\hyperlink{class_target_manager_a0bbcb1981504e3bc587c3a98f41a91e9}{queue} = wpnt\_replace;
-127     \hyperlink{class_target_manager_afe26632f7b5444f6922016175b5c1a94}{wpnt\_markerArray}.markers.clear();
-128 
-129     
-130     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} it = wpnt\_replace.begin();it<wpnt\_replace.end();it++)\{
-131         
-132         visualization\_msgs::Marker marker;
-133 
-134         marker.action = 0;
-135         marker.header.frame\_id  = \hyperlink{class_target_manager_aaab8041311692af50c7e8e3578072df2}{world\_frame\_id};
-136         marker.type = visualization\_msgs::Marker::CUBE;
-137         marker.pose = it->pose;
-138         
-139         std::cout<< it->pose.position.x <<\textcolor{stringliteral}{" , "}<< it->pose.position.y <<\textcolor{stringliteral}{" , "}<<it->pose.position.z<<
-      std::endl;
-140 
-141         \textcolor{keywordtype}{float} scale = 0.1;
-142         marker.scale.x = scale;
-143         marker.scale.y = scale;
-144         marker.scale.z = scale;
-145         marker.color.r = 1;
-146         marker.color.b = 1;
-147 
-148         marker.color.a = 1;
-149         marker.id = \hyperlink{class_target_manager_afe26632f7b5444f6922016175b5c1a94}{wpnt\_markerArray}.markers.size();
-150         \hyperlink{class_target_manager_afe26632f7b5444f6922016175b5c1a94}{wpnt\_markerArray}.markers.push\_back(marker);
-151         
-152     \}
-153 
-154 \}
-\end{DoxyCode}
+
+Definition at line 125 of file Target\+Manager.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_target_manager_a8b96689879cecac3d9109914eb6230ef_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Target\+Manager@{Target\+Manager}!queue\+\_\+file\+\_\+load@{queue\+\_\+file\+\_\+load}}
 \index{queue\+\_\+file\+\_\+load@{queue\+\_\+file\+\_\+load}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{queue\+\_\+file\+\_\+load(int, vector$<$ geometry\+\_\+msgs\+::\+Pose\+Stamped $>$ \&)}{queue_file_load(int, vector< geometry_msgs::PoseStamped > &)}}]{\setlength{\rightskip}{0pt plus 5cm}void Target\+Manager\+::queue\+\_\+file\+\_\+load (
@@ -356,76 +318,78 @@ Traj\+Gen\+Opts \hyperlink{class_target_manager_aedeaed09b33f06298fc63d0a87df0f3
 \end{DoxyParamCaption}
 )}\hypertarget{class_target_manager_a4af88c70bb8a0af0171ee9a49536d5c0}{}\label{class_target_manager_a4af88c70bb8a0af0171ee9a49536d5c0}
 
-\begin{DoxyCode}
-86                                         \{
-87 
-88     \hyperlink{class_target_manager_a676ec1f90b5595ac3dcc5c301d132298}{pub\_marker\_waypoints}.publish(\hyperlink{class_target_manager_afe26632f7b5444f6922016175b5c1a94}{wpnt\_markerArray});
-89     \textcolor{keywordflow}{if}(\hyperlink{class_target_manager_a507af7ce1ac562510c1b907553a2e596}{is\_path})\{
-90         \hyperlink{class_target_manager_a2aecbfd159c039a048a77601f4351504}{pub\_path}.publish(\hyperlink{class_target_manager_a6e89e221ecb8f81b9ab9943870a661c3}{global\_path});
-91         \hyperlink{class_target_manager_a2f60f20f32700c71852fea340cdf1240}{broadcast\_target\_tf}(t\_eval);
-92     \}
-93 \}
-\end{DoxyCode}
+
+Definition at line 87 of file Target\+Manager.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_target_manager_a4af88c70bb8a0af0171ee9a49536d5c0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{class_target_manager_a4af88c70bb8a0af0171ee9a49536d5c0_icgraph}
+\end{center}
+\end{figure}
+
+
 
 
 \subsection{Member Data Documentation}
-\index{Target\+Manager@{Target\+Manager}!br\+\_\+ptr@{br\+\_\+ptr}}
-\index{br\+\_\+ptr@{br\+\_\+ptr}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{br\+\_\+ptr}{br_ptr}}]{\setlength{\rightskip}{0pt plus 5cm}tf\+::\+Transform\+Broadcaster$\ast$ Target\+Manager\+::br\+\_\+ptr\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_aa7eaef55d0b3b81ea1e72026730c5fd6}{}\label{class_target_manager_aa7eaef55d0b3b81ea1e72026730c5fd6}
 \index{Target\+Manager@{Target\+Manager}!button\+\_\+elapsed@{button\+\_\+elapsed}}
 \index{button\+\_\+elapsed@{button\+\_\+elapsed}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{button\+\_\+elapsed}{button_elapsed}}]{\setlength{\rightskip}{0pt plus 5cm}double Target\+Manager\+::button\+\_\+elapsed =0}\hypertarget{class_target_manager_ac60d6fea0aeb2e64da49bf0a9713b0b2}{}\label{class_target_manager_ac60d6fea0aeb2e64da49bf0a9713b0b2}
+
+
+Definition at line 40 of file Target\+Manager.\+h.
+
 \index{Target\+Manager@{Target\+Manager}!cur\+\_\+spline\+\_\+eval\+\_\+time@{cur\+\_\+spline\+\_\+eval\+\_\+time}}
 \index{cur\+\_\+spline\+\_\+eval\+\_\+time@{cur\+\_\+spline\+\_\+eval\+\_\+time}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{cur\+\_\+spline\+\_\+eval\+\_\+time}{cur_spline_eval_time}}]{\setlength{\rightskip}{0pt plus 5cm}double Target\+Manager\+::cur\+\_\+spline\+\_\+eval\+\_\+time = 0}\hypertarget{class_target_manager_a65817ac2f2ce483a7218e903bdfe5c67}{}\label{class_target_manager_a65817ac2f2ce483a7218e903bdfe5c67}
-\index{Target\+Manager@{Target\+Manager}!global\+\_\+path@{global\+\_\+path}}
-\index{global\+\_\+path@{global\+\_\+path}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{global\+\_\+path}{global_path}}]{\setlength{\rightskip}{0pt plus 5cm}nav\+\_\+msgs\+::\+Path Target\+Manager\+::global\+\_\+path\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_a6e89e221ecb8f81b9ab9943870a661c3}{}\label{class_target_manager_a6e89e221ecb8f81b9ab9943870a661c3}
+
+
+Definition at line 38 of file Target\+Manager.\+h.
+
 \index{Target\+Manager@{Target\+Manager}!is\+\_\+insert\+\_\+permit@{is\+\_\+insert\+\_\+permit}}
 \index{is\+\_\+insert\+\_\+permit@{is\+\_\+insert\+\_\+permit}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{is\+\_\+insert\+\_\+permit}{is_insert_permit}}]{\setlength{\rightskip}{0pt plus 5cm}bool Target\+Manager\+::is\+\_\+insert\+\_\+permit = false}\hypertarget{class_target_manager_adf8a01c0942c3aac0445403d8f0f4cce}{}\label{class_target_manager_adf8a01c0942c3aac0445403d8f0f4cce}
+
+
+Definition at line 36 of file Target\+Manager.\+h.
+
 \index{Target\+Manager@{Target\+Manager}!is\+\_\+path@{is\+\_\+path}}
 \index{is\+\_\+path@{is\+\_\+path}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{is\+\_\+path}{is_path}}]{\setlength{\rightskip}{0pt plus 5cm}bool Target\+Manager\+::is\+\_\+path = false}\hypertarget{class_target_manager_a507af7ce1ac562510c1b907553a2e596}{}\label{class_target_manager_a507af7ce1ac562510c1b907553a2e596}
-\index{Target\+Manager@{Target\+Manager}!min\+\_\+z@{min\+\_\+z}}
-\index{min\+\_\+z@{min\+\_\+z}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{min\+\_\+z}{min_z}}]{\setlength{\rightskip}{0pt plus 5cm}double Target\+Manager\+::min\+\_\+z\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_a4393e564cea5767b9c273fddad4b02b8}{}\label{class_target_manager_a4393e564cea5767b9c273fddad4b02b8}
-\index{Target\+Manager@{Target\+Manager}!mode@{mode}}
-\index{mode@{mode}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{mode}{mode}}]{\setlength{\rightskip}{0pt plus 5cm}int Target\+Manager\+::mode\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_a98732962b02b1930ed17e043dcaf478b}{}\label{class_target_manager_a98732962b02b1930ed17e043dcaf478b}
-\index{Target\+Manager@{Target\+Manager}!planner@{planner}}
-\index{planner@{planner}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{planner}{planner}}]{\setlength{\rightskip}{0pt plus 5cm}Path\+Planner Target\+Manager\+::planner\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_a93a451f39ff9c1c19dee2ea20bb0d678}{}\label{class_target_manager_a93a451f39ff9c1c19dee2ea20bb0d678}
+
+
+Definition at line 37 of file Target\+Manager.\+h.
+
 \index{Target\+Manager@{Target\+Manager}!previous\+\_\+elapsed@{previous\+\_\+elapsed}}
 \index{previous\+\_\+elapsed@{previous\+\_\+elapsed}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{previous\+\_\+elapsed}{previous_elapsed}}]{\setlength{\rightskip}{0pt plus 5cm}double Target\+Manager\+::previous\+\_\+elapsed =0}\hypertarget{class_target_manager_a8260c1908c073454b41d350a5ce9e435}{}\label{class_target_manager_a8260c1908c073454b41d350a5ce9e435}
-\index{Target\+Manager@{Target\+Manager}!pub\+\_\+marker\+\_\+waypoints@{pub\+\_\+marker\+\_\+waypoints}}
-\index{pub\+\_\+marker\+\_\+waypoints@{pub\+\_\+marker\+\_\+waypoints}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{pub\+\_\+marker\+\_\+waypoints}{pub_marker_waypoints}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher Target\+Manager\+::pub\+\_\+marker\+\_\+waypoints\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_a676ec1f90b5595ac3dcc5c301d132298}{}\label{class_target_manager_a676ec1f90b5595ac3dcc5c301d132298}
-\index{Target\+Manager@{Target\+Manager}!pub\+\_\+path@{pub\+\_\+path}}
-\index{pub\+\_\+path@{pub\+\_\+path}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{pub\+\_\+path}{pub_path}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher Target\+Manager\+::pub\+\_\+path\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_a2aecbfd159c039a048a77601f4351504}{}\label{class_target_manager_a2aecbfd159c039a048a77601f4351504}
+
+
+Definition at line 39 of file Target\+Manager.\+h.
+
 \index{Target\+Manager@{Target\+Manager}!queue@{queue}}
 \index{queue@{queue}!Target\+Manager@{Target\+Manager}}
 \subsubsection[{\texorpdfstring{queue}{queue}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$geometry\+\_\+msgs\+::\+Pose\+Stamped$>$ Target\+Manager\+::queue}\hypertarget{class_target_manager_a0bbcb1981504e3bc587c3a98f41a91e9}{}\label{class_target_manager_a0bbcb1981504e3bc587c3a98f41a91e9}
-\index{Target\+Manager@{Target\+Manager}!sub\+\_\+waypoints@{sub\+\_\+waypoints}}
-\index{sub\+\_\+waypoints@{sub\+\_\+waypoints}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{sub\+\_\+waypoints}{sub_waypoints}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Subscriber Target\+Manager\+::sub\+\_\+waypoints\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_ac8faa88743fb19a256daf68d68e081fb}{}\label{class_target_manager_ac8faa88743fb19a256daf68d68e081fb}
-\index{Target\+Manager@{Target\+Manager}!target\+\_\+frame\+\_\+id@{target\+\_\+frame\+\_\+id}}
-\index{target\+\_\+frame\+\_\+id@{target\+\_\+frame\+\_\+id}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{target\+\_\+frame\+\_\+id}{target_frame_id}}]{\setlength{\rightskip}{0pt plus 5cm}string Target\+Manager\+::target\+\_\+frame\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_a66612501d5cad51193df0f1adbfc52ed}{}\label{class_target_manager_a66612501d5cad51193df0f1adbfc52ed}
-\index{Target\+Manager@{Target\+Manager}!traj\+\_\+option@{traj\+\_\+option}}
-\index{traj\+\_\+option@{traj\+\_\+option}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{traj\+\_\+option}{traj_option}}]{\setlength{\rightskip}{0pt plus 5cm}Traj\+Gen\+Opts Target\+Manager\+::traj\+\_\+option\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_aedeaed09b33f06298fc63d0a87df0f37}{}\label{class_target_manager_aedeaed09b33f06298fc63d0a87df0f37}
-\index{Target\+Manager@{Target\+Manager}!waypoints\+\_\+seq@{waypoints\+\_\+seq}}
-\index{waypoints\+\_\+seq@{waypoints\+\_\+seq}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{waypoints\+\_\+seq}{waypoints_seq}}]{\setlength{\rightskip}{0pt plus 5cm}nav\+\_\+msgs\+::\+Path Target\+Manager\+::waypoints\+\_\+seq\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_adde18a55a5e093c08584f625e76a0c9e}{}\label{class_target_manager_adde18a55a5e093c08584f625e76a0c9e}
-\index{Target\+Manager@{Target\+Manager}!world\+\_\+frame\+\_\+id@{world\+\_\+frame\+\_\+id}}
-\index{world\+\_\+frame\+\_\+id@{world\+\_\+frame\+\_\+id}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{world\+\_\+frame\+\_\+id}{world_frame_id}}]{\setlength{\rightskip}{0pt plus 5cm}string Target\+Manager\+::world\+\_\+frame\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_aaab8041311692af50c7e8e3578072df2}{}\label{class_target_manager_aaab8041311692af50c7e8e3578072df2}
-\index{Target\+Manager@{Target\+Manager}!wpnt\+\_\+marker\+Array@{wpnt\+\_\+marker\+Array}}
-\index{wpnt\+\_\+marker\+Array@{wpnt\+\_\+marker\+Array}!Target\+Manager@{Target\+Manager}}
-\subsubsection[{\texorpdfstring{wpnt\+\_\+marker\+Array}{wpnt_markerArray}}]{\setlength{\rightskip}{0pt plus 5cm}visualization\+\_\+msgs\+::\+Marker\+Array Target\+Manager\+::wpnt\+\_\+marker\+Array\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{class_target_manager_afe26632f7b5444f6922016175b5c1a94}{}\label{class_target_manager_afe26632f7b5444f6922016175b5c1a94}
+
+
+Definition at line 33 of file Target\+Manager.\+h.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

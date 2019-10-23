@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['qnode',['QNode',['../class_q_node.html',1,'']]]
+  ['chaser',['Chaser',['../class_chaser.html',1,'']]]
 ];

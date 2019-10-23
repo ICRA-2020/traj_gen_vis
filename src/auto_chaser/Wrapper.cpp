@@ -131,8 +131,34 @@ bool Wrapper::trigger_chasing(vector<Point> target_pred_seq,TimeSeries chasing_k
 geometry_msgs::PoseStamped Wrapper::get_control_pose(double t_eval){
 
     PoseStamped target_pose = objects_handler.get_target_pose(); // the current target pose of the latest
-    PoseStamped chaser_pose = objects_handler.get_chaser_pose(); // the current chaser pose of the latest
-    
+    PoseStamped chaser_pose = objects_handler.get_chaser_pose(); // the current chaser pose of the latest (if run_mode = 0 , equal to desired pose)
+
+    if (this->objects_handler.is_log and chaser.is_complete_chasing_path){
+        // file write for target 
+        std::ofstream wnpt_file;
+        wnpt_file.open((this->objects_handler.log_dir+"/target_history.txt").c_str(),ios_base::app);
+
+        if(wnpt_file.is_open()){
+            wnpt_file<<target_pose.pose.position.x<<","<<target_pose.pose.position.y<<","<<target_pose.pose.position.z<<"\n";
+            wnpt_file.close();    
+        }else
+            cout<<"logging file for target pose is not opend"<<endl;
+
+        // file write for chaser 
+        std::ofstream wnpt_file2;
+        wnpt_file2.open((this->objects_handler.log_dir+"/chaser_history.txt").c_str(),ios_base::app);
+
+        if(wnpt_file2.is_open()){
+            wnpt_file2<<chaser_pose.pose.position.x<<","<<chaser_pose.pose.position.y<<","<<chaser_pose.pose.position.z<<"\n";
+            wnpt_file2.close();    
+        }else
+            cout<<"logging file for chaser pose is not opend"<<endl;         
+
+    }
+
+
+
+
     // decide yawing direction so that the local x-axis heads to the target 
     // For this, if the target has not been uploaded yet, then the MAV heads to the last observed target position 
 	//ROS_INFO("[DEBUG: Wrapper] recognized chaser pose : [%f , %f]",target_pose.pose.position.x,target_pose.pose.position.x);
@@ -194,6 +220,7 @@ void Wrapper::pub_control_traj(geometry_msgs::PoseStamped chaser_pose_desired){
  */
 void Wrapper::pub_control_pose(double t_eval){
     pub_control_mav_vis.publish(get_control_pose(t_eval));
+
 }
 
 

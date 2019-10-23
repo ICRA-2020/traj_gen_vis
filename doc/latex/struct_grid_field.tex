@@ -75,6 +75,10 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \subsection{Detailed Description}
 
 
+Definition at line 137 of file Common.\+h.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
 \index{Grid\+Field@{Grid\+Field}!Grid\+Field@{Grid\+Field}}
 \index{Grid\+Field@{Grid\+Field}!Grid\+Field@{Grid\+Field}}
@@ -84,9 +88,9 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_a1c755284583cf0070cb3dbed9b5fe925}{}\label{struct_grid_field_a1c755284583cf0070cb3dbed9b5fe925}
 
-\begin{DoxyCode}
-90 \{\};
-\end{DoxyCode}
+
+Definition at line 90 of file Common.\+cpp.
+
 \index{Grid\+Field@{Grid\+Field}!Grid\+Field@{Grid\+Field}}
 \index{Grid\+Field@{Grid\+Field}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{Grid\+Field(\+Field\+Params param)}{GridField(FieldParams param)}}]{\setlength{\rightskip}{0pt plus 5cm}Grid\+Field\+::\+Grid\+Field (
@@ -95,57 +99,9 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_ad1542bce01b2a0f0a5860e20ced0e24d}{}\label{struct_grid_field_ad1542bce01b2a0f0a5860e20ced0e24d}
 
-\begin{DoxyCode}
-91                                      \{
-92     \textcolor{comment}{// size and grid resoluton does not change }
-93 
-94     \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params} = param;
-95     \textcolor{keywordtype}{float} lx,ly,lz;
-96     lx = \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a9738077907a76512e49cb284ee3f1949}{lx};
-97     ly = \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_afb39ded77b5714992e9b2f8c5d735d30}{ly};
-98     lz = \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_ae7532b58aed59f5b47233e57b67acc1a}{lz};
-99     \textcolor{keywordtype}{float} res = \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution};
-100     \hyperlink{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{node\_xs} = VectorXf((\textcolor{keywordtype}{int})floor(lx/res));
-101     \hyperlink{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{node\_ys} = VectorXf((\textcolor{keywordtype}{int})floor(ly/res));
-102     \hyperlink{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{node\_zs} = VectorXf((\textcolor{keywordtype}{int})floor(lz/res));
-103     
-104     \hyperlink{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}{Nx} = \hyperlink{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{node\_xs}.size();
-105     \hyperlink{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}{Ny} = \hyperlink{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{node\_ys}.size();
-106     \hyperlink{struct_grid_field_ae624c780496411e632ca5581b84a6177}{Nz} = \hyperlink{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{node\_zs}.size();
-107     
-108     \textcolor{comment}{// node generate}
-109     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0;i<\hyperlink{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}{Nx};i++)
-110         \hyperlink{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{node\_xs}(i) = \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_ae702824fca4d3a4b4bbf4ac90084e3a7}{x0} + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2 + 
-      \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}*i;
-111     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0;i<\hyperlink{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}{Ny};i++)
-112         \hyperlink{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{node\_ys}(i) = \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_ae9d400dadcfaaff44706adae06664c83}{y0} + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2 + 
-      \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}*i;
-113     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0;i<\hyperlink{struct_grid_field_ae624c780496411e632ca5581b84a6177}{Nz};i++)
-114         \hyperlink{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{node\_zs}(i) = \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a51178f64cc93a37d6d8f774228c24a0f}{z0} + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2 + 
-      \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}*i;            
-115 
-116     \textcolor{comment}{// mesh }
-117     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = 0 ; ix<\hyperlink{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}{Nx};ix++)
-118         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = 0 ; iy<\hyperlink{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}{Ny};iy++)
-119             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iz = 0 ; iz<\hyperlink{struct_grid_field_ae624c780496411e632ca5581b84a6177}{Nz};iz++)\{
-120                 Point pnt;
-121                 pnt.x = \hyperlink{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{node\_xs}(ix); pnt.y = \hyperlink{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{node\_ys}(iy); pnt.z = 
-      \hyperlink{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{node\_zs}(iz);
-122                 \hyperlink{struct_grid_field_a76901c3a463e8cbe456c8f73bc264380}{pnts\_list}.push\_back(pnt);
-123             \}
-124 
-125 
-126     \textcolor{comment}{// field array generate}
-127     \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f0247c7d}{field\_vals} = \textcolor{keyword}{new} \textcolor{keywordtype}{float}**[\hyperlink{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}{Nx}];
-128     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x=0;x<\hyperlink{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}{Nx};x++)\{
-129         \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f0247c7d}{field\_vals}[x] = \textcolor{keyword}{new} \textcolor{keywordtype}{float}*[\hyperlink{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}{Ny}];
-130         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y=0;y<\hyperlink{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}{Ny};y++)
-131             \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f0247c7d}{field\_vals}[x][y] = \textcolor{keyword}{new} \textcolor{keywordtype}{float}[Nz];     
-132 
-133     \}
-134 
-135 \};
-\end{DoxyCode}
+
+Definition at line 91 of file Common.\+cpp.
+
 
 
 \subsection{Member Function Documentation}
@@ -157,26 +113,21 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_acd8fd9f0893ad94aa4f20b4b4d81802a}{}\label{struct_grid_field_acd8fd9f0893ad94aa4f20b4b4d81802a}
 
-\begin{DoxyCode}
-137                                                       \{
-138         \textcolor{comment}{// the node names are t\{prefix\}n\{local index\}}
-139         vector<Node<Point>> nodes;
-140         \textcolor{keywordtype}{int} local\_id;
-141         \textcolor{keywordflow}{if}(\hyperlink{struct_grid_field_ad5dc16fb46eef17df3a554f5b5604611}{saved\_points}.size())\{
-142             \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} it = \hyperlink{struct_grid_field_ad5dc16fb46eef17df3a554f5b5604611}{saved\_points}.begin();it<\hyperlink{struct_grid_field_ad5dc16fb46eef17df3a554f5b5604611}{saved\_points}.end();it++,local\_id+
-      +)\{
-143                 \hyperlink{struct_node}{Node<Point>} node;
-144                 node.\hyperlink{struct_node_a795bdc93cbf63ccddcdf2168d858492c}{name} = \textcolor{stringliteral}{"t"}+to\_string(prefix) + \textcolor{stringliteral}{"n"} + to\_string(local\_id);
-145                 node.\hyperlink{struct_node_a01b9071c0de774c720b64583262d1559}{value} = *it;
-146                 nodes.push\_back(node);
-147             \}
-148         \}\textcolor{keywordflow}{else}\{
-149             ROS\_WARN(\textcolor{stringliteral}{"node generation failed. no saved points in grid field."});
-150 
-151         \}
-152         \textcolor{keywordflow}{return} nodes;
-153 \}
-\end{DoxyCode}
+
+Definition at line 137 of file Common.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_grid_field_acd8fd9f0893ad94aa4f20b4b4d81802a_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Grid\+Field@{Grid\+Field}!get\+Cell\+Idx@{get\+Cell\+Idx}}
 \index{get\+Cell\+Idx@{get\+Cell\+Idx}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{get\+Cell\+Idx(\+Point pnt)}{getCellIdx(Point pnt)}}]{\setlength{\rightskip}{0pt plus 5cm}Vector3i Grid\+Field\+::get\+Cell\+Idx (
@@ -185,29 +136,21 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_a1a70c2de6239c1b086d01dc89b161b7c}{}\label{struct_grid_field_a1a70c2de6239c1b086d01dc89b161b7c}
 
-\begin{DoxyCode}
-205                                        \{
-206     Vector3i idx;
-207 
-208     \textcolor{keywordtype}{float} x0 = \hyperlink{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{node\_xs}(0)-\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2;
-209     \textcolor{keywordtype}{float} y0 = \hyperlink{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{node\_ys}(0)-\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2;
-210     \textcolor{keywordtype}{float} z0 = \hyperlink{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{node\_zs}(0)-\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2;
-211     \textcolor{keywordtype}{float} xf = \hyperlink{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{node\_xs}(\hyperlink{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{node\_xs}.size()-1)+\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2;
-212     \textcolor{keywordtype}{float} yf = \hyperlink{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{node\_ys}(\hyperlink{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{node\_ys}.size()-1)+\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2;
-213     \textcolor{keywordtype}{float} zf = \hyperlink{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{node\_zs}(\hyperlink{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{node\_zs}.size()-1)+\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2;
-214     \textcolor{keywordflow}{if}(!(x0>pnt.x || xf<pnt.x || y0>pnt.y || yf<pnt.y || z0>pnt.z || zf<pnt.z))\{
-215         idx(0) = (int)(floor((pnt.x - x0)/\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}));
-216         idx(1) = (int)(floor((pnt.y - y0)/\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}));
-217         idx(2) = (int)(floor((pnt.z - z0)/\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}));
-218     \}
-219     \textcolor{comment}{// out of range }
-220     \textcolor{keywordflow}{else}\{
-221         idx.setConstant(-1);
-222         \textcolor{comment}{// cout<<"[Grid field] Warnning: referencing point is out of bound."<<endl;    }
-223     \}        
-224     \textcolor{keywordflow}{return} idx;        
-225 \} 
-\end{DoxyCode}
+
+Definition at line 205 of file Common.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_grid_field_a1a70c2de6239c1b086d01dc89b161b7c_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Grid\+Field@{Grid\+Field}!get\+Cell\+Pnt@{get\+Cell\+Pnt}}
 \index{get\+Cell\+Pnt@{get\+Cell\+Pnt}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{get\+Cell\+Pnt(\+Vector3i idx)}{getCellPnt(Vector3i idx)}}]{\setlength{\rightskip}{0pt plus 5cm}Point Grid\+Field\+::get\+Cell\+Pnt (
@@ -216,28 +159,21 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_ab1a81e68d9e761cfb901c726bd9b0518}{}\label{struct_grid_field_ab1a81e68d9e761cfb901c726bd9b0518}
 
-\begin{DoxyCode}
-184                                        \{
-185     
-186     Point pnt;
-187         
-188     \textcolor{keywordflow}{if}(idx(0)<0 or idx(0)>\hyperlink{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}{Nx}-1 or idx(1)<0 or idx(1)>\hyperlink{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}{Ny}-1 or idx(2) < 0 or idx(2) > 
-      \hyperlink{struct_grid_field_ae624c780496411e632ca5581b84a6177}{Nz}-1)
-189     \{
-190         pnt.x = -999;
-191         pnt.y = -999;
-192         pnt.z = -999;
-193         
-194         cout<<\textcolor{stringliteral}{"[Grid field] Warnning: referencing index is out of bound."}<<endl;    
-195 
-196     \}\textcolor{keywordflow}{else}\{
-197         pnt.x = \hyperlink{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{node\_xs}(idx(0));
-198         pnt.y = \hyperlink{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{node\_ys}(idx(1));
-199         pnt.z = \hyperlink{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{node\_zs}(idx(2)); 
-200     \}
-201     \textcolor{keywordflow}{return} pnt;
-202 \}
-\end{DoxyCode}
+
+Definition at line 184 of file Common.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{struct_grid_field_ab1a81e68d9e761cfb901c726bd9b0518_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Grid\+Field@{Grid\+Field}!get\+Centre@{get\+Centre}}
 \index{get\+Centre@{get\+Centre}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{get\+Centre()}{getCentre()}}]{\setlength{\rightskip}{0pt plus 5cm}Point Grid\+Field\+::get\+Centre (
@@ -246,15 +182,21 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_aacd39f9388090694e5c428cc612fd887}{}\label{struct_grid_field_aacd39f9388090694e5c428cc612fd887}
 
-\begin{DoxyCode}
-176                           \{
-177     Point pnt;
-178     pnt.x = \hyperlink{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{node\_xs}(0) + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a9738077907a76512e49cb284ee3f1949}{lx}/2;
-179     pnt.y = \hyperlink{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{node\_ys}(0) + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_afb39ded77b5714992e9b2f8c5d735d30}{ly}/2;
-180     pnt.z = \hyperlink{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{node\_zs}(0) + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_ae7532b58aed59f5b47233e57b67acc1a}{lz}/2;
-181     \textcolor{keywordflow}{return} pnt;        
-182 \}
-\end{DoxyCode}
+
+Definition at line 176 of file Common.\+cpp.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_grid_field_aacd39f9388090694e5c428cc612fd887_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Grid\+Field@{Grid\+Field}!get\+Num\+Cell@{get\+Num\+Cell}}
 \index{get\+Num\+Cell@{get\+Num\+Cell}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{get\+Num\+Cell()}{getNumCell()}}]{\setlength{\rightskip}{0pt plus 5cm}int Grid\+Field\+::get\+Num\+Cell (
@@ -263,9 +205,9 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{struct_grid_field_ae838908e288e110c7d1d680fadc6b2ba}{}\label{struct_grid_field_ae838908e288e110c7d1d680fadc6b2ba}
 
-\begin{DoxyCode}
-163 \{\textcolor{keywordflow}{return} \hyperlink{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}{Nx}*\hyperlink{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}{Ny}*\hyperlink{struct_grid_field_ae624c780496411e632ca5581b84a6177}{Nz};\}
-\end{DoxyCode}
+
+Definition at line 168 of file Common.\+h.
+
 \index{Grid\+Field@{Grid\+Field}!get\+Origin@{get\+Origin}}
 \index{get\+Origin@{get\+Origin}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{get\+Origin()}{getOrigin()}}]{\setlength{\rightskip}{0pt plus 5cm}Point Grid\+Field\+::get\+Origin (
@@ -274,16 +216,9 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_ab0d5ba92ad35ab9b7bdd29506b6753de}{}\label{struct_grid_field_ab0d5ba92ad35ab9b7bdd29506b6753de}
 
-\begin{DoxyCode}
-167                           \{
-168 
-169     Point pnt;
-170     pnt.x = \hyperlink{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{node\_xs}(0);
-171     pnt.y = \hyperlink{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{node\_ys}(0);
-172     pnt.z = \hyperlink{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{node\_zs}(0);
-173     \textcolor{keywordflow}{return} pnt;        
-174 \}
-\end{DoxyCode}
+
+Definition at line 167 of file Common.\+cpp.
+
 \index{Grid\+Field@{Grid\+Field}!get\+Ray\+Idx@{get\+Ray\+Idx}}
 \index{get\+Ray\+Idx@{get\+Ray\+Idx}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{get\+Ray\+Idx(\+Point pnt1, Point pnt2)}{getRayIdx(Point pnt1, Point pnt2)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ Vector3i $>$ Grid\+Field\+::get\+Ray\+Idx (
@@ -293,33 +228,21 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_a7827c27a1d3b08f930c7f828eef14f0d}{}\label{struct_grid_field_a7827c27a1d3b08f930c7f828eef14f0d}
 
-\begin{DoxyCode}
-227 \{
-228     vector<Vector3i> ray\_idx;
-229     Vector3f pnt1\_vec(pnt1.x,pnt1.y,pnt1.z);
-230     Vector3f pnt2\_vec(pnt2.x,pnt2.y,pnt2.z);
-231     \textcolor{comment}{// current end of the ray }
-232     Vector3f cur\_vec = pnt1\_vec;
-233 
-234 
-235     \textcolor{keywordtype}{float} ray\_check\_res = this->\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_ae6eabaa6e593c9dbac48b2f96bea80ec}{ray\_stride\_res};
-236     Vector3f stride\_vec = (pnt2\_vec - pnt1\_vec).normalized()*ray\_check\_res; 
-237     \textcolor{keywordtype}{float} cur\_ray\_len=0;
-238     \textcolor{keywordtype}{float} tot\_length = (pnt2\_vec - pnt1\_vec).norm();
-239     \textcolor{comment}{// traverse this ray }
-240     \textcolor{keywordflow}{while}(cur\_ray\_len <= tot\_length)\{            
-241         cur\_vec = cur\_vec + stride\_vec;
-242         cur\_ray\_len = cur\_vec.norm();
-243         Point cur\_end\_pnt;
-244         cur\_end\_pnt.x = cur\_vec(0);
-245         cur\_end\_pnt.y = cur\_vec(1);
-246         cur\_end\_pnt.z = cur\_vec(2);            
-247         ray\_idx.push\_back(Vector3i(\hyperlink{struct_grid_field_a1a70c2de6239c1b086d01dc89b161b7c}{getCellIdx}(cur\_end\_pnt)));
-248     \}
-249 
-250     \textcolor{keywordflow}{return} ray\_idx;        
-251 \}
-\end{DoxyCode}
+
+Definition at line 226 of file Common.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{struct_grid_field_a7827c27a1d3b08f930c7f828eef14f0d_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Grid\+Field@{Grid\+Field}!get\+Ray\+Mean@{get\+Ray\+Mean}}
 \index{get\+Ray\+Mean@{get\+Ray\+Mean}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{get\+Ray\+Mean(\+Point pnt1, Point pnt2)}{getRayMean(Point pnt1, Point pnt2)}}]{\setlength{\rightskip}{0pt plus 5cm}float Grid\+Field\+::get\+Ray\+Mean (
@@ -329,52 +252,33 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_a3e49ca50129cb18db833bd4168c5d254}{}\label{struct_grid_field_a3e49ca50129cb18db833bd4168c5d254}
 
-\begin{DoxyCode}
-303                                                 \{
-304     \textcolor{comment}{// vector<Vector3i> ray\_idx = getRayIdx(pnt1,pnt2);  // it will take more time }
-305     Vector3f pnt1\_vec(pnt1.x,pnt1.y,pnt1.z);
-306     Vector3f pnt2\_vec(pnt2.x,pnt2.y,pnt2.z);
-307     \textcolor{comment}{// current end of the ray }
-308     Vector3f cur\_vec = pnt1\_vec;
-309 
-310     \textcolor{keywordtype}{float} tot\_length = (pnt2\_vec - pnt1\_vec).norm();
-311         
-312     Vector3f stride\_vec;        
-313     \textcolor{keywordflow}{if}(tot\_length == 0)
-314         stride\_vec.setZero();
-315     \textcolor{keywordflow}{else} 
-316         stride\_vec = (pnt2\_vec - pnt1\_vec).normalized()*\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.
-      \hyperlink{struct_field_params_ae6eabaa6e593c9dbac48b2f96bea80ec}{ray\_stride\_res}; 
-317 
-318 
-319     \textcolor{keywordtype}{float} cur\_ray\_len=0;
-320     \textcolor{comment}{// traverse this ray }
-321     \textcolor{keywordtype}{float} accum\_sum = 0.0f; \textcolor{comment}{// let's assume we don't have any minus value}
-322     \textcolor{keywordtype}{int} N\_count = 0;
-323     \textcolor{keywordflow}{while}(cur\_ray\_len <= tot\_length)\{            
-324         cur\_vec = cur\_vec + stride\_vec;
-325         cur\_ray\_len = (cur\_vec-pnt1\_vec).norm();
-326         Point cur\_end\_pnt;
-327         cur\_end\_pnt.x = cur\_vec(0);
-328         cur\_end\_pnt.y = cur\_vec(1);
-329         cur\_end\_pnt.z = cur\_vec(2);     
-330         Vector3i idx = \hyperlink{struct_grid_field_a1a70c2de6239c1b086d01dc89b161b7c}{getCellIdx}(cur\_end\_pnt);    
-331         
-332         \textcolor{keywordflow}{if} ( (idx(0)>=\hyperlink{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}{Nx} || idx(1)>=\hyperlink{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}{Ny} || idx(2)>=\hyperlink{struct_grid_field_ae624c780496411e632ca5581b84a6177}{Nz} || idx(0) == -1))\{
-333             \textcolor{keywordflow}{if}(N\_count ==0 )\{
-334                 ROS\_WARN(\textcolor{stringliteral}{"the ray start point is out of range. returning 0."});
-335                 \textcolor{keywordflow}{return} 0;
-336             \}
-337             \textcolor{keywordflow}{return} accum\_sum/N\_count; \textcolor{comment}{// sometimes, the ray may cross out of bound (for most case because
-       z0 >> 0)            }
-338         \}
-339         accum\_sum += \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f0247c7d}{field\_vals}[idx(0)][idx(1)][idx(2)];
-340         N\_count ++ ;
-341                     
-342     \}
-343     \textcolor{keywordflow}{return} (accum\_sum/N\_count);        
-344 \}
-\end{DoxyCode}
+
+Definition at line 303 of file Common.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{struct_grid_field_a3e49ca50129cb18db833bd4168c5d254_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_grid_field_a3e49ca50129cb18db833bd4168c5d254_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Grid\+Field@{Grid\+Field}!get\+Ray\+Min@{get\+Ray\+Min}}
 \index{get\+Ray\+Min@{get\+Ray\+Min}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{get\+Ray\+Min(\+Point pnt1, Point pnt2, float clamping\+\_\+val)}{getRayMin(Point pnt1, Point pnt2, float clamping_val)}}]{\setlength{\rightskip}{0pt plus 5cm}float Grid\+Field\+::get\+Ray\+Min (
@@ -385,51 +289,33 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_af9f5144af2f0cdb99784ea54c42a8516}{}\label{struct_grid_field_af9f5144af2f0cdb99784ea54c42a8516}
 
-\begin{DoxyCode}
-260 \{       
-261         \textcolor{comment}{// vector<Vector3i> ray\_idx = getRayIdx(pnt1,pnt2);  // it will take more time }
-262         Vector3f pnt1\_vec(pnt1.x,pnt1.y,pnt1.z);
-263         Vector3f pnt2\_vec(pnt2.x,pnt2.y,pnt2.z);
-264         \textcolor{comment}{// current end of the ray }
-265         Vector3f cur\_vec = pnt1\_vec;
-266         
-267         \textcolor{keywordtype}{float} tot\_length = (pnt2\_vec - pnt1\_vec).norm();
-268         
-269         Vector3f stride\_vec;        
-270         \textcolor{keywordflow}{if}(tot\_length == 0)
-271             stride\_vec.setZero();
-272         \textcolor{keywordflow}{else} 
-273             stride\_vec = (pnt2\_vec - pnt1\_vec).normalized()*\hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.
-      \hyperlink{struct_field_params_ae6eabaa6e593c9dbac48b2f96bea80ec}{ray\_stride\_res}; 
-274  
-275         \textcolor{keywordtype}{float} cur\_ray\_len=0;
-276         \textcolor{comment}{// traverse this ray }
-277         \textcolor{keywordtype}{float} min\_val = \hyperlink{struct_grid_field_a9b1f94c44fc47953c38b8e2fe815860d}{getValue}(pnt1); \textcolor{comment}{// let's assume we don't have any minus value in the field }
-278         
-279         \textcolor{keywordflow}{while}(cur\_ray\_len < tot\_length)\{            
-280             cur\_vec = cur\_vec + stride\_vec;
-281             cur\_ray\_len = (cur\_vec-pnt1\_vec).norm();
-282             Point cur\_end\_pnt;
-283             cur\_end\_pnt.x = cur\_vec(0);
-284             cur\_end\_pnt.y = cur\_vec(1);
-285             cur\_end\_pnt.z = cur\_vec(2);     
-286             Vector3i idx = \hyperlink{struct_grid_field_a1a70c2de6239c1b086d01dc89b161b7c}{getCellIdx}(cur\_end\_pnt);    
-287 
-288             \textcolor{comment}{// out of bound }
-289             \textcolor{keywordflow}{if} ( (idx(0)>=\hyperlink{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}{Nx} || idx(1)>=\hyperlink{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}{Ny} || idx(2)>=\hyperlink{struct_grid_field_ae624c780496411e632ca5581b84a6177}{Nz} || idx(0) == -1))
-290                 \textcolor{keywordflow}{break}; \textcolor{comment}{// sometimes, the ray may cross out of bound (for most case because z0 >> 0)        
-          }
-291             \textcolor{keywordtype}{float} val =\hyperlink{struct_grid_field_a46802a85d9533d4371d12597f0247c7d}{field\_vals}[idx(0)][idx(1)][idx(2)];
-292             
-293             \textcolor{keywordflow}{if}(val<=clamping\_val)
-294                 \textcolor{keywordflow}{return} clamping\_val;
-295 
-296             \textcolor{keywordflow}{if}(val < min\_val)
-297                 min\_val = val;            
-298         \}
-299         \textcolor{keywordflow}{return} min\_val;        
-300     \}
-\end{DoxyCode}
+
+Definition at line 259 of file Common.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_grid_field_af9f5144af2f0cdb99784ea54c42a8516_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_grid_field_af9f5144af2f0cdb99784ea54c42a8516_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Grid\+Field@{Grid\+Field}!get\+Value@{get\+Value}}
 \index{get\+Value@{get\+Value}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{get\+Value(\+Point pnt)}{getValue(Point pnt)}}]{\setlength{\rightskip}{0pt plus 5cm}float Grid\+Field\+::get\+Value (
@@ -438,13 +324,33 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_a9b1f94c44fc47953c38b8e2fe815860d}{}\label{struct_grid_field_a9b1f94c44fc47953c38b8e2fe815860d}
 
-\begin{DoxyCode}
-253                                   \{
-254     Vector3i idx = \hyperlink{struct_grid_field_a1a70c2de6239c1b086d01dc89b161b7c}{getCellIdx}(pnt);
-255     \textcolor{keywordflow}{return} \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f0247c7d}{field\_vals}[idx(0)][idx(1)][idx(2)];
-256 
-257 \}
-\end{DoxyCode}
+
+Definition at line 253 of file Common.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{struct_grid_field_a9b1f94c44fc47953c38b8e2fe815860d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_grid_field_a9b1f94c44fc47953c38b8e2fe815860d_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Grid\+Field@{Grid\+Field}!set\+Origin@{set\+Origin}}
 \index{set\+Origin@{set\+Origin}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{set\+Origin(\+Point X0)}{setOrigin(Point X0)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Field\+::set\+Origin (
@@ -453,22 +359,9 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_aa50e5e42c9932e52be3d1d9a38ebf28b}{}\label{struct_grid_field_aa50e5e42c9932e52be3d1d9a38ebf28b}
 
-\begin{DoxyCode}
-155                                  \{
-156 
-157     \textcolor{comment}{// node reset }
-158     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0;i<\hyperlink{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}{Nx};i++)
-159         \hyperlink{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{node\_xs}(i) = X0.x + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2 + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.
-      \hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}*i;
-160     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0;i<\hyperlink{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}{Ny};i++)
-161         \hyperlink{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{node\_ys}(i) = X0.y + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2 + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.
-      \hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}*i;
-162     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0;i<\hyperlink{struct_grid_field_ae624c780496411e632ca5581b84a6177}{Nz};i++)
-163         \hyperlink{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{node\_zs}(i) = X0.z + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.\hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}/2 + \hyperlink{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{params}.
-      \hyperlink{struct_field_params_a520406c76b3abf392401626bc2161370}{resolution}*i;   
-164 
-165 \}
-\end{DoxyCode}
+
+Definition at line 155 of file Common.\+cpp.
+
 \index{Grid\+Field@{Grid\+Field}!update\+Cell@{update\+Cell}}
 \index{update\+Cell@{update\+Cell}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{update\+Cell(\+Point pnt, float val)}{updateCell(Point pnt, float val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Field\+::update\+Cell (
@@ -478,16 +371,21 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_a5f9debacee6e66e30a30ad7e0759ff15}{}\label{struct_grid_field_a5f9debacee6e66e30a30ad7e0759ff15}
 
-\begin{DoxyCode}
-347                                              \{
-348     Vector3i idx = \hyperlink{struct_grid_field_a1a70c2de6239c1b086d01dc89b161b7c}{getCellIdx}(pnt);
-349     \textcolor{keywordflow}{if} (idx(0) != -1)
-350     \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f0247c7d}{field\_vals}[idx(0)][idx(1)][idx(2)] = val; 
-351     \textcolor{keywordflow}{else}\{
-352         ROS\_WARN(\textcolor{stringliteral}{"[Gridmap] indexing out of range, no assign done"});
-353     \}
-354 \}
-\end{DoxyCode}
+
+Definition at line 347 of file Common.\+cpp.
+
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{struct_grid_field_a5f9debacee6e66e30a30ad7e0759ff15_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Grid\+Field@{Grid\+Field}!update\+Cell@{update\+Cell}}
 \index{update\+Cell@{update\+Cell}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{update\+Cell(\+Vector3i idx, float val)}{updateCell(Vector3i idx, float val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Grid\+Field\+::update\+Cell (
@@ -497,44 +395,82 @@ float $\ast$$\ast$$\ast$ \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f
 \end{DoxyParamCaption}
 )}\hypertarget{struct_grid_field_aeec99711fdc1486528b34fddff21c33f}{}\label{struct_grid_field_aeec99711fdc1486528b34fddff21c33f}
 
-\begin{DoxyCode}
-356                                                 \{
-357     \hyperlink{struct_grid_field_a46802a85d9533d4371d12597f0247c7d}{field\_vals}[idx(0)][idx(1)][idx(2)] = val; 
-358 \}
-\end{DoxyCode}
+
+Definition at line 356 of file Common.\+cpp.
+
 
 
 \subsection{Member Data Documentation}
 \index{Grid\+Field@{Grid\+Field}!field\+\_\+vals@{field\+\_\+vals}}
 \index{field\+\_\+vals@{field\+\_\+vals}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{field\+\_\+vals}{field_vals}}]{\setlength{\rightskip}{0pt plus 5cm}float$\ast$$\ast$$\ast$ Grid\+Field\+::field\+\_\+vals}\hypertarget{struct_grid_field_a46802a85d9533d4371d12597f0247c7d}{}\label{struct_grid_field_a46802a85d9533d4371d12597f0247c7d}
+
+
+Definition at line 143 of file Common.\+h.
+
 \index{Grid\+Field@{Grid\+Field}!node\+\_\+xs@{node\+\_\+xs}}
 \index{node\+\_\+xs@{node\+\_\+xs}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{node\+\_\+xs}{node_xs}}]{\setlength{\rightskip}{0pt plus 5cm}Vector\+Xf Grid\+Field\+::node\+\_\+xs}\hypertarget{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}{}\label{struct_grid_field_a14f0f8f41ce92d7e5ab4c539ef9bc495}
+
+
+Definition at line 139 of file Common.\+h.
+
 \index{Grid\+Field@{Grid\+Field}!node\+\_\+ys@{node\+\_\+ys}}
 \index{node\+\_\+ys@{node\+\_\+ys}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{node\+\_\+ys}{node_ys}}]{\setlength{\rightskip}{0pt plus 5cm}Vector\+Xf Grid\+Field\+::node\+\_\+ys}\hypertarget{struct_grid_field_a07e209546d687dd58557871744f7a9a6}{}\label{struct_grid_field_a07e209546d687dd58557871744f7a9a6}
+
+
+Definition at line 139 of file Common.\+h.
+
 \index{Grid\+Field@{Grid\+Field}!node\+\_\+zs@{node\+\_\+zs}}
 \index{node\+\_\+zs@{node\+\_\+zs}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{node\+\_\+zs}{node_zs}}]{\setlength{\rightskip}{0pt plus 5cm}Vector\+Xf Grid\+Field\+::node\+\_\+zs}\hypertarget{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}{}\label{struct_grid_field_ab97e893cedd450d502165bcb7e3ed7ca}
+
+
+Definition at line 139 of file Common.\+h.
+
 \index{Grid\+Field@{Grid\+Field}!Nx@{Nx}}
 \index{Nx@{Nx}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{Nx}{Nx}}]{\setlength{\rightskip}{0pt plus 5cm}int Grid\+Field\+::\+Nx}\hypertarget{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}{}\label{struct_grid_field_a7777c8b5bf6db312fcceecdfd012c9ca}
+
+
+Definition at line 141 of file Common.\+h.
+
 \index{Grid\+Field@{Grid\+Field}!Ny@{Ny}}
 \index{Ny@{Ny}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{Ny}{Ny}}]{\setlength{\rightskip}{0pt plus 5cm}int Grid\+Field\+::\+Ny}\hypertarget{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}{}\label{struct_grid_field_a4cc2cac3066c31f0e6af9745cf994674}
+
+
+Definition at line 141 of file Common.\+h.
+
 \index{Grid\+Field@{Grid\+Field}!Nz@{Nz}}
 \index{Nz@{Nz}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{Nz}{Nz}}]{\setlength{\rightskip}{0pt plus 5cm}int Grid\+Field\+::\+Nz}\hypertarget{struct_grid_field_ae624c780496411e632ca5581b84a6177}{}\label{struct_grid_field_ae624c780496411e632ca5581b84a6177}
+
+
+Definition at line 141 of file Common.\+h.
+
 \index{Grid\+Field@{Grid\+Field}!params@{params}}
 \index{params@{params}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{params}{params}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Field\+Params} Grid\+Field\+::params}\hypertarget{struct_grid_field_a735e3033049d10f084e74083ae44dd21}{}\label{struct_grid_field_a735e3033049d10f084e74083ae44dd21}
+
+
+Definition at line 138 of file Common.\+h.
+
 \index{Grid\+Field@{Grid\+Field}!pnts\+\_\+list@{pnts\+\_\+list}}
 \index{pnts\+\_\+list@{pnts\+\_\+list}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{pnts\+\_\+list}{pnts_list}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$Point$>$ Grid\+Field\+::pnts\+\_\+list}\hypertarget{struct_grid_field_a76901c3a463e8cbe456c8f73bc264380}{}\label{struct_grid_field_a76901c3a463e8cbe456c8f73bc264380}
+
+
+Definition at line 140 of file Common.\+h.
+
 \index{Grid\+Field@{Grid\+Field}!saved\+\_\+points@{saved\+\_\+points}}
 \index{saved\+\_\+points@{saved\+\_\+points}!Grid\+Field@{Grid\+Field}}
 \subsubsection[{\texorpdfstring{saved\+\_\+points}{saved_points}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$Point$>$ Grid\+Field\+::saved\+\_\+points}\hypertarget{struct_grid_field_ad5dc16fb46eef17df3a554f5b5604611}{}\label{struct_grid_field_ad5dc16fb46eef17df3a554f5b5604611}
+
+
+Definition at line 142 of file Common.\+h.
+
 
 
 The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}

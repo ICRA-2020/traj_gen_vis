@@ -1,30 +1,5 @@
 var searchData=
 [
-  ['generate_5fnode',['generate_node',['../struct_grid_field.html#acd8fd9f0893ad94aa4f20b4b4d81802a',1,'GridField']]],
-  ['geo2eigen',['geo2eigen',['../_common_8h.html#a3e35de4eb7396984c2c5018768885d91',1,'geo2eigen(const Point &amp;):&#160;Common.cpp'],['../_common_8cpp.html#af9dea61790454c1bd71a4472c099a778',1,'geo2eigen(const Point &amp;pnt):&#160;Common.cpp']]],
-  ['get_5fchaser_5facceleration',['get_chaser_acceleration',['../class_objects_handler.html#a41d48832b07a4d4276147a99dd1d31bc',1,'ObjectsHandler']]],
-  ['get_5fchaser_5fpose',['get_chaser_pose',['../class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56',1,'ObjectsHandler']]],
-  ['get_5fchaser_5fvelocity',['get_chaser_velocity',['../class_objects_handler.html#aa1af309b0e964ccb6df8dede045fa32b',1,'ObjectsHandler']]],
-  ['get_5fcolor',['get_color',['../_common_8h.html#a75aaebf1a8b822524cc6af51a0cd83ef',1,'get_color(float x_in, float &amp;r, float &amp;g, float &amp;b):&#160;Common.cpp'],['../_common_8cpp.html#a75aaebf1a8b822524cc6af51a0cd83ef',1,'get_color(float x_in, float &amp;r, float &amp;g, float &amp;b):&#160;Common.cpp']]],
-  ['get_5fcolor_5fdist',['get_color_dist',['../_common_8h.html#a4b2e4b6698ff92678b23392dc111b36d',1,'get_color_dist(float dist_val, std_msgs::ColorRGBA &amp;color, float max_plot_dist_val):&#160;Common.cpp'],['../_common_8cpp.html#a4b2e4b6698ff92678b23392dc111b36d',1,'get_color_dist(float dist_val, std_msgs::ColorRGBA &amp;color, float max_plot_dist_val):&#160;Common.cpp']]],
-  ['get_5fedf_5fgrid_5fptr',['get_edf_grid_ptr',['../class_objects_handler.html#afe849882d1feeef8316a45632381da54',1,'ObjectsHandler']]],
-  ['get_5fglobal_5fwaypoints',['get_global_waypoints',['../class_target_manager.html#a747b82bf5cb4d1d3574dbc08a117538f',1,'TargetManager']]],
-  ['get_5flocal_5fvsf_5fparam_5faround_5ftarget',['get_local_vsf_param_around_target',['../class_preplanner.html#a5b038984427471115b1f4be24abf43b0',1,'Preplanner']]],
-  ['get_5foctree_5fobj_5fptr',['get_octree_obj_ptr',['../class_objects_handler.html#a988bdf05045c40348b34ae8beecd8884',1,'ObjectsHandler']]],
-  ['get_5fprediction_5fseq',['get_prediction_seq',['../class_objects_handler.html#a4793f1ed257c849b28f0386f635ee714',1,'ObjectsHandler']]],
-  ['get_5fpreplanned_5fwaypoints',['get_preplanned_waypoints',['../class_preplanner.html#a1debbaa8e7ee64b2c22c514f89801cd1',1,'Preplanner']]],
-  ['get_5ftarget_5fpose',['get_target_pose',['../class_objects_handler.html#a2b9e69afe54afea0380431d8f1f5142d',1,'ObjectsHandler']]],
-  ['getcellidx',['getCellIdx',['../struct_grid_field.html#a1a70c2de6239c1b086d01dc89b161b7c',1,'GridField']]],
-  ['getcellpnt',['getCellPnt',['../struct_grid_field.html#ab1a81e68d9e761cfb901c726bd9b0518',1,'GridField']]],
-  ['getcentre',['getCentre',['../struct_grid_field.html#aacd39f9388090694e5c428cc612fd887',1,'GridField']]],
-  ['getcurrentworkingdir',['GetCurrentWorkingDir',['../_common_8h.html#a7770cb36d4f4c6e78ff68516ecb2123c',1,'GetCurrentWorkingDir(void):&#160;Common.cpp'],['../_common_8cpp.html#a7770cb36d4f4c6e78ff68516ecb2123c',1,'GetCurrentWorkingDir(void):&#160;Common.cpp']]],
-  ['getnumcell',['getNumCell',['../struct_grid_field.html#ae838908e288e110c7d1d680fadc6b2ba',1,'GridField']]],
-  ['getorigin',['getOrigin',['../struct_grid_field.html#ab0d5ba92ad35ab9b7bdd29506b6753de',1,'GridField']]],
-  ['getrayidx',['getRayIdx',['../struct_grid_field.html#a7827c27a1d3b08f930c7f828eef14f0d',1,'GridField']]],
-  ['getraymean',['getRayMean',['../struct_grid_field.html#a3e49ca50129cb18db833bd4168c5d254',1,'GridField']]],
-  ['getraymin',['getRayMin',['../struct_grid_field.html#af9f5144af2f0cdb99784ea54c42a8516',1,'GridField']]],
-  ['getvalue',['getValue',['../struct_grid_field.html#a9b1f94c44fc47953c38b8e2fe815860d',1,'GridField']]],
-  ['global_5fpath_5fgenerate',['global_path_generate',['../class_target_manager.html#a1c0e48d7a623e8b7caa11c6b1832956b',1,'TargetManager']]],
-  ['graph_5fconstruct',['graph_construct',['../class_preplanner.html#a9404e790bfccf6563a7d947e6d11afb7',1,'Preplanner']]],
-  ['gridfield',['GridField',['../struct_grid_field.html#a1c755284583cf0070cb3dbed9b5fe925',1,'GridField::GridField()'],['../struct_grid_field.html#ad1542bce01b2a0f0a5860e20ced0e24d',1,'GridField::GridField(FieldParams param)']]]
+  ['loggingmodel',['loggingModel',['../class_q_node.html#a0a6dae02f9e317488095367203fa8a58',1,'QNode']]],
+  ['loggingupdated',['loggingUpdated',['../class_q_node.html#abddcd4e0187f6d4513bbee7ba4656827',1,'QNode']]]
 ];

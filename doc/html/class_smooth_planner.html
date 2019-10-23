@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">auto_chaser
-   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_smooth_planner.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,7 @@ $(document).ready(function(){initNavTree('class_smooth_planner.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -116,7 +93,7 @@ $(document).ready(function(){initNavTree('class_smooth_planner.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="">SmoothPlanner.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -139,19 +116,25 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a7b8400f711456291e567d0fc204c274b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cd9de34963f445a21a6d0101346b071"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#a7cd9de34963f445a21a6d0101346b071">pub_chasing_corridor</a></td></tr>
 <tr class="separator:a7cd9de34963f445a21a6d0101346b071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f023865c692f4fdaa830204fc533018"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#a2f023865c692f4fdaa830204fc533018">pub_chasing_corridor_single</a></td></tr>
+<tr class="separator:a2f023865c692f4fdaa830204fc533018"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ee67bceac6d60409542a2250b2ccd08"><td class="memItemLeft" align="right" valign="top">ros::Publisher&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#a7ee67bceac6d60409542a2250b2ccd08">pub_knots</a></td></tr>
 <tr class="separator:a7ee67bceac6d60409542a2250b2ccd08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade278c4209b962d8342a2ee30e718c8b"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">world_frame_id</a></td></tr>
 <tr class="separator:ade278c4209b962d8342a2ee30e718c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:addf7aab458c1407f23e3544bd76ac82b"><td class="memItemLeft" align="right" valign="top">visualization_msgs::Marker&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#addf7aab458c1407f23e3544bd76ac82b">chasing_corridor</a></td></tr>
 <tr class="separator:addf7aab458c1407f23e3544bd76ac82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb1a985fe214b76a1a6d7462ad3ddf80"><td class="memItemLeft" align="right" valign="top">visualization_msgs::MarkerArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#acb1a985fe214b76a1a6d7462ad3ddf80">chasing_corridor_single</a></td></tr>
+<tr class="separator:acb1a985fe214b76a1a6d7462ad3ddf80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a33038c6041ff972bea7765780b56d0"><td class="memItemLeft" align="right" valign="top">nav_msgs::Path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#a6a33038c6041ff972bea7765780b56d0">chasing_smooth_path</a></td></tr>
 <tr class="separator:a6a33038c6041ff972bea7765780b56d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeeab9ce830d4960babdc84c82da94ea"><td class="memItemLeft" align="right" valign="top">visualization_msgs::Marker&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_smooth_planner.html#afeeab9ce830d4960babdc84c82da94ea">marker_knots</a></td></tr>
 <tr class="separator:afeeab9ce830d4960babdc84c82da94ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00004">4</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a84977f10ce3e96fac997076324ca2909"></a>
 <div class="memitem">
 <div class="memproto">
@@ -164,7 +147,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;{}</div></div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_smooth_planner_8cpp_source.html#l00003">3</a> of file <a class="el" href="_smooth_planner_8cpp_source.html">SmoothPlanner.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -181,14 +166,19 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                                        {</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="comment">// paramter parsing for option </span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    nh.param&lt;<span class="keywordtype">string</span>&gt;(<span class="stringliteral">&quot;world_frame_id&quot;</span>,<a class="code" href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">world_frame_id</a>,<span class="stringliteral">&quot;/world&quot;</span>);</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    nh.param&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;chaser/safe_corridor_r&quot;</span>,<a class="code" href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">option</a>.safe_r,0.5);</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    nh.param&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;chaser/N_safe_pnts&quot;</span>,<a class="code" href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">option</a>.N_safe_pnts,3);</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    nh.param&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;chaser/objective_derivative&quot;</span>,<a class="code" href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">option</a>.objective_derivative,3);</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    nh.param&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;chaser/is_multi_corridor&quot;</span>,<a class="code" href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">option</a>.is_multi_corridor,<span class="keyword">true</span>);</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    nh.param&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;chaser/is_waypoint_soft&quot;</span>,<a class="code" href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">option</a>.is_waypoint_soft,<span class="keyword">true</span>);</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    nh.param&lt;<span class="keywordtype">double</span>&gt;(<span class="stringliteral">&quot;chaser/w_deviation&quot;</span>,<a class="code" href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">option</a>.w_d,0.5);</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    nh.param&lt;<span class="keywordtype">int</span>&gt;(<span class="stringliteral">&quot;chaser/poly_order&quot;</span>,<a class="code" href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">option</a>.poly_order,6);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    nh.param&lt;<span class="keywordtype">bool</span>&gt;(<span class="stringliteral">&quot;chaser/verbose&quot;</span>,<a class="code" href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">option</a>.verbose,<span class="keyword">true</span>);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_smooth_planner.html#a7cd9de34963f445a21a6d0101346b071">pub_chasing_corridor</a> = nh.advertise&lt;visualization_msgs::Marker&gt;(<span class="stringliteral">&quot;chasing_corridor&quot;</span>,1); </div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_smooth_planner.html#a7b8400f711456291e567d0fc204c274b">pub_path</a> = nh.advertise&lt;nav_msgs::Path&gt;(<span class="stringliteral">&quot;smooth_path&quot;</span>,1);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_smooth_planner.html#a7ee67bceac6d60409542a2250b2ccd08">pub_knots</a> = nh.advertise&lt;visualization_msgs::Marker&gt;(<span class="stringliteral">&quot;smooth_path_knots&quot;</span>,1);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_smooth_planner.html#addf7aab458c1407f23e3544bd76ac82b">chasing_corridor</a>.header.frame_id = <a class="code" href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">world_frame_id</a>;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_smooth_planner.html#a6a33038c6041ff972bea7765780b56d0">chasing_smooth_path</a>.header.frame_id = <a class="code" href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">world_frame_id</a>;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div><div class="ttc" id="class_smooth_planner_html_af0c954aea3c6b5b82a160ed4be93fb17"><div class="ttname"><a href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">SmoothPlanner::option</a></div><div class="ttdeci">TrajGenOpts option</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:8</div></div>
-<div class="ttc" id="class_smooth_planner_html_addf7aab458c1407f23e3544bd76ac82b"><div class="ttname"><a href="class_smooth_planner.html#addf7aab458c1407f23e3544bd76ac82b">SmoothPlanner::chasing_corridor</a></div><div class="ttdeci">visualization_msgs::Marker chasing_corridor</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:16</div></div>
-<div class="ttc" id="class_smooth_planner_html_a7b8400f711456291e567d0fc204c274b"><div class="ttname"><a href="class_smooth_planner.html#a7b8400f711456291e567d0fc204c274b">SmoothPlanner::pub_path</a></div><div class="ttdeci">ros::Publisher pub_path</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:11</div></div>
-<div class="ttc" id="class_smooth_planner_html_a7cd9de34963f445a21a6d0101346b071"><div class="ttname"><a href="class_smooth_planner.html#a7cd9de34963f445a21a6d0101346b071">SmoothPlanner::pub_chasing_corridor</a></div><div class="ttdeci">ros::Publisher pub_chasing_corridor</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:12</div></div>
-<div class="ttc" id="class_smooth_planner_html_a6a33038c6041ff972bea7765780b56d0"><div class="ttname"><a href="class_smooth_planner.html#a6a33038c6041ff972bea7765780b56d0">SmoothPlanner::chasing_smooth_path</a></div><div class="ttdeci">nav_msgs::Path chasing_smooth_path</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:17</div></div>
-<div class="ttc" id="class_smooth_planner_html_ade278c4209b962d8342a2ee30e718c8b"><div class="ttname"><a href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">SmoothPlanner::world_frame_id</a></div><div class="ttdeci">string world_frame_id</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:15</div></div>
-<div class="ttc" id="class_smooth_planner_html_a7ee67bceac6d60409542a2250b2ccd08"><div class="ttname"><a href="class_smooth_planner.html#a7ee67bceac6d60409542a2250b2ccd08">SmoothPlanner::pub_knots</a></div><div class="ttdeci">ros::Publisher pub_knots</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:13</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_smooth_planner_8cpp_source.html#l00005">5</a> of file <a class="el" href="_smooth_planner_8cpp_source.html">SmoothPlanner.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_smooth_planner_a34508c873d458075880afbae0e9c933e_icgraph.png" border="0" usemap="#class_smooth_planner_a34508c873d458075880afbae0e9c933e_icgraph" alt=""/></div>
+<map name="class_smooth_planner_a34508c873d458075880afbae0e9c933e_icgraph" id="class_smooth_planner_a34508c873d458075880afbae0e9c933e_icgraph">
+<area shape="rect" id="node2" href="class_chaser.html#a3538485980643e885755608e4297d1f6" title="Chaser::init" alt="" coords="189,5,279,32"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a2996c73522e93adff70eb68e18c55951"></a>
@@ -203,13 +193,19 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                           {</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="class_smooth_planner.html#a7b8400f711456291e567d0fc204c274b">pub_path</a>.publish(<a class="code" href="class_smooth_planner.html#a6a33038c6041ff972bea7765780b56d0">chasing_smooth_path</a>);</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_smooth_planner.html#a7cd9de34963f445a21a6d0101346b071">pub_chasing_corridor</a>.publish(<a class="code" href="class_smooth_planner.html#addf7aab458c1407f23e3544bd76ac82b">chasing_corridor</a>);    </div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <a class="code" href="class_smooth_planner.html#a7ee67bceac6d60409542a2250b2ccd08">pub_knots</a>.publish(<a class="code" href="class_smooth_planner.html#afeeab9ce830d4960babdc84c82da94ea">marker_knots</a>);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}<div class="ttc" id="class_smooth_planner_html_addf7aab458c1407f23e3544bd76ac82b"><div class="ttname"><a href="class_smooth_planner.html#addf7aab458c1407f23e3544bd76ac82b">SmoothPlanner::chasing_corridor</a></div><div class="ttdeci">visualization_msgs::Marker chasing_corridor</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:16</div></div>
-<div class="ttc" id="class_smooth_planner_html_a7b8400f711456291e567d0fc204c274b"><div class="ttname"><a href="class_smooth_planner.html#a7b8400f711456291e567d0fc204c274b">SmoothPlanner::pub_path</a></div><div class="ttdeci">ros::Publisher pub_path</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:11</div></div>
-<div class="ttc" id="class_smooth_planner_html_a7cd9de34963f445a21a6d0101346b071"><div class="ttname"><a href="class_smooth_planner.html#a7cd9de34963f445a21a6d0101346b071">SmoothPlanner::pub_chasing_corridor</a></div><div class="ttdeci">ros::Publisher pub_chasing_corridor</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:12</div></div>
-<div class="ttc" id="class_smooth_planner_html_a6a33038c6041ff972bea7765780b56d0"><div class="ttname"><a href="class_smooth_planner.html#a6a33038c6041ff972bea7765780b56d0">SmoothPlanner::chasing_smooth_path</a></div><div class="ttdeci">nav_msgs::Path chasing_smooth_path</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:17</div></div>
-<div class="ttc" id="class_smooth_planner_html_afeeab9ce830d4960babdc84c82da94ea"><div class="ttname"><a href="class_smooth_planner.html#afeeab9ce830d4960babdc84c82da94ea">SmoothPlanner::marker_knots</a></div><div class="ttdeci">visualization_msgs::Marker marker_knots</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:18</div></div>
-<div class="ttc" id="class_smooth_planner_html_a7ee67bceac6d60409542a2250b2ccd08"><div class="ttname"><a href="class_smooth_planner.html#a7ee67bceac6d60409542a2250b2ccd08">SmoothPlanner::pub_knots</a></div><div class="ttdeci">ros::Publisher pub_knots</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:13</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_smooth_planner_8cpp_source.html#l00053">53</a> of file <a class="el" href="_smooth_planner_8cpp_source.html">SmoothPlanner.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_smooth_planner_a2996c73522e93adff70eb68e18c55951_icgraph.png" border="0" usemap="#class_smooth_planner_a2996c73522e93adff70eb68e18c55951_icgraph" alt=""/></div>
+<map name="class_smooth_planner_a2996c73522e93adff70eb68e18c55951_icgraph" id="class_smooth_planner_a2996c73522e93adff70eb68e18c55951_icgraph">
+<area shape="rect" id="node2" href="class_chaser.html#a7d736728bb5327acf0d334d7d4b1b844" title="Chaser::session" alt="" coords="213,5,331,32"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="afc03abbd5f6473f2bc952f70195326ac"></a>
@@ -247,13 +243,19 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                                                                                     {</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a>.path_gen(knots,waypoints,v0,a0,<a class="code" href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">option</a>);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    </div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a>.is_spline_valid()){</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="comment">// markers update </span></div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="class_smooth_planner.html#addf7aab458c1407f23e3544bd76ac82b">chasing_corridor</a> = <a class="code" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a>.get_safe_corridor_marker();</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="class_smooth_planner.html#addf7aab458c1407f23e3544bd76ac82b">chasing_corridor</a>.header.frame_id = <a class="code" href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">world_frame_id</a>;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="class_smooth_planner.html#a6a33038c6041ff972bea7765780b56d0">chasing_smooth_path</a> = <a class="code" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a>.get_path();</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <a class="code" href="class_smooth_planner.html#a6a33038c6041ff972bea7765780b56d0">chasing_smooth_path</a>.header.frame_id = <a class="code" href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">world_frame_id</a>;        </div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="class_smooth_planner.html#afeeab9ce830d4960babdc84c82da94ea">marker_knots</a> = <a class="code" href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">planner</a>.get_knots_marker();</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="class_smooth_planner.html#afeeab9ce830d4960babdc84c82da94ea">marker_knots</a>.header.frame_id = <a class="code" href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">world_frame_id</a>;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div><div class="ttc" id="class_smooth_planner_html_af0c954aea3c6b5b82a160ed4be93fb17"><div class="ttname"><a href="class_smooth_planner.html#af0c954aea3c6b5b82a160ed4be93fb17">SmoothPlanner::option</a></div><div class="ttdeci">TrajGenOpts option</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:8</div></div>
-<div class="ttc" id="class_smooth_planner_html_addf7aab458c1407f23e3544bd76ac82b"><div class="ttname"><a href="class_smooth_planner.html#addf7aab458c1407f23e3544bd76ac82b">SmoothPlanner::chasing_corridor</a></div><div class="ttdeci">visualization_msgs::Marker chasing_corridor</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:16</div></div>
-<div class="ttc" id="class_smooth_planner_html_a6a33038c6041ff972bea7765780b56d0"><div class="ttname"><a href="class_smooth_planner.html#a6a33038c6041ff972bea7765780b56d0">SmoothPlanner::chasing_smooth_path</a></div><div class="ttdeci">nav_msgs::Path chasing_smooth_path</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:17</div></div>
-<div class="ttc" id="class_smooth_planner_html_ade278c4209b962d8342a2ee30e718c8b"><div class="ttname"><a href="class_smooth_planner.html#ade278c4209b962d8342a2ee30e718c8b">SmoothPlanner::world_frame_id</a></div><div class="ttdeci">string world_frame_id</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:15</div></div>
-<div class="ttc" id="class_smooth_planner_html_afeeab9ce830d4960babdc84c82da94ea"><div class="ttname"><a href="class_smooth_planner.html#afeeab9ce830d4960babdc84c82da94ea">SmoothPlanner::marker_knots</a></div><div class="ttdeci">visualization_msgs::Marker marker_knots</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:18</div></div>
-<div class="ttc" id="class_smooth_planner_html_aa9df69d4f514c7338ab2d066d38dd1a2"><div class="ttname"><a href="class_smooth_planner.html#aa9df69d4f514c7338ab2d066d38dd1a2">SmoothPlanner::planner</a></div><div class="ttdeci">PathPlanner planner</div><div class="ttdef"><b>Definition:</b> SmoothPlanner.h:7</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_smooth_planner_8cpp_source.html#l00035">35</a> of file <a class="el" href="_smooth_planner_8cpp_source.html">SmoothPlanner.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_smooth_planner_afc03abbd5f6473f2bc952f70195326ac_icgraph.png" border="0" usemap="#class_smooth_planner_afc03abbd5f6473f2bc952f70195326ac_icgraph" alt=""/></div>
+<map name="class_smooth_planner_afc03abbd5f6473f2bc952f70195326ac_icgraph" id="class_smooth_planner_afc03abbd5f6473f2bc952f70195326ac_icgraph">
+<area shape="rect" id="node2" href="class_chaser.html#a8feeca68466b9b4576ee9c99b624dfc5" title="Chaser::chase_update" alt="" coords="219,5,372,32"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -267,6 +269,22 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00017">17</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acb1a985fe214b76a1a6d7462ad3ddf80"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">visualization_msgs::MarkerArray SmoothPlanner::chasing_corridor_single</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00018">18</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a6a33038c6041ff972bea7765780b56d0"></a>
@@ -278,6 +296,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00019">19</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
 
 </div>
 </div>
@@ -291,6 +311,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00020">20</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af0c954aea3c6b5b82a160ed4be93fb17"></a>
@@ -302,6 +324,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00008">8</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
 
 </div>
 </div>
@@ -315,6 +339,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00007">7</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7cd9de34963f445a21a6d0101346b071"></a>
@@ -326,6 +352,22 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00012">12</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f023865c692f4fdaa830204fc533018"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ros::Publisher SmoothPlanner::pub_chasing_corridor_single</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00013">13</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
 
 </div>
 </div>
@@ -339,6 +381,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00014">14</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7b8400f711456291e567d0fc204c274b"></a>
@@ -350,6 +394,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00011">11</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
 
 </div>
 </div>
@@ -363,22 +409,20 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_smooth_planner_8h_source.html#l00016">16</a> of file <a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>include/auto_chaser/<a class="el" href="">SmoothPlanner.h</a></li>
-<li>src/auto_chaser/<a class="el" href="">SmoothPlanner.cpp</a></li>
+<li>include/auto_chaser/<a class="el" href="_smooth_planner_8h_source.html">SmoothPlanner.h</a></li>
+<li>src/auto_chaser/<a class="el" href="_smooth_planner_8cpp_source.html">SmoothPlanner.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="class_smooth_planner.html">SmoothPlanner</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
 </body>
 </html>

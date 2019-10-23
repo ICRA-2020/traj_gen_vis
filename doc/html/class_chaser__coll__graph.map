@@ -1,5 +1,0 @@
-<map id="Chaser" name="Chaser">
-<area shape="rect" id="node2" href="$class_smooth_planner.html" title="SmoothPlanner" alt="" coords="5,95,116,121"/>
-<area shape="rect" id="node3" href="$class_preplanner.html" title="Preplanner" alt="" coords="147,95,231,121"/>
-<area shape="rect" id="node4" href="$structchaser_1_1_preplanner_params.html" title="chaser::PreplannerParams" alt="" coords="101,5,277,32"/>
-</map>

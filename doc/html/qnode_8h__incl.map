@@ -1,9 +1,9 @@
-<map id="src/qt_ui/qnode.h" name="src/qt_ui/qnode.h">
-<area shape="rect" id="node5" href="$_common_8h.html" title="auto_chaser/Common.h" alt="" coords="2809,304,2971,331"/>
-<area shape="rect" id="node38" href="$_wrapper_8h.html" title="auto_chaser/Wrapper.h" alt="" coords="2791,80,2949,107"/>
-<area shape="rect" id="node44" href="$_target_manager_8h.html" title="target_manager/TargetManager.h" alt="" coords="3283,229,3497,256"/>
-<area shape="rect" id="node39" href="$_chaser_8h.html" title="auto_chaser/Chaser.h" alt="" coords="2989,155,3140,181"/>
-<area shape="rect" id="node43" href="$_object_handler_8h.html" title="auto_chaser/ObjectHandler.h" alt="" coords="2775,155,2965,181"/>
-<area shape="rect" id="node40" href="$_preplanner_8h.html" title="auto_chaser/Preplanner.h" alt="" coords="2866,229,3037,256"/>
-<area shape="rect" id="node41" href="$_smooth_planner_8h.html" title="auto_chaser/SmoothPlanner.h" alt="" coords="3061,229,3258,256"/>
+<map id="src/qt_ui_infomode/qnode.h" name="src/qt_ui_infomode/qnode.h">
+<area shape="rect" id="node5" href="$_common_8h.html" title="auto_chaser/Common.h" alt="" coords="3188,326,3349,353"/>
+<area shape="rect" id="node41" href="$_wrapper_8h.html" title="auto_chaser/Wrapper.h" alt="" coords="3170,95,3327,121"/>
+<area shape="rect" id="node47" href="$_target_manager_8h.html" title="target_manager/TargetManager.h" alt="" coords="3661,244,3876,271"/>
+<area shape="rect" id="node42" href="$_chaser_8h.html" title="auto_chaser/Chaser.h" alt="" coords="3368,169,3519,196"/>
+<area shape="rect" id="node46" href="$_object_handler_8h.html" title="auto_chaser/ObjectHandler.h" alt="" coords="3153,169,3344,196"/>
+<area shape="rect" id="node43" href="$_preplanner_8h.html" title="auto_chaser/Preplanner.h" alt="" coords="3245,244,3415,271"/>
+<area shape="rect" id="node44" href="$_smooth_planner_8h.html" title="auto_chaser/SmoothPlanner.h" alt="" coords="3439,244,3637,271"/>
 </map>

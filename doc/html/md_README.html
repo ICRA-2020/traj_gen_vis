@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">auto_chaser
-   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -69,21 +60,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('md_README.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -98,38 +74,82 @@ $(document).ready(function(){initNavTree('md_README.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">traj_gen_vis </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><div class="image">
+<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/main.gif" />
+</div>
+ <div class="image">
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/introl_final.png" />
 </div>
-<p><em>This package is devoted to generate an online chasing trajectory in response to the future movement of a moving target only for a short horizon. It assumes that the future trajectory of target is updated with a given time interval and priori map is given in the form of Octomap</em></p>
-<h1>1 Overview</h1>
 <div class="image">
-<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/overview.png" />
+<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/main.gif" />
 </div>
+<p><em>This package is devoted to generate an online chasing trajectory in response to the future movement of a moving target only for a short horizon. It assumes that the future trajectory of target is updated with a given time interval and priori map is given in the form of Octomap</em></p>
+<p><em>I also wish that my package can provide a test environment for comparing different chasing algorithm</em></p>
+<h1>Overview</h1>
+<h2>1.1 Algorithm</h2>
+<div class="image">
+<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/algo_explain.gif" />
+</div>
+<p>The paper was accepted to IROS 2019 and preprinted in arXiv. If this package was helpful to your project, it would be grateful if you could cite <a href="https://arxiv.org/pdf/1904.03421.pdf">my paper</a>.</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;@article{jeon2019online,</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;  title={Online Trajectory Generation of a MAV for Chasing a Moving Target in 3D Dense Environments},</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;  author={Jeon, Boseong Felipe and Kim, H Jin},</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;  journal={arXiv preprint arXiv:1904.03421},</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;  year={2019}</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;}</div></div><!-- fragment --><h2>1.2 File Structure</h2>
+<p><a href="https://icsl-jeon.github.io/traj_gen_vis">doxygen</a> (still many to be added)</p>
 <h1>2 Installation</h1>
+<p>We recommend to use this package in <b>ros-kinectic</b> (Ubuntu 16.04).</p>
 <h2>2.1 Dependencies</h2>
-<h1>3 Usage</h1>
-<h2>3.1 Simulation without gazebo</h2>
-<h3>(1) one-shot mode</h3>
-<h3>(2)</h3>
-<h2>3.2 Simulation with gazebo (still developing)</h2>
-<h1>4. ROS <a class="el" href="struct_node.html">Node</a> API</h1>
+<h3>traj_gen (with qpoases)</h3>
+<p>The package is trajectory generation library which is used for smooth path generation.</p>
+<p><a href="https://github.com/icsl-Jeon/traj_gen">download here</a></p>
+<h3>chomp_predict</h3>
+<p>The package is prediction module in case of unknown future trajectory based on Covariant optimization</p>
+<p><a href="https://github.com/icsl-Jeon/chomp_predict">download here</a></p>
+<h3>rotors_simulator</h3>
+<p>The package is gazebo simulator for MAV. This is used for simulation of chasing planner in a virtual MAV platform</p>
+<p><a href="https://github.com/ethz-asl/rotors_simulator">download here</a></p>
+<h3>octomap</h3>
+<p>We use octomap to represent the environment. dynamicEDT3D libraries also should be installed for Euclidean distance transform field(EDF). The visibility score field(VSF) will be computed based on the EDF.</p>
+<p><a href="http://github.com/OctoMap/octomap">download here</a></p>
+<h3>Others</h3>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;sudo apt-get install ros-kinetic-qt-build</div></div><!-- fragment --><h1>3. Usage</h1>
+<h2>3.0 Common procedure - map and target trajectory</h2>
+<p>The chasing algorithm receives 1) prior map (in the form of octomap) and 2) The future trajectory of target in either fully known(<a href="#oneshot">one shot mode</a>) or partially updated way. The environments provided are still to be updated more. Sorry for my laziness ...</p>
+<p><em>1) Map</em></p>
+<p>In "worlds" folder, you can find *.bt files (e.g. map3.bt which appears in the figures of this page). You can build your own map by following the <a href="https://github.com/ethz-asl/rotors_simulator/wiki/Generate-an-octomap-from-your-world">instruction</a> of rotors simulator wiki</p>
+<p><em>2) target trajectory</em></p>
+<p>In "data/${map name}" folder, you can find path*.txt files which can be loaded in the gui of the package. You may also generate your own path by traj_gen package. For saving and loading a target path, <a href="https://github.com/icsl-Jeon/traj_gen">this page</a> is referred(traj_gen). <a class="anchor" id="without"></a> </p><h2>3.1 Simulation without gazebo</h2>
+<p>This mode does not require gazebo. It only tests the proposed chasing policy and display the result in Rviz. Please run the following command:</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch auto_chaser simulation_without_gazebo.launch</div></div><!-- fragment --><h3>Step 1 : Spawning chaser from user selection</h3>
+<p>This step should precede the following steps. In rviz tool properties widget, set the topic name of 2D Nav Goal as /chaser_init_pose. If you don't remember the topic, just click the <code>set chaser pose button</code> in gui in the next time :). If things done, move on to one of the following two modes : one-shot or receding horizon method</p>
+<h3>Step 2 - option A : One-shot mode (offline trajectory computation)</h3>
+<div class="image">
+<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/tutorial1.gif" />
+</div>
+<p>For this one-shot mode, the chaser is assumed to have the full information for the future trajectory of target. Based on the future path, the trajectory will be computed immediately.</p>
+<h3>Step 2 - option B : Receding horizon mode (online trajectory computation)</h3>
+<div class="image">
+<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/tutorial2.gif" />
+</div>
+<p>For the receding horizon method, the chaser does not have full information of the future movement of target. Instead, the future movement of target for only short horizon (**"pred_horizon"** parameter in launch files) with a regular interval (<b>pred_horizon</b> - <b>early_end_time</b> . Please check it in launch files!) is fed to chaser and chaser should keep re-plan in response to the updates.</p>
+<h2>3.2 Simulation with gazebo</h2>
+<p>This package provides a simulation environment by employing package "rotors_simulator". There, the chaser is equipped with vision-sensor (vi-sensor) where you can check the actual capture of the target. In contrast to the <a href="#without"><em>without gazebo</em> mode</a>, the initial spawn pose of the chaser should be set with the arguments <b>chaser_x</b> , <b>chaser_y</b>.</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;roslaunch auto_chaser simulation_with_gazebo.launch</div></div><!-- fragment --><p>The remaining procedure is the same with the section 3.1.</p>
+<h4>In case of real target (More explanation should be added)</h4>
+<p>User should modify <code>/opt/ros/kinetic/share/turtlebot_gazebo/launch/includes/kobuki.launch.xml</code> in order to add additional arguments for convenience.</p>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;arg name=&quot;base&quot;/&gt;</div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;&lt;arg name=&quot;stacks&quot;/&gt;</div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;&lt;arg name=&quot;3d_sensor&quot;/&gt;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;&lt;arg name=&quot;init_pose&quot;/&gt;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;&lt;arg name=&quot;robot_name&quot;/&gt;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;&lt;arg name=&quot;urdf_file&quot; default=&quot;$(find xacro)/xacro.py &#39;$(find turtlebot_description)/robots/$(arg base)_$(arg stacks)_$(arg 3d_sensor).urdf.xacro&#39;&quot; /&gt;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;&lt;param name=&quot;robot_description&quot; command=&quot;$(arg urdf_file)&quot; /&gt;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;&lt;node name=&quot;spawn_turtlebot_model&quot; pkg=&quot;gazebo_ros&quot; type=&quot;spawn_model&quot;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;      args=&quot; -unpause -urdf $(arg init_pose) -param robot_description -model $(robot_name)&quot;/&gt;</div></div><!-- fragment --><h1>4. ROS <a class="el" href="struct_node.html">Node</a> API</h1>
 <h2>4.1 Published and subscribed topics</h2>
 <h2>4.2 Parameters</h2>
+<h2></h2>
 </div></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
 </body>
 </html>

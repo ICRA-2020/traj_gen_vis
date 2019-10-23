@@ -11,5 +11,5 @@ var searchData=
   ['ros_5fcomms_5finit',['ros_comms_init',['../class_q_node.html#a498b0376fc75702fd8b61b91ef109769',1,'QNode']]],
   ['rosshutdown',['rosShutdown',['../class_q_node.html#a7888b171c93c5f47334f5d2815adf445',1,'QNode']]],
   ['run',['run',['../class_q_node.html#ae585b201389c51a177fa5e2fde252c84',1,'QNode']]],
-  ['run_5fmode',['run_mode',['../class_objects_handler.html#a95908d5b00f62b629dc7f20acb714292',1,'ObjectsHandler']]]
+  ['run_5fmode',['run_mode',['../class_wrapper.html#a4b4e8407edf38f99eb9d5a0cd4a0116b',1,'Wrapper']]]
 ];

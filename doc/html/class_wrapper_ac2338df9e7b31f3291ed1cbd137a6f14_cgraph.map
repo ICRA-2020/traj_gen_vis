@@ -1,0 +1,7 @@
+<map id="Wrapper::get_control_pose" name="Wrapper::get_control_pose">
+<area shape="rect" id="node2" href="$class_objects_handler.html#a2b9e69afe54afea0380431d8f1f5142d" title="ObjectsHandler::get\l_target_pose" alt="" coords="253,5,392,47"/>
+<area shape="rect" id="node3" href="$class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56" title="ObjectsHandler::get\l_chaser_pose" alt="" coords="253,71,392,112"/>
+<area shape="rect" id="node4" href="$class_objects_handler.html#a07e9d105db04be181661dc979314de3c" title="ObjectsHandler::get\l_world_frame_id" alt="" coords="253,136,392,177"/>
+<area shape="rect" id="node5" href="$class_wrapper.html#a94a786272ea8120469cb476d021c5b76" title="publish the control visualization (geometry_msgs) " alt="" coords="232,202,413,229"/>
+<area shape="rect" id="node6" href="$class_wrapper.html#a7f0e09c8a675991a3c987e41c6b9ff9d" title="publish the control visualization (trajectory_msgs) " alt="" coords="237,253,408,279"/>
+</map>

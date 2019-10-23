@@ -162,10 +162,9 @@ void ObjectsHandler::tf_update(){
                     
                     
                     // if (is_log){
-                    //     // file write
+                    //     // file  truewrite
                     //     std::ofstream wnpt_file;
                     //     wnpt_file.open((log_dir+"/target_history.txt").c_str(),ios_base::app);
-
                     //     if(wnpt_file.is_open()){
                     //         wnpt_file<<pose_stamped.pose.position.x<<","<<pose_stamped.pose.position.y<<","<<pose_stamped.pose.position.z<<"\n";
                     //         wnpt_file.close();    
@@ -181,7 +180,6 @@ void ObjectsHandler::tf_update(){
                         //     // file write
                         //     std::ofstream wnpt_file;
                         //     wnpt_file.open((log_dir+"/chaser_history.txt").c_str(),ios_base::app);
-
                         //     if(wnpt_file.is_open()){
                         //         wnpt_file<<pose_stamped.pose.position.x<<","<<pose_stamped.pose.position.y<<","<<pose_stamped.pose.position.z<<"\n";
                         //         wnpt_file.close();    

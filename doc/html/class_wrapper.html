@@ -8,14 +8,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -32,7 +24,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">auto_chaser
-   &#160;<span id="projectnumber">1.0.0</span>
    </div>
   </td>
  </tr>
@@ -77,21 +68,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_wrapper.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -106,6 +82,7 @@ $(document).ready(function(){initNavTree('class_wrapper.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -116,20 +93,16 @@ $(document).ready(function(){initNavTree('class_wrapper.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="">Wrapper.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_wrapper_8h_source.html">Wrapper.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for Wrapper:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_wrapper__coll__graph.png" border="0" usemap="#_wrapper_coll__map" alt="Collaboration graph"/></div>
 <map name="_wrapper_coll__map" id="_wrapper_coll__map">
-<area shape="rect" id="node2" href="class_chaser.html" title="Chaser" alt="" coords="157,184,221,211"/>
-<area shape="rect" id="node3" href="class_smooth_planner.html" title="SmoothPlanner" alt="" coords="5,95,116,121"/>
-<area shape="rect" id="node4" href="class_preplanner.html" title="Preplanner" alt="" coords="145,95,229,121"/>
-<area shape="rect" id="node5" href="structchaser_1_1_preplanner_params.html" title="chaser::PreplannerParams" alt="" coords="99,5,275,32"/>
-<area shape="rect" id="node6" href="class_objects_handler.html" title="ObjectsHandler" alt="" coords="245,184,357,211"/>
-<area shape="rect" id="node7" href="struct_field_params.html" title="FieldParams" alt="" coords="253,95,348,121"/>
+<area shape="rect" id="node2" href="class_chaser.html" title="Chaser" alt="" coords="5,5,69,32"/>
+<area shape="rect" id="node3" href="class_objects_handler.html" title="ObjectsHandler" alt="" coords="93,5,205,32"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -143,16 +116,33 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a21a0e115ea80e053e4f2defd1362b92f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2da6448c77dd4edb054de4130b1fc883"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wrapper.html#a2da6448c77dd4edb054de4130b1fc883">trigger_chasing</a> (vector&lt; Point &gt; target_seq, TimeSeries chasing_knots)</td></tr>
 <tr class="separator:a2da6448c77dd4edb054de4130b1fc883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2338df9e7b31f3291ed1cbd137a6f14"><td class="memItemLeft" align="right" valign="top">geometry_msgs::PoseStamped&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wrapper.html#ac2338df9e7b31f3291ed1cbd137a6f14">get_control_pose</a> (double t_eval)</td></tr>
+<tr class="memdesc:ac2338df9e7b31f3291ed1cbd137a6f14"><td class="mdescLeft">&#160;</td><td class="mdescRight">evalate the latest control pose from chaser  <a href="#ac2338df9e7b31f3291ed1cbd137a6f14">More...</a><br /></td></tr>
+<tr class="separator:ac2338df9e7b31f3291ed1cbd137a6f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a786272ea8120469cb476d021c5b76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wrapper.html#a94a786272ea8120469cb476d021c5b76">pub_control_pose</a> (double t_eval)</td></tr>
+<tr class="memdesc:a94a786272ea8120469cb476d021c5b76"><td class="mdescLeft">&#160;</td><td class="mdescRight">publish the control visualization (geometry_msgs)  <a href="#a94a786272ea8120469cb476d021c5b76">More...</a><br /></td></tr>
+<tr class="separator:a94a786272ea8120469cb476d021c5b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f0e09c8a675991a3c987e41c6b9ff9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wrapper.html#a7f0e09c8a675991a3c987e41c6b9ff9d">pub_control_traj</a> (double t_eval)</td></tr>
+<tr class="memdesc:a7f0e09c8a675991a3c987e41c6b9ff9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">publish the control visualization (trajectory_msgs)  <a href="#a7f0e09c8a675991a3c987e41c6b9ff9d">More...</a><br /></td></tr>
+<tr class="separator:a7f0e09c8a675991a3c987e41c6b9ff9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fcc1a8192f2e72f501f2e9912a0ef41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wrapper.html#a3fcc1a8192f2e72f501f2e9912a0ef41">pub_control_pose</a> (PoseStamped control_pose)</td></tr>
+<tr class="separator:a3fcc1a8192f2e72f501f2e9912a0ef41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a754999f67924fbda6dc3b3e38377af79"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wrapper.html#a754999f67924fbda6dc3b3e38377af79">pub_control_traj</a> (PoseStamped control_pose)</td></tr>
+<tr class="separator:a754999f67924fbda6dc3b3e38377af79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a4b4e8407edf38f99eb9d5a0cd4a0116b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wrapper.html#a4b4e8407edf38f99eb9d5a0cd4a0116b">run_mode</a></td></tr>
+<tr class="separator:a4b4e8407edf38f99eb9d5a0cd4a0116b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cddd5ffbaeb5ab0b5d8d8d0c74f810f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_objects_handler.html">ObjectsHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a></td></tr>
 <tr class="separator:a8cddd5ffbaeb5ab0b5d8d8d0c74f810f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a750309ad3470e20a80e9d72b0d7e34cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_chaser.html">Chaser</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_wrapper.html#a750309ad3470e20a80e9d72b0d7e34cb">chaser</a></td></tr>
 <tr class="separator:a750309ad3470e20a80e9d72b0d7e34cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_wrapper_8h_source.html#l00006">6</a> of file <a class="el" href="_wrapper_8h_source.html">Wrapper.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa40ce9fcba8ab60bf01bcb0913144b4a"></a>
 <div class="memitem">
 <div class="memproto">
@@ -165,10 +155,67 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;{};</div></div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_wrapper_8cpp_source.html#l00003">3</a> of file <a class="el" href="_wrapper_8cpp_source.html">Wrapper.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ac2338df9e7b31f3291ed1cbd137a6f14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">geometry_msgs::PoseStamped Wrapper::get_control_pose </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t_eval</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>evalate the latest control pose from chaser </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t_eval</td><td>the evaluation time </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>geometry_msgs::PoseStamped the control pose for MAV </dd></dl>
+
+<p>Definition at line <a class="el" href="_wrapper_8cpp_source.html#l00131">131</a> of file <a class="el" href="_wrapper_8cpp_source.html">Wrapper.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_ac2338df9e7b31f3291ed1cbd137a6f14_cgraph.png" border="0" usemap="#class_wrapper_ac2338df9e7b31f3291ed1cbd137a6f14_cgraph" alt=""/></div>
+<map name="class_wrapper_ac2338df9e7b31f3291ed1cbd137a6f14_cgraph" id="class_wrapper_ac2338df9e7b31f3291ed1cbd137a6f14_cgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a2b9e69afe54afea0380431d8f1f5142d" title="ObjectsHandler::get\l_target_pose" alt="" coords="253,5,392,47"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56" title="ObjectsHandler::get\l_chaser_pose" alt="" coords="253,71,392,112"/>
+<area shape="rect" id="node4" href="class_objects_handler.html#a07e9d105db04be181661dc979314de3c" title="ObjectsHandler::get\l_world_frame_id" alt="" coords="253,136,392,177"/>
+<area shape="rect" id="node5" href="class_wrapper.html#a94a786272ea8120469cb476d021c5b76" title="publish the control visualization (geometry_msgs) " alt="" coords="232,202,413,229"/>
+<area shape="rect" id="node6" href="class_wrapper.html#a7f0e09c8a675991a3c987e41c6b9ff9d" title="publish the control visualization (trajectory_msgs) " alt="" coords="237,253,408,279"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_ac2338df9e7b31f3291ed1cbd137a6f14_icgraph.png" border="0" usemap="#class_wrapper_ac2338df9e7b31f3291ed1cbd137a6f14_icgraph" alt=""/></div>
+<map name="class_wrapper_ac2338df9e7b31f3291ed1cbd137a6f14_icgraph" id="class_wrapper_ac2338df9e7b31f3291ed1cbd137a6f14_icgraph">
+<area shape="rect" id="node2" href="class_wrapper.html#a94a786272ea8120469cb476d021c5b76" title="publish the control visualization (geometry_msgs) " alt="" coords="232,5,413,32"/>
+<area shape="rect" id="node6" href="class_wrapper.html#a7f0e09c8a675991a3c987e41c6b9ff9d" title="publish the control visualization (trajectory_msgs) " alt="" coords="237,56,408,83"/>
+<area shape="rect" id="node3" href="class_wrapper.html#a009ee5c325926f92df42319d5469a376" title="Wrapper::session" alt="" coords="461,31,585,57"/>
+<area shape="rect" id="node4" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="633,5,723,32"/>
+<area shape="rect" id="node5" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="653,56,703,83"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="af336781e7d75d525e7b152366a0e0d93"></a>
 <div class="memitem">
 <div class="memproto">
@@ -182,10 +229,179 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                                   {</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5">init</a>(nh);  </div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="namespacechaser.html">chaser</a>.init(nh);      </div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;};</div><div class="ttc" id="class_wrapper_html_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f"><div class="ttname"><a href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">Wrapper::objects_handler</a></div><div class="ttdeci">ObjectsHandler objects_handler</div><div class="ttdef"><b>Definition:</b> Wrapper.h:9</div></div>
-<div class="ttc" id="namespacechaser_html"><div class="ttname"><a href="namespacechaser.html">chaser</a></div><div class="ttdef"><b>Definition:</b> Common.h:106</div></div>
-<div class="ttc" id="class_objects_handler_html_a1ac7fcad5fa6033c2435ac49f2f9dff5"><div class="ttname"><a href="class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5">ObjectsHandler::init</a></div><div class="ttdeci">void init(ros::NodeHandle nh)</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:5</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_wrapper_8cpp_source.html#l00005">5</a> of file <a class="el" href="_wrapper_8cpp_source.html">Wrapper.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_af336781e7d75d525e7b152366a0e0d93_cgraph.png" border="0" usemap="#class_wrapper_af336781e7d75d525e7b152366a0e0d93_cgraph" alt=""/></div>
+<map name="class_wrapper_af336781e7d75d525e7b152366a0e0d93_cgraph" id="class_wrapper_af336781e7d75d525e7b152366a0e0d93_cgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a1ac7fcad5fa6033c2435ac49f2f9dff5" title="ObjectsHandler::init" alt="" coords="149,111,287,138"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a5744110d979850b3e2d8896793435d0c" title="ObjectsHandler::octomap\l_callback" alt="" coords="335,5,505,47"/>
+<area shape="rect" id="node6" href="class_objects_handler.html#a4c56416d3583b70d181d69d900b884b5" title="ObjectsHandler::callback\l_chaser_init_pose" alt="" coords="336,71,504,112"/>
+<area shape="rect" id="node8" href="class_objects_handler.html#a28ac9c7ef998a413825cddca78324f61" title="callback function for control pose from wrapper. This is intended to replace the currnet chaser pose ..." alt="" coords="336,136,504,177"/>
+<area shape="rect" id="node9" href="class_objects_handler.html#a5ee7bac0ddf6a18e58ca8183e64ff67a" title="ObjectsHandler::callback\l_target_pose" alt="" coords="336,201,504,243"/>
+<area shape="rect" id="node4" href="class_objects_handler.html#ae6da4f0f0a265c75722e02d68d519f07" title="ObjectsHandler::compute_edf" alt="" coords="553,13,748,39"/>
+<area shape="rect" id="node5" href="_common_8h.html#a4b2e4b6698ff92678b23392dc111b36d" title="get_color_dist" alt="" coords="796,13,899,39"/>
+<area shape="rect" id="node7" href="class_objects_handler.html#a968feba95e0707919b6c3632781510ba" title="ObjectsHandler::chaser\l_spawn" alt="" coords="571,71,730,112"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_af336781e7d75d525e7b152366a0e0d93_icgraph.png" border="0" usemap="#class_wrapper_af336781e7d75d525e7b152366a0e0d93_icgraph" alt=""/></div>
+<map name="class_wrapper_af336781e7d75d525e7b152366a0e0d93_icgraph" id="class_wrapper_af336781e7d75d525e7b152366a0e0d93_icgraph">
+<area shape="rect" id="node2" href="class_q_node.html#a498b0376fc75702fd8b61b91ef109769" title="QNode::ros_comms_init" alt="" coords="149,5,312,32"/>
+<area shape="rect" id="node5" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="205,56,256,83"/>
+<area shape="rect" id="node3" href="class_q_node.html#a32d00dbcf15c277e08caabf95af04f6e" title="QNode::on_init" alt="" coords="360,5,469,32"/>
+<area shape="rect" id="node4" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="517,5,705,32"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a94a786272ea8120469cb476d021c5b76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Wrapper::pub_control_pose </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t_eval</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>publish the control visualization (geometry_msgs) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t_eval</td><td>evaluation time </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_wrapper_8cpp_source.html#l00222">222</a> of file <a class="el" href="_wrapper_8cpp_source.html">Wrapper.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_a94a786272ea8120469cb476d021c5b76_cgraph.png" border="0" usemap="#class_wrapper_a94a786272ea8120469cb476d021c5b76_cgraph" alt=""/></div>
+<map name="class_wrapper_a94a786272ea8120469cb476d021c5b76_cgraph" id="class_wrapper_a94a786272ea8120469cb476d021c5b76_cgraph">
+<area shape="rect" id="node2" href="class_wrapper.html#ac2338df9e7b31f3291ed1cbd137a6f14" title="evalate the latest control pose from chaser " alt="" coords="235,143,413,170"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a2b9e69afe54afea0380431d8f1f5142d" title="ObjectsHandler::get\l_target_pose" alt="" coords="477,5,616,47"/>
+<area shape="rect" id="node4" href="class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56" title="ObjectsHandler::get\l_chaser_pose" alt="" coords="477,71,616,112"/>
+<area shape="rect" id="node5" href="class_objects_handler.html#a07e9d105db04be181661dc979314de3c" title="ObjectsHandler::get\l_world_frame_id" alt="" coords="477,136,616,177"/>
+<area shape="rect" id="node6" href="class_wrapper.html#a7f0e09c8a675991a3c987e41c6b9ff9d" title="publish the control visualization (trajectory_msgs) " alt="" coords="461,202,632,229"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_a94a786272ea8120469cb476d021c5b76_icgraph.png" border="0" usemap="#class_wrapper_a94a786272ea8120469cb476d021c5b76_icgraph" alt=""/></div>
+<map name="class_wrapper_a94a786272ea8120469cb476d021c5b76_icgraph" id="class_wrapper_a94a786272ea8120469cb476d021c5b76_icgraph">
+<area shape="rect" id="node2" href="class_wrapper.html#a009ee5c325926f92df42319d5469a376" title="Wrapper::session" alt="" coords="680,31,804,57"/>
+<area shape="rect" id="node5" href="class_wrapper.html#ac2338df9e7b31f3291ed1cbd137a6f14" title="evalate the latest control pose from chaser " alt="" coords="235,56,413,83"/>
+<area shape="rect" id="node3" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="852,5,941,32"/>
+<area shape="rect" id="node4" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="871,56,922,83"/>
+<area shape="rect" id="node6" href="class_wrapper.html#a7f0e09c8a675991a3c987e41c6b9ff9d" title="publish the control visualization (trajectory_msgs) " alt="" coords="461,56,632,83"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a3fcc1a8192f2e72f501f2e9912a0ef41"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Wrapper::pub_control_pose </td>
+          <td>(</td>
+          <td class="paramtype">PoseStamped&#160;</td>
+          <td class="paramname"><em>control_pose</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7f0e09c8a675991a3c987e41c6b9ff9d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Wrapper::pub_control_traj </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>t_eval</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>publish the control visualization (trajectory_msgs) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t_eval</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_wrapper_8cpp_source.html#l00235">235</a> of file <a class="el" href="_wrapper_8cpp_source.html">Wrapper.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_a7f0e09c8a675991a3c987e41c6b9ff9d_cgraph.png" border="0" usemap="#class_wrapper_a7f0e09c8a675991a3c987e41c6b9ff9d_cgraph" alt=""/></div>
+<map name="class_wrapper_a7f0e09c8a675991a3c987e41c6b9ff9d_cgraph" id="class_wrapper_a7f0e09c8a675991a3c987e41c6b9ff9d_cgraph">
+<area shape="rect" id="node2" href="class_wrapper.html#ac2338df9e7b31f3291ed1cbd137a6f14" title="evalate the latest control pose from chaser " alt="" coords="224,143,403,170"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a2b9e69afe54afea0380431d8f1f5142d" title="ObjectsHandler::get\l_target_pose" alt="" coords="472,5,611,47"/>
+<area shape="rect" id="node4" href="class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56" title="ObjectsHandler::get\l_chaser_pose" alt="" coords="472,71,611,112"/>
+<area shape="rect" id="node5" href="class_objects_handler.html#a07e9d105db04be181661dc979314de3c" title="ObjectsHandler::get\l_world_frame_id" alt="" coords="472,136,611,177"/>
+<area shape="rect" id="node6" href="class_wrapper.html#a94a786272ea8120469cb476d021c5b76" title="publish the control visualization (geometry_msgs) " alt="" coords="451,202,632,229"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_a7f0e09c8a675991a3c987e41c6b9ff9d_icgraph.png" border="0" usemap="#class_wrapper_a7f0e09c8a675991a3c987e41c6b9ff9d_icgraph" alt=""/></div>
+<map name="class_wrapper_a7f0e09c8a675991a3c987e41c6b9ff9d_icgraph" id="class_wrapper_a7f0e09c8a675991a3c987e41c6b9ff9d_icgraph">
+<area shape="rect" id="node2" href="class_wrapper.html#a009ee5c325926f92df42319d5469a376" title="Wrapper::session" alt="" coords="680,31,804,57"/>
+<area shape="rect" id="node5" href="class_wrapper.html#ac2338df9e7b31f3291ed1cbd137a6f14" title="evalate the latest control pose from chaser " alt="" coords="224,56,403,83"/>
+<area shape="rect" id="node3" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="852,5,941,32"/>
+<area shape="rect" id="node4" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="871,56,922,83"/>
+<area shape="rect" id="node6" href="class_wrapper.html#a94a786272ea8120469cb476d021c5b76" title="publish the control visualization (geometry_msgs) " alt="" coords="451,56,632,83"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a754999f67924fbda6dc3b3e38377af79"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Wrapper::pub_control_traj </td>
+          <td>(</td>
+          <td class="paramtype">PoseStamped&#160;</td>
+          <td class="paramname"><em>control_pose</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <a class="anchor" id="a009ee5c325926f92df42319d5469a376"></a>
@@ -201,11 +417,37 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                             {</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#a16cf7fca3059a03da4ec795f2af7fb74">publish</a>();</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#a6896e4f9863bd1a4fbc8498d0cb20f09">tf_update</a>();    </div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="namespacechaser.html">chaser</a>.session(t);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div><div class="ttc" id="class_wrapper_html_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f"><div class="ttname"><a href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">Wrapper::objects_handler</a></div><div class="ttdeci">ObjectsHandler objects_handler</div><div class="ttdef"><b>Definition:</b> Wrapper.h:9</div></div>
-<div class="ttc" id="namespacechaser_html"><div class="ttname"><a href="namespacechaser.html">chaser</a></div><div class="ttdef"><b>Definition:</b> Common.h:106</div></div>
-<div class="ttc" id="class_objects_handler_html_a6896e4f9863bd1a4fbc8498d0cb20f09"><div class="ttname"><a href="class_objects_handler.html#a6896e4f9863bd1a4fbc8498d0cb20f09">ObjectsHandler::tf_update</a></div><div class="ttdeci">void tf_update()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:123</div></div>
-<div class="ttc" id="class_objects_handler_html_a16cf7fca3059a03da4ec795f2af7fb74"><div class="ttname"><a href="class_objects_handler.html#a16cf7fca3059a03da4ec795f2af7fb74">ObjectsHandler::publish</a></div><div class="ttdeci">void publish()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:244</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_wrapper_8cpp_source.html#l00028">28</a> of file <a class="el" href="_wrapper_8cpp_source.html">Wrapper.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_a009ee5c325926f92df42319d5469a376_cgraph.png" border="0" usemap="#class_wrapper_a009ee5c325926f92df42319d5469a376_cgraph" alt=""/></div>
+<map name="class_wrapper_a009ee5c325926f92df42319d5469a376_cgraph" id="class_wrapper_a009ee5c325926f92df42319d5469a376_cgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a16cf7fca3059a03da4ec795f2af7fb74" title="ObjectsHandler::publish" alt="" coords="187,5,349,32"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a6896e4f9863bd1a4fbc8498d0cb20f09" title="ObjectsHandler::tf\l_update" alt="" coords="204,57,332,98"/>
+<area shape="rect" id="node4" href="class_wrapper.html#a94a786272ea8120469cb476d021c5b76" title="publish the control visualization (geometry_msgs) " alt="" coords="177,123,359,149"/>
+<area shape="rect" id="node7" href="class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56" title="ObjectsHandler::get\l_chaser_pose" alt="" coords="649,217,788,258"/>
+<area shape="rect" id="node9" href="class_wrapper.html#a7f0e09c8a675991a3c987e41c6b9ff9d" title="publish the control visualization (trajectory_msgs) " alt="" coords="633,165,804,192"/>
+<area shape="rect" id="node5" href="class_wrapper.html#ac2338df9e7b31f3291ed1cbd137a6f14" title="evalate the latest control pose from chaser " alt="" coords="407,123,585,149"/>
+<area shape="rect" id="node6" href="class_objects_handler.html#a2b9e69afe54afea0380431d8f1f5142d" title="ObjectsHandler::get\l_target_pose" alt="" coords="649,34,788,75"/>
+<area shape="rect" id="node8" href="class_objects_handler.html#a07e9d105db04be181661dc979314de3c" title="ObjectsHandler::get\l_world_frame_id" alt="" coords="649,99,788,141"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_a009ee5c325926f92df42319d5469a376_icgraph.png" border="0" usemap="#class_wrapper_a009ee5c325926f92df42319d5469a376_icgraph" alt=""/></div>
+<map name="class_wrapper_a009ee5c325926f92df42319d5469a376_icgraph" id="class_wrapper_a009ee5c325926f92df42319d5469a376_icgraph">
+<area shape="rect" id="node2" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="177,5,267,32"/>
+<area shape="rect" id="node3" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="197,56,247,83"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a21a0e115ea80e053e4f2defd1362b92f"></a>
@@ -221,15 +463,38 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                                     {</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    </div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">double</span> t_planning_start = chasing_knots(0);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    vector&lt;Point&gt;  target_pred_seq = <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#a4793f1ed257c849b28f0386f635ee714">get_prediction_seq</a>();</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="struct_grid_field.html">GridField</a> * edf_grid_ptr = <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#afe849882d1feeef8316a45632381da54">get_edf_grid_ptr</a>();</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    Point chaser_init_point;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    Twist chaser_init_vel; </div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    Twist chaser_init_acc;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordflow">if</span>(not <a class="code" href="namespacechaser.html">chaser</a>.is_complete_chasing_path){    </div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        chaser_init_point = <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56">get_chaser_pose</a>().pose.position;    </div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        chaser_init_vel = <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#aa1af309b0e964ccb6df8dede045fa32b">get_chaser_velocity</a>();</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        chaser_init_acc = <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#a41d48832b07a4d4276147a99dd1d31bc">get_chaser_acceleration</a>();   </div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">else</span>{</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        chaser_init_point = <a class="code" href="namespacechaser.html">chaser</a>.eval_point(t_planning_start);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        chaser_init_vel = <a class="code" href="namespacechaser.html">chaser</a>.eval_velocity(t_planning_start);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        chaser_init_acc = <a class="code" href="namespacechaser.html">chaser</a>.eval_acceleration(t_planning_start);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="comment">// chasing policy update </span></div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="namespacechaser.html">chaser</a>.chase_update(edf_grid_ptr,target_pred_seq,chaser_init_point,chaser_init_vel,chaser_init_acc,chasing_knots);   </div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div><div class="ttc" id="class_wrapper_html_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f"><div class="ttname"><a href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">Wrapper::objects_handler</a></div><div class="ttdeci">ObjectsHandler objects_handler</div><div class="ttdef"><b>Definition:</b> Wrapper.h:9</div></div>
-<div class="ttc" id="class_objects_handler_html_a4ac7a7bb712575c2ff6ffbf37144cf56"><div class="ttname"><a href="class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56">ObjectsHandler::get_chaser_pose</a></div><div class="ttdeci">PoseStamped get_chaser_pose()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:114</div></div>
-<div class="ttc" id="namespacechaser_html"><div class="ttname"><a href="namespacechaser.html">chaser</a></div><div class="ttdef"><b>Definition:</b> Common.h:106</div></div>
-<div class="ttc" id="class_objects_handler_html_afe849882d1feeef8316a45632381da54"><div class="ttname"><a href="class_objects_handler.html#afe849882d1feeef8316a45632381da54">ObjectsHandler::get_edf_grid_ptr</a></div><div class="ttdeci">GridField * get_edf_grid_ptr()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:120</div></div>
-<div class="ttc" id="struct_grid_field_html"><div class="ttname"><a href="struct_grid_field.html">GridField</a></div><div class="ttdef"><b>Definition:</b> Common.h:132</div></div>
-<div class="ttc" id="class_objects_handler_html_a41d48832b07a4d4276147a99dd1d31bc"><div class="ttname"><a href="class_objects_handler.html#a41d48832b07a4d4276147a99dd1d31bc">ObjectsHandler::get_chaser_acceleration</a></div><div class="ttdeci">Twist get_chaser_acceleration()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:117</div></div>
-<div class="ttc" id="class_objects_handler_html_aa1af309b0e964ccb6df8dede045fa32b"><div class="ttname"><a href="class_objects_handler.html#aa1af309b0e964ccb6df8dede045fa32b">ObjectsHandler::get_chaser_velocity</a></div><div class="ttdeci">Twist get_chaser_velocity()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:116</div></div>
-<div class="ttc" id="class_objects_handler_html_a4793f1ed257c849b28f0386f635ee714"><div class="ttname"><a href="class_objects_handler.html#a4793f1ed257c849b28f0386f635ee714">ObjectsHandler::get_prediction_seq</a></div><div class="ttdeci">vector&lt; Point &gt; get_prediction_seq()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:272</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_wrapper_8cpp_source.html#l00059">59</a> of file <a class="el" href="_wrapper_8cpp_source.html">Wrapper.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_a21a0e115ea80e053e4f2defd1362b92f_cgraph.png" border="0" usemap="#class_wrapper_a21a0e115ea80e053e4f2defd1362b92f_cgraph" alt=""/></div>
+<map name="class_wrapper_a21a0e115ea80e053e4f2defd1362b92f_cgraph" id="class_wrapper_a21a0e115ea80e053e4f2defd1362b92f_cgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#a4793f1ed257c849b28f0386f635ee714" title="ObjectsHandler::get\l_prediction_seq" alt="" coords="223,5,362,47"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#afe849882d1feeef8316a45632381da54" title="ObjectsHandler::get\l_edf_grid_ptr" alt="" coords="223,71,362,112"/>
+<area shape="rect" id="node4" href="class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56" title="ObjectsHandler::get\l_chaser_pose" alt="" coords="223,136,362,177"/>
+<area shape="rect" id="node5" href="class_objects_handler.html#aa1af309b0e964ccb6df8dede045fa32b" title="ObjectsHandler::get\l_chaser_velocity" alt="" coords="223,201,362,243"/>
+<area shape="rect" id="node6" href="class_objects_handler.html#a41d48832b07a4d4276147a99dd1d31bc" title="ObjectsHandler::get\l_chaser_acceleration" alt="" coords="220,267,365,308"/>
+</map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_a21a0e115ea80e053e4f2defd1362b92f_icgraph.png" border="0" usemap="#class_wrapper_a21a0e115ea80e053e4f2defd1362b92f_icgraph" alt=""/></div>
+<map name="class_wrapper_a21a0e115ea80e053e4f2defd1362b92f_icgraph" id="class_wrapper_a21a0e115ea80e053e4f2defd1362b92f_icgraph">
+<area shape="rect" id="node2" href="class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="220,5,387,32"/>
+<area shape="rect" id="node4" href="class_q_node.html#a23bd7e0744ad4c7b5d5464485375bef1" title="QNode::trigger" alt="" coords="250,56,357,83"/>
+<area shape="rect" id="node6" href="main__test_8cpp.html#ac367b226934e0e06e2ebf329fa937326" title="should be triggered only prediction exists t_cur and t_ros are redundant actually ..." alt="" coords="274,107,333,133"/>
+<area shape="rect" id="node3" href="class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="435,5,623,32"/>
+<area shape="rect" id="node5" href="class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="484,56,573,83"/>
+<area shape="rect" id="node7" href="main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="503,107,554,133"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a2da6448c77dd4edb054de4130b1fc883"></a>
@@ -255,14 +520,22 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                                                                                   {</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  </div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">double</span> t_planning_start = chasing_knots(0);</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="struct_grid_field.html">GridField</a> * edf_grid_ptr = <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#afe849882d1feeef8316a45632381da54">get_edf_grid_ptr</a>();</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    Point chaser_init_point;</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    Twist chaser_init_vel; </div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    Twist chaser_init_acc;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">if</span>(not <a class="code" href="namespacechaser.html">chaser</a>.is_complete_chasing_path){    </div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        chaser_init_point = <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56">get_chaser_pose</a>().pose.position;    </div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        chaser_init_vel = <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#aa1af309b0e964ccb6df8dede045fa32b">get_chaser_velocity</a>();</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        chaser_init_acc = <a class="code" href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">objects_handler</a>.<a class="code" href="class_objects_handler.html#a41d48832b07a4d4276147a99dd1d31bc">get_chaser_acceleration</a>();   </div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">else</span>{</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        chaser_init_point = <a class="code" href="namespacechaser.html">chaser</a>.eval_point(t_planning_start);</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        chaser_init_vel = <a class="code" href="namespacechaser.html">chaser</a>.eval_velocity(t_planning_start);</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        chaser_init_acc = <a class="code" href="namespacechaser.html">chaser</a>.eval_acceleration(t_planning_start);</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">// chasing policy update </span></div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="namespacechaser.html">chaser</a>.chase_update(edf_grid_ptr,target_pred_seq,chaser_init_point,chaser_init_vel,chaser_init_acc,chasing_knots);   </div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">// chasing policy update </span></div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacechaser.html">chaser</a>.chase_update(edf_grid_ptr,target_pred_seq,chaser_init_point,chaser_init_vel,chaser_init_acc,chasing_knots);   </div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div><div class="ttc" id="class_wrapper_html_a8cddd5ffbaeb5ab0b5d8d8d0c74f810f"><div class="ttname"><a href="class_wrapper.html#a8cddd5ffbaeb5ab0b5d8d8d0c74f810f">Wrapper::objects_handler</a></div><div class="ttdeci">ObjectsHandler objects_handler</div><div class="ttdef"><b>Definition:</b> Wrapper.h:9</div></div>
-<div class="ttc" id="class_objects_handler_html_a4ac7a7bb712575c2ff6ffbf37144cf56"><div class="ttname"><a href="class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56">ObjectsHandler::get_chaser_pose</a></div><div class="ttdeci">PoseStamped get_chaser_pose()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:114</div></div>
-<div class="ttc" id="namespacechaser_html"><div class="ttname"><a href="namespacechaser.html">chaser</a></div><div class="ttdef"><b>Definition:</b> Common.h:106</div></div>
-<div class="ttc" id="class_objects_handler_html_afe849882d1feeef8316a45632381da54"><div class="ttname"><a href="class_objects_handler.html#afe849882d1feeef8316a45632381da54">ObjectsHandler::get_edf_grid_ptr</a></div><div class="ttdeci">GridField * get_edf_grid_ptr()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:120</div></div>
-<div class="ttc" id="struct_grid_field_html"><div class="ttname"><a href="struct_grid_field.html">GridField</a></div><div class="ttdef"><b>Definition:</b> Common.h:132</div></div>
-<div class="ttc" id="class_objects_handler_html_a41d48832b07a4d4276147a99dd1d31bc"><div class="ttname"><a href="class_objects_handler.html#a41d48832b07a4d4276147a99dd1d31bc">ObjectsHandler::get_chaser_acceleration</a></div><div class="ttdeci">Twist get_chaser_acceleration()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:117</div></div>
-<div class="ttc" id="class_objects_handler_html_aa1af309b0e964ccb6df8dede045fa32b"><div class="ttname"><a href="class_objects_handler.html#aa1af309b0e964ccb6df8dede045fa32b">ObjectsHandler::get_chaser_velocity</a></div><div class="ttdeci">Twist get_chaser_velocity()</div><div class="ttdef"><b>Definition:</b> ObjectHandler.cpp:116</div></div>
-</div><!-- fragment -->
+
+<p>Definition at line <a class="el" href="_wrapper_8cpp_source.html#l00092">92</a> of file <a class="el" href="_wrapper_8cpp_source.html">Wrapper.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_wrapper_a2da6448c77dd4edb054de4130b1fc883_cgraph.png" border="0" usemap="#class_wrapper_a2da6448c77dd4edb054de4130b1fc883_cgraph" alt=""/></div>
+<map name="class_wrapper_a2da6448c77dd4edb054de4130b1fc883_cgraph" id="class_wrapper_a2da6448c77dd4edb054de4130b1fc883_cgraph">
+<area shape="rect" id="node2" href="class_objects_handler.html#afe849882d1feeef8316a45632381da54" title="ObjectsHandler::get\l_edf_grid_ptr" alt="" coords="223,5,362,47"/>
+<area shape="rect" id="node3" href="class_objects_handler.html#a4ac7a7bb712575c2ff6ffbf37144cf56" title="ObjectsHandler::get\l_chaser_pose" alt="" coords="223,71,362,112"/>
+<area shape="rect" id="node4" href="class_objects_handler.html#aa1af309b0e964ccb6df8dede045fa32b" title="ObjectsHandler::get\l_chaser_velocity" alt="" coords="223,136,362,177"/>
+<area shape="rect" id="node5" href="class_objects_handler.html#a41d48832b07a4d4276147a99dd1d31bc" title="ObjectsHandler::get\l_chaser_acceleration" alt="" coords="220,201,365,243"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -276,6 +549,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_wrapper_8h_source.html#l00031">31</a> of file <a class="el" href="_wrapper_8h_source.html">Wrapper.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8cddd5ffbaeb5ab0b5d8d8d0c74f810f"></a>
@@ -288,22 +563,34 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_wrapper_8h_source.html#l00030">30</a> of file <a class="el" href="_wrapper_8h_source.html">Wrapper.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4b4e8407edf38f99eb9d5a0cd4a0116b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Wrapper::run_mode</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_wrapper_8h_source.html#l00029">29</a> of file <a class="el" href="_wrapper_8h_source.html">Wrapper.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>include/auto_chaser/<a class="el" href="">Wrapper.h</a></li>
-<li>src/auto_chaser/<a class="el" href="">Wrapper.cpp</a></li>
+<li>include/auto_chaser/<a class="el" href="_wrapper_8h_source.html">Wrapper.h</a></li>
+<li>src/auto_chaser/<a class="el" href="_wrapper_8cpp_source.html">Wrapper.cpp</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="class_wrapper.html">Wrapper</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.11 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
 </body>
 </html>

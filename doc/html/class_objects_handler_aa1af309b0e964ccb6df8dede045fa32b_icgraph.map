@@ -1,0 +1,10 @@
+<map id="ObjectsHandler::get_chaser_velocity" name="ObjectsHandler::get_chaser_velocity">
+<area shape="rect" id="node2" href="$class_objects_handler.html#a932c6bc722daa78f4f8e31894911c4c7" title="ObjectsHandler::ObjectsHandler" alt="" coords="192,5,403,32"/>
+<area shape="rect" id="node3" href="$class_wrapper.html#a21a0e115ea80e053e4f2defd1362b92f" title="Wrapper::trigger_chasing" alt="" coords="214,56,381,83"/>
+<area shape="rect" id="node4" href="$class_q_node.html#a65f0fc9f27f336150f33b53a7c51d80b" title="QNode::trigger_one_shot" alt="" coords="451,5,617,32"/>
+<area shape="rect" id="node6" href="$class_q_node.html#a23bd7e0744ad4c7b5d5464485375bef1" title="QNode::trigger" alt="" coords="481,56,587,83"/>
+<area shape="rect" id="node8" href="$main__test_8cpp.html#ac367b226934e0e06e2ebf329fa937326" title="should be triggered only prediction exists t_cur and t_ros are redundant actually ..." alt="" coords="505,107,563,133"/>
+<area shape="rect" id="node5" href="$class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="665,5,853,32"/>
+<area shape="rect" id="node7" href="$class_q_node.html#ae585b201389c51a177fa5e2fde252c84" title="QNode::run" alt="" coords="715,56,804,83"/>
+<area shape="rect" id="node9" href="$main__test_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="734,107,785,133"/>
+</map>

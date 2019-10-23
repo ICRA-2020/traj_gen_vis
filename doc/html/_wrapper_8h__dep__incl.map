@@ -1,9 +1,12 @@
 <map id="include/auto_chaser/Wrapper.h" name="include/auto_chaser/Wrapper.h">
-<area shape="rect" id="node2" href="$_wrapper_8cpp.html" title="src/auto_chaser/Wrapper.cpp" alt="" coords="99,95,293,121"/>
-<area shape="rect" id="node3" href="$qnode_8h.html" title="src/qt_ui/qnode.h" alt="" coords="317,95,440,121"/>
-<area shape="rect" id="node4" href="$mainwindow_8h.html" title="src/qt_ui/mainwindow.h" alt="" coords="213,169,371,196"/>
-<area shape="rect" id="node8" href="$qnode_8cpp.html" title="src/qt_ui/qnode.cpp" alt="" coords="396,169,532,196"/>
-<area shape="rect" id="node5" href="$moc__mainwindow_8cpp.html" title="src/build&#45;qt_ui&#45;Desktop\l&#45;Debug/moc_mainwindow.cpp" alt="" coords="5,244,203,285"/>
-<area shape="rect" id="node6" href="$main_8cpp.html" title="src/qt_ui/main.cpp" alt="" coords="227,251,357,278"/>
-<area shape="rect" id="node7" href="$mainwindow_8cpp.html" title="src/qt_ui/mainwindow.cpp" alt="" coords="381,251,555,278"/>
+<area shape="rect" id="node2" href="$anal__server_8h.html" title="include/analyzer/anal\l_server.h" alt="" coords="184,95,328,136"/>
+<area shape="rect" id="node5" href="$_wrapper_8cpp.html" title="src/auto_chaser/Wrapper.cpp" alt="" coords="353,102,546,129"/>
+<area shape="rect" id="node6" href="$qnode_8h.html" title="src/qt_ui_infomode\l/qnode.h" alt="" coords="570,95,702,136"/>
+<area shape="rect" id="node11" href="$main__test_8cpp.html" title="src/qt_ui_predictmode\l/main_test.cpp" alt="" coords="726,95,877,136"/>
+<area shape="rect" id="node3" href="$anal__main_8cpp.html" title="src/analyzer/anal_main.cpp" alt="" coords="5,191,187,218"/>
+<area shape="rect" id="node4" href="$anal__server_8cpp.html" title="src/analyzer/anal_server.cpp" alt="" coords="211,191,400,218"/>
+<area shape="rect" id="node7" href="$mainwindow_8h.html" title="src/qt_ui_infomode\l/mainwindow.h" alt="" coords="522,184,654,225"/>
+<area shape="rect" id="node10" href="$qnode_8cpp.html" title="src/qt_ui_infomode\l/qnode.cpp" alt="" coords="678,184,810,225"/>
+<area shape="rect" id="node8" href="$main_8cpp.html" title="src/qt_ui_infomode\l/main.cpp" alt="" coords="443,273,575,315"/>
+<area shape="rect" id="node9" href="$mainwindow_8cpp.html" title="src/qt_ui_infomode\l/mainwindow.cpp" alt="" coords="599,273,731,315"/>
 </map>

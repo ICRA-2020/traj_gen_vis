@@ -20,9 +20,7 @@ class ObjectsHandler{
         string chaser_frame_id;
         string target_frame_id;
         
-        string log_dir; 
-        bool is_log; 
-        
+       
         // topic
         string octomap_topic_name;    
 
@@ -59,7 +57,10 @@ class ObjectsHandler{
         // this is added. The object_handler should also be able to distinguish whether the subscribed control pose is for hovering         
         // if the control pose was for hovering, Then it should be ignored. Instead the object_handler should trust the spawn position from user   
         bool is_path_solved = false;
-
+        
+        string log_dir; 
+        bool is_log; 
+        
 
         ObjectsHandler(){};
         void init(ros::NodeHandle nh);

@@ -1,8 +1,4 @@
 <map id="Wrapper" name="Wrapper">
-<area shape="rect" id="node2" href="$class_chaser.html" title="Chaser" alt="" coords="157,184,221,211"/>
-<area shape="rect" id="node3" href="$class_smooth_planner.html" title="SmoothPlanner" alt="" coords="5,95,116,121"/>
-<area shape="rect" id="node4" href="$class_preplanner.html" title="Preplanner" alt="" coords="145,95,229,121"/>
-<area shape="rect" id="node5" href="$structchaser_1_1_preplanner_params.html" title="chaser::PreplannerParams" alt="" coords="99,5,275,32"/>
-<area shape="rect" id="node6" href="$class_objects_handler.html" title="ObjectsHandler" alt="" coords="245,184,357,211"/>
-<area shape="rect" id="node7" href="$struct_field_params.html" title="FieldParams" alt="" coords="253,95,348,121"/>
+<area shape="rect" id="node2" href="$class_chaser.html" title="Chaser" alt="" coords="5,5,69,32"/>
+<area shape="rect" id="node3" href="$class_objects_handler.html" title="ObjectsHandler" alt="" coords="93,5,205,32"/>
 </map>
