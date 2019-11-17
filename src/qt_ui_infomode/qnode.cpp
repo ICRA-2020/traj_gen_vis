@@ -120,17 +120,15 @@ bool QNode::trigger_one_shot(double tf){
 bool QNode::trigger(double t_cur){
 
     last_tigger_time = t_cur;
-    VectorXd pred_horizon_vec(pred_seq);
-    pred_horizon_vec.setLinSpaced(pred_seq,t_cur,t_cur + pred_horizon); 
-    // if(t_cur + pred_horizon > simulation_end_time){
-
-    //     cout<<"almost there"<<endl;
-    // }
-    // pred_horizon_vec = pred_horizon_vec.cwiseMin(simulation_end_time); // clamping with final time
-    cout<<"current horizon vector:\n"<<pred_horizon_vec<<endl; 
+    VectorXd pred_horizon_vec(pred_seq); // this time seq is for target future positions (modified at 2019/11/7)
+    double dt = pred_horizon/double(pred_seq);
+    pred_horizon_vec.setLinSpaced(pred_seq,t_cur+dt,t_cur + pred_horizon);  // this includes current target 
     // we chase under this prediction 
     vector<Point> target_seq = target_manager.eval_time_seq(pred_horizon_vec);
-    
+
+    VectorXd planning_horizon_vec(pred_seq+1);
+    planning_horizon_vec.setLinSpaced(pred_seq+1,t_cur,t_cur + pred_horizon);  // this includes current target 
+
     if (target_seq.size() == 0){
         this->writeOnBoard("size of provided target sequence is zero. please generate target traj first.");
         return false;
@@ -145,6 +143,5 @@ bool QNode::trigger(double t_cur){
         return false;
     }    
 
-
-    return chaser_wrapper.trigger_chasing(target_seq,pred_horizon_vec); 
+    return chaser_wrapper.trigger_chasing(target_seq,planning_horizon_vec); 
 }

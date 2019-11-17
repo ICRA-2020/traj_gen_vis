@@ -14,13 +14,24 @@ void Wrapper::init(ros::NodeHandle nh) {
 
     pub_control_mav = nh.advertise<trajectory_msgs::MultiDOFJointTrajectory>(
            control_topic.c_str(), 10);
-        
+    pub_chaser_control_path = nh.advertise<nav_msgs::Path>("mav_desired_pose_history",1);        
     // only for visualization 
     pub_control_mav_vis = nh.advertise<geometry_msgs::PoseStamped>("mav_pose_desired",1);
+    pub_connecting_vel_marker = nh.advertise<visualization_msgs::MarkerArray>("connecting_vel",1);
+    
     // sub classes initialization 
     objects_handler.init(nh);  
-    chaser.init(nh);      
+    chaser.init(nh);    
 
+    velocity_marker_base.header.frame_id = objects_handler.get_world_frame_id();
+    velocity_marker_base.type = visualization_msgs::Marker::ARROW;
+    velocity_marker_base.scale.x = 0.08;
+    velocity_marker_base.scale.y = 0.1;
+    velocity_marker_base.scale.z = 0.15;
+    velocity_marker_base.pose.orientation.w = 1.0;
+    velocity_marker_base.color.a =0.2;
+    velocity_marker_base.color.r =1.0;
+    
 
 };
 
@@ -35,20 +46,29 @@ void Wrapper::session(double t){
     if (run_mode == 0 ){
         pub_control_pose(t);
         pub_control_traj(t);
+        pub_control_path(t);
+        pub_connecting_velocity_marker();
+        
     }
     else // run mode 1 
         if(chaser.is_complete_chasing_path){        
             ROS_INFO_ONCE("[Wrapper] current chaser pose = planning ");
             pub_control_pose(t);
             pub_control_traj(t);
+            pub_control_path(t);
+            pub_connecting_velocity_marker();
         }
         else // if no chasing path 
             if (objects_handler.is_chaser_recieved){
                 // if chaser pose received    
                 ROS_INFO_ONCE("[Wrapper] current chaser pose = desired ");
+                
+                // pub_control_pose(objects_handler.get_chaser_pose());
+                // pub_control_traj(objects_handler.get_chaser_pose());
+       
+                pub_control_pose(t);
+                pub_control_traj(t);
 
-                pub_control_pose(objects_handler.get_chaser_pose());
-                pub_control_traj(objects_handler.get_chaser_pose());
             }else{
                 ROS_WARN_ONCE("[Wrapper] chaser pose not recieved. not publising control pose yet");
             }
@@ -58,9 +78,7 @@ void Wrapper::session(double t){
 // chasing session called 
 bool Wrapper::trigger_chasing(TimeSeries chasing_knots){
     
-    
     double t_planning_start = chasing_knots(0);
-
     vector<Point>  target_pred_seq = objects_handler.get_prediction_seq();
     GridField * edf_grid_ptr = objects_handler.get_edf_grid_ptr();
     
@@ -70,6 +88,7 @@ bool Wrapper::trigger_chasing(TimeSeries chasing_knots){
     Twist chaser_init_acc;
 
     if(not chaser.is_complete_chasing_path){    
+        // if there is no previous chasing trajectory, then set the current position as initial condition 
         chaser_init_point = objects_handler.get_chaser_pose().pose.position;    
         chaser_init_vel = objects_handler.get_chaser_velocity();
         chaser_init_acc = objects_handler.get_chaser_acceleration();   
@@ -78,6 +97,21 @@ bool Wrapper::trigger_chasing(TimeSeries chasing_knots){
         chaser_init_point = chaser.eval_point(t_planning_start);
         chaser_init_vel = chaser.eval_velocity(t_planning_start);
         chaser_init_acc = chaser.eval_acceleration(t_planning_start);
+
+        // in this case, we push back arrow for visualizing the connecting velocity 
+        velocity_marker_base.points.clear();
+        velocity_marker_base.points.push_back(chaser_init_point);
+        double length = 0.4;
+        double vel_norm = sqrt(pow(chaser_init_vel.linear.x,2) + 
+                pow(chaser_init_vel.linear.y,2) +
+                pow(chaser_init_vel.linear.z,2));
+        geometry_msgs::Point end_pnt; // end point at the velocity vector 
+        end_pnt.x = chaser_init_point.x + chaser_init_vel.linear.x/vel_norm*length;
+        end_pnt.y = chaser_init_point.y + chaser_init_vel.linear.y/vel_norm*length;
+        end_pnt.z = chaser_init_point.z + chaser_init_vel.linear.z/vel_norm*length;        
+        velocity_marker_base.points.push_back(end_pnt);
+
+        velocity_marker_array.markers.push_back(velocity_marker_base);
     }
 
     // chasing policy update 
@@ -102,17 +136,34 @@ bool Wrapper::trigger_chasing(vector<Point> target_pred_seq,TimeSeries chasing_k
     Twist chaser_init_acc;
 
     if(not chaser.is_complete_chasing_path){    
+        // if this is the first time, then, proceed with the current state information
         chaser_init_point = objects_handler.get_chaser_pose().pose.position;    
         chaser_init_vel = objects_handler.get_chaser_velocity();
         chaser_init_acc = objects_handler.get_chaser_acceleration();   
     }
     else{
+        // if chasing trajectory was planned, 
         chaser_init_point = chaser.eval_point(t_planning_start);
         chaser_init_vel = chaser.eval_velocity(t_planning_start);
-        chaser_init_acc = chaser.eval_acceleration(t_planning_start);
-        printf( "[Wrapper] based on this vel = [%f,%f,%f] /  accel = [%f,%f,%f]",
-                chaser_init_vel.linear.x,chaser_init_vel.linear.y,chaser_init_vel.linear.z,
-                chaser_init_acc.linear.x,chaser_init_acc.linear.y,chaser_init_acc.linear.z );     
+        chaser_init_acc = chaser.eval_acceleration(t_planning_start);   
+        
+
+        // in this case, we push back arrow for visualizing the connecting velocity 
+        velocity_marker_base.points.clear();
+        velocity_marker_base.points.push_back(chaser_init_point);
+        velocity_marker_base.id = velocity_marker_array.markers.size();
+
+        double length = 0.4;
+        double vel_norm = sqrt(pow(chaser_init_vel.linear.x,2) + 
+                pow(chaser_init_vel.linear.y,2) +
+                pow(chaser_init_vel.linear.z,2));
+        geometry_msgs::Point end_pnt; // end point at the velocity vector 
+        end_pnt.x = chaser_init_point.x + chaser_init_vel.linear.x/vel_norm*length;
+        end_pnt.y = chaser_init_point.y + chaser_init_vel.linear.y/vel_norm*length;
+        end_pnt.z = chaser_init_point.z + chaser_init_vel.linear.z/vel_norm*length;        
+        velocity_marker_base.points.push_back(end_pnt);
+
+        velocity_marker_array.markers.push_back(velocity_marker_base);
     }
 
     // chasing policy update 
@@ -186,7 +237,7 @@ geometry_msgs::PoseStamped Wrapper::get_control_pose(double t_eval){
 
 
 void Wrapper::pub_control_pose(geometry_msgs::PoseStamped pose){
-    pose.pose.position.z = chaser.get_hovering_z();
+    pose.pose.position.z = chaser.get_hovering_z(); // why? 
     pub_control_mav_vis.publish(pose);
 }
 
@@ -219,7 +270,7 @@ void Wrapper::pub_control_traj(geometry_msgs::PoseStamped chaser_pose_desired){
 /**
  * @brief publish the control visualization (geometry_msgs) 
  * 
- * @param t_eval evaluation time 
+ * @param t_eval evaluation time (sim time)
  */
 void Wrapper::pub_control_pose(double t_eval){
     pub_control_mav_vis.publish(get_control_pose(t_eval));
@@ -227,6 +278,25 @@ void Wrapper::pub_control_pose(double t_eval){
 }
 
 
+/**
+ * @brief publish control path history (nav_msgs) / Added at 2019/11/11
+ * 
+ * @param t_eval  evaluation time (sim time)
+ */
+void Wrapper::pub_control_path(double t_eval){
+    path_control_pose.header.frame_id = objects_handler.get_world_frame_id();
+    path_control_pose.poses.push_back(get_control_pose(t_eval));
+    pub_chaser_control_path.publish(path_control_pose);
+}
+
+/**
+ * @brief publish control path history (nav_msgs) / Added at 2019/11/11
+ * 
+ * @param t_eval  evaluation time (sim time)
+ */
+void Wrapper::pub_connecting_velocity_marker(){
+    pub_connecting_vel_marker.publish(velocity_marker_array);
+}
 
 
 /**

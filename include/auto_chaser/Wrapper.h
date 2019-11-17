@@ -5,24 +5,19 @@
 
 class Wrapper{
     private:
-        /**
-         * @brief publish the control pose for UAV (trajectory_msgs)
-         * 
-         */
 
-        ros::Publisher pub_control_mav; 
-        /**
-         * @brief publishing the control pose visualization(geometry_msgs)
-         * 
-         */
-        
-        ros::Publisher pub_control_mav_vis;  
-        /**
-         * @brief this is used just for coordinate visualization
-         * 
-         */
+        ros::Publisher pub_control_mav; // publish the control pose for UAV (trajectory_msgs)        
+        ros::Publisher pub_control_mav_vis;  // publish the control pose visualization(geometry_msgs)
+        ros::Publisher pub_chaser_control_path; // history of pose desired of chaser (not actual history)
+        ros::Publisher pub_connecting_vel_marker; // for debugging purpose : is continuity forced properlly?
+
         geometry_msgs::PoseStamped control_pose_mav; 
+        nav_msgs::Path path_control_pose; // flight history
 
+
+        // for debugging purposes (continuity of each trajectory segment)    
+        visualization_msgs::Marker velocity_marker_base; 
+        visualization_msgs::MarkerArray velocity_marker_array; 
 
     public:    
         
@@ -38,9 +33,10 @@ class Wrapper{
         geometry_msgs::PoseStamped get_control_pose(double t_eval); // get the latest control pose 
         
         void pub_control_pose(double t_eval); 
-        void pub_control_traj(double t_eval);
-        
+        void pub_control_traj(double t_eval);        
         void pub_control_pose(PoseStamped control_pose); 
         void pub_control_traj(PoseStamped control_pose);
+        void pub_control_path(double t_eval);
+        void pub_connecting_velocity_marker();
 
 };

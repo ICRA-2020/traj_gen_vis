@@ -15,8 +15,6 @@ void Chaser::init(ros::NodeHandle nh){
     nh.param("is_log",is_log,false);
     nh.param<string>("log_dir",log_dir,"/home/jbs");
     
-
-    
 }
 
 double Chaser::get_hovering_z(){
@@ -97,12 +95,16 @@ Twist Chaser::eval_acceleration(double t_eval){
 Point Chaser::get_control_point(double t_eval){    
     if (this->is_complete_chasing_path)
         return smooth_planner.planner.point_eval_spline(t_eval); 
-    else{// hovering command at the spawning position with desired height. the following lines will be executed only run mode 0      
-            
-            Point hovering_point;
-            hovering_point.x = spawn_x;
-            hovering_point.y = spawn_y;
-            hovering_point.z = hovering_z;        
+    else{
+        // hovering command at the spawning position with desired height. the following lines will be executed only run mode 0                  
+        Point hovering_point;
+        hovering_point.x = spawn_x;
+        hovering_point.y = spawn_y;
+        hovering_point.z = hovering_z;        
+        
+        // printf("[DEBUG]: still no chasing path exists. desired pose: [%f, %f, %f] \n",hovering_point.x,hovering_point.y,hovering_point.z);
+        
         return hovering_point;
+
     }
 }

@@ -45,7 +45,6 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_ros_clicked()
 {
 
-    
     if(qnode->on_init()){
         ui->textEdit_board->append("ros connected.");
         qnode->is_connected = true;

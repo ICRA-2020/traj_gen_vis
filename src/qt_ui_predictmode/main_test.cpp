@@ -62,6 +62,7 @@ int main(int argc, char * argv[]){
     double last_chasing_trigger_time = 0 ;
     bool chasing_trigger_condition;
     bool trigger_success = true;
+
     while(ros::ok()){
         t_cur = (ros::Time::now() - t_ros_start).toSec(); // current simulation time 
 
@@ -69,13 +70,16 @@ int main(int argc, char * argv[]){
         // chaser session 
         chaser_wrapper.session(t_cur); // ref time = double (t_sim) 
         bool is_new_prediction = target_predictor.session(); 
-
+        if (is_new_prediction)
+            ROS_INFO_STREAM("[DEBUG]: new prediction triggered");
+        
         // check the trigger condition 
-        chasing_trigger_condition = last_chasing_trigger_time == 0 
-            or ((t_cur - last_chasing_trigger_time) > pred_horizon - early_end_time) 
-            or is_new_prediction;
+        chasing_trigger_condition = last_chasing_trigger_time == 0  // If this the first, then predict 
+            // or ((t_cur - last_chasing_trigger_time) > pred_horizon - early_end_time)  // if horizon time expired, then trigger 
+            or is_new_prediction; // if prediction is triggered newly, then trigger 
 
-        chasing_trigger_condition = chasing_trigger_condition and target_predictor.get_forecaster_ptr()->get_predict_condition();
+        chasing_trigger_condition = chasing_trigger_condition 
+                                    and target_predictor.get_forecaster_ptr()->get_predict_condition();
         
         // if conditions are met, trigger chasing trajectory
         if(chasing_trigger_condition){            

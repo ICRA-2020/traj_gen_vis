@@ -44,12 +44,12 @@
         <param name="chaser_init_z" value="1" />
         <param name="run_mode" value="0" /> <!-- 0: simulation without gazebo/ 1: with gazebo -->
         <param name="pred_horizon" value="4" /> 
-        <param name="pred_seq" value="4" /> 
+        <param name="pred_seq" value="3" /> 
 		<param name="early_end_time" value="1.1" /> 
 
 
         <!-- target_trajectory -->        
-        <param name="target/safe_corridor_r" value="0.2" />
+        <param name="target/safe_corridor_r" value="0.4" />
 		<param name="target/N_safe_pnts" value="2" />
 		<param name="target/objective_derivative" value="3" />
 		<param name="target/w_deviation" value="0.0005" />
@@ -86,13 +86,13 @@
 		
 
 		<!--smooth planning-->
-		<param name="chaser/safe_corridor_r" type="double" value="0.4" />		 
+		<param name="chaser/safe_corridor_r" type="double" value="0.2" />		 
 		<param name="chaser/verbose" type="bool" value="false" />	
 		<param name="chaser/N_safe_pnts" type="int" value="3" /> <!-- N_safe_pnts + 2 (initial + final in seg) = actual control points-->	
 		<param name="chaser/objective_derivative" type="int" value="3" />	
 		<param name="chaser/w_deviation" type="double" value="5.5" />	
 		<param name="chaser/poly_order" type="int" value="6" />	
-		<param name="chaser/is_multi_corridor" type="bool" value="false" />	
+		<param name="chaser/is_multi_corridor" type="bool" value="true" /> <!--using single corridor : initial condition instability-->	
 		
 
     </node>

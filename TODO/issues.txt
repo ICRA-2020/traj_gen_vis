@@ -1,0 +1,3 @@
+201911116
+Wrapper::pub_control_path(double t_eval) : if the length of path >= certain limit, rviz encouters seg fault. 
+		

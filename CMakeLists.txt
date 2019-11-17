@@ -83,5 +83,15 @@ target_link_libraries(${PROJECT_NAME}_run_predict_mode ${catkin_LIBRARIES})
 add_executable(${PROJECT_NAME}_analyzer src/analyzer/anal_main.cpp ${AUTO_CHASER_LIBS}  ${qpOASES_LIBS} src/analyzer/anal_server.cpp )
 target_link_libraries( ${PROJECT_NAME}_analyzer ${catkin_LIBRARIES})
 
+## utils (tf <-> pose)
+
+
+add_executable(tf2poseStamped_node src/utils/tf_to_posestamped_node.cpp )
+target_link_libraries(tf2poseStamped_node ${catkin_LIBRARIES} )
+
+add_executable(poseStamped2tf_node src/utils/posestamped_to_tf_node.cpp )
+target_link_libraries(poseStamped2tf_node ${catkin_LIBRARIES} )
+
+
 
 

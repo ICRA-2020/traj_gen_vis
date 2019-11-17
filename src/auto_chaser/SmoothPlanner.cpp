@@ -34,6 +34,19 @@ void SmoothPlanner::init(ros::NodeHandle nh){
 
 void SmoothPlanner::traj_gen(TimeSeries knots,nav_msgs::Path waypoints,Twist v0,Twist a0){
 
+        
+        int i = 0;
+        for (auto it = waypoints.poses.begin() ; it < waypoints.poses.end(); it ++,i++){
+            cout << "knots " << i <<" :" << it->pose.position.x << " , " << it->pose.position.y << endl; 
+
+        }
+        
+
+    /**
+     cout << "time knots: " << endl;
+     cout << knots << endl;
+    **/
+    
     planner.path_gen(knots,waypoints,v0,a0,option);
     
     if (planner.is_spline_valid()){
