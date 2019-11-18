@@ -1,5 +1,6 @@
-# traj_gen_vis
+# auto_chaser
 
+<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/logo.png" width="400"> 
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/introl_final.png"> 
 <p align = "center">
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/algo_explain.gif">
