@@ -14,7 +14,6 @@
 <arg name ="bag_file" default = "$(find auto_chaser)/data/map3/target_move_rosbag/target_keyop_v_0_27_n1.bag"/>
 
 <arg name ="is_log" default = "false"/> <!--history of target and chaser. This will be used as an input for visualization module (anal_logger)-->
-<arg name = "log_dir" defalut = "$(find auto_chaser)/log/$(arg world_name)">
 
 
 <!-- prepare gazebo environment -->
@@ -42,7 +41,6 @@
         <!--log for analyzed --> 
 	    <param name= "is_log" value = "$(arg is_log)" />
         <param name= "cal_time_log_dir" value = "$(find auto_chaser)/log/$(arg world_name)" /> <!--will write X    /chomp_compute_time.txt-->
-		<param name="log_dir" value="$(arg log_dir)" /> <!--true : listen target tf     / false listen target pose stamped -->
 
 	   <!-- common -->
         <param name="world_frame_id" value="/world" />

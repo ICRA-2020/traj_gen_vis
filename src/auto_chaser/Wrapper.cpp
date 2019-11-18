@@ -88,10 +88,23 @@ bool Wrapper::trigger_chasing(TimeSeries chasing_knots){
     Twist chaser_init_acc;
 
     if(not chaser.is_complete_chasing_path){    
-        // if there is no previous chasing trajectory, then set the current position as initial condition 
-        chaser_init_point = objects_handler.get_chaser_pose().pose.position;    
-        chaser_init_vel = objects_handler.get_chaser_velocity();
-        chaser_init_acc = objects_handler.get_chaser_acceleration();   
+        
+        // if there is no previous chasing trajectory, then set the spwan  as initial condition. 
+        // This makes sense in case of gazebo          
+        if (run_mode == 0){
+            // if there is no previous chasing trajectory, then set the current position as initial condition. 
+            // This makes sense in case of gazebo
+            chaser_init_point.x = chaser.spawn_x;
+            chaser_init_point.y = chaser.spawn_y;
+            chaser_init_point.z = chaser.hovering_z;
+            chaser_init_vel = objects_handler.get_chaser_velocity();
+            chaser_init_acc = objects_handler.get_chaser_acceleration();
+        }else{                        
+            chaser_init_point = objects_handler.get_chaser_pose().pose.position;    
+            chaser_init_vel = objects_handler.get_chaser_velocity();
+            chaser_init_acc = objects_handler.get_chaser_acceleration();   
+        }
+        
     }
     else{
         chaser_init_point = chaser.eval_point(t_planning_start);
@@ -136,10 +149,20 @@ bool Wrapper::trigger_chasing(vector<Point> target_pred_seq,TimeSeries chasing_k
     Twist chaser_init_acc;
 
     if(not chaser.is_complete_chasing_path){    
-        // if this is the first time, then, proceed with the current state information
-        chaser_init_point = objects_handler.get_chaser_pose().pose.position;    
-        chaser_init_vel = objects_handler.get_chaser_velocity();
-        chaser_init_acc = objects_handler.get_chaser_acceleration();   
+        
+        if (run_mode == 0){
+            // if there is no previous chasing trajectory, then set the current position as initial condition. 
+            // This makes sense in case of gazebo
+            chaser_init_point.x = chaser.spawn_x;
+            chaser_init_point.y = chaser.spawn_y;
+            chaser_init_point.z = chaser.hovering_z;
+            chaser_init_vel = objects_handler.get_chaser_velocity();
+            chaser_init_acc = objects_handler.get_chaser_acceleration();
+        }else{                        
+            chaser_init_point = objects_handler.get_chaser_pose().pose.position;    
+            chaser_init_vel = objects_handler.get_chaser_velocity();
+            chaser_init_acc = objects_handler.get_chaser_acceleration();   
+        }
     }
     else{
         // if chasing trajectory was planned, 

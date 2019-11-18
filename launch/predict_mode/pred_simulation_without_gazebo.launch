@@ -7,8 +7,11 @@
     <arg name="chaser_y" default="0"/>
     <arg name="future_horizon" default="4"/>
 	<arg name = "trigger_error" default = "1.0"/> <!--If accumultaed prediction error exceeds this value, new tourine triggered. -->
-
-    <!-- only octomap. no gazebo related module -->
+	<arg name ="bag_file" default = "$(find auto_chaser)/data/map3/target_move_rosbag/target_keyop_v_0_27_n1.bag"/>
+   
+	
+	
+	<!-- only octomap. no gazebo related module -->
         <include file = "$(find auto_chaser)/launch/octomap_base.launch">
             <arg name = "world_name" value = "$(arg world_name)"/>
         </include>
@@ -18,17 +21,19 @@
         <node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/rviz.rviz"/>
 
     <!-- rosbag play -->
-
+	<node name="player" pkg="rosbag" type="play"  args=" -r 1.0 $(arg bag_file)"/>
 
     <!-- auto_chaser with prediction-->
         <node pkg="auto_chaser" type="auto_chaser_run_predict_mode" name="auto_chaser" output="screen" >
         
-            <!-- 1. target predictor -->
+            <!-- target predictor -->
             <rosparam command="load" file="$(find chomp_predict)/params/chomp_param_map3.yaml" />		
             <param name= "map_file_name" value = "$(find chomp_predict)/worlds/$(arg world_name).bt" />
 			<param name= "pred_param/prediction_horizon" value = "$(arg future_horizon)"/>            
 			<param name= "pred_param/trigger_tol_accum_error" value = "$(arg trigger_error)"/>            
 
+
+            <!-- chaser parameter -->     
             <!-- common -->
             <param name="world_frame_id" value="/world" />
             <param name="mav_name" value="$(arg mav_name)" />
@@ -41,8 +46,6 @@
             <param name="pred_horizon" value="$(arg future_horizon)" />  <!--should be lower than the horizon of predictor-->
             <param name="pred_seq" value="4" /> 
             <param name="early_end_time" value="0.1" /> 
-
-            <!-- chaser parameter -->     
 
             <!--edf-->	
             <param name="edf_resolution" type="double" value="0.3" />	

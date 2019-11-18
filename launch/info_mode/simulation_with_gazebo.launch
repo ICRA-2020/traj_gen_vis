@@ -8,6 +8,7 @@
 <arg name="chaser_x" default="1"/>
 <arg name="chaser_y" default="0"/>
 
+<!--arg name ="bag_file" default = "$(find auto_chaser)/data/map3/target_move_rosbag/target_keyop_v_0_27_n1.bag"/-->
 
 <!-- prepare gazebo environment -->
 
@@ -19,7 +20,9 @@
     <arg name="chaser_y" value="$(arg chaser_y)"/> 
 </include>
 
-
+<!-- play -->
+<!--node  name="player" pkg="rosbag" type="play"  args=" -r 1.0 $(arg bag_file)"/-->
+>
 <!-- auto_chaser -->
     <node pkg="auto_chaser" type="auto_chaser_run" name="auto_chaser" output="screen" >
         <!-- common -->
@@ -40,6 +43,7 @@
 		<param name="target/N_safe_pnts" value="2" />
 		<param name="target/objective_derivative" value="3" />
 		<param name="target/w_deviation" value="0.0005" />
+		
 
         <!-- chaser parameter -->     
 
