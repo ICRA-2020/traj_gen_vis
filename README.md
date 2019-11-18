@@ -1,13 +1,13 @@
 # traj_gen_vis
 
-<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/main.gif"> 
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/introl_final.png"> 
 
-<img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/main.gif"> 
+*This package is devoted to generate an online chasing trajectory for Mavs for videographic tasks.
+Chaser is assumed to be provided with either 1)future trajectory of target during a short horizon (info mode) or 2) sparse waypoints for filming (predict mode)*  
 
-*This package is devoted to generate an online chasing trajectory in response to the future movement of a moving target only for a short horizon. It assumes that the future trajectory of target is updated with a given time interval and priori map is given in the form of Octomap*  
-
-*I also wish that my package can provide a test environment for comparing different chasing algorithm*
+**Youtube link for details**  
+[auto chaser](https://youtu.be/-2d3uDlYR_M ) <IROS2019 accepted>
+[auto chaser + prediction for target](https://youtu.be/_JSwXBwYRl8) <ICRA2020 accepted>
 
 # Overview
 
