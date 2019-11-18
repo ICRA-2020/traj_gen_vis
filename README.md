@@ -1,34 +1,23 @@
 # traj_gen_vis
 
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/introl_final.png"> 
+<p align = "center">
+<img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/algo_explain.gif">
+</p>
 
 *This package is devoted to generate an online chasing trajectory for Mavs for videographic tasks.
-Chaser is assumed to be provided with either 1)future trajectory of target during a short horizon (info mode) or 2) sparse waypoints for filming (predict mode)*  
+Chaser is assumed to be provided with either 1)future trajectory of target during a short horizon (info mode) or 2) sparse waypoints for filming (predict mode).*  
 
 **Youtube link for details**  
-[auto chaser](https://youtu.be/-2d3uDlYR_M ) <IROS2019 accepted>
-[auto chaser + prediction for target](https://youtu.be/_JSwXBwYRl8) <ICRA2020 accepted>
+[auto chaser(info mode)](https://youtu.be/-2d3uDlYR_M ) (IROS2019 accepted/[paper](https://arxiv.org/pdf/1904.03421.pdf))
+  
+[auto chaser + prediction for target (predict mode)](https://youtu.be/_JSwXBwYRl8) (ICRA2020 submitted/[paper]())
 
 # Overview
 
-## 1.1 Algorithm
+## 1 Introduction 
 
-<img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/algo_explain.gif">
 
-The paper was accepted to IROS 2019  and preprinted in arXiv. If this package was helpful to your project, it would be grateful if you could cite [my paper](https://arxiv.org/pdf/1904.03421.pdf). 
-
-```
-@article{jeon2019online,
-  title={Online Trajectory Generation of a MAV for Chasing a Moving Target in 3D Dense Environments},
-  author={Jeon, Boseong Felipe and Kim, H Jin},
-  journal={arXiv preprint arXiv:1904.03421},
-  year={2019}
-}
-```
-
-## 1.2 File Structure
-
-[doxygen](https://icsl-jeon.github.io/traj_gen_vis) (still many to be added)
 
 
 
