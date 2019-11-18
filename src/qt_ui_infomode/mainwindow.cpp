@@ -21,7 +21,7 @@ MainWindow::MainWindow(QNode* qnode,QWidget *parent) :
     int h = ui->label_larr->height();
     ui->label_larr->setPixmap(pix_larr.scaled(w,h,Qt::KeepAspectRatio));
 
-    QPixmap pix_larr2((cd +"/resources/maxresdefault.jpg").c_str());
+    QPixmap pix_larr2((cd +"/resources/logo.png").c_str());
     int w2 = ui->label_larr2->width();
     int h2 = ui->label_larr2->height();
     ui->label_larr2->setPixmap(pix_larr2.scaled(w2,h2,Qt::KeepAspectRatio));
