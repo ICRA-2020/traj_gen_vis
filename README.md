@@ -4,6 +4,7 @@
 <p align = "center">
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/algo_explain.gif">
 </p>
+### Generation of target chasing trajectory under obstacle environment 
 
 *This package is devoted to generate an online chasing trajectory for Mavs for videographic tasks.
 Chaser is assumed to be provided with either 1)future trajectory of target during a short horizon (info mode) or 2) sparse waypoints for filming (predict mode).*  
