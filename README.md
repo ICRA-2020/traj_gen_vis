@@ -15,19 +15,14 @@ Chaser is assumed to be provided with either 1)future trajectory of target durin
   
 [auto chaser + prediction for target (predict mode)](https://youtu.be/_JSwXBwYRl8) (ICRA2020 submitted/[paper]())
 
-# Overview
 
-## 1 Introduction 
+# Getting started
 
-
-
-
-
-# 2 Installation 
+##  Installation 
 
 We recommend to use this package in **ros-kinectic** (Ubuntu 16.04). 
 
-## 2.1 Dependencies 
+## 1 Dependencies 
 
 ### traj_gen (with qpoases)
 
@@ -37,7 +32,7 @@ The package is trajectory generation library which is used for smooth path gener
 
 
 
-### chomp_predict 
+### chomp_predict (use *only_octomap* branch)
 
 The package is prediction module in case of unknown future trajectory  based on Covariant optimization 
 
@@ -64,9 +59,14 @@ The package is gazebo simulator for MAV. This is used for simulation of chasing 
 ### Others
 
 ```
-sudo apt-get install ros-kinetic-qt-build
-```
+$sudo apt-get install ros-kinetic-qt-build ros-kinetic-octomap-server 
+$cd catkin_ws/src
+$git clone https://github.com/andreasBihlmaier/gazebo2rviz.git
+$git clone https://github.com/andreasBihlmaier/pysdf.git
+$cd ../
+$catkin build 
 
+```
 
 
 # 3.  Usage
@@ -141,10 +141,4 @@ in order to add additional arguments for convenience.
 
 
 
-# 4. ROS Node API 
 
-## 4.1  Published and subscribed topics
-
-## 4.2 Parameters  
-
-## 
