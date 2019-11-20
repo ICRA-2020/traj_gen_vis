@@ -54,7 +54,8 @@ $ cd catkin_ws/src
 $ git clone https://github.com/andreasBihlmaier/gazebo2rviz.git
 $ git clone https://github.com/andreasBihlmaier/pysdf.git
 ```
-### \*Optional (for the users hoping to try the algorithm by hand-operated mobile robot in *prediction mode(explained below).*)
+### \*Optional 
+For the users hoping to try the algorithm by hand-operated mobile robot in *prediction mode(explained below).* 
 ```
 $ sudo apt-get install ros-kinetic-turtlebot-gazebo 
 $ sudo apt-get install ros-kinetic-turtlebot-teleop 
