@@ -18,7 +18,7 @@ Chaser is assumed to be provided with either 1)future trajectory of target durin
 
 # Getting started
 
-##  Installation 
+## 1. Installation 
 
 We recommend to use this package in **ros-kinectic** (Ubuntu 16.04). The belows are required package before building this package.
 
@@ -28,15 +28,11 @@ The package is trajectory generation library which is used for smooth path gener
 
 [download here](https://github.com/icsl-Jeon/traj_gen)
 
-
-
 ### chomp_predict (use *only_octomap* branch)
 
 The package is prediction module in case of unknown future trajectory  based on Covariant optimization 
 
 [download here](https://github.com/icsl-Jeon/chomp_predict)
-
-
 
 ### rotors_simulator
 
@@ -44,15 +40,11 @@ The package is gazebo simulator for MAV. This is used for simulation of chasing 
 
 [download here](https://github.com/ethz-asl/rotors_simulator)
 
-
-
 ### octomap
 
  We use octomap to represent the environment. dynamicEDT3D libraries also should be installed for Euclidean distance transform field(EDF). The visibility score field(VSF) will be computed based on the EDF.    
 
 [download here](http://github.com/OctoMap/octomap)
-
-
 
 ### Others
 
@@ -71,8 +63,8 @@ $catkin build
 
 ```
 
-
-## Introduction
+## 2. Introduction
+In this package, we provide two modes for different cases. For both cases, we fist assume that the map is provided as ".bt" file. If the chaser can access the exact future trajectory of moving target over a total duration(*one-shot*) or over a time window(*receding horzion*), we call it *1) informed mode*. In contrast, we call it *2) prediction mode* if target future motion is unkown except a sequence of waypoints. In prediction_mode, user is recommended to provide prior target waypoints which is ensured to be passed by target one-by-one.    
 
 ### Informed mode (*info_mode*)
 <p align = "center">
