@@ -49,17 +49,24 @@ The package is gazebo simulator for MAV. This is used for simulation of chasing 
 ### Others
 
 ```
-$sudo apt-get install ros-kinetic-qt-build ros-kinetic-octomap-server 
-$cd catkin_ws/src
-$git clone https://github.com/andreasBihlmaier/gazebo2rviz.git
-$git clone https://github.com/andreasBihlmaier/pysdf.git
+$ sudo apt-get install ros-kinetic-qt-build ros-kinetic-octomap-server 
+$ cd catkin_ws/src
+$ git clone https://github.com/andreasBihlmaier/gazebo2rviz.git
+$ git clone https://github.com/andreasBihlmaier/pysdf.git
 ```
+### \*Optional (for the users hoping to try the algorithm by hand-operated mobile robot in *prediction mode(explained below).*)
+```
+$ sudo apt-get install ros-kinetic-turtlebot-gazebo 
+$ sudo apt-get install ros-kinetic-turtlebot-teleop 
+
+```
+
 ### Build this package
 
 ```
-$cd catkin_Ws/src
-$git clone https://github.com/icsl-Jeon/traj_gen_vis.git
-$catkin build 
+$ cd catkin_Ws/src
+$ git clone https://github.com/icsl-Jeon/traj_gen_vis.git
+$ catkin build 
 
 ```
 
