@@ -74,6 +74,16 @@ $catkin build
 
 ## Introduction
 
+### Informed mode (*info_mode*)
+<p align = "center">
+<img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/info_overview.gif" width="1024">
+</p>
+
+
+### Prediction mode (*pred_mode*)
+<p align = "center">
+<img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/pred_overview.gif" width="1024">
+</p>
 
 
 
