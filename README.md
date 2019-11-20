@@ -20,9 +20,7 @@ Chaser is assumed to be provided with either 1)future trajectory of target durin
 
 ##  Installation 
 
-We recommend to use this package in **ros-kinectic** (Ubuntu 16.04). 
-
-## 1 Dependencies 
+We recommend to use this package in **ros-kinectic** (Ubuntu 16.04). The belows are required package before building this package.
 
 ### traj_gen (with qpoases)
 
@@ -63,13 +61,23 @@ $sudo apt-get install ros-kinetic-qt-build ros-kinetic-octomap-server
 $cd catkin_ws/src
 $git clone https://github.com/andreasBihlmaier/gazebo2rviz.git
 $git clone https://github.com/andreasBihlmaier/pysdf.git
-$cd ../
+```
+### Build this package
+
+```
+$cd catkin_Ws/src
+$git clone https://github.com/icsl-Jeon/traj_gen_vis.git
 $catkin build 
 
 ```
 
 
-# 3.  Usage
+## Introduction
+
+
+
+
+
 
 ## 3.0 Common procedure - map and target trajectory 
 
