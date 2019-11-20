@@ -4,6 +4,7 @@
 <p align = "center">
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/algo_explain.gif">
 </p>
+
 ### Generation of target chasing trajectory under obstacle environment 
 
 *This package is devoted to generate an online chasing trajectory for Mavs for videographic tasks.
