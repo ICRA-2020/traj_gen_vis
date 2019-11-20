@@ -86,6 +86,7 @@ typedef map<VertexName,Vertex_d> DescriptorMap;
  * Functions 
  */ 
 vector<Point> extract_pnts_from_path(nav_msgs::Path);
+nav_msgs::Path extract_path_from_pnts(vector<Point> pnts,string world_frame_id);
 Vector3f geo2eigen(const Point&);
 void get_color(float x_in, float & r, float & g, float & b);
 void get_color_dist(float dist_val,std_msgs::ColorRGBA& color, float max_plot_dist_val);

@@ -16,6 +16,19 @@ vector<Point> extract_pnts_from_path(nav_msgs::Path path){
   return pnt_seq;
 };
 
+nav_msgs::Path extract_path_from_pnts(vector<Point> pnts ,string world_frame_id){
+
+  nav_msgs::Path path;
+  path.header.frame_id = world_frame_id;
+  geometry_msgs::PoseStamped pose_stamped;
+
+  for(auto it = pnts.begin(); it<pnts.end();it++){
+    pose_stamped.pose.position = *it;
+    path.poses.push_back(pose_stamped);  
+  }
+  return path;
+};
+
 Vector3f geo2eigen(const Point& pnt){
 
   return Vector3f(pnt.x,pnt.y,pnt.z);

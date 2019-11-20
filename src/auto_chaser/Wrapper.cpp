@@ -18,6 +18,7 @@ void Wrapper::init(ros::NodeHandle nh) {
     // only for visualization 
     pub_control_mav_vis = nh.advertise<geometry_msgs::PoseStamped>("mav_pose_desired",1);
     pub_connecting_vel_marker = nh.advertise<visualization_msgs::MarkerArray>("connecting_vel",1);
+    pub_target_future_segment = nh.advertise<nav_msgs::Path>("target_future_segment",1); 
     
     // sub classes initialization 
     objects_handler.init(nh);  
@@ -32,6 +33,7 @@ void Wrapper::init(ros::NodeHandle nh) {
     velocity_marker_base.color.a =0.2;
     velocity_marker_base.color.r =1.0;
     
+    target_future_seg.header.frame_id = objects_handler.get_world_frame_id();
 
 };
 
@@ -73,6 +75,8 @@ void Wrapper::session(double t){
                 ROS_WARN_ONCE("[Wrapper] chaser pose not recieved. not publising control pose yet");
             }
         
+        // publish target future segment
+        pub_target_segment();
 }
 
 // chasing session called 
@@ -92,19 +96,29 @@ bool Wrapper::trigger_chasing(TimeSeries chasing_knots){
         // if there is no previous chasing trajectory, then set the spwan  as initial condition. 
         // This makes sense in case of gazebo          
         if (run_mode == 0){
-            // if there is no previous chasing trajectory, then set the current position as initial condition. 
-            // This makes sense in case of gazebo
-            chaser_init_point.x = chaser.spawn_x;
-            chaser_init_point.y = chaser.spawn_y;
-            chaser_init_point.z = chaser.hovering_z;
-            chaser_init_vel = objects_handler.get_chaser_velocity();
-            chaser_init_acc = objects_handler.get_chaser_acceleration();
+                        
+            if (not objects_handler.is_chaser_spawned){
+                // if there is no previous chasing trajectory, then set the current position as initial condition. 
+                // This makes sense in case of gazebo
+                chaser_init_point.x = chaser.spawn_x;
+                chaser_init_point.y = chaser.spawn_y;
+                chaser_init_point.z = chaser.hovering_z;
+                chaser_init_vel = objects_handler.get_chaser_velocity();
+                chaser_init_acc = objects_handler.get_chaser_acceleration();
+            }
+            else{
+                // This is gui version. set initial point as the initial pose of chaser which was selected by user
+                chaser_init_point = objects_handler.get_chaser_pose().pose.position;    
+                chaser_init_vel = objects_handler.get_chaser_velocity();
+                chaser_init_acc = objects_handler.get_chaser_acceleration();   
+            }     
+            
         }else{                        
             chaser_init_point = objects_handler.get_chaser_pose().pose.position;    
             chaser_init_vel = objects_handler.get_chaser_velocity();
             chaser_init_acc = objects_handler.get_chaser_acceleration();   
         }
-        
+            
     }
     else{
         chaser_init_point = chaser.eval_point(t_planning_start);
@@ -150,14 +164,24 @@ bool Wrapper::trigger_chasing(vector<Point> target_pred_seq,TimeSeries chasing_k
 
     if(not chaser.is_complete_chasing_path){    
         
-        if (run_mode == 0){
-            // if there is no previous chasing trajectory, then set the current position as initial condition. 
-            // This makes sense in case of gazebo
-            chaser_init_point.x = chaser.spawn_x;
-            chaser_init_point.y = chaser.spawn_y;
-            chaser_init_point.z = chaser.hovering_z;
-            chaser_init_vel = objects_handler.get_chaser_velocity();
-            chaser_init_acc = objects_handler.get_chaser_acceleration();
+        if (run_mode == 0 ){
+            
+            if (not objects_handler.is_chaser_spawned){
+                // if there is no previous chasing trajectory, then set the current position as initial condition. 
+                // This makes sense in case of gazebo
+                chaser_init_point.x = chaser.spawn_x;
+                chaser_init_point.y = chaser.spawn_y;
+                chaser_init_point.z = chaser.hovering_z;
+                chaser_init_vel = objects_handler.get_chaser_velocity();
+                chaser_init_acc = objects_handler.get_chaser_acceleration();
+            }
+            else{
+                // This is gui version. set initial point as the initial pose of chaser which was selected by user
+                chaser_init_point = objects_handler.get_chaser_pose().pose.position;    
+                chaser_init_vel = objects_handler.get_chaser_velocity();
+                chaser_init_acc = objects_handler.get_chaser_acceleration();   
+            }                                
+
         }else{                        
             chaser_init_point = objects_handler.get_chaser_pose().pose.position;    
             chaser_init_vel = objects_handler.get_chaser_velocity();
@@ -308,7 +332,25 @@ void Wrapper::pub_control_pose(double t_eval){
  */
 void Wrapper::pub_control_path(double t_eval){
     path_control_pose.header.frame_id = objects_handler.get_world_frame_id();
-    path_control_pose.poses.push_back(get_control_pose(t_eval));
+
+    // we append new point to path only if it is different with the previous point than a threshold 
+    const double update_thres = 1e-3;
+
+    PoseStamped new_pose_stamped = get_control_pose(t_eval);
+    Point new_point = new_pose_stamped.pose.position;
+
+    if (chaser.is_complete_chasing_path){ // we will append after chasing path loaded
+        if (path_control_pose.poses.size()){ // of course exception handing in case of first insertion 
+            // first, check whether updatable
+            Point previous_pose_stamped = path_control_pose.poses.back().pose.position;
+            double diff = sqrt(pow(new_point.x - previous_pose_stamped.x,2) + pow(new_point.y - previous_pose_stamped.y,2)); 
+            if (diff>update_thres)
+                path_control_pose.poses.push_back(new_pose_stamped);             
+        }
+        else // if this is the first, just push back 
+            path_control_pose.poses.push_back(new_pose_stamped);
+    }
+    
     pub_chaser_control_path.publish(path_control_pose);
 }
 
@@ -357,5 +399,11 @@ void Wrapper::pub_control_traj(double t_eval){
     pub_control_mav.publish(chaser_traj_desired);
 }
 
-
+/**
+ * @brief publish target future segment used in the latest chasing update 
+ * 
+ */
+void Wrapper::pub_target_segment(){
+    pub_target_future_segment.publish(target_future_seg);
+};
 

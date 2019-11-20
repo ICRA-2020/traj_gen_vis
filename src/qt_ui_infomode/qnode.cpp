@@ -113,7 +113,7 @@ bool QNode::trigger_one_shot(double tf){
 
     // trigger chasing
     VectorXd knots;    
-    knots.setLinSpaced(target_manager.queue.size(),0,tf); 
+    knots.setLinSpaced(target_manager.queue.size()+1,0,tf); 
     bool is_success =  chaser_wrapper.trigger_chasing(target_seq,knots);        
 }
 
@@ -125,6 +125,13 @@ bool QNode::trigger(double t_cur){
     pred_horizon_vec.setLinSpaced(pred_seq,t_cur+dt,t_cur + pred_horizon);  // this includes current target 
     // we chase under this prediction 
     vector<Point> target_seq = target_manager.eval_time_seq(pred_horizon_vec);
+
+    // so what was the future segment information? visualize. 
+    const int target_future_eval_N = 20;
+    VectorXd pred_horizon_vec_vis(target_future_eval_N); // only visualization purpose
+    pred_horizon_vec_vis.setLinSpaced(target_future_eval_N,t_cur+dt,t_cur + pred_horizon);  // this includes current target 
+    vector<Point> target_seq_vis = target_manager.eval_time_seq(pred_horizon_vec_vis);
+    chaser_wrapper.target_future_seg = extract_path_from_pnts(target_seq_vis,chaser_wrapper.objects_handler.get_world_frame_id());
 
     VectorXd planning_horizon_vec(pred_seq+1);
     planning_horizon_vec.setLinSpaced(pred_seq+1,t_cur,t_cur + pred_horizon);  // this includes current target 

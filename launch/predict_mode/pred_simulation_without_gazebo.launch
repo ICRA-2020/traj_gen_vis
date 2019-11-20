@@ -5,9 +5,9 @@
     <arg name="world_name" default="map3"/>
     <arg name="chaser_x" default="2.0"/>
     <arg name="chaser_y" default="0"/>
-    <arg name="future_horizon" default="4"/>
-	<arg name = "trigger_error" default = "1.0"/> <!--If accumultaed prediction error exceeds this value, new tourine triggered. -->
-	<arg name ="bag_file" default = "$(find auto_chaser)/data/map3/target_move_rosbag/target_keyop_v_0_27_n1.bag"/>
+    <arg name="future_horizon" default="7"/>
+	<arg name = "trigger_error" default = "0.8"/> <!--If accumultaed prediction error exceeds this value, new tourine triggered. -->
+	<arg name ="bag_file" default = "$(find auto_chaser)/data/map3/target_move_rosbag/map3_target_move_record.bag"/>
    
 	
 	
@@ -18,10 +18,10 @@
 
 
     <!-- rviz -->	
-        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/rviz.rviz"/>
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/rviz_pred.rviz"/>
 
     <!-- rosbag play -->
-	<node name="player" pkg="rosbag" type="play"  args=" -r 1.0 $(arg bag_file)"/>
+	<node name="player" pkg="rosbag" type="play"  args=" -r 0.6 $(arg bag_file)"/>
 
     <!-- auto_chaser with prediction-->
         <node pkg="auto_chaser" type="auto_chaser_run_predict_mode" name="auto_chaser" output="screen" >
@@ -44,7 +44,7 @@
             <param name="chaser_init_z" value="1" /> <!--for hovering -->
             <param name="run_mode" value="0" /> <!-- 0: simulation without gazebo/ 1: with gazebo -->
             <param name="pred_horizon" value="$(arg future_horizon)" />  <!--should be lower than the horizon of predictor-->
-            <param name="pred_seq" value="4" /> 
+            <param name="pred_seq" value="5" /> 
             <param name="early_end_time" value="0.1" /> 
 
             <!--edf-->	

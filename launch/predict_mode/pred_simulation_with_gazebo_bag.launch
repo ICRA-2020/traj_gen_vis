@@ -11,7 +11,7 @@
 <arg name ="trigger_error" default = "0.8"/>
 
 <arg name ="real_target" default = "false"/>
-<arg name ="bag_file" default = "$(find auto_chaser)/data/map3/target_move_rosbag/target_keyop_v_0_27_n1.bag"/>
+<arg name ="bag_file" default = "$(find auto_chaser)/data/map3/target_move_rosbag/map3_target_move_record.bag"/>
 
 <arg name ="is_log" default = "false"/> <!--history of target and chaser. This will be used as an input for visualization module (anal_logger)-->
 
@@ -28,7 +28,7 @@
 </include>
 
 <!-- play -->
-<node unless = "$(arg real_target)" name="player" pkg="rosbag" type="play"  args=" -r 1.0 $(arg bag_file)"/>
+<node unless = "$(arg real_target)" name="player" pkg="rosbag" type="play"  args=" -r 0.5 $(arg bag_file)"/>
 >
 
 
@@ -61,7 +61,7 @@
         <param name="target/safe_corridor_r" value="0.2" />
 		<param name="target/N_safe_pnts" value="2" />
 		<param name="target/objective_derivative" value="3" />
-		<param name="target/w_deviation" value="0.0005" />
+		<param name="target/w_deviation" value="0.5" />
 
         <!-- chaser parameter -->     
 
@@ -82,20 +82,20 @@
 		<!--preplanning-->
 
 		<!--vsf-->
-		<param name="vsf_resolution" type="double" value="0.5" />	
+		<param name="vsf_resolution" type="double" value="0.5" />	<!--not recommended to use smaller value than 0.5-->
 		<param name="vs_min" type="double" value="0.3" />	
 	
 		<!--graph-->
-		<param name="d_connect_max" type="double" value="3.0" />	
-		<param name="r_safe" type="double" value="0.4" /> <!--greater = safer -->	
-		<param name="w_v" type="double" value="5.0" />	
-		<param name="w_d" type="double" value="5.5" />	
+		<param name="d_connect_max" type="double" value="2.0" />	
+		<param name="r_safe" type="double" value="0.5" /> <!--greater = safer -->	
+		<param name="w_v" type="double" value="6.0" />	
+		<param name="w_d" type="double" value="6.5" />	
 		
 
 		<!--smooth planning-->
 		<param name="chaser/safe_corridor_r" type="double" value="0.3" />		 
 		<param name="chaser/verbose" type="bool" value="false" />	
-		<param name="chaser/N_safe_pnts" type="int" value="3" />	
+		<param name="chaser/N_safe_pnts" type="int" value="2" />	
 		<param name="chaser/objective_derivative" type="int" value="3" />	
 		<param name="chaser/w_deviation" type="double" value="5.5" />	
 		<param name="chaser/poly_order" type="int" value="6" />	
