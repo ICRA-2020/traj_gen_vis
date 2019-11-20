@@ -1,0 +1,13 @@
+- git:
+    local-name: traj_gen
+    uri: https://github.com/icsl-Jeon/traj_gen.git 
+- git:
+    local-name: pysdf
+    uri: https://github.com/andreasBihlmaier/pysdf.git 
+- git:
+    local-name: gazebo2rviz
+    uri: https://github.com/andreasBihlmaier/gazebo2rviz.git
+- git:
+    local-name: octomap_server 
+    uri: https://github.com/OctoMap/octomap_mapping.git:
+
