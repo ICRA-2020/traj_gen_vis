@@ -8,7 +8,7 @@
 ### Generation of target chasing trajectory under obstacle environment 
 
 *This ros package is devoted to generate an online chasing trajectory for Mavs for videographic tasks.
-Chaser is assumed to be provided with either 1)future trajectory of target during a short horizon (info mode) or 2) sparse waypoints for filming (predict mode). This algorithm ensures safety, travel efficiency and visibility having real-timeness and optimality in minde. *  
+Chaser is assumed to be provided with either 1)future trajectory of target during a short horizon (info mode) or 2) sparse waypoints for filming (predict mode). This algorithm ensures safety, travel efficiency and visibility having real-timeness and optimality in minde.*  
 
 **Youtube link for details**  
 [auto chaser(info mode)](https://youtu.be/-2d3uDlYR_M ) (IROS2019 accepted/[paper](https://arxiv.org/pdf/1904.03421.pdf))
