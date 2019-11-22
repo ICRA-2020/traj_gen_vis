@@ -73,7 +73,7 @@ $ catkin build
 ```
 
 ## 2. Introduction
-In this package, we provide two modes for different cases. For both cases, we fist assume that the map is provided as ".bt" file. If the chaser can access the exact future trajectory of moving target over a total duration*(one-shot)* or over a time window *(receding horzion)*, we call it *1) informed mode*. In contrast, we call it *2) prediction mode* if target future motion is unkown except a sequence of waypoints. In prediction_mode, user is recommended to provide prior target waypoints which is ensured to be passed by target one-by-one. In either mode, users can simulate the algorithm with or without gazebo. In cases where the camera view of drone is not necessary and additional comuputing power for running gazebo is not affordable, users can still visualize with *rviz* in *without-gazebo* mode.     
+In this package, we provide two modes for different cases. For both cases, we fist assume that the map is provided as ".bt" file. Please check how they are loaded in all the launch files. If the chaser can access the exact future trajectory of moving target over a total duration*(one-shot)* or over a time window *(receding horzion)*, we call it *1) informed mode*. In contrast, we call it *2) prediction mode* if target future motion is unkown except a sequence of waypoints. In prediction_mode, user is recommended to provide prior target waypoints which is ensured to be passed by target one-by-one. In either mode, users can simulate the algorithm with or without gazebo. In cases where the camera view of drone is not necessary and additional comuputing power for running gazebo is not affordable, users can still visualize with *rviz* in *without-gazebo* mode.     
 
 
 ### Informed mode *(info_mode)*
@@ -91,7 +91,16 @@ Users can get the total chasing trajectory recieving the entire target trajector
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/pred_overview.gif" width="1024">
 </p>
 
-In prediction mode, we use [*chomp_predict*](https://github.com/icsl-Jeon/traj_gen) to properlly forecast the future movement of target considering obstacles. To run *auto chaser* in this mode, the users should provide the bag file which publishes `/target_pose` as observation to be fed into the chaser for the prediction.  
+In prediction mode, we use [*chomp_predict*](https://github.com/icsl-Jeon/traj_gen) to properlly forecast the future movement of target considering obstacles. To run *auto chaser* in this mode properrly, user is required to have [target waypoints information](https://github.com/icsl-Jeon/chomp_predict/blob/master/params/chomp_param_map3.yaml) loaded in launch file. You can run algorithm by one the two ways: 
+
+1) the users can provide the bag file which publishes `/target_pose` as observation to be fed into the chaser for the prediction
+```
+roslaunch auto_chaser pred_simulation_with_gazebo_bag.launch
+```
+
+2) the users can provide the bag file which publishes `/target_pose` as observation to be fed into the chaser for the prediction
+
+(roslaunch ).  See the examples from data/map3/target_move_rosbag/map3_target_move_record.bag
 
 
 ### Launch summary*
