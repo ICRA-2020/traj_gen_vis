@@ -102,7 +102,7 @@ roslaunch auto_chaser pred_simulation_with_gazebo_bag.launch
 
 2) The users can also test algorithm with more realistic situation in gazebo by spawning and operating *turtlebot* rather than offline-gathered bag_file. This requires additional [dependencies](#optional) 
 ```
-roslaunch auto_chaser pred_simulation_with_gazebo_bag.launch
+roslaunch auto_chaser pred_simulation_with_gazebo_keyboard.launch
 ```
 
 
