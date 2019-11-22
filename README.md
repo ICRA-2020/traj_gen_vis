@@ -80,7 +80,11 @@ In this package, we provide two modes for different cases. For both cases, we fi
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/info_overview.gif" width="1024">
 </p>
 
+In the informed mode, The trajectory of target is to be prebuilt or loaded by users through gui. Target trajectory is built on waypoints(knots) from a constrained Quadratic programming ([see *traj_gen* for demo](https://github.com/icsl-Jeon/traj_gen)).  
+First, just try out the exsiting waypoints for target trajectory (use data/map3/path3.txt to load in gui).
+Users can get the total chasing trajectory recieving the entire target trajectory by clicking *one-shot*, or simulate the algorithm in receding horizon manner in either with gazebo or without gazebo. Tutorials on this are ready soon.      
 
+ 
 ### Prediction mode *(pred_mode)*
 <p align = "center">
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/pred_overview.gif" width="1024">
