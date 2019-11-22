@@ -7,8 +7,8 @@
 
 ### Generation of target chasing trajectory under obstacle environment 
 
-*This package is devoted to generate an online chasing trajectory for Mavs for videographic tasks.
-Chaser is assumed to be provided with either 1)future trajectory of target during a short horizon (info mode) or 2) sparse waypoints for filming (predict mode).*  
+*This ros package is devoted to generate an online chasing trajectory for Mavs for videographic tasks.
+Chaser is assumed to be provided with either 1)future trajectory of target during a short horizon (info mode) or 2) sparse waypoints for filming (predict mode). This algorithm ensures safety, travel efficiency and visibility having real-timeness and optimality in minde. *  
 
 **Youtube link for details**  
 [auto chaser(info mode)](https://youtu.be/-2d3uDlYR_M ) (IROS2019 accepted/[paper](https://arxiv.org/pdf/1904.03421.pdf))
@@ -56,6 +56,8 @@ $ git clone https://github.com/andreasBihlmaier/gazebo2rviz.git
 $ git clone https://github.com/andreasBihlmaier/pysdf.git
 ```
 ### \*Optional 
+<a name="optinal"></a>
+
 For the users hoping to try the algorithm by hand-operated mobile robot in *prediction mode(explained below).* 
 ```
 $ sudo apt-get install ros-kinetic-turtlebot-gazebo 
@@ -93,14 +95,16 @@ Users can get the total chasing trajectory recieving the entire target trajector
 
 In prediction mode, we use [*chomp_predict*](https://github.com/icsl-Jeon/traj_gen) to properlly forecast the future movement of target considering obstacles. To run *auto chaser* in this mode properrly, user is required to have [target waypoints information](https://github.com/icsl-Jeon/chomp_predict/blob/master/params/chomp_param_map3.yaml) loaded in launch file. You can run algorithm by one the two ways: 
 
-1) the users can provide the bag file which publishes `/target_pose` as observation to be fed into the chaser for the prediction
+1) The users can provide the bag file which publishes `/target_pose` as observation to be fed into the chaser for the prediction
 ```
 roslaunch auto_chaser pred_simulation_with_gazebo_bag.launch
 ```
 
-2) the users can provide the bag file which publishes `/target_pose` as observation to be fed into the chaser for the prediction
+2) The users can also test algorithm with more realistic situation in gazebo by spawning and operating *turtlebot* rather than offline-gathered bag_file. This requires additional [dependencies](#optional) 
+```
+roslaunch auto_chaser pred_simulation_with_gazebo_bag.launch
+```
 
-(roslaunch ).  See the examples from data/map3/target_move_rosbag/map3_target_move_record.bag
 
 
 ### Launch summary*
