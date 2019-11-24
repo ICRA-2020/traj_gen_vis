@@ -15,7 +15,8 @@ Chaser is assumed to be provided with either 1)future trajectory of target durin
   
 [auto chaser + prediction for target (predict mode)](https://youtu.be/_JSwXBwYRl8) (ICRA2020 submitted/[paper](https://arxiv.org/pdf/1911.09280.pdf))
 
-**Tutorials on this are ready soon in youtube**.      
+**Tutorials in youtube**.      
+[auto chaser manual](https://youtu.be/RhPbGXpShY8)
 
 # Getting started
 
