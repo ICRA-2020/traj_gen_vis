@@ -287,10 +287,10 @@ void ObjectsHandler::chaser_spawn(PoseStamped spawn_pose){
     ROS_INFO_ONCE("[Objects handler] spawning chaser."); 
     
     is_chaser_recieved = true;
-    is_chaser_spawned = true;    
+    is_chaser_spawned = true;    // is it spawned externally by gui? 
     
     if(run_mode == 0){ // without gazebo : update chaser pose with initial one 
-        chaser_pose = spawn_pose;
+        chaser_pose = spawn_pose;        
         chaser_pose.pose.position.z = chaser_init_z;
 
     }else{ // with gazebo : nothing happen 

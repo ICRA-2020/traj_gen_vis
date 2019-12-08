@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-	<arg name = "bag_seq_number" value = "5" />
-    <arg name = "vis_level" value = "5" />
-    <!-- <arg name = "vis_level" value = "5" /> -->
+	<arg name = "folder_name" value = "move3" />
+	<arg name = "map_name" value = "map4" />
+	<arg name = "vis_prefix" value = "high" />
+
+	<!--octomap-->
+	<!-- only octomap. no gazebo related module -->
+	<include file = "$(find auto_chaser)/launch/octomap_base.launch">
+		<arg name = "world_name" value = "$(arg map_name)"/>
+	 </include>
+
+	<!--4. prediction module-->
+
+	<node name="chomp_predict_sim" pkg="chomp_predict" type="chomp_predict_node" output="screen">
+		<!--comment one of the following two lines-->
+		<param name= "map_file_name" value = "$(find chomp_predict)/worlds/$(arg map_name).bt" />
+
+		<!--voxblox (if formap == vxblx , important)-->
+	    <param name="tsdf_voxel_size" value="0.2" /> 
+	    <param name="verbose" value="false" /> 
+
+		<rosparam command="load" file="$(find chomp_predict)/params/chomp_param_$(arg map_name).yaml" />		
+		
+	</node>
+	
+	<!--rviz-->
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find auto_chaser)/rviz/rviz_anal.rviz"/>
+
 
     <node pkg="auto_chaser" type="auto_chaser_analyzer" name="auto_chaser_anal" output="screen">
         <param name = "/use_sim_time" value = "false"/>
-		<param name="octomap_file" value="$(find auto_chaser)/worlds/map3.bt"/>
-		<param name="chaser_file" value="$(find auto_chaser)/log/map3/n$(arg bag_seq_number)/wv_$(arg vis_level)/chaser_history.txt"/>
-        <param name="target_file" value="$(find auto_chaser)/log/map3/n$(arg bag_seq_number)/wv_$(arg vis_level)/target_history.txt"/>
-        <param name="write_path" value="$(find auto_chaser)/log/map3/n$(arg bag_seq_number)/wv_$(arg vis_level)"/>
-    </node> 
+		<param name="octomap_file" value="$(find auto_chaser)/worlds/$(arg map_name).bt"/>
+		<param name="chaser_file" value="$(find auto_chaser)/log/$(arg map_name)/$(arg vis_prefix)_vis/$(arg folder_name)/chaser_history.txt"/>
+        <param name="target_file" value="$(find auto_chaser)/log/$(arg map_name)/$(arg vis_prefix)_vis/$(arg folder_name)/target_history.txt"/>
+        <param name="write_path" value="$(find auto_chaser)/log/$(arg map_name)/$(arg vis_prefix)_vis/$(arg folder_name)"/>
+        <param name="arrow_draw_step" value="4"/>
+    </node>
+
+	
+
 </launch>

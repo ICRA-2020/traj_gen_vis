@@ -27,10 +27,10 @@ void Wrapper::init(ros::NodeHandle nh) {
     velocity_marker_base.header.frame_id = objects_handler.get_world_frame_id();
     velocity_marker_base.type = visualization_msgs::Marker::ARROW;
     velocity_marker_base.scale.x = 0.08;
-    velocity_marker_base.scale.y = 0.1;
-    velocity_marker_base.scale.z = 0.15;
+    velocity_marker_base.scale.y = 0.2;
+    velocity_marker_base.scale.z = 0.2;
     velocity_marker_base.pose.orientation.w = 1.0;
-    velocity_marker_base.color.a =0.2;
+    velocity_marker_base.color.a =0.5;
     velocity_marker_base.color.r =1.0;
     
     target_future_seg.header.frame_id = objects_handler.get_world_frame_id();
@@ -128,7 +128,7 @@ bool Wrapper::trigger_chasing(TimeSeries chasing_knots){
         // in this case, we push back arrow for visualizing the connecting velocity 
         velocity_marker_base.points.clear();
         velocity_marker_base.points.push_back(chaser_init_point);
-        double length = 0.4;
+        double length = 0.6;
         double vel_norm = sqrt(pow(chaser_init_vel.linear.x,2) + 
                 pow(chaser_init_vel.linear.y,2) +
                 pow(chaser_init_vel.linear.z,2));
@@ -234,28 +234,6 @@ geometry_msgs::PoseStamped Wrapper::get_control_pose(double t_eval){
     PoseStamped target_pose = objects_handler.get_target_pose(); // the current target pose of the latest
     PoseStamped chaser_pose = objects_handler.get_chaser_pose(); // the current chaser pose of the latest (if run_mode = 0 , equal to desired pose)
 
-    if (this->objects_handler.is_log and chaser.is_complete_chasing_path){
-        // file write for target 
-        std::ofstream wnpt_file;
-        wnpt_file.open((this->objects_handler.log_dir+"/target_history.txt").c_str(),ios_base::app);
-
-        if(wnpt_file.is_open()){
-            wnpt_file<<target_pose.pose.position.x<<","<<target_pose.pose.position.y<<","<<target_pose.pose.position.z<<"\n";
-            wnpt_file.close();    
-        }else
-            cout<<"logging file for target pose is not opend"<<endl;
-
-        // file write for chaser 
-        std::ofstream wnpt_file2;
-        wnpt_file2.open((this->objects_handler.log_dir+"/chaser_history.txt").c_str(),ios_base::app);
-
-        if(wnpt_file2.is_open()){
-            wnpt_file2<<chaser_pose.pose.position.x<<","<<chaser_pose.pose.position.y<<","<<chaser_pose.pose.position.z<<"\n";
-            wnpt_file2.close();    
-        }else
-            cout<<"logging file for chaser pose is not opend"<<endl;         
-
-    }
 
 
 
@@ -407,3 +385,33 @@ void Wrapper::pub_target_segment(){
     pub_target_future_segment.publish(target_future_seg);
 };
 
+void Wrapper::write(string log_path){
+
+    PoseStamped target_pose = objects_handler.get_target_pose(); // the current target pose of the latest
+    PoseStamped chaser_pose = objects_handler.get_chaser_pose(); // the current chaser pose of the latest (if run_mode = 0 , equal to desired pose)
+
+
+    if (this->objects_handler.is_log and chaser.is_complete_chasing_path){
+
+        // file write for target 
+        std::ofstream wnpt_file;
+        wnpt_file.open((log_path+"/target_history.txt").c_str(),ios_base::app);
+
+        if(wnpt_file.is_open()){
+            wnpt_file<<target_pose.pose.position.x<<","<<target_pose.pose.position.y<<","<<target_pose.pose.position.z<<"\n";
+            wnpt_file.close();    
+        }else
+            cerr<<"logging file for target pose is not opend"<<endl;
+
+        // file write for chaser 
+        std::ofstream wnpt_file2;
+        wnpt_file2.open((log_path+"/chaser_history.txt").c_str(),ios_base::app);
+
+        if(wnpt_file2.is_open()){
+            wnpt_file2<<chaser_pose.pose.position.x<<","<<chaser_pose.pose.position.y<<","<<chaser_pose.pose.position.z<<"\n";
+            wnpt_file2.close();    
+        }else
+            cerr<<"logging file for chaser pose is not opend"<<endl;         
+
+    }
+}

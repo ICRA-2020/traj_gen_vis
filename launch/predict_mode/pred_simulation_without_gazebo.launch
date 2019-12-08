@@ -2,12 +2,12 @@
     <launch>
     <arg name="mav_name" default="firefly"/>
     <arg name="target_name" default="target"/>
-    <arg name="world_name" default="map3"/>
+    <arg name="world_name" default="map4"/>
     <arg name="chaser_x" default="2.0"/>
     <arg name="chaser_y" default="0"/>
-    <arg name="future_horizon" default="7"/>
-	<arg name = "trigger_error" default = "0.8"/> <!--If accumultaed prediction error exceeds this value, new tourine triggered. -->
-	<arg name ="bag_file" default = "$(find auto_chaser)/data/map3/target_move_rosbag/map3_target_move_record.bag"/>
+    <arg name="future_horizon" default="6"/>
+	<arg name = "trigger_error" default = "0.1"/> <!--If accumultaed prediction error exceeds this value, new tourine triggered. -->
+	<arg name ="bag_file" default = "$(find auto_chaser)/data/$(arg world_name)/target_move_rosbag/$(arg world_name)_target_move_record3.bag"/>
    
 	
 	
@@ -27,10 +27,13 @@
         <node pkg="auto_chaser" type="auto_chaser_run_predict_mode" name="auto_chaser" output="screen" >
         
             <!-- target predictor -->
-            <rosparam command="load" file="$(find chomp_predict)/params/chomp_param_map3.yaml" />		
+            <rosparam command="load" file="$(find chomp_predict)/params/chomp_param_$(arg world_name).yaml" />		
             <param name= "map_file_name" value = "$(find chomp_predict)/worlds/$(arg world_name).bt" />
 			<param name= "pred_param/prediction_horizon" value = "$(arg future_horizon)"/>            
 			<param name= "pred_param/trigger_tol_accum_error" value = "$(arg trigger_error)"/>            
+
+			<param name= "is_log" value = "true"/>            
+			<param name= "log_dir" value = "$(find auto_chaser)/log/$(arg world_name)"/>            
 
 
             <!-- chaser parameter -->     
@@ -38,14 +41,14 @@
             <param name="world_frame_id" value="/world" />
             <param name="mav_name" value="$(arg mav_name)" />
             <param name="target_frame_id" value="/target" />
-            <param name="min_z" value="0.4" />
+            <param name="min_z" value="0.5" />
             <param name="chaser_init_x" value="$(arg chaser_x)" />
             <param name="chaser_init_y" value="$(arg chaser_y)" />
             <param name="chaser_init_z" value="1" /> <!--for hovering -->
             <param name="run_mode" value="0" /> <!-- 0: simulation without gazebo/ 1: with gazebo -->
             <param name="pred_horizon" value="$(arg future_horizon)" />  <!--should be lower than the horizon of predictor-->
-            <param name="pred_seq" value="5" /> 
-            <param name="early_end_time" value="0.1" /> 
+            <param name="pred_seq" value="4" /> 
+            <param name="early_end_time" value="0.2" /> 
 
             <!--edf-->	
             <param name="edf_resolution" type="double" value="0.3" />	
@@ -54,7 +57,7 @@
             <param name="edf_stride_resolution" type="double" value="0.3" />
 
             <!--chasing spec-->
-            <param name="max_tracking_distance" type="double" value="3.0" />	
+            <param name="max_tracking_distance" type="double" value="2.0" />	
             <param name="min_tracking_distance" type="double" value="0.5" />	
             <param name="des_tracking_distance" type="double" value="1.5" />	
             <param name="max_azim" type="double" value="$(eval 3.141592/5)" />	
@@ -65,18 +68,18 @@
 
             <!--vsf-->
             <param name="vsf_resolution" type="double" value="0.4" />	
-            <param name="vs_min" type="double" value="0.3" />	
+            <param name="vs_min" type="double" value="0.1" />	
         
             <!--graph-->
-            <param name="d_connect_max" type="double" value="2.0" />	
-            <param name="r_safe" type="double" value="0.2" /> <!--the lower bound of edf along edge -->	
+            <param name="d_connect_max" type="double" value="3.0" />	
+            <param name="r_safe" type="double" value="0.25" /> <!--the lower bound of edf along edge -->	
 		
-            <param name="w_v" type="double" value="6.0" />	
+            <param name="w_v" type="double" value="9.5" />	
             <param name="w_d" type="double" value="7.5" />	
             
 
             <!--smooth planning-->
-            <param name="chaser/safe_corridor_r" type="double" value="0.3" />		 
+            <param name="chaser/safe_corridor_r" type="double" value="0.4" />		 
             <param name="chaser/verbose" type="bool" value="false" />	
             <param name="chaser/N_safe_pnts" type="int" value="2" />	
             <param name="chaser/objective_derivative" type="int" value="3" />	

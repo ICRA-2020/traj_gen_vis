@@ -40,7 +40,7 @@
         <param name= "map_file_name" value = "$(find chomp_predict)/worlds/$(arg world_name).bt" />
         <!--log for analyzed --> 
 	    <param name= "is_log" value = "$(arg is_log)" />
-        <param name= "cal_time_log_dir" value = "$(find auto_chaser)/log/$(arg world_name)" /> <!--will write X    /chomp_compute_time.txt-->
+        <param name= "log_dir" value = "$(find auto_chaser)/log/$(arg world_name)" /> <!--will write X    /chomp_compute_time.txt-->
 
 	   <!-- common -->
         <param name="world_frame_id" value="/world" />

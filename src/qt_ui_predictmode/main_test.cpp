@@ -10,7 +10,6 @@ int pred_seq;
 
 
 
-
 /**
  * @brief should be triggered only prediction exists 
  * t_cur and t_ros are redundant actually
@@ -34,11 +33,11 @@ bool trigger(TargetPredictor* predictor,Wrapper* chasing_wrapper,double t_cur,ro
     VectorXd pred_horizon_vec(pred_seq+1);
     pred_horizon_vec.setLinSpaced(pred_seq+1,t_cur, t_cur + pred_horizon); 
     return chasing_wrapper->trigger_chasing(target_seq,pred_horizon_vec);
+
 };
 
 // This code mimic QNode in infomode
 int main(int argc, char * argv[]){
-
     ros::init(argc,argv,"auto_chaser_prediction");
     ros::NodeHandle nh("~");
         
@@ -89,6 +88,18 @@ int main(int argc, char * argv[]){
                 ROS_WARN("[MAIN TESTER] current chasing is not reliable.");
             last_chasing_trigger_time = t_cur;
         }
+        // logging
+        if(chaser_wrapper.objects_handler.is_log){
+            // cout << "trigger: " << chaser_wrapper.chaser.is_complete_chasing_path <<endl;
+
+            if (chaser_wrapper.chaser.is_complete_chasing_path){
+                string log_dir = chaser_wrapper.objects_handler.log_dir;
+                chaser_wrapper.write(log_dir); // wrapper history save
+                target_predictor.get_forecaster_ptr()->write(log_dir); // error history 
+            }
+        }
+
+
         loop_rate.sleep();
         ros::spinOnce();
     }
