@@ -13,7 +13,7 @@ Chaser is assumed to be provided with either 1)future trajectory of target durin
 **Youtube link for details**  
 [auto chaser(info mode)](https://youtu.be/-2d3uDlYR_M ) (IROS2019 accepted/[paper](https://arxiv.org/pdf/1904.03421.pdf))
   
-[auto chaser + prediction for target (predict mode)](https://youtu.be/_JSwXBwYRl8) (ICRA2020 submitted/[paper](https://arxiv.org/pdf/1911.09280.pdf))
+[auto chaser + prediction for target (predict mode)](https://youtu.be/_JSwXBwYRl8) (ICRA2020 accepted/[paper](https://arxiv.org/pdf/1911.09280.pdf))
 
 **Tutorials in youtube**.      
 [auto chaser manual](https://youtu.be/RhPbGXpShY8)
