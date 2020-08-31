@@ -12,7 +12,7 @@ Chaser is assumed to be provided with either 1)future trajectory of target durin
 
 **Youtube link for details**  
 [auto chaser(info mode)](https://youtu.be/-2d3uDlYR_M ) (IROS2019 accepted/[paper](https://arxiv.org/pdf/1904.03421.pdf))
-  
+
 [auto chaser + prediction for target (predict mode)](https://youtu.be/_JSwXBwYRl8) (ICRA2020 accepted/[paper](https://arxiv.org/pdf/1911.09280.pdf))
 
 **Tutorials in youtube**.      
@@ -88,7 +88,7 @@ In the informed mode, The trajectory of target is to be prebuilt or loaded by us
 First, just try out the exsiting waypoints for target trajectory (use data/map3/path3.txt to load in gui).
 Users can get the total chasing trajectory recieving the entire target trajectory by clicking *one-shot*, or simulate the algorithm in receding horizon manner in either with gazebo or without gazebo. ***Tutorials on this are ready soon in youtube***.      
 
- 
+
 ### Prediction mode *(pred_mode)*
 <p align = "center">
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/pred_overview.gif" width="1024">
@@ -113,4 +113,8 @@ roslaunch auto_chaser pred_simulation_with_gazebo_keyboard.launch
 <img src= "https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/github.png" width="1024">
 </p>
 
+## Things to be noted
 
+#### 1.  When testing your custom map
+
+Make sure the map (.bt) does contain enough space for the planning. If the octomap is queried for the region which is not mapped, algorithm might mal-function.  

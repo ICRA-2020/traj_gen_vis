@@ -44,15 +44,18 @@ bool Chaser::chase_update(GridField* global_edf_ptr,vector<Point> target_pnts,Po
         diff2 = std::chrono::duration_cast<chrono::nanoseconds>( end - begin ).count()*1e-9;
         if (smooth_planner.planner.is_spline_valid())
             {ROS_INFO("[Chaser] smooth path completed within %f [sec].",diff2); is_complete_chasing_path = true; 
-            
+            is_log = true;
             if(is_log){
+
+                cout <<"logging tried at " << log_dir << endl;
                 // file write
                 std::ofstream wnpt_file;
                 wnpt_file.open((log_dir+"/chaser_compute_time.txt").c_str(),ios_base::app);
 
                 if(wnpt_file.is_open()){
-                    wnpt_file<<diff1<<","<<diff2<<"\n";
-                    wnpt_file.close();    
+//                    wnpt_file<<diff1<<","<<diff2<<"\n";
+                    wnpt_file<<(diff1 + diff2)<<"\n";
+                    wnpt_file.close();
                 }else
                     cout<<"logging file for compute time is not opend"<<endl;
             }

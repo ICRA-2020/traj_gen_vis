@@ -237,6 +237,8 @@ geometry_msgs::PoseStamped Wrapper::get_control_pose(double t_eval){
     if (this->objects_handler.is_log and chaser.is_complete_chasing_path){
         // file write for target 
         std::ofstream wnpt_file;
+	// cout <<"[DEBUG] current logging dir = " << objects_handler.log_dir << endl;
+
         wnpt_file.open((this->objects_handler.log_dir+"/target_history.txt").c_str(),ios_base::app);
 
         if(wnpt_file.is_open()){

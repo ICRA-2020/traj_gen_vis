@@ -316,7 +316,10 @@ void ObjectsHandler::callback_chaser_control_pose(const geometry_msgs::PoseStamp
 }
 
 void ObjectsHandler::callback_target_pose(const PoseStampedConstPtr& msg){
+		
 
+
+	cout <<"[DEBUG] current logging dir :" << log_dir << endl;
     target_pose = *msg;
     is_target_recieved = true;
     ROS_INFO_ONCE("[Object Handler] target pose received!");

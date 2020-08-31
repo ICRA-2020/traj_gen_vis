@@ -51,8 +51,9 @@ void MainWindow::on_pushButton_ros_clicked()
         
         std::string log_dir = ui->lineEdit_logging_dir->text().toStdString();
         cout << "[Main window] logging directory: " << log_dir << endl;
-        qnode->chaser_wrapper.objects_handler.log_dir = log_dir; 
-        qnode->chaser_wrapper.objects_handler.is_log = true; 
+        qnode->chaser_wrapper.objects_handler.log_dir = log_dir;
+        qnode->chaser_wrapper.chaser.log_dir = log_dir;
+        qnode->chaser_wrapper.objects_handler.is_log = true;
         
 
     }else{
