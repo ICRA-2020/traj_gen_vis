@@ -18,6 +18,9 @@ Chaser is assumed to be provided with either 1)future trajectory of target durin
 **Tutorials in youtube**.      
 [auto chaser manual](https://youtu.be/RhPbGXpShY8)
 
+**Paper presentation @ 2020 ICRA**
+[youtube](https://youtu.be/aiAdXxyiyZg)
+
 # Getting started
 
 ## 1. Installation 
