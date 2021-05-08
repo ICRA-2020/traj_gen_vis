@@ -31,7 +31,7 @@ We recommend to use this package in **ros-kinectic** (Ubuntu 16.04). The belows 
 
 The package is trajectory generation library which is used for smooth path generation. 
 
-[download here](https://github.com/icsl-Jeon/traj_gen)
+[download this branch not MASTER](https://github.com/icsl-Jeon/traj_gen/tree/ros)
 
 ### chomp_predict (use *only_octomap* branch)
 
