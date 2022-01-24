@@ -1,3 +1,6 @@
+## Disclaimer since 2022
+This repository and the method is deprecated. Please use my [new algorithm](https://github.com/icsl-Jeon/dual_chaser) and configure [single-target-mode](https://github.com/icsl-Jeon/dual_chaser/blob/main/param/single.yaml).  
+
 
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/logo.png" width="400"> 
 <img src="https://github.com/icsl-Jeon/traj_gen_vis/blob/master/img/introl_final.png"> 
